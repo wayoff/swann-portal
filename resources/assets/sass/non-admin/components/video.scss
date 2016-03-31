@@ -1,0 +1,11 @@
+.Video {
+    padding: 10px 10px;
+    background-color: white;
+}
+
+.Video:hover {
+    z-index: 1;
+    box-shadow: 0 0 6px 1px #777;
+    -moz-box-shadow: 0 0 6px 1px #777;
+    -webkit-box-shadow: 0 0 6px 1px #777;
+}

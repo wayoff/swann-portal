@@ -1,0 +1,96 @@
+.Navbar {
+    border-radius: 0px;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+    // z-index: 1003;
+}
+
+.Navbar__Brand-Image {
+    height: 100%;
+    widows: 100%;
+}
+
+.Navbar__Brand-Title {
+    font-size: 0.5em;
+    font-weight: bolder;
+    font-family: "Arial Black", Gadget, sans-serif;
+}
+
+.Navbar__Brand--Anchor {
+    padding: 5px 15px !important;
+    height: 60px;
+}
+
+.Navbar__Header {
+    margin-top: 5px;
+}
+
+.Navbar__Main {
+    padding-bottom: 10px;
+    background-color: $dark;
+}
+
+.Navbar__Contact--List {
+    padding: 10px 0;
+    float: right;
+    margin-bottom: 0px;
+}
+
+.Navbar__Contact--List > li {
+    display: inline;
+    padding: 5px 5px;
+    color: $white;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.Navbar__Menu {
+    margin-top: 5px;
+}
+
+.Navbar__Menu > li > a {
+    min-width: 2.2em;
+    text-align: center;
+    font-size: 1.16em;
+    font-weight: bolder;
+    transition: background-color 1s;
+}
+
+.Navbar__Technical--Support-Container{
+    padding: 10px 0;
+    display: inline;
+}
+
+.Navbar__Technical--Support {
+    font-weight: bolder;
+    font-size: 2.1em;
+    position: relative;
+    top: 5px;
+    color: $white;
+    display: inline;
+    font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif
+}
+.dropdown.open > a {
+    /*box-shadow: 4px 4px 17px 0.1px black;*/
+}
+.Navbar__Menu > li.dropdown:hover {
+    background-color: $darkblue;
+}
+.Navbar__Menu > li.dropdown:hover ul {
+    display: block;
+}
+
+.Navbar__Menu--Dropdown {
+    background-color: $dark !important;
+    /*box-shadow: 4px 4px 17px 0.1px black;
+    -moz-box-shadow: 4px 4px 17px 0.1px black;
+    -webkit-box-shadow: 4px 4px 17px 0.1px black;*/
+}
+
+.Navbar__Menu--Dropdown > li > a {
+    color: $lightblue !important;
+    font-size: 1.2em;
+}
+.Navbar__Menu--Dropdown > li > a:hover {
+    background-color: $darkblue;
+}

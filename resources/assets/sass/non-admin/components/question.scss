@@ -1,0 +1,40 @@
+.Question {
+    padding: 20px 20px;
+}
+
+.Question:hover {
+    /*border: 1px solid #777;*/
+    box-shadow: 0 10px 6px -6px #777;
+    -moz-box-shadow: 0 10px 6px -6px #777;
+    -webkit-box-shadow: 0 10px 6px -6px #777;
+}
+
+.Question:hover .Question__Number {
+    background-color: $lightblue;
+}
+
+.Question__Number {
+    display: block;
+    height: 75px;
+    width: 75px;
+    line-height: 75px;
+
+    -moz-border-radius: 50%; /* or 50% */
+    border-radius: 50%; /* or 50% */
+
+    background-color: $dark;
+    color: $white;
+    text-align: center;
+    font-size: 2em;
+
+    transition: background-color 0.7s;
+}
+
+
+.Question__Title {
+
+}
+
+.Question__Description {
+
+}

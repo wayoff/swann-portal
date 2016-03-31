@@ -1,0 +1,26 @@
+body {
+    background-color: $body-color;
+}
+.text-blue {
+    color: $blue !important;
+}
+.text-underline {
+    text-decoration: underline;
+}
+.text-bold {
+    font-weight: bold;
+}
+.padding-remove {
+    padding: 0 0 !important;
+}
+.padding-10 {
+    padding: 10px 10px;
+}
+.background-white {
+    background-color: $white;
+}
+.box-shadow {
+    box-shadow: 0 10px 6px -6px $gray;
+    -moz-box-shadow: 0 10px 6px -6px $gray;
+    -webkit-box-shadow: 0 10px 6px -6px $gray;
+}

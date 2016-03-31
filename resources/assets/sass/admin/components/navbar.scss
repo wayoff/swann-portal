@@ -1,0 +1,20 @@
+.Navbar {
+    background-color: $btn-primary-color;
+}
+
+.Navbar__Brand {
+    color: $white !important;
+}
+
+.Navbar__Menu {
+    & > li {
+
+        & > a {
+            color: $white !important;
+        }
+
+        &:hover {
+            background-color: $black !important; 
+        }
+    }
+}

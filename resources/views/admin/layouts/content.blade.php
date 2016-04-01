@@ -14,6 +14,11 @@
                         </div>
 
                         <div class="col-lg-12">
+                            @if($status)
+                                <div class="alert alert-info">
+                                    {{$status}}
+                                </div>
+                            @endif
                             @yield('Content')
                         </div>
                     </div>

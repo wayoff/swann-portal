@@ -15,8 +15,7 @@ class UsersTableSeeder extends Seeder
         User::create([
             'name'     => 'Mark Jestoni Suner',
             'email'    => 'mark.suner@globalsky.com',
-            'password' => bcrypt('suner321'),
-            'role_id'  => 1
+            'password' => 'suner321'
         ]);
     }
 }

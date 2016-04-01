@@ -1,12 +1,29 @@
 <?php
 
+
+Route::group([
+        'middleware' => 'auth',
+        'namespace'  => 'Admin',
+        'prefix'     => 'admin'
+], function () {
+
+    Route::resource('users', 'UsersController');
+    Route::resource('categories', 'CategoriesController');
+    
+    Route::controller('/', 'PagesController');
+
+});
+
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
+
 Route::get('/', function () {
     return view('pages.index');
 });
 
-Route::get('/admin', function () {
-    return view('admin.dashboard');
-});
+
+
 
 Route::auth();
 

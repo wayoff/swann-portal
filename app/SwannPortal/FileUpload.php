@@ -1,22 +1,36 @@
 <?php
 namespace App\SwannPortal;
 
+use App\Models\Photo;
 use Illuminate\Http\Request;
 
 class FileUpload
 {
-    $request = $request;
+    protected $request;
+    protected $photos;
 
-    function __construct(Request $request)
+    public $destination = null;
+
+    function __construct(Request $request, Photo $photos)
     {
         $this->request = $request;
+        $this->photos = $photos;
+
+        $this->destination = public_path() . '/uploads';
     }
 
     public function handle()
     {
-        // upload
-        // generate random name
-        // move to public folder
-        // return array of extension, name
+        $extension = $this->request->file('image')->getClientOriginalExtension();
+        $fileName = str_random(40);
+
+        $this->request->file('image')->move($this->destination, $fileName . '.' . $extension);
+
+        $photo = $this->photos->create([
+            'name'      => $extension,
+            'extension' => $fileName
+        ]);
+
+        return $photo;
     }
 }

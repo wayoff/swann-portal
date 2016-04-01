@@ -44,6 +44,10 @@
                 <a href="/admin/categories"><i class="fa fa-fw fa-table"></i> Categories</a>
             </li>
             <li>
+                <a href="/admin/sliders"><i class="fa fa-fw fa-desktop"></i> Sliders</a>
+            </li>
+
+            <!-- <li>
                 <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
             </li>
             <li>
@@ -68,7 +72,7 @@
             </li>
             <li>
                 <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
-            </li>
+            </li> -->
         </ul>
     </div>
     <!-- /.navbar-collapse -->

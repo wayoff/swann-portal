@@ -9,6 +9,7 @@ Route::group([
 
     Route::resource('users', 'UsersController');
     Route::resource('categories', 'CategoriesController');
+    Route::resource('sliders', 'SlidersController');
     
     Route::controller('/', 'PagesController');
 

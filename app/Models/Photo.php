@@ -12,11 +12,11 @@ class Photo extends Model
 
     public function slider()
     {
-        return $this->belongsTo(Slider::class);
+        return $this->hasOne(Slider::class);
     }
 
     public function getImage()
     {
-        return url('uploads/' . $this->name . '.' . $this->extension);
+        return url( config('swannportal.path.images') . $this->name . '.' . $this->extension);
     }
 }

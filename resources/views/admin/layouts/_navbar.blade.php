@@ -13,7 +13,7 @@
     <!-- Top Menu Items -->
     <ul class="nav navbar-right top-nav Navbar__Menu">
         <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> {{ $admin->name }} <b class="caret"></b></a>
             <ul class="dropdown-menu Navbar__Menu--Dropdown">
                 <!-- <li>
                     <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
@@ -34,11 +34,11 @@
     <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
     <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav side-nav Navbar__Menu">
-            <li class="active">
+            <li>
                 <a href="/admin/dashboard"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
             </li>
             <li>
-                <a href="/admin/users"><i class="fa fa-fw fa-users"></i> Users</a>
+                <a href="/admin/products"><i class="fa fa-fw fa-book"></i> Products</a>
             </li>
             <li>
                 <a href="/admin/categories"><i class="fa fa-fw fa-table"></i> Categories</a>
@@ -46,7 +46,18 @@
             <li>
                 <a href="/admin/sliders"><i class="fa fa-fw fa-desktop"></i> Sliders</a>
             </li>
-
+            <li>
+                <a href="/admin/videos"><i class="fa fa-fw fa-video-camera"></i> Videos</a>
+            </li>
+            <li>
+                <a href="/admin/news"><i class="fa fa-fw fa-file"></i> News</a>
+            </li>
+            <li>
+                <a href="/admin/users"><i class="fa fa-fw fa-users"></i> Users</a>
+            </li>
+            <li>
+                <a href="/"><i class="fa fa-fw fa-home"></i> Home</a>
+            </li>
             <!-- <li>
                 <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
             </li>

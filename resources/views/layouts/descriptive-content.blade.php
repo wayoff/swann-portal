@@ -1,6 +1,5 @@
 @include('layouts._header')
 @include('layouts._navbar')
-@include('layouts._sidebar')
     <div class="container Home__Container">
         <div class="row background-white">
             <div class="col-md-12 Page__Title--Container">

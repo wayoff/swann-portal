@@ -5358,6 +5358,35 @@ button.close {
     display: none !important; } }
 
 /*# sourceMappingURL=bootstrap.min.css.map */
+body {
+  background-color: #E0E0E0; }
+
+.text-blue {
+  color: #146197 !important; }
+
+.text-underline {
+  text-decoration: underline; }
+
+.text-bold {
+  font-weight: bold; }
+
+.padding-remove {
+  padding: 0 0 !important; }
+
+.padding-10 {
+  padding: 10px 10px; }
+
+.background-white {
+  background-color: white; }
+
+.box-shadow {
+  box-shadow: 0 10px 6px -6px #777;
+  -moz-box-shadow: 0 10px 6px -6px #777;
+  -webkit-box-shadow: 0 10px 6px -6px #777; }
+
+.image-max-width-200 {
+  max-width: 200px; }
+
 /*!
  * Start Bootstrap - SB Admin Bootstrap Admin Template (http://startbootstrap.com)
  * Code licensed under the Apache License v2.0.

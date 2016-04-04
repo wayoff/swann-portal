@@ -24,9 +24,9 @@
             <span class="text-underline text-bold">Swann Portal</span> | Powered by: <a href="http://fullpotentialbpo.com/" class="text-underline text-bold Footer__FPBPO" target="_blank">Fullpotential BPO Inc</a> copyright &#9400; <?php echo date('Y') != 2016 ? '2016 - ' .  date('Y') : 2016; ?> . All Rights Reserved.
         </div>
     </div>
-    
-    <script src="js/jquery.min.js"></script>
-    <script src="js/bootstrap.min.js"></script>
+
+    <script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
     <script>
         $( function() {
             $('.Sidebar__Toggle').hover(function() {

@@ -1,0 +1,15 @@
+.Home__Media--object {
+    width: 100px;
+    height: 90px;
+}
+
+.Home__Media {
+    padding: 10px 10px;
+    transition: box-shadow 0.5s;
+
+    &:hover {
+        box-shadow: 0 0 6px 1px #777;
+        -moz-box-shadow: 0 0 6px 1px #777;
+        -webkit-box-shadow: 0 0 6px 1px #777;
+    }
+}

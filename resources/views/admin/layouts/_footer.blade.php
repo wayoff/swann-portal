@@ -17,6 +17,7 @@
             });
         });
     </script>
+    <script src="//vjs.zencdn.net/5.8/video.min.js"></script>
 </body>
 
 </html>

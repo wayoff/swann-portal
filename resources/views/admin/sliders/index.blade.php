@@ -24,6 +24,7 @@
                     <td>Image</td>
                     <td>Title</td>
                     <td>Description</td>
+                    <td>Action</td>
                 </tr>
             </thead>
             <tbody>
@@ -31,17 +32,17 @@
                     @foreach($sliders as $slider)
                     <tr>
                         <td>{{ string_pad($slider->id) }}</td>
-                        <td>
-                            <img src="{{$slider->photo->getImage()}}" alt="" />
+                        <td class="text-center">
+                            <img src="{{$slider->photo->getImage()}}" class="image-max-width-200" alt="" />
                         </td>
                         <td>{{ $slider->title }}</td>
                         <td>{{ $slider->description }}</td>
                         <td>
-                            <form action="{{ route('admin.categories.destroy', $slider->id) }}" method="POST" class="form-inline" role="form">
+                            <form action="{{ route('admin.sliders.destroy', $slider->id) }}" method="POST" class="form-inline" role="form">
                                 {!! csrf_field() !!}
                                 {!! method_field('delete') !!}
-                            
-                                <a href="{{ route('admin.categories.edit', $slider->id) }}" class="btn btn-info btn-xs"> Edit</a>
+
+                                <a href="{{ route('admin.sliders.edit', $slider->id) }}" class="btn btn-info btn-xs"> Edit</a>
                                 <button type="submit" class="btn btn-warning btn-xs btn-delete">Delete</button>
                             </form>
                         </td>

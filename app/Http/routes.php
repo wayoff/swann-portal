@@ -6,26 +6,25 @@ Route::group([
         'namespace'  => 'Admin',
         'prefix'     => 'admin'
 ], function () {
-
     Route::resource('users', 'UsersController');
     Route::resource('categories', 'CategoriesController');
     Route::resource('sliders', 'SlidersController');
-    
+    Route::resource('news', 'NewsController');
+    Route::resource('videos', 'VideosController');
+
+    Route::resource('products', 'ProductsController');
+    Route::resource('products/{id}/questions', 'ProductsQuestionsController');
+
     Route::controller('/', 'PagesController');
 
 });
 
-Route::auth();
+Route::get('supported-formats', function() {
+    $formats = collect(FFMPEG::getSupportedFormats());
 
-Route::get('/home', 'HomeController@index');
-
-Route::get('/', function () {
-    return view('pages.index');
+    dd($formats->toArray());
 });
 
-
-
-
 Route::auth();
-
-Route::get('/home', 'HomeController@index');
+Route::resource('news', 'NewsController', ['only' => ['index', 'show']]);
+Route::controller('/', 'PagesController');

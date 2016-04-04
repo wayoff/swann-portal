@@ -9,4 +9,9 @@ class Category extends Model
     protected $fillable = [
         'name'
     ];
+
+    public function getNameAttribute($value)
+    {
+        return ucwords($value);
+    }
 }

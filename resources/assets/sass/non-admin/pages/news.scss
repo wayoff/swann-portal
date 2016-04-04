@@ -1,0 +1,20 @@
+.News__Show--Content {
+    word-wrap: break-word;
+}
+
+.News__Show--image {
+    max-width: 300px;
+    float: left;
+    padding: 10px 10px;
+    margin: 0;
+}
+
+.News__Show--Video-Container {
+    padding: 20px;
+    margin: 10px;
+    border: 1px solid $dark;
+}
+
+.News__Show--Video {
+    margin: 20px 20px;
+}

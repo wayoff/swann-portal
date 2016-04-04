@@ -36,10 +36,9 @@
                     <li class="dropdown">
                         <a href="#"> Products <b class="caret"></b></a>
                         <ul class="dropdown-menu Navbar__Menu--Dropdown">
-                            <li><a href="#">Product Category</a></li>
-                            <li><a href="#">Product Category</a></li>
-                            <li><a href="#">Product Category</a></li>
-                            <li><a href="#">Product Category</a></li>
+                            @foreach($categories as $category)
+                                <li><a href="#">{{ $category->name }}</a></li>
+                            @endforeach
                         </ul>
                     </li>
                     <li><a href="#">Support</a></li>

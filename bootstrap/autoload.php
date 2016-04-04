@@ -1,5 +1,9 @@
 <?php
 ini_set('xdebug.max_nesting_level', 200); //this should be remove
+ini_set('upload_max_filesize', '1000M');
+ini_set('post_max_size', '1000M');
+// ini_set('max_input_time', 600);
+// ini_set('max_execution_time', 600);
 
 define('LARAVEL_START', microtime(true));
 

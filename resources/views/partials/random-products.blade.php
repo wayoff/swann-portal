@@ -10,7 +10,6 @@
                     <img src="{{ $randomProduct->photo->getImage() }}" width="174" height="126" alt="image">
                 </a>
                 <h5>{{ $randomProduct->name }}</h5>
-                <h6>{{ $randomProduct->model }}</h6>
                 <p>
                     {{ str_limit($randomProduct->description, 60) }}
                 </p>

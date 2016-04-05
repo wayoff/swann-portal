@@ -11,8 +11,7 @@
             <div class="list-group">
             @foreach($randomProducts as $randomProduct)
                 <a href="{{route('categories.{id}.products.show', [$category->id, $randomProduct->id])}}" class="list-group-item">
-                    {{$randomProduct->name}}
-                    <small>{{$randomProduct->model_no}}</small>
+                    {{ str_limit($randomProduct->name, 60) }}
                 </a>
             @endforeach
             </div>

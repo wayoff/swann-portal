@@ -13,16 +13,16 @@ class CategoriesSeed extends Seeder
     public function run()
     {
         Category::create([
-            'name'     => 'Test Category'
+            'name'     => 'HIK units'
         ]);
         Category::create([
-            'name'     => 'Test Category2'
+            'name'     => 'BC units'
         ]);
         Category::create([
-            'name'     => 'Test Category3'
+            'name'     => 'Wireless units'
         ]);
         Category::create([
-            'name'     => 'Test Category4'
+            'name'     => 'Cameras'
         ]);
     }
 }

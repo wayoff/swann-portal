@@ -10,6 +10,11 @@ class Product extends Model
         'category_id', 'photo_id', 'document_id', 'name', 'model_no', 'description', 'featured'
     ];
 
+    public function getNameAttribute($value)
+    {
+        return ucwords($value);
+    }
+
     public function category()
     {
         return $this->belongsTo(Category::class);

@@ -4,3 +4,19 @@
 .Media__Horizontal--Tile {
     padding: 5px 10px !important;
 }
+
+.Media__Horizontal--Tile-icon {
+    font-size: 4em;
+    border: 1px solid $gray;
+    padding: 18px;
+    color: $gray;
+    border-radius:50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    transition: border-radius 0.5s;
+
+    &:hover {
+        color: $btn-primary-color;
+        border-radius: 0;
+    }
+}

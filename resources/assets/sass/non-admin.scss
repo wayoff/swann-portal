@@ -3,6 +3,7 @@
 @import 'variables';
 @import 'general';
 
+@import 'non-admin/components/card';
 @import 'non-admin/components/navbar';
 @import 'non-admin/components/media-horizontal';
 @import 'non-admin/components/page';
@@ -14,3 +15,4 @@
 
 @import 'non-admin/pages/home';
 @import 'non-admin/pages/news';
+@import 'non-admin/pages/product-show';

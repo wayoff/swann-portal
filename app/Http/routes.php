@@ -11,6 +11,7 @@ Route::group([
     Route::resource('sliders', 'SlidersController');
     Route::resource('news', 'NewsController');
     Route::resource('videos', 'VideosController');
+    Route::resource('questions', 'QuestionsController');
 
     Route::resource('products', 'ProductsController');
     Route::resource('products/{id}/questions', 'ProductsQuestionsController');
@@ -26,5 +27,6 @@ Route::get('supported-formats', function() {
 });
 
 Route::auth();
+Route::resource('categories/{id}/products', 'ProductsController');
 Route::resource('news', 'NewsController', ['only' => ['index', 'show']]);
 Route::controller('/', 'PagesController');

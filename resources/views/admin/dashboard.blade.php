@@ -6,15 +6,24 @@
 
 @section('Breadcrumb')
     <ol class="breadcrumb">
-        <li>
-            <i class="fa fa-dashboard"></i>  <a href="index.html">Dashboard</a>
-        </li>
         <li class="active">
-            <i class="fa fa-file"></i> Blank Page
+            <i class="fa fa-dashboard"></i>  <a href="#">Dashboard</a>
         </li>
     </ol>
 @stop
 
 @section('Content')
-    <h4>Test</h4>
+    <div id="content">
+        <div class="text-center">
+            <i class="fa fa-spinner fa-spin fa-3x"></i>
+        </div>
+    </div>
+@stop
+
+@section('footer')
+    <script>
+        $.getJSON("http://quotesondesign.com/wp-json/posts?filter[orderby]=rand&filter[posts_per_page]=1&callback=", function(a) {
+            $("#content").html(a[0].content + "<p>&mdash; " + a[0].title + "</p>")
+        });
+    </script>
 @stop

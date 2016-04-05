@@ -62,7 +62,7 @@
 
 
                     <div class="form-group{{ $errors->has('featured') ? ' has-error' : '' }}">
-                        <label class="col-md-4 control-label">is FAQ ? </label>
+                        <label class="col-md-4 control-label">is Featured ? </label>
 
                         <div class="col-md-6">
                             <select name="featured" id="" class="form-control">

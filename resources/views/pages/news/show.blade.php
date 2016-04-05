@@ -3,12 +3,24 @@
 @section('Page__Title', $news->title)
 
 @section('Page__Description')
-    <i>{{ $news->when() }}</i> Published
+    <i>{{ $news->when() }}</i> 
+@stop
+
+@section('Page__BreadCrumbs')
+    <ol class="breadcrumb">
+        <li>
+            <a href="{{ url('home') }}">Home</a>
+        </li>
+        <li>
+            <a href="{{ url('news') }}">News & Updates</a>
+        </li>
+        <li class="active"> {{ $news->title }} </li>
+    </ol>
 @stop
 
 @section('content')
     <div class="News__Show--Content">
-        <p>
+        <p class="News__Show--Content-Paragraph">
             <img src="{{ $news->photo_id ? $news->photo->getImage() : config('swannportal.path.default-img') }}" class="News__Show--image">
             {{ $news->content }}
         </p>

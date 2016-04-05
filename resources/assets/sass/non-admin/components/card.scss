@@ -1,0 +1,25 @@
+.Card {
+    z-index: 1;
+    padding: 10px;
+    background: $white;
+    transition: box-shadow 0.5s;
+    margin-bottom: 10px;
+    
+    &:hover {
+        box-shadow: 0 0 6px 1px $blue;
+        -moz-box-shadow: 0 0 6px 1px $blue;
+        -webkit-box-shadow: 0 0 6px 1px $blue;
+    }
+}
+
+.Card__Image {
+    width: 100%;
+}
+
+.Card__Title {
+    font-size: 1.6em;
+    display: block;
+    padding: 0px 5px;
+    margin: 5px;
+    border-bottom: 1px solid $gray;
+}

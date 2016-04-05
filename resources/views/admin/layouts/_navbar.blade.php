@@ -44,6 +44,9 @@
                 <a href="/admin/categories"><i class="fa fa-fw fa-table"></i> Categories</a>
             </li>
             <li>
+                <a href="/admin/questions"><i class="fa fa-fw fa-question"></i> Questions</a>
+            </li>
+            <li>
                 <a href="/admin/sliders"><i class="fa fa-fw fa-desktop"></i> Sliders</a>
             </li>
             <li>

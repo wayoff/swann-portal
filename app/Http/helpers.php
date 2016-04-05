@@ -8,3 +8,12 @@ if( !function_exists('string_pad')) {
     }
     
 }
+
+if( !function_exists('default_img')) {
+
+    function default_img()
+    {
+        return url(config('swannportal.path.default-img'));
+    }
+    
+}

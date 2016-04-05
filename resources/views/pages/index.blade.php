@@ -11,25 +11,25 @@
                     <div class="row padding-10 box-shadow">
                         <div class="col-md-6">
                             <div class="media Media__Horizontal--Tile">
-                                <a class="pull-left" href="./video.php">
-                                    <img class="media-object" src="http://placehold.it/100x90" alt="Image">
+                                <a class="pull-left" href="{{ url('videos') }}">
+                                    <i class="glyphicon glyphicon-facetime-video Media__Horizontal--Tile-icon"></i>
                                 </a>
                                 <div class="media-body">
                                     <h5 class="media-heading">Videos</h5>
                                     <p>Browse our selections of videos</p>
-                                    <a href="./video.php">read more</a>
+                                    <a href="{{ url('videos') }}">read more</a>
                                 </div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="media Media__Horizontal--Tile">
-                                <a class="pull-left" href="./faq.php">
-                                    <img class="media-object" src="http://placehold.it/100x90" alt="Image">
+                                <a class="pull-left" href="{{ url('faq') }}">
+                                    <i class="glyphicon glyphicon-question-sign Media__Horizontal--Tile-icon"></i>
                                 </a>
                                 <div class="media-body">
                                     <h5 class="media-heading">FAQ</h5>
                                     <p>Select from a list if common questions.</p>
-                                    <a href="./faq.php">read more</a>
+                                    <a href="{{ url('faq') }}">read more</a>
                                 </div>
                             </div>
                         </div>

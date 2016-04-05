@@ -17,7 +17,7 @@ return [
     |
     */
 
-   'ffmpeg'        => 'C:/ffmpeg-20160401-git-b3eda69-win64-static/bin/ffmpeg.exe',
+   'ffmpeg'        => 'C:/ffmpeg/bin/ffmpeg.exe',
 
     /*
     |--------------------------------------------------------------------------
@@ -30,7 +30,7 @@ return [
     |
     */
 
-   'ffprobe'        => 'C:/ffmpeg-20160401-git-b3eda69-win64-static/bin/ffprobe.exe',
+   'ffprobe'        => 'C:/ffmpeg/bin/ffprobe.exe',
 
    /*
     |--------------------------------------------------------------------------

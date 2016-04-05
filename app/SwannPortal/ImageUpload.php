@@ -22,11 +22,18 @@ class ImageUpload
     }
 
     public function handle()
-    {
+    {   
         if(!$this->request->hasFile('image'))
         {
+            if ($this->id) {
+                $photo = $this->photos->findOrFail($this->id);
+
+                return $photo;
+            }
+
             return null;
         }
+
         $extension = $this->request->file('image')->getClientOriginalExtension();
         $fileName = str_random(40);
 

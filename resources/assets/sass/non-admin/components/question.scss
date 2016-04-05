@@ -1,9 +1,11 @@
 .Question {
     padding: 20px 20px;
+    border-width:1px;   
+    border-top-style:outset;
+    transition: box-shadow 0.5s;
 }
 
 .Question:hover {
-    /*border: 1px solid #777;*/
     box-shadow: 0 10px 6px -6px #777;
     -moz-box-shadow: 0 10px 6px -6px #777;
     -webkit-box-shadow: 0 10px 6px -6px #777;
@@ -11,6 +13,11 @@
 
 .Question:hover .Question__Number {
     background-color: $lightblue;
+    color: black;
+}
+
+.Question__Number--Container {
+    text-align: center;
 }
 
 .Question__Number {
@@ -26,8 +33,8 @@
     color: $white;
     text-align: center;
     font-size: 2em;
-
-    transition: background-color 0.7s;
+    margin: auto auto;
+    transition: background-color 0.5s, color 0.5s;
 }
 
 

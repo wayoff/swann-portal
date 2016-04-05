@@ -50,7 +50,7 @@
                     @endforeach
                 @else
                     <tr>
-                        <td class="text-center" colspan="4">No Data was Found</td>
+                        <td class="text-center" colspan="10">No Data was Found</td>
                     </tr>
                 @endif
             </tbody>

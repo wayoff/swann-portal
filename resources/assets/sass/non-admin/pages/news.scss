@@ -1,5 +1,6 @@
 .News__Show--Content {
     word-wrap: break-word;
+    white-space: pre-wrap;
 }
 
 .News__Show--image {
@@ -11,10 +12,14 @@
 
 .News__Show--Video-Container {
     padding: 20px;
-    margin: 10px;
+    // margin: 10px;
     border: 1px solid $dark;
 }
 
 .News__Show--Video {
     margin: 20px 20px;
+}
+
+.News__Show--Content-Paragraph {
+    font-size: 1.2em;
 }

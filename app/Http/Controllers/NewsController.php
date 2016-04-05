@@ -23,6 +23,8 @@ class NewsController extends Controller
     public function index()
     {
         $news = $this->news->paginate(20);
+
+        return view('pages.news.index', compact('news'));
     }
 
     /**

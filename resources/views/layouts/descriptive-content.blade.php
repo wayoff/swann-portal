@@ -7,6 +7,11 @@
                 <p class="Page__Title--Description">
                     @yield('Page__Description')
                 </p>
+                <hr />
+            </div>
+
+            <div class="col-md-12">
+                @yield('Page__BreadCrumbs')
             </div>
 
             <div class="col-md-12">

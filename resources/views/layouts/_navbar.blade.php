@@ -37,13 +37,13 @@
                         <a href="#"> Products <b class="caret"></b></a>
                         <ul class="dropdown-menu Navbar__Menu--Dropdown">
                             @foreach($categories as $category)
-                                <li><a href="#">{{ $category->name }}</a></li>
+                                <li><a href="{{ route('categories.{id}.products.index', $category->id) }}">{{ $category->name }}</a></li>
                             @endforeach
                         </ul>
                     </li>
-                    <li><a href="#">Support</a></li>
-                    <li><a href="#">News & Updates</a></li>
-                    <li><a href="#">Company</a></li>
+                    <!-- <li><a href="#">Support</a></li> -->
+                    <li><a href="{{ url('news') }}">News & Updates</a></li>
+                    <!-- <li><a href="#">Company</a></li> -->
                 </ul>
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar navbar-right Navbar__Menu">
@@ -58,6 +58,7 @@
                             </a>
 
                             <ul class="dropdown-menu Navbar__Menu--Dropdown" role="menu">
+                                <li><a href="{{ url('/admin') }}"><i class="fa fa-btn fa-desktop"></i>Dashboard</a></li>
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                             </ul>
                         </li>

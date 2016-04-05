@@ -17,7 +17,7 @@ class AppServiceProvider extends ServiceProvider
         view()->composer(['partials.carousel'], SwannPortal\SliderComposer::class);
         view()->composer(['partials.top-products'], SwannPortal\TopProductComposer::class);
         view()->composer(['partials.latest-updates'], SwannPortal\LatestUpdatesComposer::class);
-        view()->composer(['partials.random-products'], SwannPortal\RandomProductComposer::class);
+        view()->composer(['partials.random-products', 'partials.list-random-products'], SwannPortal\RandomProductComposer::class);
 
         view()->composer(['admin.layouts.content'], SwannPortal\StatusComposer::class);
         view()->composer([

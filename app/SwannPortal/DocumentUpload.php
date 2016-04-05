@@ -25,6 +25,12 @@ class DocumentUpload
     {
         if(!$this->request->hasFile('document'))
         {
+            if ($this->id) {
+                $document = $this->documents->findOrFail($this->id);
+
+                return $document;
+            }
+
             return null;
         }
 

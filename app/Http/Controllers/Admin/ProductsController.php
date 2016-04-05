@@ -94,9 +94,12 @@ class ProductsController extends Controller
     public function update(ProductRequest $request, Photo $photos, Document $documents, $id)
     {
         $product = $this->products->findOrFail($id);
+        
+        $photoId = !is_null($product->photo_id) ? $product->photo_id : false;
+        $documentId = !is_null($product->document_id) ? $product->document_id : false;
 
-        $photo = (new ImageUpload($request, $photos, $product->photo_id ?: false))->handle();
-        $document = (new DocumentUpload($request, $documents, $product->document_id ?: false))->handle();
+        $photo = (new ImageUpload($request, $photos, $photoId))->handle();
+        $document = (new DocumentUpload($request, $documents, $documentId))->handle();
 
         $product->update([
             'photo_id'    => $photo ? $photo->id : null,

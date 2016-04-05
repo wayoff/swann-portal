@@ -7,15 +7,7 @@
 @section('Breadcrumb')
     <ol class="breadcrumb">
         <li>
-            <i class="fa fa-book"></i>  <a href="{{ route('admin.products.index') }}">Products</a>
-        </li>
-
-        <li>
-            <a href="#">{{ $product->name }}</a>
-        </li>
-
-        <li>
-            <a href="{{ route('admin.products.{id}.questions.index', $product->id) }}"> Questions </a>
+            <i class="fa fa-book"></i>  <a href="{{ route('admin.questions.index') }}">Questions</a>
         </li>
         <li class="active">
             <a href="#"> Edit Question</a>
@@ -29,7 +21,7 @@
         <div class="panel panel-default">
             <div class="panel-heading">Edit Question</div>
             <div class="panel-body">
-                <form class="form-horizontal" role="form" method="POST" enctype="multipart/form-data" action="{{ route('admin.products.{id}.questions.update', [$product->id, $question->id]) }}">
+                <form class="form-horizontal" role="form" method="POST" enctype="multipart/form-data" action="{{ route('admin.questions.update', [$question->id]) }}">
                     {!! csrf_field() !!}
                     {!! method_field('PUT') !!}
 

@@ -40,7 +40,7 @@
                     <tr>
                         <td>{{ string_pad($new->id) }}</td>
                         <td>{{ $new->title }}</td>
-                        <td>{{ $new->content }}</td>
+                        <td>{{ str_limit($new->content, 150) }}</td>
                         <td>
                             @if($new->photo_id)
                                 <img src="{{ $new->photo->getImage() }}" alt="" class="image-max-width-200">

@@ -29,7 +29,7 @@
 
         @if($news->video_id)
             @if($news->video->converted)
-                <div class="col-md-12 News__Show--Video-Container">
+                <div class="col-md-8 News__Show--Video-Container">
                 <h5>{{ $news->video->title }}</h5>
                     <div class="embed-responsive embed-responsive-16by9 News__Show--Video">
                         <video controls>

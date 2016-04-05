@@ -12,6 +12,17 @@
     </ol>
 @stop
 
+@section('header')
+    <style>
+        .btn-action {
+            border-radius: 0;
+        }
+        .action-dropdown-menu {
+            padding: 0 0;
+        }
+    </style>
+@stop
+
 @section('Content')
     <div class="col-md-offset-1 col-md-10">
         <div class="pull-right">
@@ -65,10 +76,29 @@
                             <form action="{{ route('admin.products.destroy', $product->id) }}" method="POST" class="form-inline" role="form">
                                 {!! csrf_field() !!}
                                 {!! method_field('delete') !!}
-
-                                <a href="{{ route('admin.products.{id}.questions.index', $product->id) }}" class="btn btn-xs btn-primary"> questions</a>
-                                <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-info btn-xs"> Edit</a>
-                                <button type="submit" class="btn btn-warning btn-xs btn-delete">Delete</button>
+                                
+                              <div class="btn-group">
+                                <button type="button" class="btn btn-x btn-primary btn-xs dropdown-toggle" data-toggle="dropdown">
+                                Actions <span class="caret"></span></button>
+                                <ul class="action-dropdown-menu dropdown-menu" role="menu">
+                                  <li>
+                                    <a href="{{ route('admin.products.{id}.questions.index', $product->id) }}" class="btn btn-default btn-action">
+                                        Questions
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a href="{{ route('admin.products.{id}.procedures.index', $product->id) }}" class="btn btn-default btn-action">
+                                        Trouble Shooting
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-default btn-action"> Edit</a>
+                                  </li>
+                                  <li>
+                                      <button type="submit" class="btn btn-action btn-delete btn-block btn-warning">Delete</button>
+                                  </li>
+                                </ul>
+                              </div>
                             </form>
                         </td>
                     </tr>

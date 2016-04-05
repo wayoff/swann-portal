@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+
 use App\Http\Requests;
 use App\Models\Product;
-use App\Models\Category;
-use Illuminate\Http\Request;
 
 class ProductsController extends Controller
 {
@@ -15,35 +15,26 @@ class ProductsController extends Controller
     {
         $this->products = $products;
     }
-
-    public function index($categoryId, Category $categories, Request $request)
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index(Request $request)
     {
-        // $models = $this->products->where('category_id', '=', $categoryId)->distinct()->get();
+        $models = $this->products;
         $q = null;
-        $model = $this->products->where('category_id', $categoryId);
-        $model = $model->with('photo');
 
         if (null !== $request->input('q')) {
             $q = $request->input('q');
 
-            $model = $model
+            $models = $models
                         ->where('model_no', 'like', '%'. $q .'%')
                         ->orWhere('name', 'like', '%' . $q . '%');
         }
 
-        $products = $model->paginate(30);
+        $products = $models->paginate(20);
 
-        $category = $categories->findOrFail($categoryId);
-
-        return view('pages.products.index', compact('products', 'category', 'q'));
-    }
-
-    public function show(Category $categories, $categoryId, $productId)
-    {
-        $product = $this->products->findOrFail($productId);
-
-        $category = $categories->findOrFail($categoryId);
-
-        return view('pages.products.show', compact('product', 'category'));
+        return view('pages.products.index', compact('products', 'q'));
     }
 }

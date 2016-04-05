@@ -15,6 +15,7 @@ Route::group([
 
     Route::resource('products', 'ProductsController');
     Route::resource('products/{id}/questions', 'ProductsQuestionsController');
+    Route::resource('products/{id}/procedures', 'ProductsProceduresController');
 
     Route::controller('/', 'PagesController');
 
@@ -27,6 +28,11 @@ Route::get('supported-formats', function() {
 });
 
 Route::auth();
-Route::resource('categories/{id}/products', 'ProductsController');
+Route::resource(
+    'categories/{id}/products',
+    'CategoryProductsController',
+    ['only' => ['index', 'show']]
+);
 Route::resource('news', 'NewsController', ['only' => ['index', 'show']]);
+Route::resource('products', 'ProductsController', ['only' => ['index']]);
 Route::controller('/', 'PagesController');

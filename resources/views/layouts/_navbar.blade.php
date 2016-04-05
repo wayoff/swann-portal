@@ -34,7 +34,7 @@
                 <ul class="nav navbar-nav navbar Navbar__Menu">
                     <li><a href="/">Home</a></li>
                     <li class="dropdown">
-                        <a href="#"> Products <b class="caret"></b></a>
+                        <a href="{{route('products.index')}}"> Products <b class="caret"></b></a>
                         <ul class="dropdown-menu Navbar__Menu--Dropdown">
                             @foreach($categories as $category)
                                 <li><a href="{{ route('categories.{id}.products.index', $category->id) }}">{{ $category->name }}</a></li>

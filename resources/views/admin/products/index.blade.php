@@ -24,7 +24,7 @@
 @stop
 
 @section('Content')
-    <div class="col-md-offset-1 col-md-10">
+    <div class="col-md-12">
         <div class="pull-right">
             <a href="{{ route('admin.products.create') }}" class="btn btn-primary"> Add Product</a>
         </div>
@@ -54,9 +54,9 @@
                     <tr>
                         <td>{{ string_pad($product->id) }}</td>
                         <td>{{ $product->category->name }}</td>
-                        <td>{{ $product->name }}</td>
+                        <td>{{ str_limit($product->name, 60) }}</td>
                         <td>{{ $product->model_no }}</td>
-                        <td>{{ $product->description }}</td>
+                        <td>{{ str_limit($product->description, 60) }}</td>
                         <td>{{ $product->featured ? 'Yes' : 'No' }}</td>
                         <td>
                             @if($product->photo_id)

@@ -17,9 +17,9 @@
 
 @section('Content')
     <div class="row">
-        <div class="col-md-8 col-md-offset-2">
+        <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Register Product</div>
+                <div class="panel-heading">Edit Product</div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" enctype="multipart/form-data" action="{{ route('admin.products.update', $product->id) }}">
                         {!! csrf_field() !!}

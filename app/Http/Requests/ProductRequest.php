@@ -25,8 +25,8 @@ class ProductRequest extends Request
     {
         return [
             'name'        => 'required|min:3|max:100',
-            'description' => 'required|min:5|max:250',
             'model_no'    => 'required|min:5|max:100',
+            'description' => 'required|min:5|max:250',
             'category'    => 'required',
             'featured'    => 'required',
             'image'       => 'image',

@@ -10,7 +10,7 @@
         @else
             @foreach($topProducts as $topProduct)
                 <a href="{{route('categories.{id}.products.show', [$topProduct->category_id, $topProduct->id])}}" class="list-group-item">
-                    <h5 class="list-group-item-heading">{{ str_limit($topProduct->name, 60) }}</h5>
+                    <h6 class="list-group-item-heading">{{ str_limit($topProduct->name, 60) }}</h6>
                     <p class="list-group-item-text">{{ str_limit($topProduct->description, 50) }}</p>
                 </a>
             @endforeach

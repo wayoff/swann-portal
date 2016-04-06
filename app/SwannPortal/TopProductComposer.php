@@ -15,7 +15,7 @@ class TopProductComposer
 
     public function compose(View $view)
     {
-        $products = $this->products->where('featured', 1)->limit(5)->get();
+        $products = $this->products->featured()->limit(5)->get();
 
         return $view->with('topProducts', $products);
     }

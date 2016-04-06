@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use App\Http\Requests\Request;
 
-class ProductRequest extends Request
+class ProcedureStepRequest extends Request
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,13 +24,10 @@ class ProductRequest extends Request
     public function rules()
     {
         return [
-            'name'        => 'required|min:3|max:250',
-            'model_no'    => 'required|min:5|max:250',
-            'description' => 'required|min:5',
-            'categories'  => 'required',
-            'featured'    => 'required',
-            'image'       => 'image',
-            'document'    => 'mimes:doc,dot,docx,pdf'
+            'title'    => 'required|min:3|max:250',
+            'content'  => 'required|min:5',
+            'image'    => 'image',
+            'document' => 'mimes:doc,dot,docx,pdf'
         ];
     }
 }

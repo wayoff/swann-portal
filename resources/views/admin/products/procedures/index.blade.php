@@ -57,6 +57,7 @@
                                 {!! method_field('delete') !!}
 
                                 <a href="{{ route('admin.products.{id}.procedures.edit', [$product->id, $procedure->id]) }}" class="btn btn-info btn-xs"> Edit</a>
+                                <a href="{{ route('admin.products.{id}.procedures.{procedureId}.steps.index', [$product->id, $procedure->id]) }}" class="btn btn-primary btn-xs"> Steps</a>
                                 <button type="submit" class="btn btn-warning btn-xs btn-delete">Delete</button>
                             </form>
                         </td>

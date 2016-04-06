@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class ProcedureStep extends Model
 {
     protected $fillable = [
-        'procedure_id', 'photo_id', 'content'
-    ]
+        'procedure_id', 'photo_id', 'document_id', 'title', 'content'
+    ];
 
     public function procedure()
     {
@@ -18,5 +18,10 @@ class ProcedureStep extends Model
     public function photo()
     {
         return $this->belongsTo(Photo::class);
+    }
+
+    public function document()
+    {
+        return $this->belongsTo(Document::class);
     }
 }

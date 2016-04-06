@@ -122,7 +122,7 @@ return [
     */
 
     'providers' => [
-
+        Barryvdh\Debugbar\ServiceProvider::class,
         /*
          * Laravel Framework Service Providers...
          */

@@ -9,7 +9,7 @@ use App\Models\Product;
 use App\Models\Document;
 use App\Models\Procedure;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\QuestionsRequest;
+use App\Http\Requests\ProcedureRequest;
 
 use App\SwannPortal\DocumentUpload;
 
@@ -54,16 +54,14 @@ class ProductsProceduresController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(QuestionsRequest $request, Document $documents, $id)
+    public function store(ProcedureRequest $request, Document $documents, $id)
     {
         $document = (new DocumentUpload($request, $documents))->handle();
 
         $this->procedures->create([
             'product_id'  => $id,
             'document_id' => $document ? $document->id : null,
-            'title'       => $request->input('title'),
-            'answer'      => $request->input('answer'),
-            'featured'    => $request->input('featured'),
+            'name'        => $request->input('name')
         ]);
 
         return redirect(route('admin.products.{id}.procedures.index', $id))->with('status', 'Success on Creating Adding new Procedure');
@@ -90,20 +88,18 @@ class ProductsProceduresController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(QuestionsRequest $request, Document $documents, $id, $procedureId)
+    public function update(ProcedureRequest $request, Document $documents, $id, $procedureId)
     {
-        $procedure = $this->prodcedures->findOrFail($procedureId);
+        $procedure = $this->procedures->findOrFail($procedureId);
 
         $document = (new DocumentUpload($request, $documents, $procedure->document_id ?: false))->handle();
 
         $procedure->update([
             'document_id' => $document ? $document->id : null,
-            'title'       => $request->input('title'),
-            'answer'      => $request->input('answer'),
-            'featured'    => $request->input('featured'),
+            'name'        => $request->input('name')
         ]);
 
-        return redirect(route('admin.products.{id}.prodcedures.index', $id))->with('status', 'Success on Updating Procedures');
+        return redirect(route('admin.products.{id}.procedures.index', $id))->with('status', 'Success on Updating Procedures');
     }
 
     /**

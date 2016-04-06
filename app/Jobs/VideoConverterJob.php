@@ -40,12 +40,20 @@ class VideoConverterJob extends Job implements ShouldQueue
         $fileOutOGG = $this->fileOut . '.ogg';
 
         \FFMPEG::convert()->input($this->fileIn)->output($fileOutOGG)->go();
-        \FFMPEG::convert()->input($this->fileIn)->output($fileOutMp4)->go();
+
+        if ($this->video->extension === 'mp4') {
+
+            \File::move($this->fileIn, $fileOutMp4);
+
+        } else {
+
+            \FFMPEG::convert()->input($this->fileIn)->output($fileOutMp4)->go();
+            \File::delete($this->fileIn);
+            
+        }
 
         $this->video->converted = 1;
         $this->video->save();
-
-        \File::delete($this->fileIn);
 
     }
 }

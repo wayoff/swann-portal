@@ -13,9 +13,11 @@ Route::group([
     Route::resource('videos', 'VideosController');
     Route::resource('questions', 'QuestionsController');
 
-    Route::resource('products', 'ProductsController');
-    Route::resource('products/{id}/questions', 'ProductsQuestionsController');
+    Route::resource('products/{id}/procedures/{procedureId}/steps', 'ProductsProceduresStepsController');
     Route::resource('products/{id}/procedures', 'ProductsProceduresController');
+    Route::resource('products/{id}/questions', 'ProductsQuestionsController');
+    Route::resource('products/{id}/videos', 'ProductsVideosController');
+    Route::resource('products', 'ProductsController');
 
     Route::controller('/', 'PagesController');
 

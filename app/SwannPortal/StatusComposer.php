@@ -13,6 +13,6 @@ class StatusComposer
 
     public function compose(View $view)
     {
-        return $view->with('status');
+        return $view->with('status', session('status'));
     }
 }

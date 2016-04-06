@@ -15,14 +15,20 @@ class Product extends Model
         return ucwords($value);
     }
 
-    public function category()
+    public function searchByNameAndModel($query, $value)
     {
-        return $this->belongsTo(Category::class);
+        return $query->where('model_no', 'like', '%'. $value .'%')
+                    ->orWhere('name', 'like', '%' . $value . '%');
     }
 
-    public function document()
+    public function categories()
     {
-        return $this->belongsTo(Document::class);
+        return $this->belongsToMany(Category::class);
+    }
+
+    public function documents()
+    {
+        return $this->belongsToMany(Document::class);
     }
 
     public function photo()
@@ -38,5 +44,25 @@ class Product extends Model
     public function procedures()
     {
         return $this->hasMany(Procedure::class);
+    }
+
+    public function videos()
+    {
+        return $this->belongsToMany(Video::class);
+    }
+
+    public function firstCategory()
+    {
+        return $this->categories->first();
+    }
+
+    public function hasCategory($categoryId)
+    {
+        return $this->categories->where('id', $categoryId)->first();
+    }
+
+    public function scopeFeatured($query)
+    {
+        return $query->where('featured', 1);
     }
 }

@@ -54,11 +54,10 @@
 
                         <div class="form-group{{ $errors->has('category') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">Category</label>
-
                             <div class="col-md-6">
-                                <select name="category" id="" class="form-control">
+                                <select name="categories[]" id="" multiple class="form-control">
                                     @foreach($categories as $category)
-                                        <option value="{{ $category->id }}" {{ $product->category_id == $category->id ? 'selected' : '' }}>
+                                        <option value="{{ $category->id }}" {{ $product->hasCategory($category->id) ? 'selected' : ''}}>
                                             {{ $category->name }}
                                         </option>
                                     @endforeach

@@ -15,4 +15,9 @@ class Document extends Model
         return url( config('swannportal.path.documents') . $this->name . '.' . $this->extension);
     }
 
+    public function products()
+    {
+        return $this->belongsToMany(Product::class);
+    }
+
 }

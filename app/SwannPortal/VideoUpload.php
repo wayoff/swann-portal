@@ -60,7 +60,7 @@ class VideoUpload
                 'description' => $this->request->input('video_description'),
                 'featured'    => $this->request->input('video_featured'),
                 'name'        => $fileName,
-                'extension'   => 'mp4|ogg',
+                'extension'   => $extension,
                 'converted'   => 0
             ]);
 
@@ -70,7 +70,7 @@ class VideoUpload
                 'description' => $this->request->input('video_description'),
                 'featured'    => $this->request->input('video_featured')?: 0,
                 'name'        => $fileName,
-                'extension'   => 'mp4|ogg',
+                'extension'   => $extension,
                 'converted'   => 0
             ]);
         }

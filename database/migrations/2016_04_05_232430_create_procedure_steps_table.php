@@ -16,6 +16,8 @@ class CreateProcedureStepsTable extends Migration
             $table->increments('id');
             $table->integer('procedure_id');
             $table->integer('photo_id')->nullable();
+            $table->integer('document_id')->nullable();
+            $table->string('title', 250);
             $table->text('content');
             $table->timestamps();
         });

@@ -18,7 +18,7 @@
             <a href="{{ route('admin.products.{id}.procedures.index', $product->id) }}"> Procedures </a>
         </li>
         <li class="active">
-            <a href="#"> Create Procedure</a>
+            <a href="#"> Edit Procedure</a>
         </li>
     </ol>
 @stop
@@ -27,16 +27,17 @@
 <div class="row">
     <div class="col-md-12">
         <div class="panel panel-default">
-            <div class="panel-heading">Register Procedure</div>
+            <div class="panel-heading">Edit Procedure</div>
             <div class="panel-body">
-                <form class="form-horizontal" role="form" method="POST" enctype="multipart/form-data" action="{{ route('admin.products.{id}.procedures.store', $product->id) }}">
+                <form class="form-horizontal" role="form" method="POST" enctype="multipart/form-data" action="{{ route('admin.products.{id}.procedures.update', [$product->id, $procedure->id]) }}">
                     {!! csrf_field() !!}
+                    {!! method_field('PUT') !!}
 
                     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                         <label class="col-md-4 control-label">Name</label>
 
                         <div class="col-md-6">
-                            <input type="text" class="form-control" name="name" value="{{ old('name') }}">
+                            <input type="text" class="form-control" name="name" value="{{ $procedure->name }}">
 
                             @if ($errors->has('name'))
                                 <span class="help-block">
@@ -59,6 +60,18 @@
                             @endif
                         </div>
                     </div>
+                    
+                    @if($procedure->document_id)
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Current Document</label>
+
+                            <div class="col-md-6">
+                                <a href="{{ $procedure->document->getDocument() }}" class="btn btn-default" target="_blank">
+                                    {{ $procedure->document->name . '.' . $procedure->document->extension }}
+                                </a>
+                            </div>
+                        </div>
+                    @endif
 <!-- 
                     <div class="row">
                         <div class="col-md-12">

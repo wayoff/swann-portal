@@ -1,27 +1,34 @@
 @extends('admin.layouts.content')
 
 @section('Page__Description')
-    Products / Questions
+    Products / Procedures / Steps
 @stop
+
 
 @section('Breadcrumb')
     <ol class="breadcrumb">
         <li>
-            <i class="fa fa-book"></i>  <a href="{{ route('admin.questions.index') }}">Questions</a>
+            <i class="fa fa-book"></i>  <a href="{{ route('admin.products.index') }}">Products</a>
+        </li>
+        <li>
+            <a href="{{ route('admin.products.{id}.procedures.index', $product->id) }}"> {{ $procedure->name }}</a>
+        </li>
+        <li>
+            <a href="{{ route('admin.products.{id}.procedures.{procedureId}.steps.index', [$product->id, $procedure->id]) }}">Steps</a>
         </li>
         <li class="active">
-            <a href="#"> Create Question</a>
+            <a href="#">Add Step</a>
         </li>
     </ol>
 @stop
 
 @section('Content')
 <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-12">
         <div class="panel panel-default">
-            <div class="panel-heading">Register Question</div>
+            <div class="panel-heading">Register Procedure</div>
             <div class="panel-body">
-                <form class="form-horizontal" role="form" method="POST" enctype="multipart/form-data" action="{{ route('admin.questions.store') }}">
+                <form class="form-horizontal" role="form" method="POST" enctype="multipart/form-data" action="{{ route('admin.products.{id}.procedures.{procedureId}.steps.store', [$product->id, $procedure->id]) }}">
                     {!! csrf_field() !!}
                     <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
                         <label class="col-md-4 control-label">Title</label>
@@ -37,37 +44,34 @@
                         </div>
                     </div>
 
-                    <div class="form-group{{ $errors->has('answer') ? ' has-error' : '' }}">
-                        <label class="col-md-4 control-label">Answer</label>
+                    <div class="form-group{{ $errors->has('content') ? ' has-error' : '' }}">
+                        <label class="col-md-4 control-label">Content</label>
 
                         <div class="col-md-6">
-                            <input type="text" class="form-control" name="answer" value="{{ old('answer') }}">
+                            <textarea name="content" id="" cols="30" rows="10" class="form-control">{{ old('content') }}</textarea>
 
-                            @if ($errors->has('answer'))
+                            @if ($errors->has('content'))
                                 <span class="help-block">
-                                    <strong>{{ $errors->first('answer') }}</strong>
+                                    <strong>{{ $errors->first('content') }}</strong>
                                 </span>
                             @endif
                         </div>
                     </div>
 
-
-                    <div class="form-group{{ $errors->has('featured') ? ' has-error' : '' }}">
-                        <label class="col-md-4 control-label">is Featured ? </label>
+                    <div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
+                        <label class="col-md-4 control-label">Image</label>
 
                         <div class="col-md-6">
-                            <select name="featured" id="" class="form-control">
-                                <option value="0"> No </option>
-                                <option value="1"> Yes </option>
-                            </select>
+                            <input type="file" class="form-control" name="image" >
 
-                            @if ($errors->has('featured'))
+                            @if ($errors->has('image'))
                                 <span class="help-block">
-                                    <strong>{{ $errors->first('featured') }}</strong>
+                                    <strong>{{ $errors->first('image') }}</strong>
                                 </span>
                             @endif
                         </div>
                     </div>
+
 
                     <div class="form-group{{ $errors->has('document') ? ' has-error' : '' }}">
                         <label class="col-md-4 control-label">Document</label>
@@ -82,7 +86,6 @@
                             @endif
                         </div>
                     </div>
-
 
                     <div class="form-group">
                         <div class="col-md-6 col-md-offset-4">

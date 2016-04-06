@@ -4,11 +4,13 @@
 
 @section('Page__BreadCrumbs')
     <ol class="breadcrumb">
-        <li>
-            <a href="{{route('categories.{id}.products.index', $category->id)}}">
-                {{$category->name}}
-            </a>
-        </li>
+        @foreach($product->categories as $category)
+            <li>
+                <a href="{{route('categories.{id}.products.index', $category->id)}}">
+                    {{$category->name}}
+                </a>
+            </li>
+        @endforeach
         <li class="active">
             <a href="#">{{$product->name}}</a>
         </li>

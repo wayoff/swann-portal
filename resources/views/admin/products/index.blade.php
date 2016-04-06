@@ -32,8 +32,8 @@
             <thead>
                 <tr>
                     <td>ID</td>
-                    <td>Category</td>
                     <td>Name</td>
+                    <td>Category</td>
                     <td>Model No</td>
                     <td>Description</td>
                     <td>Featured</td>
@@ -53,8 +53,16 @@
                     @foreach($products as $product)
                     <tr>
                         <td>{{ string_pad($product->id) }}</td>
-                        <td>{{ $product->category->name }}</td>
                         <td>{{ str_limit($product->name, 60) }}</td>
+                        <td>
+                            <ul class="list-group">
+                            @foreach($product->categories as $category)
+                                <li class="list-group-item">
+                                    {{$category->name}}
+                                </li>
+                            @endforeach
+                            </ul>
+                        </td>
                         <td>{{ $product->model_no }}</td>
                         <td>{{ str_limit($product->description, 60) }}</td>
                         <td>{{ $product->featured ? 'Yes' : 'No' }}</td>
@@ -84,6 +92,11 @@
                                   <li>
                                     <a href="{{ route('admin.products.{id}.questions.index', $product->id) }}" class="btn btn-default btn-action">
                                         Questions
+                                    </a>
+                                  </li>
+                                  <li>
+                                    <a href="{{ route('admin.products.{id}.videos.index', $product->id) }}" class="btn btn-default btn-action">
+                                        Videos
                                     </a>
                                   </li>
                                   <li>

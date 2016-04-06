@@ -17,10 +17,12 @@ use App\SwannPortal\DocumentUpload;
 class ProductsController extends Controller
 {
     protected $products;
+    protected $categories;
 
-    public function __construct(Product $products)
+    public function __construct(Product $products, Category $categories)
     {
         $this->products = $products;
+        $this->categories = $categories;
     }
     /**
      * Display a listing of the resource.
@@ -29,7 +31,7 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $products = $this->products->paginate(10);
+        $products = $this->products->with('categories')->paginate(10);
 
         return view('admin.products.index', compact('products'));
     }
@@ -39,9 +41,9 @@ class ProductsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Category $categories)
+    public function create()
     {
-        $categories = $categories->all();
+        $categories = $this->categories->all();
 
         return view('admin.products.create', compact('categories'));
     }
@@ -54,18 +56,20 @@ class ProductsController extends Controller
      */
     public function store(ProductRequest $request, Photo $photos, Document $documents)
     {
+
         $photo = (new ImageUpload($request, $photos))->handle();
         $document = (new DocumentUpload($request, $documents))->handle();
 
-        $this->products->create([
+        $product = $this->products->create([
             'photo_id'    => $photo ? $photo->id : null,
             'document_id' => $document ? $document->id : null,
-            'category_id' => $request->input('category'),
             'name'        => $request->input('name'),
             'model_no'    => $request->input('model_no'),
             'description' => $request->input('description'),
             'featured'    => $request->input('featured')
         ]);
+
+        $product->categories()->sync( $request->input('categories') );
 
         return redirect(route('admin.products.index'))->with('status', 'Success on Creating new Product');
     }
@@ -76,10 +80,10 @@ class ProductsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id, Category $categories)
+    public function edit($id)
     {
         $product = $this->products->findOrFail($id);
-        $categories = $categories->all();
+        $categories = $this->categories->all();
 
         return view('admin.products.edit', compact('product', 'categories'));
     }
@@ -104,12 +108,13 @@ class ProductsController extends Controller
         $product->update([
             'photo_id'    => $photo ? $photo->id : null,
             'document_id' => $document ? $document->id : null,
-            'category_id' => $request->input('category'),
             'name'        => $request->input('name'),
             'model_no'    => $request->input('model_no'),
             'description' => $request->input('description'),
             'featured'    => $request->input('featured')
         ]);
+
+        $product->categories()->sync( $request->input('categories') );
 
         return redirect(route('admin.products.index'))->with('status', 'Success on Updating Product');
     }

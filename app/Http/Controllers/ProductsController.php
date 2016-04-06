@@ -28,9 +28,7 @@ class ProductsController extends Controller
         if (null !== $request->input('q')) {
             $q = $request->input('q');
 
-            $models = $models
-                        ->where('model_no', 'like', '%'. $q .'%')
-                        ->orWhere('name', 'like', '%' . $q . '%');
+            $models = $models->searchByNameAndModel($q);
         }
 
         $products = $models->paginate(20);

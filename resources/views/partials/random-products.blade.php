@@ -6,7 +6,7 @@
     @foreach($randomProducts as $randomProduct)
         <div class="col-md-4">
             <div class="Card">
-                <a href="{{route('categories.{id}.products.show', [$randomProduct->category_id, $randomProduct->id])}}">
+                <a href="{{route('categories.{id}.products.show', [$randomProduct->firstCategory()->id, $randomProduct->id])}}">
                     <img src="{{ $randomProduct->photo->getImage() }}" width="174" height="126" alt="image">
                 </a>
                 <h5>{{ $randomProduct->name }}</h5>

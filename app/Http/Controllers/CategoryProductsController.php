@@ -18,22 +18,21 @@ class CategoryProductsController extends Controller
 
     public function index($categoryId, Category $categories, Request $request)
     {
-        // $models = $this->products->where('category_id', '=', $categoryId)->distinct()->get();
         $q = null;
-        $model = $this->products->where('category_id', $categoryId);
-        $model = $model->with('photo');
+        $category = $categories->findOrFail($categoryId);
+
+        $model = $category->products()->with('photo');
 
         if (null !== $request->input('q')) {
             $q = $request->input('q');
 
             $model = $model
-                        ->where('model_no', 'like', '%'. $q .'%')
-                        ->orWhere('name', 'like', '%' . $q . '%');
+                        ->distinct()
+                        ->searchByNameAndModel($q)
+                        ->groupBy('products.id');
         }
 
         $products = $model->paginate(30);
-
-        $category = $categories->findOrFail($categoryId);
 
         return view('pages.category-products.index', compact('products', 'category', 'q'));
     }
@@ -42,8 +41,6 @@ class CategoryProductsController extends Controller
     {
         $product = $this->products->findOrFail($productId);
 
-        $category = $categories->findOrFail($categoryId);
-
-        return view('pages.category-products.show', compact('product', 'category'));
+        return view('pages.category-products.show', compact('product'));
     }
 }

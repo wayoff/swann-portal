@@ -28,7 +28,7 @@
                             <label class="col-md-4 control-label">Name</label>
 
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="name" value="{{ old('name') }}">
+                                <input type="text" class="form-control" name="name" value="{{ old('name') }}" required minlength="3" maxlength="250">
 
                                 @if ($errors->has('name'))
                                     <span class="help-block">
@@ -42,7 +42,7 @@
                             <label class="col-md-4 control-label">Model No</label>
 
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="model_no" value="{{ old('model_no') }}">
+                                <input type="text" class="form-control" name="model_no" value="{{ old('model_no') }}" required minlength="3" maxlength="250">
 
                                 @if ($errors->has('model_no'))
                                     <span class="help-block">
@@ -56,7 +56,7 @@
                             <label class="col-md-4 control-label">Category</label>
 
                             <div class="col-md-6">
-                                <select name="categories[]" id="" multiple class="form-control">
+                                <select name="categories[]" id="" multiple class="form-control" required>
                                     @foreach($categories as $category)
                                         <option value="{{ $category->id }}" {{ old('categories') == $category->id ? 'selected' : '' }}>
                                             {{ $category->name }}
@@ -76,7 +76,7 @@
                             <label class="col-md-4 control-label">Description</label>
 
                             <div class="col-md-6">
-                                <textarea name="description" id="" cols="30" rows="10" class="form-control">{{ old('description') }}</textarea>
+                                <textarea name="description" id="" cols="30" rows="10" class="form-control" required min="5">{{ old('description') }}</textarea>
 
                                 @if ($errors->has('description'))
                                     <span class="help-block">

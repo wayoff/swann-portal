@@ -29,7 +29,7 @@
                             <label class="col-md-4 control-label">Title</label>
 
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="title" value="{{ $news->title }}">
+                                <input type="text" class="form-control" name="title" value="{{ $news->title }}" required minlength="3" maxlength="60">
 
                                 @if ($errors->has('title'))
                                     <span class="help-block">
@@ -43,7 +43,7 @@
                             <label class="col-md-4 control-label">Content</label>
 
                             <div class="col-md-6">
-                                <textarea name="content" id="" cols="30" rows="10" class="form-control">{{ $news->content }}</textarea>
+                                <textarea name="content" id="" cols="30" rows="10" class="form-control" required minlength="10">{{ $news->content }}</textarea>
 
                                 @if ($errors->has('content'))
                                     <span class="help-block">

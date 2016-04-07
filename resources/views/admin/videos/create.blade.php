@@ -23,7 +23,8 @@
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" enctype="multipart/form-data" action="{{ route('admin.videos.store') }}">
                         {!! csrf_field() !!}
-
+                        
+                        @include('admin.partials.videos.create-form')
                     </form>
                 </div>
             </div>

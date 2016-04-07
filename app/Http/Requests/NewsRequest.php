@@ -24,7 +24,7 @@ class NewsRequest extends Request
     public function rules()
     {
         return [
-            'title'   => 'min:3|max:40',
+            'title'   => 'min:3|max:60',
             'content' => 'min:10',
             'image'   => 'image',
             'video'   => 'mimes:mp4, mpeg, flv, ogv'

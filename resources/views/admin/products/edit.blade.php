@@ -28,7 +28,7 @@
                             <label class="col-md-4 control-label">Name</label>
 
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="name" value="{{ $product->name }}">
+                                <input type="text" class="form-control" name="name" value="{{ $product->name }}" required minlength="3" maxlength="250">
 
                                 @if ($errors->has('name'))
                                     <span class="help-block">
@@ -42,7 +42,7 @@
                             <label class="col-md-4 control-label">Model No</label>
 
                             <div class="col-md-6">
-                                <input type="text" class="form-control" name="model_no" value="{{ $product->model_no }}">
+                                <input type="text" class="form-control" name="model_no" value="{{ $product->model_no }}" required minlength="3" maxlength="250">
 
                                 @if ($errors->has('model_no'))
                                     <span class="help-block">
@@ -55,7 +55,7 @@
                         <div class="form-group{{ $errors->has('category') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">Category</label>
                             <div class="col-md-6">
-                                <select name="categories[]" id="" multiple class="form-control">
+                                <select name="categories[]" id="" multiple class="form-control" required>
                                     @foreach($categories as $category)
                                         <option value="{{ $category->id }}" {{ $product->hasCategory($category->id) ? 'selected' : ''}}>
                                             {{ $category->name }}
@@ -75,7 +75,7 @@
                             <label class="col-md-4 control-label">Description</label>
 
                             <div class="col-md-6">
-                                <textarea name="description" id="" cols="30" rows="10" class="form-control">{{ $product->description }}</textarea>
+                                <textarea name="description" id="" cols="30" rows="10" class="form-control" required>{{ $product->description }}</textarea>
 
                                 @if ($errors->has('description'))
                                     <span class="help-block">
@@ -137,7 +137,7 @@
                         <label class="col-md-4 control-label">is Featured Product</label>
 
                         <div class="col-md-6">
-                            <select name="featured" id="" class="form-control">
+                            <select name="featured" id="" class="form-control" required>
                                 <option value="0"> No </option>
                                 <option value="1"> Yes </option>
                             </select>

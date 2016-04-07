@@ -7067,15 +7067,18 @@ body {
   padding: 0 0 !important; }
 
 .padding-10 {
-  padding: 10px 10px; }
+  padding: 10px; }
+
+.margin-10 {
+  margin: 10px; }
 
 .background-white {
   background-color: white; }
 
 .box-shadow {
-  box-shadow: 0 10px 6px -6px #777;
-  -moz-box-shadow: 0 10px 6px -6px #777;
-  -webkit-box-shadow: 0 10px 6px -6px #777; }
+  box-shadow: 0 10px 6px -6px #BCC3C7;
+  -moz-box-shadow: 0 10px 6px -6px #BCC3C7;
+  -webkit-box-shadow: 0 10px 6px -6px #BCC3C7; }
 
 .image-max-width-200 {
   max-width: 200px; }
@@ -7099,7 +7102,7 @@ body {
   display: block;
   padding: 0px 5px;
   margin: 5px;
-  border-bottom: 1px solid #777; }
+  border-bottom: 1px solid #BCC3C7; }
 
 .Home__Container {
   min-height: 300px;
@@ -7119,6 +7122,10 @@ body {
 .Video {
   padding: 10px 10px;
   background-color: white; }
+
+.Video__Iframe {
+  width: 100% !important;
+  height: 100% !important; }
 
 .Video:hover {
   z-index: 1;
@@ -7207,6 +7214,9 @@ body {
 
 .Navbar__Menu--Dropdown > li > a:hover {
   background-color: #0C7CD5; }
+
+.Navbar__Form--input {
+  margin-top: 5px; }
 
 .Footer {
   margin-top: 100px;
@@ -7333,9 +7343,9 @@ body {
 
 .Media__Horizontal--Tile-icon {
   font-size: 4em;
-  border: 1px solid #777;
+  border: 1px solid #BCC3C7;
   padding: 18px;
-  color: #777;
+  color: #BCC3C7;
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
@@ -7389,6 +7399,32 @@ body {
   font-size: 1.2em;
   display: inline-block;
   word-break: break-word; }
+
+.Product__Show--Procedure-Container {
+  margin: 20px 0; }
+
+.Product__Show--Procedure-Title {
+  color: #212121;
+  background-color: #f5f5f5;
+  border-color: #dddddd;
+  display: block;
+  padding: 5px 10px;
+  font-size: 1.5em;
+  font-weight: bold; }
+
+.Product__Show--Step-Container {
+  margin: 10px 0; }
+
+.Product__Show--Step-Title {
+  font-size: 1.4em;
+  font-weight: bold; }
+
+.Product__Show--Step-Content {
+  font-size: 1.2em; }
+
+.Product__Show--Step-Content-Image {
+  max-width: 500px;
+  max-height: 400px; }
 
 .tab-pane {
   padding-bottom: 50px;

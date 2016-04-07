@@ -5,3 +5,8 @@
 @import 'sb-admin';
 
 @import 'admin/components/navbar';
+
+.product-action-menu {
+    right: 0 !important;
+    left: inherit !important;
+}

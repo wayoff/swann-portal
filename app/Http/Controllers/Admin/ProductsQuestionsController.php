@@ -57,12 +57,17 @@ class ProductsQuestionsController extends Controller
     {
         $document = (new DocumentUpload($request, $documents))->handle();
 
-        $this->questions->create([
+        $question = $this->questions->create([
             'product_id'  => $id,
             'document_id' => $document ? $document->id : null,
             'title'       => $request->input('title'),
             'answer'      => $request->input('answer'),
             'featured'    => $request->input('featured'),
+        ]);
+
+        $this->saveKeyword($question, [
+            'content'     => $request->input('title'),
+            'description' => $request->input('answer')
         ]);
 
         return redirect(route('admin.products.{id}.questions.index', $id))->with('status', 'Success on Creating Adding new Question');
@@ -111,6 +116,11 @@ class ProductsQuestionsController extends Controller
             'title'       => $request->input('title'),
             'answer'      => $request->input('answer'),
             'featured'    => $request->input('featured'),
+        ]);
+
+        $this->updateKeyword($question, [
+            'content'     => $request->input('title'),
+            'description' => $request->input('answer')
         ]);
 
         return redirect(route('admin.products.{id}.questions.index', $id))->with('status', 'Success on Updating Question');

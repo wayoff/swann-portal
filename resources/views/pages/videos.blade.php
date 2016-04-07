@@ -24,8 +24,8 @@
                 <div class="col-md-4 Video">
                     <div class="embed-responsive embed-responsive-16by9">
                         <video class="embed-responsive-item Video__Iframe" controls>
-                          <source src="{{ $video->getOGG() }}" type="video/ogg">
                           <source src="{{ $video->getMP4() }}" type="video/mp4">
+                          <source src="{{ $video->getOGG() }}" type="video/ogg">
                           Your browser does not support HTML5 video.
                         </video>
                     </div>

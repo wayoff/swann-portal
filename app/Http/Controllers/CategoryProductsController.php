@@ -39,7 +39,11 @@ class CategoryProductsController extends Controller
 
     public function show(Category $categories, $categoryId, $productId)
     {
-        $product = $this->products->findOrFail($productId);
+        $product = $this->products->with([
+                'procedures.steps.document', 'procedures.steps.photo',
+                'videos', 'procedures', 'procedures.document',
+                'photo', 'questions', 'questions.document'
+            ])->findOrFail($productId);
 
         return view('pages.category-products.show', compact('product'));
     }

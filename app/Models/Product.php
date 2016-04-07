@@ -21,14 +21,23 @@ class Product extends Model
                     ->orWhere('name', 'like', '%' . $value . '%');
     }
 
+    public function keyword()
+    {
+        return $this->morphOne(Keyword::class, 'keywordable');
+    }
+
     public function categories()
     {
         return $this->belongsToMany(Category::class);
     }
 
-    public function documents()
+    // public function documents()
+    // {
+    //     return $this->belongsToMany(Document::class);
+    // }
+    public function document()
     {
-        return $this->belongsToMany(Document::class);
+        return $this->belongsTo(Document::class);
     }
 
     public function photo()

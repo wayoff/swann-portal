@@ -69,6 +69,11 @@ class ProductsController extends Controller
             'featured'    => $request->input('featured')
         ]);
 
+        $this->saveKeyword($product, [
+            'content'     => $request->input('name'),
+            'description' => $request->input('description')
+        ]);
+
         $product->categories()->sync( $request->input('categories') );
 
         return redirect(route('admin.products.index'))->with('status', 'Success on Creating new Product');
@@ -114,6 +119,11 @@ class ProductsController extends Controller
             'featured'    => $request->input('featured')
         ]);
 
+        $this->saveKeyword($product, [
+            'content'     => $request->input('name'),
+            'description' => $request->input('description')
+        ]);
+        
         $product->categories()->sync( $request->input('categories') );
 
         return redirect(route('admin.products.index'))->with('status', 'Success on Updating Product');

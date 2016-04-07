@@ -64,6 +64,10 @@
                         </li>
                     @endif
                 </ul>
+                
+                <form action="/search" class="navbar-form pull-right" method="get">
+                    <input type="text" name="q" style="width: 200px;" id="Navbar__Form--input" class="form-control Navbar__Form--input">
+                </form>
             </div><!-- /.navbar-collapse -->
         </div>
     </div>

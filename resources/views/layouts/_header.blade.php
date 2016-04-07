@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Swann Portal</title>
     <link rel="stylesheet" href="/css/non-admin.css">
+    <link href="/video/mediaelementplayer.min.css" rel="stylesheet">
     @yield('header')
 </head>
 <body>

@@ -10,6 +10,11 @@ class ProcedureStep extends Model
         'procedure_id', 'photo_id', 'document_id', 'title', 'content'
     ];
 
+    public function keyword()
+    {
+        return $this->morphOne(Keyword::class, 'keywordable');
+    }
+    
     public function procedure()
     {
         return $this->belongsTo(Procedure::class);

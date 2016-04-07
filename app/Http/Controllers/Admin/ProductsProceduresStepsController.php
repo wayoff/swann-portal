@@ -71,12 +71,18 @@ class ProductsProceduresStepsController extends Controller
         $document = (new DocumentUpload($request, $documents))->handle();
 
 
-        $procedureStep = $this->procedureSteps->create([
+        $step = $this->procedureSteps->create([
             'procedure_id'=> $procedureId,
             'photo_id'    => $photo ? $photo->id : null,
             'document_id' => $document ? $document->id : null,
             'title'       => $request->input('title'),
             'content'     => $request->input('content'),
+        ]);
+
+
+        $this->saveKeyword($step, [
+            'content'     => $request->input('title'),
+            'description' => $request->input('content')
         ]);
 
         return redirect(route('admin.products.{id}.procedures.{procedureId}.steps.index',[$id, $procedureId]))
@@ -123,6 +129,11 @@ class ProductsProceduresStepsController extends Controller
             'document_id' => $document ? $document->id : null,
             'title'       => $request->input('title'),
             'content'     => $request->input('content'),
+        ]);
+
+        $this->updateKeyword($step, [
+            'content'     => $request->input('title'),
+            'description' => $request->input('content')
         ]);
 
         return redirect(route('admin.products.{id}.procedures.{procedureId}.steps.index',[$id, $procedureId]))

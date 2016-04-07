@@ -3,6 +3,11 @@
     background-color: white;
 }
 
+.Video__Iframe {
+    width: 100% !important;
+    height: 100% !important;
+}
+
 .Video:hover {
     z-index: 1;
     box-shadow: 0 0 6px 1px #777;

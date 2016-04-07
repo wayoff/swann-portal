@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\News;
 use App\Models\Video;
 use App\Http\Requests;
+use App\Models\Keyword;
 use App\Models\Question;
 use Illuminate\Http\Request;
 
@@ -39,5 +40,14 @@ class PagesController extends Controller
         $news = $news->orderBy('id', 'desc')->paginate(1);
         
         return view('pages.news', compact('news'));
+    }
+
+    public function getSearch(Request $request, Keyword $keywords)
+    {
+        $query = $request->input('q');
+
+        $searches = $keywords->search($query)->get();
+
+        return view('pages.search', compact('searches'));
     }
 }

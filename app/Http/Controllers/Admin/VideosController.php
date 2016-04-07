@@ -49,6 +49,11 @@ class VideosController extends Controller
     {
         $video = (new VideoUpload($request, $this->videos))->handle();
 
+        $this->saveKeyword($video, [
+            'content'     => $request->input('video_title'),
+            'description' => $request->input('video_description')
+        ]);
+        
         return redirect(route('admin.videos.index'))->with('status', 'Success on Adding Video');
     }
 
@@ -75,6 +80,11 @@ class VideosController extends Controller
     public function update(VideoRequest $request, $id)
     {
         $video = (new VideoUpload($request, $this->videos, $id))->handle();
+
+        $this->updateKeyword($video, [
+            'content'     => $request->input('video_title'),
+            'description' => $request->input('video_description')
+        ]);
 
         return redirect(route('admin.videos.index'))->with('status', 'Success on Updating Video');
     }

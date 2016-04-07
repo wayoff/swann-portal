@@ -58,10 +58,15 @@ class ProductsProceduresController extends Controller
     {
         $document = (new DocumentUpload($request, $documents))->handle();
 
-        $this->procedures->create([
+        $procedure = $this->procedures->create([
             'product_id'  => $id,
             'document_id' => $document ? $document->id : null,
             'name'        => $request->input('name')
+        ]);
+
+        $this->saveKeyword($procedure, [
+            'content'     => $request->input('name'),
+            'description' => ''
         ]);
 
         return redirect(route('admin.products.{id}.procedures.index', $id))->with('status', 'Success on Creating Adding new Procedure');
@@ -97,6 +102,11 @@ class ProductsProceduresController extends Controller
         $procedure->update([
             'document_id' => $document ? $document->id : null,
             'name'        => $request->input('name')
+        ]);
+
+        $this->updateKeyword($video, [
+            'content'     => $request->input('name'),
+            'description' => ''
         ]);
 
         return redirect(route('admin.products.{id}.procedures.index', $id))->with('status', 'Success on Updating Procedures');

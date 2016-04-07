@@ -17,7 +17,7 @@ class CreateProductsTable extends Migration
             $table->integer('photo_id')->nullable();
             $table->integer('document_id')->nullable();
             $table->string('name', 250);
-            $table->string('model_no', 250);
+            $table->string('model_no', 250)->nullable();
             $table->text('description');
             $table->tinyInteger('featured')->default(0);
             $table->timestamps();

@@ -15,6 +15,10 @@
 
                 e.preventDefault();
             });
+
+            // $('form').on('submit', function() {
+            //     $($(this).find(':submit').attr('disabled', 'disabled');
+            // });
         });
     </script>
     @yield('footer')

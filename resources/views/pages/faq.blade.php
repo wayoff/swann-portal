@@ -1,4 +1,3 @@
-
 @extends('layouts.descriptive-content')
 
 @section('Page__Title', 'Frequently Asked Question')
@@ -13,6 +12,7 @@
         </li>
     </ol>
 @stop
+
 @section('content')
 <div class="row">
     <div class="col-md-12">

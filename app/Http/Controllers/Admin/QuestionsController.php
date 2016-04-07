@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Models\Keyword;
 use App\Models\Question;
 use App\Models\Document;
 use App\SwannPortal\DocumentUpload;
@@ -51,12 +52,17 @@ class QuestionsController extends Controller
     {
         $document = (new DocumentUpload($request, $documents))->handle();
 
-        $this->questions->create([
+        $question = $this->questions->create([
             'product_id'  => null,
             'document_id' => $document ? $document->id : null,
             'title'       => $request->input('title'),
             'answer'      => $request->input('answer'),
             'featured'    => $request->input('featured'),
+        ]);
+
+        $this->saveKeyword($question, [
+            'content'     => $request->input('title'),
+            'description' => $request->input('answer')
         ]);
 
         return redirect(route('admin.questions.index'))->with('status', 'Success on Adding Question');
@@ -93,6 +99,11 @@ class QuestionsController extends Controller
             'title'       => $request->input('title'),
             'answer'      => $request->input('answer'),
             'featured'    => $request->input('featured'),
+        ]);
+
+        $this->updateKeyword($question, [
+            'content'     => $request->input('title'),
+            'description' => $request->input('answer')
         ]);
 
         return redirect(route('admin.questions.index'))->with('status', 'Success on Updating Question');

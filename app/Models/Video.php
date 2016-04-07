@@ -10,6 +10,11 @@ class Video extends Model
         'title', 'description', 'name', 'extension', 'converted', 'featured'
     ];
 
+    public function keyword()
+    {
+        return $this->morphOne(Keyword::class, 'keywordable');
+    }
+
     public function getMP4()
     {
         return url( config('swannportal.path.videos') . $this->name . '.' . 'mp4');

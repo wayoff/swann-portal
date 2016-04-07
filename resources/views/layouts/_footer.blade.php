@@ -27,6 +27,8 @@
 
     <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <script src="/video/mediaelement-and-player.min.js"></script>
+    <script src="/video/mediaelementplayer.min.js"></script>
     <script>
         $( function() {
             $('.Sidebar__Toggle').hover(function() {
@@ -37,6 +39,19 @@
                 $('.Sidebar__Toggle').removeClass('active');
                 $('.Sidebar').removeClass('active');
             });
+
+            var defaultPlaceholder = 'Search ....';
+
+            $('.Navbar__Form--input')
+                .attr('placeholder', defaultPlaceholder)
+                .on('focus', function() {
+                    $(this).attr('placeholder', 'Press Enter to search');
+                }).on('focusout', function() {
+                    $(this).attr('placeholder', defaultPlaceholder);
+                });
+        });
+        $(window).load( function() {
+            $('video').mediaelementplayer({});
         });
     </script>
 </body>

@@ -24,4 +24,9 @@ class Procedure extends Model
     {
         return $this->belongsTo(Document::class);
     }
+
+    public function keyword()
+    {
+        return $this->morphOne(Keyword::class, 'keywordable');
+    }
 }

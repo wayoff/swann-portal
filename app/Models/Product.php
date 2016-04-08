@@ -15,7 +15,7 @@ class Product extends Model
         return ucwords($value);
     }
 
-    public function searchByNameAndModel($query, $value)
+    public function scopeSearchByNameAndModel($query, $value)
     {
         return $query->where('model_no', 'like', '%'. $value .'%')
                     ->orWhere('name', 'like', '%' . $value . '%');

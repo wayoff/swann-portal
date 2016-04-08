@@ -20,10 +20,25 @@
         .action-dropdown-menu {
             padding: 0 0;
         }
+        .form-search-group {
+            width: 60% !important;
+            margin: 20px !important;
+        }
+        .form-search-group-text {
+            width: 100% !important;
+        }
     </style>
 @stop
 
 @section('Content')
+    <div class="col-md-12 text-center">
+        <form action="{{ route('admin.products.index') }}" method="GET" class="form-inline" role="form">
+            <div class="form-group form-search-group">
+                <label class="sr-only" for="">Name</label>
+                <input type="name" name="q" class="form-control form-search-group-text" placeholder="Search..." value="{{$q}}">
+            </div>
+        </form>
+    </div>
     <div class="col-md-12">
         <div class="pull-right">
             <a href="{{ route('admin.products.create') }}" class="btn btn-primary"> Add Product</a>

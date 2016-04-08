@@ -29,11 +29,19 @@ class ProductsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $products = $this->products->with('categories')->paginate(10);
+        $q = $request->input('q')?: null;
 
-        return view('admin.products.index', compact('products'));
+        $model = $this->products->with('categories');
+
+        if (!empty($q)) {
+            $model = $model->searchByNameAndModel($q);
+        }
+        
+        $products = $model->paginate(10);
+
+        return view('admin.products.index', compact('products', 'q'));
     }
 
     /**

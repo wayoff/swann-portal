@@ -25,7 +25,7 @@ class QuestionsRequest extends Request
     {
         return [
             'title'    => 'required|min:4|max:150',
-            'answer'   => 'required|min:3|max:255',
+            'answer'   => 'required|min:3',
             'featured' => 'required',
             'document' => 'mimes:doc,dot,docx,pdf'
         ];

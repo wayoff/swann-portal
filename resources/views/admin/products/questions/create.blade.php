@@ -50,7 +50,8 @@
                         <label class="col-md-4 control-label">Answer</label>
 
                         <div class="col-md-6">
-                            <input type="text" class="form-control" name="answer" value="{{ old('answer') }}">
+
+                            <textarea name="answer" class="form-control">{{ old('answer') }}</textarea>
 
                             @if ($errors->has('answer'))
                                 <span class="help-block">

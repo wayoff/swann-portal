@@ -19,7 +19,7 @@ class VideoUpload
         $this->videos = $videos;
         $this->request = $request;
 
-        $this->destination = public_path() . config('swannportal.path.temp');
+        $this->destination = public_path() . config('swannportal.path.videos');
     }
 
     public function handle()

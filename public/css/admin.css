@@ -5374,15 +5374,18 @@ body {
   padding: 0 0 !important; }
 
 .padding-10 {
-  padding: 10px 10px; }
+  padding: 10px; }
+
+.margin-10 {
+  margin: 10px; }
 
 .background-white {
   background-color: white; }
 
 .box-shadow {
-  box-shadow: 0 10px 6px -6px #777;
-  -moz-box-shadow: 0 10px 6px -6px #777;
-  -webkit-box-shadow: 0 10px 6px -6px #777; }
+  box-shadow: 0 10px 6px -6px #BCC3C7;
+  -moz-box-shadow: 0 10px 6px -6px #BCC3C7;
+  -webkit-box-shadow: 0 10px 6px -6px #BCC3C7; }
 
 .image-max-width-200 {
   max-width: 200px; }
@@ -5574,5 +5577,9 @@ ul.alert-dropdown {
 
 .Navbar__Menu > li:hover {
   background-color: #080808 !important; }
+
+.product-action-menu {
+  right: 0 !important;
+  left: inherit !important; }
 
 /*# sourceMappingURL=admin.css.map */

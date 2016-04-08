@@ -5,6 +5,7 @@
 /public/uploads/images/
 /public/uploads/videos/
 /public/uploads/documents/
+/config/ffmpeg.php
 Homestead.yaml
 Homestead.json
 .env

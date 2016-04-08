@@ -66,5 +66,5 @@ return [
     |
     */
 
-   'tmp_dir'      => 'C:/ffmpeg/tmp/'
+   'tmp_dir'      => '/usr/bin/www/tmp/'
 ];

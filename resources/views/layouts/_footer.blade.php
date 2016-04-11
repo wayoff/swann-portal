@@ -62,5 +62,10 @@
             });
         });
     </script>
+    <style>
+    .mejs-poster {
+        display: none !important;
+    }
+    </style>
 </body>
 </html>

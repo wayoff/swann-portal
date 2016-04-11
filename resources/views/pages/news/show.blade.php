@@ -31,8 +31,8 @@
             @if($news->video->converted)
                 <div class="col-md-8 News__Show--Video-Container">
                 <h5>{{ $news->video->title }}</h5>
-                    <div class="embed-responsive embed-responsive-16by9 News__Show--Video">
-                        <video controls>
+                    <div class="embed-responsive embed-responsive-16by9">
+                        <video class="embed-responsive-item Video__Iframe" controls preload="true">
                           <source src="{{ $news->video->getMP4() }}" type="video/mp4">
                           <source src="{{ $news->video->getOGG() }}" type="video/ogg">
                           Your browser does not support HTML5 video.

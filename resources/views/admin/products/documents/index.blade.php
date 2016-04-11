@@ -1,7 +1,7 @@
 @extends('admin.layouts.content')
 
 @section('Page__Description')
-    Products / Procedures
+    Products / Documents
 @stop
 
 @section('Breadcrumb')
@@ -10,10 +10,10 @@
             <i class="fa fa-book"></i>  <a href="{{ route('admin.products.index') }}">Products</a>
         </li>
         <li>
-            <a href="{{ route('admin.products.{id}.procedures.index', $product->id) }}"> {{ $product->name }}</a>
+            <a href="{{ route('admin.products.{id}.documents.index', $product->id) }}"> {{ $product->name }}</a>
         </li>
         <li class="active">
-            <a href="#">Procedures</a>
+            <a href="#">Documents</a>
         </li>
     </ol>
 @stop
@@ -21,43 +21,40 @@
 @section('Content')
     <div class="col-md-offset-1 col-md-10">
         <div class="pull-right">
-            <a href="{{ route('admin.products.{id}.procedures.create', $product->id) }}" class="btn btn-primary"> Add Procedures</a>
+            <a href="{{ route('admin.products.{id}.documents.create', $product->id) }}" class="btn btn-primary"> Add Document</a>
         </div>
         <table class="table table-hover table-condensed table-bordered">
             <thead>
                 <tr>
                     <td>ID</td>
-                    <td>Name</td>
-                    <td>Document</td>
+                    <td>Label</td>
+                    <td>Description</td>
+                    <td>File</td>
                     <td>Action</td>
                 </tr>
             </thead>
             <tbody>
-                @if($procedures->isEmpty())
+                @if($documents->count() === 0)
                     <tr>
                         <td colspan="10" class="text-center">
                             No data was found
                         </td>
                     </tr>
                 @else
-                    @foreach($procedures as $procedure)
+                    @foreach($documents as $document)
                     <tr>
-                        <td>{{ string_pad($procedure->id) }}</td>
-                        <td>{{ $procedure->name }}</td>
+                        <td>{{ string_pad($document->id) }}</td>
+                        <td>{{ $document->pivot->label }}</td>
+                        <td>{{ $document->pivot->description }}</td>
                         <td>
-                            @if($procedure->document_id)
-                                <a href="{{ $procedure->document->getDocument() }}" target="_blank" class="btn btn-xs btn-primary"> view </a>
-                            @else
-                                No Document Available
-                            @endif
+                                <a href="{{ $document->getDocument() }}" target="_blank" class="btn btn-xs btn-primary"> view </a>
                         </td>
                         <td>
-                            <form action="{{ route('admin.products.{id}.procedures.destroy', [$product->id, $procedure->id]) }}" method="POST" class="form-inline" role="form">
+                            <form action="{{ route('admin.products.{id}.documents.destroy', [$product->id, $document->id]) }}" method="POST" class="form-inline" role="form">
                                 {!! csrf_field() !!}
                                 {!! method_field('delete') !!}
 
-                                <a href="{{ route('admin.products.{id}.procedures.edit', [$product->id, $procedure->id]) }}" class="btn btn-info btn-xs"> Edit</a>
-                                <a href="{{ route('admin.products.{id}.procedures.{procedureId}.steps.index', [$product->id, $procedure->id]) }}" class="btn btn-primary btn-xs"> Steps</a>
+                                <a href="{{ route('admin.products.{id}.documents.edit', [$product->id, $document->id]) }}" class="btn btn-info btn-xs"> Edit</a>
                                 <button type="submit" class="btn btn-warning btn-xs btn-delete">Delete</button>
                             </form>
                         </td>

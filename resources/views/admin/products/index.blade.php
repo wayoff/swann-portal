@@ -105,6 +105,11 @@
                                 Actions <span class="caret"></span></button>
                                 <ul class="action-dropdown-menu dropdown-menu product-action-menu" role="menu">
                                   <li>
+                                    <a href="{{ route('admin.products.{id}.documents.index', $product->id) }}" class="btn btn-default btn-action">
+                                        Documents
+                                    </a>
+                                  </li>
+                                  <li>
                                     <a href="{{ route('admin.products.{id}.questions.index', $product->id) }}" class="btn btn-default btn-action">
                                         Questions
                                     </a>

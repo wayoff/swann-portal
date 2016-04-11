@@ -38,7 +38,7 @@ class Product extends Model
 
     public function documents()
     {
-        return $this->belongsToMany(Document::class);
+        return $this->belongsToMany(Document::class)->withPivot('label', 'description');
     }
 
     public function document()

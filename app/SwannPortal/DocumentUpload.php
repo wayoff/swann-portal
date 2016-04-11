@@ -46,14 +46,14 @@ class DocumentUpload
             \File::delete(public_path() . config('swannportal.path.documents') . $document->name . '.' . $document->extension);
 
             $document->update([
-                'name'      => $fileName,
-                'extension' => $extension
+                'name'        => $fileName,
+                'extension'   => $extension
             ]);
 
         } else {
             $document = $this->documents->create([
-                'name'      => $fileName,
-                'extension' => $extension
+                'name'        => $fileName,
+                'extension'   => $extension
             ]);
         }
 

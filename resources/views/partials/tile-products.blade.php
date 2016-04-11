@@ -6,8 +6,8 @@
               <a href="{{route('categories.{id}.products.show', [ isset($category) ? $category->id : $product->firstCategory()->id, $product->id])}}">
                   <img src="{{ $product->photo_id ? $product->photo->getImage() : default_img() }}" class="Card__Image" alt="...">
                 </a>
-                <span class="Card__Title">{{ $product->name }}</span>
-                <small>Model: {{ $product->model_no }} </small>
+                <span class="Card__Title">{{ str_limit($product->name, 40) }}</span>
+                <small>Model: {{ str_limit($product->model_no, 20) }} </small>
             </div>
           </div>
         @endforeach

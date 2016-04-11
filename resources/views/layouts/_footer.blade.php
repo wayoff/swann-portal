@@ -51,7 +51,15 @@
                 });
         });
         $(window).load( function() {
-            $('video').mediaelementplayer({});
+            $('video').mediaelementplayer({
+            features: ["playpause","progress","current","duration","volume","fullscreen"],
+            success:  function (mediaElement, domObject) { 
+                    mediaElement.addEventListener("ended", function(e){ 
+                        var $thisMediaElement = (mediaElement.id) ? $("#"+mediaElement.id) : $(mediaElement);
+                        $thisMediaElement.parents(".mejs-inner").find(".mejs-poster").show();
+                    });
+                }
+            });
         });
     </script>
 </body>

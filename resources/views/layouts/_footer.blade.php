@@ -56,7 +56,7 @@
             success:  function (mediaElement, domObject) { 
                     mediaElement.addEventListener("ended", function(e){ 
                         var $thisMediaElement = (mediaElement.id) ? $("#"+mediaElement.id) : $(mediaElement);
-                        $thisMediaElement.parents(".mejs-inner").find(".mejs-poster").show();
+                        $thisMediaElement.parents(".mejs-inner").find(".mejs-poster").hide();
                     });
                 }
             });

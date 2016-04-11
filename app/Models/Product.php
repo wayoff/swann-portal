@@ -21,6 +21,11 @@ class Product extends Model
                     ->orWhere('name', 'like', '%' . $value . '%');
     }
 
+    public function scopeLastUpdated($query)
+    {
+        return $query->orderBy('updated_at', 'desc');
+    }
+
     public function keyword()
     {
         return $this->morphOne(Keyword::class, 'keywordable');

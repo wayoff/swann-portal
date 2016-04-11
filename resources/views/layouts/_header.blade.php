@@ -9,6 +9,11 @@
     <link rel="icon" 
           type="image/png" 
           href="/favicon.png">
+    <style>
+    .mejs-poster {
+        display: none !important;
+    }
+    </style>
     @yield('header')
 </head>
 <body>

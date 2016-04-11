@@ -11,7 +11,7 @@
                     <a href="{{route('categories.{id}.products.show', [$randomProduct->firstCategory()->id, $randomProduct->id])}}">
                         <img src="{{ $randomProduct->photo->getImage() }}" width="174" height="160" alt="image">
                     </a>
-                    <h5>{{ $randomProduct->name }}</h5>
+                    <h5>{{ str_limit($randomProduct->name, 30) }}</h5>
                     <p>
                         {{ str_limit($randomProduct->description, 60) }}
                     </p>

@@ -33,8 +33,8 @@
                 <h5>{{ $news->video->title }}</h5>
                     <div class="embed-responsive embed-responsive-16by9 News__Show--Video">
                         <video controls>
-                          <source src="{{ $news->video->getOGG() }}" type="video/ogg">
                           <source src="{{ $news->video->getMP4() }}" type="video/mp4">
+                          <source src="{{ $news->video->getOGG() }}" type="video/ogg">
                           Your browser does not support HTML5 video.
                         </video>
                     </div>

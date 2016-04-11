@@ -1,3 +1,13 @@
+<style>
+    .Carousel__Item {
+        height: 400px;
+        padding: 20px;
+    }
+
+    .Carousel__Item--img {
+        width: 100%;
+    }
+</style>
 <div id="carousel-id" class="carousel slide" data-ride="carousel">
     <ol class="carousel-indicators">
         @if($sliders->isEmpty())
@@ -44,11 +54,11 @@
             </div>
         @else
             @foreach($sliders as $key => $slider)
-                <div class="item {{ $key === 1 ? 'active' : '' }}">
-                    <img src="{{ $slider->photo->getImage() }}" class="max-width-100">
+                <div class="item {{ $key === 1 ? 'active' : '' }} Carousel__Item">
+                    <img src="{{ $slider->photo->getImage() }}" class="max-width-100 Carousel__Item--img">
                     <div class="container">
                         <div class="carousel-caption">
-                            <h1>{{ $slider->title }}</h1>
+                            <h3>{{ $slider->title }}</h3>
                             <p> {{ $slider->description }}</p>
                         </div>
                     </div>

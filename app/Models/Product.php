@@ -31,10 +31,11 @@ class Product extends Model
         return $this->belongsToMany(Category::class);
     }
 
-    // public function documents()
-    // {
-    //     return $this->belongsToMany(Document::class);
-    // }
+    public function documents()
+    {
+        return $this->belongsToMany(Document::class);
+    }
+
     public function document()
     {
         return $this->belongsTo(Document::class);

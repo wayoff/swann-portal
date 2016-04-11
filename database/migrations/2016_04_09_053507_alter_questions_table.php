@@ -25,7 +25,7 @@ class AlterQuestionsTable extends Migration
     public function down()
     {
         Schema::table('questions', function(Blueprint $table) {
-            $table->string('answer', 255);
+            $table->string('answer', 255)->change();
         });
     }
 }

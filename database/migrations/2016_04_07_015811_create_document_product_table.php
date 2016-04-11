@@ -12,11 +12,12 @@ class CreateDocumentProductTable extends Migration
      */
     public function up()
     {
-        // Schema::create('document_product', function (Blueprint $table) {
-        //     $table->integer('document_id');
-        //     $table->integer('product_id');
-        //     $table->string('filename', 60);
-        // });
+        Schema::create('document_product', function (Blueprint $table) {
+            $table->integer('document_id');
+            $table->integer('product_id');
+            $table->string('label', 255)->nullable();
+            $table->text('description')->nullable();
+        });
     }
 
     /**
@@ -26,6 +27,6 @@ class CreateDocumentProductTable extends Migration
      */
     public function down()
     {
-        // Schema::drop('document_product');
+        Schema::dropIfExists('document_product');
     }
 }

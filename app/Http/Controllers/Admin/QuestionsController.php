@@ -27,7 +27,7 @@ class QuestionsController extends Controller
      */
     public function index()
     {
-        $questions = $this->questions->paginate(20);
+        $questions = $this->questions->where('product_id', null)->paginate(20);
 
         return view('admin.questions.index', compact('questions'));
     }

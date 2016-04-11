@@ -140,7 +140,11 @@
                                     <h4 class="Video__Title">{{ $video->title }}</h4>
                                     <hr />
                                     <div class="embed-responsive embed-responsive-16by9">
-                                        <video class="embed-responsive-item Video__Iframe" controls preload="true">
+                                        <video class="embed-responsive-item Video__Iframe" 
+                                            controls 
+                                            preload="true"
+                                            poster="/img/swann-logo.png"
+                                        >
                                           <source src="{{ $video->getMP4() }}" type="video/mp4">
                                           <source src="{{ $video->getOGG() }}" type="video/ogg">
                                           Your browser does not support HTML5 video.

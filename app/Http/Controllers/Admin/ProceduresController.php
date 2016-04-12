@@ -60,14 +60,8 @@ class ProceduresController extends Controller
             'document_id' => $document ? $document->id : null,
             'name'        => $request->input('name')
         ]);
-
-        $collection = collect($request->input('product'));
         
-        $collection = $collection->map(function($product) use($products) {
-            return $products->findOrFail($product);
-        });
-
-        $procedure->products()->saveMany($collection);
+        $procedure->products()->sync($request->input('product'));
 
         return redirect(route('admin.procedures.index'))->with('success', 'Success on Adding new Troubleshootin');
     }

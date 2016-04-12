@@ -4,15 +4,14 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
-use App\Models\Keyword;
+use App\Models\Product;
 use App\Models\Question;
 use App\Models\Document;
 use App\SwannPortal\DocumentUpload;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\QuestionsRequest;
 
-class QuestionsController extends Controller
+class QuestionsProductsController extends Controller
 {
     protected $questions;
 
@@ -27,9 +26,12 @@ class QuestionsController extends Controller
      */
     public function index()
     {
-        $questions = $this->questions->doesntHave('products')->where('product_id', null)->paginate(20);
+        $questions = $this->questions
+                        ->with('products')
+                        ->has('products')
+                        ->paginate(20);
 
-        return view('admin.questions.index', compact('questions'));
+        return view('admin.questions-products.index', compact('questions'));
     }
 
     /**
@@ -39,7 +41,7 @@ class QuestionsController extends Controller
      */
     public function create()
     {
-        return view('admin.questions.create');
+        return view('admin.questions-products.create');
     }
 
     /**
@@ -48,7 +50,9 @@ class QuestionsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(QuestionsRequest $request, Document $documents)
+    public function store(
+        QuestionsRequest $request, Document $documents, Product $products
+    )
     {
         $document = (new DocumentUpload($request, $documents))->handle();
 
@@ -60,12 +64,20 @@ class QuestionsController extends Controller
             'featured'    => $request->input('featured'),
         ]);
 
-        $this->saveKeyword($question, [
-            'content'     => $request->input('title'),
-            'description' => $request->input('answer')
-        ]);
+        $question->products()->sync($request->input('product'));
 
-        return redirect(route('admin.questions.index'))->with('status', 'Success on Adding Question');
+        return redirect(route('admin.questions.products.index'))->with('status', 'Success on Adding Question');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
     }
 
     /**
@@ -78,7 +90,7 @@ class QuestionsController extends Controller
     {
         $question = $this->questions->findOrFail($id);
 
-        return view('admin.questions.edit', compact('question'));
+        return view('admin.questions-products.edit', compact('question'));
     }
 
     /**
@@ -88,7 +100,7 @@ class QuestionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(QuestionsRequest $request, Document $documents, $id)
+    public function update(Request $request, Document $documents, $id)
     {
         $question = $this->questions->findOrFail($id);
 
@@ -101,12 +113,9 @@ class QuestionsController extends Controller
             'featured'    => $request->input('featured'),
         ]);
 
-        $this->updateKeyword($question, [
-            'content'     => $request->input('title'),
-            'description' => $request->input('answer')
-        ]);
+        $question->products()->sync($request->input('product'));
 
-        return redirect(route('admin.questions.index'))->with('status', 'Success on Updating Question');
+        return redirect(route('admin.questions.products.index'))->with('status', 'Success on Updating Question');
     }
 
     /**
@@ -117,8 +126,17 @@ class QuestionsController extends Controller
      */
     public function destroy($id)
     {
-        $this->questions->findOrFail($id)->delete();
+        $question = $this->questions->findOrFail($id);
 
-        return redirect(route('admin.questions.index'))->with('status', 'Success on Deleting Question');
+        $products = $question->products;
+
+        $ids = $products->map(function($product) {
+            return $product->id;
+        });
+
+        $question->products()->detach($ids);
+        $question->delete();
+
+        return redirect(route('admin.questions.products.index'))->with('status', 'Success on Deleting Question');
     }
 }

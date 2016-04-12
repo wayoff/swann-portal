@@ -85,4 +85,9 @@ class Product extends Model
     {
         return $this->belongsToMany(Procedure::class);
     }
+
+    public function otherQuestions()
+    {
+        return $this->belongsToMany(Question::class);
+    }
 }

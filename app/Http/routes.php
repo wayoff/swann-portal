@@ -11,6 +11,8 @@ Route::group([
     Route::resource('sliders', 'SlidersController');
     Route::resource('news', 'NewsController');
     Route::resource('videos', 'VideosController');
+    
+    Route::resource('questions/products', 'QuestionsProductsController');
     Route::resource('questions', 'QuestionsController');
 
     Route::resource('procedures/{id}/steps', 'ProcedureStepsController');

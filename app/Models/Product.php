@@ -80,4 +80,9 @@ class Product extends Model
     {
         return $query->where('featured', 1);
     }
+
+    public function troubleShooting()
+    {
+        return $this->belongsToMany(Procedure::class);
+    }
 }

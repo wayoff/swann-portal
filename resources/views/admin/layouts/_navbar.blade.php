@@ -56,6 +56,9 @@
                 <a href="/admin/news"><i class="fa fa-fw fa-file"></i> News</a>
             </li>
             <li>
+                <a href="/admin/procedures"><i class="fa fa-fw fa-wrench"></i> Trouble Shooting</a>
+            </li>
+            <li>
                 <a href="/admin/users"><i class="fa fa-fw fa-users"></i> Users</a>
             </li>
             <li>

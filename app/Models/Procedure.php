@@ -15,6 +15,11 @@ class Procedure extends Model
         return $this->hasMany(ProcedureStep::class);
     }
 
+    public function products()
+    {
+        return $this->belongsToMany(Product::class);
+    }
+
     public function product()
     {
         return $this->belongsTo(Product::class);

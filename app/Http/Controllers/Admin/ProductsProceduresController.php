@@ -104,7 +104,7 @@ class ProductsProceduresController extends Controller
             'name'        => $request->input('name')
         ]);
 
-        $this->updateKeyword($video, [
+        $this->updateKeyword($procedure, [
             'content'     => $request->input('name'),
             'description' => ''
         ]);

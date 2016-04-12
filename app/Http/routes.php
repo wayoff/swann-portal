@@ -13,6 +13,9 @@ Route::group([
     Route::resource('videos', 'VideosController');
     Route::resource('questions', 'QuestionsController');
 
+    Route::resource('procedures/{id}/steps', 'ProcedureStepsController');
+    Route::resource('procedures', 'ProceduresController');
+
     Route::resource('products/{id}/procedures/{procedureId}/steps', 'ProductsProceduresStepsController');
     Route::resource('products/{id}/procedures', 'ProductsProceduresController');
     Route::resource('products/{id}/questions', 'ProductsQuestionsController');
@@ -24,10 +27,8 @@ Route::group([
 
 });
 
-Route::get('supported-formats', function() {
-    $formats = collect(FFMPEG::getSupportedFormats());
-
-    dd($formats->toArray());
+Route::group(['namespace' => 'API', 'prefix' => 'api'], function() {
+    Route::resource('products', 'ProductsController', ['only' => 'index']);
 });
 
 Route::auth();

@@ -24,14 +24,22 @@ class QuestionsProductsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $q = $request->input('q')?:null;
+
         $questions = $this->questions
                         ->with('products')
-                        ->has('products')
-                        ->paginate(20);
+                        ->has('products');
 
-        return view('admin.questions-products.index', compact('questions'));
+
+        if (!empty($q)) {
+            $questions = $questions->searchByTitle($q);
+        }
+
+        $questions = $questions->paginate(20);
+
+        return view('admin.questions-products.index', compact('questions', 'q'));
     }
 
     /**

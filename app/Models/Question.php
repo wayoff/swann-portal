@@ -10,6 +10,11 @@ class Question extends Model
         'product_id', 'document_id', 'title', 'answer', 'featured'
     ];
 
+    public function scopeSearchByTitle($query, $value)
+    {
+        return $query->where('title', 'like', '%'. $value .'%');
+    }
+
     public function document()
     {
         return $this->belongsTo(Document::class);

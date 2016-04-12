@@ -63,5 +63,9 @@
                 @endif
             </tbody>
         </table>
+
+        <div class="col-md-12 text-center">
+            {{$questions->render()}}
+        </div>
     </div>
 @stop

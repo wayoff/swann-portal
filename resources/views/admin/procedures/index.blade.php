@@ -72,5 +72,8 @@
                 @endif
             </tbody>
         </table>
+        <div class="col-md-12 text-center">
+            {{$procedures->render()}}
+        </div>
     </div>
 @stop

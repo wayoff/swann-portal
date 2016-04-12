@@ -76,7 +76,7 @@
                 @endif
             </tbody>
         </table>
-        <div class="text-center">
+        <div class="text-center col-md-12">
             {{$videos->render()}}
         </div>
     </div>

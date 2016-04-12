@@ -76,8 +76,8 @@
 
                         <div class="col-md-6">
                             <select name="featured" id="" class="form-control">
-                                <option value="1" {{ $question->featured ? 'selected' : '' }}> Yes </option>
                                 <option value="0"> No </option>
+                                <option value="1" {{ $question->featured ? 'selected' : '' }}> Yes </option>
                             </select>
 
                             @if ($errors->has('featured'))

@@ -23,9 +23,9 @@ class ProductsController extends Controller
         $products = $this->products;
 
         if ($request->input('q')) {
-            $product = $products->searchByNameAndModel($request->input('q'));
+            $products = $products->searchByNameAndModel($request->input('q'));
         }
 
-        return $product->limit($limit)->get();
+        return $products->limit($limit)->get();
     }
 }

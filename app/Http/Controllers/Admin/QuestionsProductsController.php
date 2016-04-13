@@ -74,6 +74,11 @@ class QuestionsProductsController extends Controller
 
         $question->products()->sync($request->input('product'));
 
+        $this->saveKeyword($question, [
+            'content'     => $request->input('title'),
+            'description' => $request->input('answer')
+        ]);
+
         return redirect(route('admin.questions.products.index'))->with('status', 'Success on Adding Question');
     }
 
@@ -123,6 +128,11 @@ class QuestionsProductsController extends Controller
 
         $question->products()->sync($request->input('product'));
 
+        $this->updateKeyword($question, [
+            'content'     => $request->input('title'),
+            'description' => $request->input('answer')
+        ]);
+        
         return redirect(route('admin.questions.products.index'))->with('status', 'Success on Updating Question');
     }
 

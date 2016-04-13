@@ -54,11 +54,6 @@ class ProductsVideosController extends Controller
     {
         $video = (new VideoUpload($request, $this->videos))->handle();
 
-        $this->saveKeyword($video, [
-            'content'     => $request->input('video_title'),
-            'description' => $request->input('video_description')
-        ]);
-
         $this->products->findOrFail($id)->videos()->save($video);
 
         return redirect(route('admin.products.{id}.videos.index', $id))
@@ -89,11 +84,6 @@ class ProductsVideosController extends Controller
     public function update(VideoRequest $request, $id, $videoId)
     {
         $video = (new VideoUpload($request, $this->videos, $videoId))->handle();
-
-        $this->updateKeyword($video, [
-            'content'     => $request->input('video_title'),
-            'description' => $request->input('video_description')
-        ]);
 
         return redirect(route('admin.products.{id}.videos.index', $id))
                         ->with('status', 'Success on Updating Video');

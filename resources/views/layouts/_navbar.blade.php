@@ -6,6 +6,17 @@
             </h1>
         </div>
         <ul class="Navbar__Contact--List">
+            <li>
+                <a 
+                    href="https://secure.logmeinrescue.com/Customer/Code.aspx" 
+                    data-toggle="tooltip" 
+                    data-placement="bottom"
+                    title="LogMeIn123.com"
+                    target="_blank" 
+                 >
+                    <img src="/img/LMI-icon.png" alt="LogMeIn Icon" height="18" width="18">
+                </a>
+            </li>
             <li>Contact & Support:</li>
             <li class="text-underline">+1800 1234 5678</li>
             <li>Help</li>

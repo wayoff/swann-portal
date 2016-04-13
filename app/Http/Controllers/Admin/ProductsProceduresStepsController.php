@@ -79,12 +79,6 @@ class ProductsProceduresStepsController extends Controller
             'content'     => $request->input('content'),
         ]);
 
-
-        $this->saveKeyword($step, [
-            'content'     => $request->input('title'),
-            'description' => $request->input('content')
-        ]);
-
         return redirect(route('admin.products.{id}.procedures.{procedureId}.steps.index',[$id, $procedureId]))
                 ->with('status', 'Success on creating new step');
     }
@@ -129,11 +123,6 @@ class ProductsProceduresStepsController extends Controller
             'document_id' => $document ? $document->id : null,
             'title'       => $request->input('title'),
             'content'     => $request->input('content'),
-        ]);
-
-        $this->updateKeyword($step, [
-            'content'     => $request->input('title'),
-            'description' => $request->input('content')
         ]);
 
         return redirect(route('admin.products.{id}.procedures.{procedureId}.steps.index',[$id, $procedureId]))

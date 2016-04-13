@@ -127,7 +127,7 @@ class ProductsController extends Controller
             'featured'    => $request->input('featured')
         ]);
 
-        $this->saveKeyword($product, [
+        $this->updateKeyword($product, [
             'content'     => $request->input('name'),
             'description' => $request->input('description')
         ]);

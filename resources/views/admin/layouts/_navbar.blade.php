@@ -63,7 +63,10 @@
             </li>
             <li>
                 <a href="/admin/users"><i class="fa fa-fw fa-users"></i> Users</a>
-            </li>
+            </li><!-- 
+            <li>
+                <a href="/admin/tags"><i class="fa fa-fw fa-edit"></i> Tags</a>
+            </li> -->
             <li>
                 <a href="/"><i class="fa fa-fw fa-home"></i> Home</a>
             </li>

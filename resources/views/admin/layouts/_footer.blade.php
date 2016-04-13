@@ -6,6 +6,7 @@
 
     <!-- Bootstrap Core JavaScript -->
     <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap-tagsinput.min.js"></script>
     <script>
         $(document).ready( function() {
             $('.btn-delete').on('click', function(e) {
@@ -19,6 +20,10 @@
             // $('form').on('submit', function() {
             //     $($(this).find(':submit').attr('disabled', 'disabled');
             // });
+            $('.tags').tagsinput({
+              cancelConfirmKeysOnEmpty: false
+            }); 
+
         });
     </script>
     @yield('footer')

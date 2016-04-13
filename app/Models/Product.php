@@ -26,9 +26,9 @@ class Product extends Model
         return $query->orderBy('updated_at', 'desc');
     }
 
-    public function keyword()
+    public function keywords()
     {
-        return $this->morphOne(Keyword::class, 'keywordable');
+        return $this->morphToMany(Keyword::class, 'keywordable');
     }
 
     public function categories()

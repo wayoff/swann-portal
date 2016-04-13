@@ -11,6 +11,7 @@ Route::group([
     Route::resource('sliders', 'SlidersController');
     Route::resource('news', 'NewsController');
     Route::resource('videos', 'VideosController');
+    Route::resource('tags', 'TagsController');
     
     Route::resource('questions/products', 'QuestionsProductsController');
     Route::resource('questions', 'QuestionsController');
@@ -41,4 +42,5 @@ Route::resource(
 );
 Route::resource('news', 'NewsController', ['only' => ['index', 'show']]);
 Route::resource('products', 'ProductsController', ['only' => ['index']]);
+Route::resource('keywords', 'KeywordsController', ['only' => ['index']]);
 Route::controller('/', 'PagesController');

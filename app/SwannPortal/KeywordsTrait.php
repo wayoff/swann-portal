@@ -6,27 +6,20 @@ use Illuminate\Database\Eloquent\Model;
 
 trait KeywordsTrait 
 {
-    public function saveKeyword(Model $model, array $data)
-    {
-        $this->keyword('create', $model, [
-            'content'     => $data['content'],
-            'description' => $data['description']
-        ]);
-    }
 
-    public function updateKeyword(Model $model, array $data)
+    public function saveTag($tags, Model $model)
     {
-        $this->keyword('update', $model, [
-            'content'     => $data['content'],
-            'description' => $data['description']
-        ]);
-    }
+        $collection = collect();
 
-    public function keyword($action, Model $model, array $data)
-    {
-        $model->keyword()->$action([
-            'content'     => $data['content'],
-            'description' => $data['description']
-        ]);
+        if (empty($tags)) {
+            return $model->keywords()->sync([]);
+        }
+
+        foreach ($tags as $tag) {
+            $keyword = Keyword::findByContentOrCreate($tag);
+            $collection->push($keyword->id);
+        }
+
+        return $model->keywords()->sync($collection->toArray());
     }
 }

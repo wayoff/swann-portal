@@ -27,6 +27,8 @@
 
     <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/bootstrap-typeahead.min.js"></script>
+    <script src="/js/search.js"></script>
     <script src="/video/mediaelement-and-player.min.js"></script>
     <script src="/video/mediaelementplayer.min.js"></script>
     <script>

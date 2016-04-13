@@ -32,4 +32,6 @@ $(function() {
     escapeMarkup: function (markup) { return markup; }, // let our custom formatter work
         minimumInputLength: 3
     });
+
+    $('.select2-default').select2();
 });

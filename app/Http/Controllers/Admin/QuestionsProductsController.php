@@ -74,23 +74,15 @@ class QuestionsProductsController extends Controller
 
         $question->products()->sync($request->input('product'));
 
-        $this->saveKeyword($question, [
-            'content'     => $request->input('title'),
-            'description' => $request->input('answer')
-        ]);
+        $tags = collect($request->input('tags'));
+
+        $tags = $tags->isEmpty() 
+            ? [$request->input('title')]
+            : $tags->push($request->input('title'));
+
+        $this->saveTag($tags, $question);
 
         return redirect(route('admin.questions.products.index'))->with('status', 'Success on Adding Question');
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
     }
 
     /**
@@ -128,10 +120,13 @@ class QuestionsProductsController extends Controller
 
         $question->products()->sync($request->input('product'));
 
-        $this->updateKeyword($question, [
-            'content'     => $request->input('title'),
-            'description' => $request->input('answer')
-        ]);
+        $tags = collect($request->input('tags'));
+
+        $tags = $tags->isEmpty() 
+            ? [$request->input('title')]
+            : $tags->push($request->input('title'));
+
+        $this->saveTag($tags, $question);
         
         return redirect(route('admin.questions.products.index'))->with('status', 'Success on Updating Question');
     }

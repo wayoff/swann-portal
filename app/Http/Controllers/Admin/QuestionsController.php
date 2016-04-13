@@ -60,10 +60,7 @@ class QuestionsController extends Controller
             'featured'    => $request->input('featured'),
         ]);
 
-        $this->saveKeyword($question, [
-            'content'     => $request->input('title'),
-            'description' => $request->input('answer')
-        ]);
+        $this->saveTag($request->input('tags'), $question);
 
         return redirect(route('admin.questions.index'))->with('status', 'Success on Adding Question');
     }
@@ -101,10 +98,7 @@ class QuestionsController extends Controller
             'featured'    => $request->input('featured'),
         ]);
 
-        $this->updateKeyword($question, [
-            'content'     => $request->input('title'),
-            'description' => $request->input('answer')
-        ]);
+        $this->updateTag($request->input('tags'), $question);
 
         return redirect(route('admin.questions.index'))->with('status', 'Success on Updating Question');
     }

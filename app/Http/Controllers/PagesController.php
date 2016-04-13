@@ -44,10 +44,20 @@ class PagesController extends Controller
 
     public function getSearch(Request $request, Keyword $keywords)
     {
-        $query = $request->input('q');
+        $q = $request->input('q');
 
-        $searches = $keywords->search($query)->get();
-
-        return view('pages.search', compact('searches'));
+        $searches = $keywords
+                    ->search($q)
+                    ->with(['procedures' => function($query) {
+                        $query->distinct()->groupBy('procedures.id');
+                    }])
+                    ->with(['products' => function($query) {
+                        $query->distinct()->groupBy('products.id');
+                    }])
+                    ->with(['questions' => function($query) {
+                        $query->distinct()->groupBy('questions.id');
+                    }])
+                    ->paginate(20);
+        return view('pages.search', compact('searches', 'q'));
     }
 }

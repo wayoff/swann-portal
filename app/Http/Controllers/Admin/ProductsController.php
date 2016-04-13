@@ -64,7 +64,7 @@ class ProductsController extends Controller
      */
     public function store(ProductRequest $request, Photo $photos, Document $documents)
     {
-
+        $model = $request->input('model_no');
         $photo = (new ImageUpload($request, $photos))->handle();
         $document = (new DocumentUpload($request, $documents))->handle();
 
@@ -72,17 +72,25 @@ class ProductsController extends Controller
             'photo_id'    => $photo ? $photo->id : null,
             'document_id' => $document ? $document->id : null,
             'name'        => $request->input('name'),
-            'model_no'    => $request->input('model_no'),
+            'model_no'    => $model,
             'description' => $request->input('description'),
             'featured'    => $request->input('featured')
         ]);
 
-        $this->saveKeyword($product, [
-            'content'     => $request->input('name'),
-            'description' => $request->input('description')
-        ]);
-
         $product->categories()->sync( $request->input('categories') );
+
+        $tags = collect();
+
+        if (strpos($model, ',')) {
+            $models = explode(',', $model);
+            $tags = collect($models);
+        } else {
+            $tags = collect([$model]);
+        }
+
+        $tags->push($request->input('name'));
+
+        $this->saveTag($tags, $product);
 
         return redirect(route('admin.products.index'))->with('status', 'Success on Creating new Product');
     }
@@ -111,6 +119,7 @@ class ProductsController extends Controller
     public function update(ProductRequest $request, Photo $photos, Document $documents, $id)
     {
         $product = $this->products->findOrFail($id);
+        $model = $request->input('model_no');
         
         $photoId = !is_null($product->photo_id) ? $product->photo_id : false;
         $documentId = !is_null($product->document_id) ? $product->document_id : false;
@@ -126,13 +135,20 @@ class ProductsController extends Controller
             'description' => $request->input('description'),
             'featured'    => $request->input('featured')
         ]);
-
-        $this->updateKeyword($product, [
-            'content'     => $request->input('name'),
-            'description' => $request->input('description')
-        ]);
         
         $product->categories()->sync( $request->input('categories') );
+
+
+        $tags = collect();
+
+        if (strpos($model, ',')) {
+            $models = explode(',', $model);
+            $tags = collect($models);
+        } else {
+            $tags = collect([$model]);
+        }
+
+        $tags->push($request->input('name'));
 
         return redirect(route('admin.products.index'))->with('status', 'Success on Updating Product');
     }

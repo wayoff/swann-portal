@@ -54,11 +54,15 @@
                     </li>
                     <!-- <li><a href="#">Support</a></li> -->
                     <li><a href="{{ url('news') }}">News & Updates</a></li>
+                    <li><a href="{{ url('warranty') }}">Warranty</a></li>
+                    <li><a href="{{ url('lmi') }}">LMI Sessions</a></li>
+                    <li><a href="{{ url('time-zones') }}">Time Zones</a></li>
                     <!-- <li><a href="#">Company</a></li> -->
                 </ul>
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar navbar-right Navbar__Menu">
                     <!-- Authentication Links -->
+                    <li><a href="/search"> Search </a></li>
                     @if (!$admin)
                         <li><a href="{{ url('/login') }}">Login</a></li>
                         <!-- <li><a href="{{ url('/register') }}">Register</a></li> -->
@@ -75,12 +79,18 @@
                         </li>
                     @endif
                 </ul>
-                
-                <!--
+                <!-- 
                 <form action="/search" class="navbar-form pull-right" method="get">
-                    <input type="text" name="q" style="width: 200px;" id="Navbar__Form--input" class="form-control Navbar__Form--input">
+                    <input type="text" 
+                            name="q" 
+                            style="width: 200px;" 
+                            id="Navbar__Form--input" 
+                            class="form-control Navbar__Form--input typeahead"
+                            autocomplete="off"
+                            data-provide="typeahead"
+                    >
                 </form>
-                -->
+                 -->
             </div><!-- /.navbar-collapse -->
         </div>
     </div>

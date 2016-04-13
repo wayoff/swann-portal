@@ -20,9 +20,9 @@ class Question extends Model
         return $this->belongsTo(Document::class);
     }
 
-    public function keyword()
+    public function keywords()
     {
-        return $this->morphOne(Keyword::class, 'keywordable');
+        return $this->morphToMany(Keyword::class, 'keywordable');
     }
 
     public function products()

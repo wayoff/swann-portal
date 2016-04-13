@@ -61,6 +61,24 @@
                         </div>
                     </div>
 
+                    <div class="form-group{{ $errors->has('tags') ? ' has-error' : '' }}">
+                        <label class="col-md-4 control-label">Tags</label>
+
+                        <div class="col-md-6">
+                            <select multiple class="form-control tags" name="tags[]">
+                                @foreach($procedure->keywords as $keyword)
+                                    <option value="{{$keyword->content}}">{{$keyword->content}}</option>
+                                @endforeach
+                            </select>
+
+                            @if ($errors->has('tags'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('tags') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                    </div>
+
                     <div class="form-group{{ $errors->has('document') ? ' has-error' : '' }}">
                         <label class="col-md-4 control-label">Document</label>
 

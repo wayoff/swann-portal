@@ -63,6 +63,14 @@ class ProceduresController extends Controller
         
         $procedure->products()->sync($request->input('product'));
 
+        $tags = collect($request->input('tags'));
+
+        $tags = $tags->isEmpty() 
+            ? [$request->input('name')]
+            : $tags->push($request->input('name'));
+
+        $this->saveTag($tags, $procedure);
+
         return redirect(route('admin.procedures.index'))->with('success', 'Success on Adding new Troubleshootin');
     }
 
@@ -110,6 +118,14 @@ class ProceduresController extends Controller
         ]);
 
         $procedure->products()->sync($request->input('product'));
+        
+        $tags = collect($request->input('tags'));
+
+        $tags = $tags->isEmpty() 
+            ? [$request->input('name')]
+            : $tags->push($request->input('name'));
+
+        $this->saveTag($tags, $procedure);
 
         return redirect(route('admin.procedures.index'))->with('success', 'Success on Updating Troubleshootin');
     }
@@ -125,11 +141,14 @@ class ProceduresController extends Controller
         $procedure = $this->procedures->findOrFail($id);
         $products = $procedure->products;
 
-        $ids = $products->map(function($product) {
-            return $product->id;
-        });
+        if(!$products->isEmpty()) {
+            $ids = $products->map(function($product) {
+                return $product->id;
+            });
 
-        $procedure->products()->detach($ids);
+            $procedure->products()->detach($ids);
+        }
+        
         $procedure->delete();
 
         return redirect(route('admin.procedures.index'))->with('success', 'Success on Deleting Troubleshootin');

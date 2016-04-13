@@ -54,9 +54,23 @@
                     </li>
                     <!-- <li><a href="#">Support</a></li> -->
                     <li><a href="{{ url('news') }}">News & Updates</a></li>
-                    <li><a href="{{ url('warranty') }}">Warranty</a></li>
+                    <li class="dropdown">
+                        <a href="#"> Warranty <b class="caret"></b></a>
+                        <ul class="dropdown-menu Navbar__Menu--Dropdown">
+                            <li><a href="#">Australia</a></li>
+                            <li><a href="#">United Kingdom</a></li>
+                            <li><a href="#">United States</a></li>
+                        </ul>
+                    </li>
                     <li><a href="{{ url('lmi') }}">LMI Sessions</a></li>
-                    <li><a href="{{ url('time-zones') }}">Time Zones</a></li>
+                    <li class="dropdown">
+                        <a href="#"> Time Zones <b class="caret"></b></a>
+                        <ul class="dropdown-menu Navbar__Menu--Dropdown">
+                            <li><a href="#">Australia</a></li>
+                            <li><a href="#">United Kingdom</a></li>
+                            <li><a href="#">United States</a></li>
+                        </ul>
+                    </li>
                     <!-- <li><a href="#">Company</a></li> -->
                 </ul>
                 <!-- Right Side Of Navbar -->

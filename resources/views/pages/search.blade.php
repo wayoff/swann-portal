@@ -35,8 +35,17 @@
                         @endphp
                         @foreach($contents as $content)
                             <div class="Question">
-                                <span class="Product__Show--Step-Title"> {{$content->title()}} </span>
-                                <div class="Product__Show--Step-Content"> {!! $content->description() !!} </div>
+                                <div class="row">
+                                    <div class="col-md-2 col-sm-2 col-xs-2 Question__Number--Container">
+                                        <span class="Question__Number">{{$content->icon()}}</span>
+                                    </div>
+                                    <div class="col-md-10 col-sm-8 col-xs-8">
+                                        <h4 class="Question__Title">{{$content->title()}}</h4>
+                                        <p class="Question__Description">
+                                            {!! $content->description()!!}
+                                        </p>
+                                    </div>
+                                </div>
                             </div>
                         @endforeach
                     </div>

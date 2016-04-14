@@ -25,8 +25,13 @@ class KeywordProduct implements KeywordInterface
     {
         $description = 'Model: ' . $this->product->model_no . '</ br>';
 
-        $description.= 'Description: ' . $this->product->description;
+        $description.= '<br />Description: ' . str_limit($this->product->description, 150);
 
         return $description;
+    }
+
+    public function icon()
+    {
+        return 'P';
     }
 }

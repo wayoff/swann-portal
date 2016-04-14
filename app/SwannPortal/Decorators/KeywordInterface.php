@@ -8,4 +8,5 @@ interface KeywordInterface {
     public function products();
     public function title();
     public function description();
+    public function icon();
 }

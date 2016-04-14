@@ -25,4 +25,9 @@ class KeywordProcedure implements KeywordInterface
     {
         return '--';
     }
+
+    public function icon()
+    {
+        return 'TS';
+    }
 }

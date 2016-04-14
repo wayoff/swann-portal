@@ -13,7 +13,7 @@ class KeywordProcedure implements KeywordInterface
 
     public function products() 
     {
-        return $this->procedure->products();
+        return $this->procedure->products;
     }
 
     public function title()

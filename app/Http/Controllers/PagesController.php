@@ -57,6 +57,9 @@ class PagesController extends Controller
                     ->with(['questions' => function($query) {
                         $query->distinct()->groupBy('questions.id');
                     }])
+                    ->with([
+                        'procedures.products', 'questions.products'
+                    ])
                     ->paginate(20);
         return view('pages.search', compact('searches', 'q'));
     }

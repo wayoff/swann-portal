@@ -13,7 +13,7 @@ class KeywordProduct implements KeywordInterface
 
     public function products() 
     {
-        return $this->product;
+        return collect([$this->product]);
     }
 
     public function title()

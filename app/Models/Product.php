@@ -71,6 +71,14 @@ class Product extends Model
         return $this->categories->first();
     }
 
+    public function getLink()
+    {
+        return route(
+            'categories.{id}.products.show',
+            [$this->firstCategory()->id, $this->id]
+        );
+    }
+
     public function hasCategory($categoryId)
     {
         return $this->categories->where('id', $categoryId)->first();

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Question;
 use App\Models\Document;
+use App\Models\FaqCategory;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\QuestionsRequest;
 
@@ -40,11 +41,13 @@ class ProductsQuestionsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create($id, FaqCategory $faqCategories)
     {
         $product = $this->products->findOrFail($id);
 
-        return view('admin.products.questions.create', compact('product'));
+        $faqCategories = $faqCategories->get();
+
+        return view('admin.products.questions.create', compact('product', 'faqCategories'));
     }
 
     /**
@@ -58,17 +61,15 @@ class ProductsQuestionsController extends Controller
         $document = (new DocumentUpload($request, $documents))->handle();
 
         $question = $this->questions->create([
-            'product_id'  => $id,
-            'document_id' => $document ? $document->id : null,
-            'title'       => $request->input('title'),
-            'answer'      => $request->input('answer'),
-            'featured'    => $request->input('featured'),
+            'product_id'      => $id,
+            'document_id'     => $document ? $document->id : null,
+            'faq_category_id' => $request->input('category'),
+            'title'           => $request->input('title'),
+            'answer'          => $request->input('answer'),
+            'featured'        => $request->input('featured'),
         ]);
 
-        $this->saveKeyword($question, [
-            'content'     => $request->input('title'),
-            'description' => $request->input('answer')
-        ]);
+        $this->saveTag([$request->input('title')], $question);
 
         return redirect(route('admin.products.{id}.questions.index', $id))->with('status', 'Success on Creating Adding new Question');
     }
@@ -90,12 +91,14 @@ class ProductsQuestionsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id, $questionId)
+    public function edit($id, $questionId, FaqCategory $faqCategories)
     {
         $product = $this->products->findOrFail($id);
         $question = $this->questions->findOrFail($questionId);
 
-        return view('admin.products.questions.edit', compact('product', 'question'));
+        $faqCategories = $faqCategories->get();
+
+        return view('admin.products.questions.edit', compact('product', 'question', 'faqCategories'));
     }
 
     /**
@@ -112,16 +115,14 @@ class ProductsQuestionsController extends Controller
         $document = (new DocumentUpload($request, $documents, $question->document_id ?: false))->handle();
 
         $question->update([
-            'document_id' => $document ? $document->id : null,
-            'title'       => $request->input('title'),
-            'answer'      => $request->input('answer'),
-            'featured'    => $request->input('featured'),
+            'faq_category_id' => $request->input('category'),
+            'document_id'     => $document ? $document->id : null,
+            'title'           => $request->input('title'),
+            'answer'          => $request->input('answer'),
+            'featured'        => $request->input('featured'),
         ]);
-
-        $this->updateKeyword($question, [
-            'content'     => $request->input('title'),
-            'description' => $request->input('answer')
-        ]);
+        
+        $this->saveTag([$request->input('title')], $question);
 
         return redirect(route('admin.products.{id}.questions.index', $id))->with('status', 'Success on Updating Question');
     }

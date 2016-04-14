@@ -44,6 +44,24 @@
                                         <p class="Question__Description">
                                             {!! $content->description()!!}
                                         </p>
+                                        @php 
+                                          $products = $content->products();
+                                        @endphp
+                                        @if(!$content->products()->isEmpty())
+                                        <hr />
+                                          <div class="btn-group" role="group">
+                                            @foreach($content->products() as $product)
+                                              <a 
+                                                href="{{$product->getLink()}}" class="btn btn-default"
+                                                data-toggle="tooltip" 
+                                                data-placement="bottom"
+                                                title="Model: {{$product->model_no}}"
+                                              >
+                                                {{$product->name}}
+                                              </a>
+                                            @endforeach
+                                          </div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>

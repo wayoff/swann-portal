@@ -14,17 +14,35 @@
     color: $white;
     font-size: 1.4em;
     font-weight: bolder;
+    margin-bottom: 10px;
+}
+
+.Footer__Title--smaller {
+    color: $white !important;
+    font-size: 1.2em;
+    font-weight: bolder;
 }
 
 .Footer__Description {
-    padding: 20px 0;
+    padding-top: 10px;
     color: $lightblue;
-    font-size: 1.1em;
+    font-size: 1.05em;
     font-weight: bold;
 }
 
+.Footer__Description--list {
+    margin-left: 10px;
+    list-style-type: circle;
+    margin-bottom: 0 !important;
+    padding: 0 0;
+}
+
+.Footer__Description--list-li {
+    padding-left: 10px;
+}
+
 .Footer__List {
-    padding: 50px 0;
+    padding: 30px 0;
 }
 
 .Footer__Title-border {
@@ -48,4 +66,5 @@
     color: $white;
     font-size: 1.1em;
     padding: 10px 0;
+    margin-top: 20px;
 }

@@ -50,6 +50,9 @@
                 <a href="/admin/questions/products"><i class="fa fa-fw fa-book"></i> Questions For Products</a>
             </li>
             <li>
+                <a href="/admin/faq-categories"><i class="fa fa-fw fa-newspaper-o"></i> FAQ's Categories</a>
+            </li>
+            <li>
                 <a href="/admin/sliders"><i class="fa fa-fw fa-desktop"></i> Sliders</a>
             </li>
             <li>

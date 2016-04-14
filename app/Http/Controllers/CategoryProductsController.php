@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\FaqCategory;
 use Illuminate\Http\Request;
 
 class CategoryProductsController extends Controller
@@ -37,14 +38,17 @@ class CategoryProductsController extends Controller
         return view('pages.category-products.index', compact('products', 'category', 'q'));
     }
 
-    public function show(Category $categories, $categoryId, $productId)
+    public function show(Category $categories, FaqCategory $faqCategories, $categoryId, $productId)
     {
         $product = $this->products->with([
                 'procedures.steps.document', 'procedures.steps.photo',
                 'videos', 'procedures', 'procedures.document',
-                'photo', 'questions', 'questions.document'
+                'photo', 'questions', 'questions.document',
+                'questions.faqcategory'
             ])->findOrFail($productId);
 
-        return view('pages.category-products.show', compact('product'));
+        $faqCategories = $faqCategories->get();
+
+        return view('pages.category-products.show', compact('product', 'faqCategories'));
     }
 }

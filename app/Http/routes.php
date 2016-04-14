@@ -8,6 +8,7 @@ Route::group([
 ], function () {
     Route::resource('users', 'UsersController');
     Route::resource('categories', 'CategoriesController');
+    Route::resource('faq-categories', 'FaqCategoriesController');
     Route::resource('sliders', 'SlidersController');
     Route::resource('news', 'NewsController');
     Route::resource('videos', 'VideosController');

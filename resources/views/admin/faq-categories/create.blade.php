@@ -1,16 +1,16 @@
 @extends('admin.layouts.content')
 
 @section('Page__Description')
-    Categories
+    FAQ's Categories
 @stop
 
 @section('Breadcrumb')
     <ol class="breadcrumb">
         <li>
-            <i class="fa fa-table"></i>  <a href="/admin/categories">Categories</a>
+            <i class="fa fa-table"></i>  <a href="/admin/categories">FAQ's Categories</a>
         </li>
         <li class="active">
-            <a href="#"> Create New Category</a>
+            <a href="#"> Create New FAQ's Category</a>
         </li>
     </ol>
 @stop
@@ -19,9 +19,9 @@
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
         <div class="panel panel-default">
-            <div class="panel-heading">Register Category</div>
+            <div class="panel-heading">Register FAQ's Category</div>
             <div class="panel-body">
-                <form class="form-horizontal" role="form" method="POST" action="{{ route('admin.categories.store') }}">
+                <form class="form-horizontal" role="form" method="POST" action="{{ route('admin.faq-categories.store') }}">
                     {!! csrf_field() !!}
 
                     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">

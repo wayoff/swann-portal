@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Question;
 use App\Models\Document;
+use App\Models\FaqCategory;
 use App\SwannPortal\DocumentUpload;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\QuestionsRequest;
@@ -47,9 +48,11 @@ class QuestionsProductsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(FaqCategory $faqCategories)
     {
-        return view('admin.questions-products.create');
+        $faqCategories = $faqCategories->get();
+
+        return view('admin.questions-products.create', compact('faqCategories'));
     }
 
     /**
@@ -65,11 +68,12 @@ class QuestionsProductsController extends Controller
         $document = (new DocumentUpload($request, $documents))->handle();
 
         $question = $this->questions->create([
-            'product_id'  => null,
-            'document_id' => $document ? $document->id : null,
-            'title'       => $request->input('title'),
-            'answer'      => $request->input('answer'),
-            'featured'    => $request->input('featured'),
+            'product_id'      => null,
+            'document_id'     => $document ? $document->id : null,
+            'faq_category_id' => $request->input('category'),
+            'title'           => $request->input('title'),
+            'answer'          => $request->input('answer'),
+            'featured'        => $request->input('featured'),
         ]);
 
         $question->products()->sync($request->input('product'));
@@ -91,11 +95,13 @@ class QuestionsProductsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, FaqCategory $faqCategories)
     {
         $question = $this->questions->findOrFail($id);
 
-        return view('admin.questions-products.edit', compact('question'));
+        $faqCategories = $faqCategories->get();
+
+        return view('admin.questions-products.edit', compact('question', 'faqCategories'));
     }
 
     /**
@@ -112,10 +118,11 @@ class QuestionsProductsController extends Controller
         $document = (new DocumentUpload($request, $documents, $question->document_id ?: false))->handle();
 
         $question->update([
-            'document_id' => $document ? $document->id : null,
-            'title'       => $request->input('title'),
-            'answer'      => $request->input('answer'),
-            'featured'    => $request->input('featured'),
+            'document_id'     => $document ? $document->id : null,
+            'faq_category_id' => $request->input('category'),
+            'title'           => $request->input('title'),
+            'answer'          => $request->input('answer'),
+            'featured'        => $request->input('featured'),
         ]);
 
         $question->products()->sync($request->input('product'));

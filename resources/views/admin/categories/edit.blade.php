@@ -1,7 +1,7 @@
 @extends('admin.layouts.content')
 
 @section('Page__Description')
-    Users
+    Categories
 @stop
 
 @section('Breadcrumb')

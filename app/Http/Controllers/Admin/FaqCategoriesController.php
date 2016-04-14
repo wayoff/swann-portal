@@ -4,17 +4,17 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 
-use App\Models\Category;
+use App\Models\FaqCategory;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;
 
-class CategoriesController extends Controller
+class FaqCategoriesController extends Controller
 {
-    protected $categories;
+    protected $faqCategories;
 
-    public function __construct(Category $categories)
+    public function __construct(FaqCategory $faqCategories)
     {
-        $this->categories = $categories;
+        $this->faqCategories = $faqCategories;
     }
     /**
      * Display a listing of the resource.
@@ -23,9 +23,9 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        $categories = $this->categories->paginate(20);
+        $faqCategories = $this->faqCategories->paginate(20);
 
-        return view('admin.categories.index', compact('categories'));
+        return view('admin.faq-categories.index', compact('faqCategories'));
     }
 
     /**
@@ -35,7 +35,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        return view('admin.categories.create');
+        return view('admin.faq-categories.create');
     }
 
     /**
@@ -46,9 +46,9 @@ class CategoriesController extends Controller
      */
     public function store(CategoryRequest $request)
     {
-        $this->categories->create($request->all());
+        $this->faqCategories->create($request->all());
 
-        return redirect(route('admin.categories.index'))->with('status', 'Success On Creating New Category');
+        return redirect(route('admin.faq-categories.index'))->with('status', 'Success On Creating New FAQ\'s Category');
     }
 
     /**
@@ -59,9 +59,9 @@ class CategoriesController extends Controller
      */
     public function edit($id)
     {
-        $category = $this->categories->findOrFail($id);
+        $faqCategory = $this->faqCategories->findOrFail($id);
 
-        return view('admin.categories.edit', compact('category'));
+        return view('admin.faq-categories.edit', compact('faqCategory'));
     }
 
     /**
@@ -71,11 +71,11 @@ class CategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CategoryRequest $request, $id)
+    public function update(Request $request, $id)
     {
-        $this->categories->findOrFail($id)->update($request->all());
+        $this->faqCategories->findOrFail($id)->update($request->all());
 
-        return redirect(route('admin.categories.index'))->with('status', 'Success on Updating Category');
+        return redirect(route('admin.faq-categories.index'))->with('status', 'Success on Updating Category');
     }
 
     /**
@@ -86,8 +86,8 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-        $this->categories->findOrFail($id)->delete();
+        $this->faqCategories->findOrFail($id)->delete();
 
-        return redirect(route('admin.categories.index'))->with('status', 'Success on Deleting Category');
+        return redirect(route('admin.faq-categories.index'))->with('status', 'Success on Deleting Category');
     }
 }

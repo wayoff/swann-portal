@@ -52,6 +52,28 @@
                         </div>
                     </div>
 
+                    <div class="form-group{{ $errors->has('answer') ? ' has-error' : '' }}">
+                        <label class="col-md-4 control-label">Category</label>
+
+                        <div class="col-md-6">
+                            <select name="category" class="form-control">
+                                <option value="">Other</option>
+                                @foreach($faqCategories as $faqCategory)
+                                    <option 
+                                        value="{{ $faqCategory->id }}"
+                                        {{$question->faq_category_id == $faqCategory->id ? 'selected' : ''}}
+                                    >
+                                        {{$faqCategory->name}}
+                                    </option>
+                                @endforeach;
+                            </select>
+                            @if ($errors->has('answer'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('answer') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                    </div>
                     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                         <label class="col-md-4 control-label">Product</label>
 

@@ -31,7 +31,7 @@
             <div>
               <!-- Nav tabs -->
               <ul class="nav nav-tabs nav-justified" role="tablist">
-                <li role="presentation" class="active"><a href="#desciption" aria-controls="desciption" role="tab" data-toggle="tab">Description</a></li>
+                <li role="presentation" class="active"><a href="#desciption" aria-controls="desciption" role="tab" data-toggle="tab">Specifications</a></li>
                 <li role="presentation"><a href="#faq" aria-controls="faq" role="tab" data-toggle="tab">FAQ</a></li>
                 <li role="presentation"><a href="#documents" aria-controls="documents" role="tab" data-toggle="tab">Document</a></li>
                 <li role="presentation"><a href="#procedures" aria-controls="procedures" role="tab" data-toggle="tab">Trouble Shooting</a></li>
@@ -59,10 +59,9 @@
                         @php
                             $questions = $product->questions;
 
-                            if(!$product->otherQuestions->isEmpty()) {
-                                $otherQuestions = $product->otherQuestions;
-                                $questions = $questions->merge($otherQuestions);
-                            }
+                            if(!$product->otherQuestions->isEmpty()) :
+                                $questions = $questions->merge($product->otherQuestions);
+                            endif;
                         @endphp
                         @include('partials.questions')
                     @endif
@@ -82,10 +81,10 @@
                     @php
                         $procedures = $product->procedures;
                         
-                        if(!$product->troubleShooting->isEmpty()) {
+                        if(!$product->troubleShooting->isEmpty()) :
                             $troubleshootings = $product->troubleShooting;
                             $procedures = $procedures->merge($troubleshootings);
-                        }
+                        endif;
                     @endphp
                     @if(!$procedures->isEmpty())
                         @foreach($procedures as $procedure)

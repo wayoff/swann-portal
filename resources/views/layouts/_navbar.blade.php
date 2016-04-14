@@ -2,7 +2,7 @@
     <div class="container">
         <div class="Navbar__Technical--Support-Container">
             <h1 class="Navbar__Technical--Support hidden-sm hidden-xs">
-                Technical Support
+                Internal KBaze
             </h1>
         </div>
         <ul class="Navbar__Contact--List">
@@ -57,9 +57,16 @@
                     <li class="dropdown">
                         <a href="#"> Warranty <b class="caret"></b></a>
                         <ul class="dropdown-menu Navbar__Menu--Dropdown">
+                            <li><a href="#">Warranty Procedure</a></li>
+                            <li class="nav-divider"></li>
                             <li><a href="#">Australia</a></li>
                             <li><a href="#">United Kingdom</a></li>
                             <li><a href="#">United States</a></li>
+                            <li class="nav-divider"></li>
+                            <li><a href="#">Refund</a></li>
+                            <li><a href="#">Advanced RMA</a></li>
+                            <li><a href="#">Return to Store</a></li>
+                            <li><a href="#">Escalation Process</a></li>
                         </ul>
                     </li>
                     <li><a href="{{ url('lmi') }}">LMI Sessions</a></li>

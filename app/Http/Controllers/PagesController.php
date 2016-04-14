@@ -60,7 +60,7 @@ class PagesController extends Controller
                     ->with([
                         'procedures.products', 'questions.products'
                     ])
-                    ->paginate(20);
+                    ->paginate(1);
         return view('pages.search', compact('searches', 'q'));
     }
 }

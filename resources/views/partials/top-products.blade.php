@@ -1,3 +1,13 @@
+<style>
+    .Featured__Product--title {
+        font-family: Verdana, Geneva, sans-serif;
+        font-weight: bold;
+    }
+
+    .Featured__Product--description {
+        color: #666666 !important;
+    }
+</style>
 <div class="panel panel-primary">
     <div class="panel-heading">
         <h3 class="panel-title">Featured Products</h3>
@@ -10,8 +20,8 @@
         @else
             @foreach($topProducts as $topProduct)
                 <a href="{{route('categories.{id}.products.show', [$topProduct->firstCategory()->id, $topProduct->id])}}" class="list-group-item">
-                    <h6 class="list-group-item-heading">{{ str_limit($topProduct->name, 60) }}</h6>
-                    <p class="list-group-item-text">{{ str_limit($topProduct->description, 50) }}</p>
+                    <h6 class="list-group-item-heading Featured__Product--title">{{ str_limit($topProduct->name, 60) }}</h6>
+                    <p class="list-group-item-text Featured__Product--description">{{ str_limit($topProduct->description, 50) }}</p>
                 </a>
             @endforeach
         @endif

@@ -33,6 +33,13 @@ class AppServiceProvider extends ServiceProvider
             'layouts.home-content'
         ], SwannPortal\CategoriesComposer::class);
 
+
+        view()->composer([
+            'layouts.app',
+            'layouts.descriptive-content',
+            'layouts.home-content'
+        ], SwannPortal\WarrantiesComposer::class);
+
         view()->composer(['admin.partials.tags.form'], SwannPortal\FormTagComposer::class);
     }
 

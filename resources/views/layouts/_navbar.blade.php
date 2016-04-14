@@ -59,14 +59,23 @@
                             </li> -->
                             <li><a href="#">Warranty Procedure</a></li>
                             <li class="nav-divider"></li>
-                            <li><a href="#">Australia</a></li>
-                            <li><a href="#">United Kingdom</a></li>
-                            <li><a href="#">United States</a></li>
+                            @foreach($warranties->where('warranty_procedure', 1)->all() as $warrantyProcedure)
+                            <li>
+                                <a target="_blank" 
+                                    href="{{$warrantyProcedure->document->getDocument()}}">
+                                    {{$warrantyProcedure->name}}
+                                </a>
+                            </li>
+                            @endforeach
                             <li class="nav-divider"></li>
-                            <li><a href="#">Refund</a></li>
-                            <li><a href="#">Advanced RMA</a></li>
-                            <li><a href="#">Return to Store</a></li>
-                            <li><a href="#">Escalation Process</a></li>
+                            @foreach($warranties->where('warranty_procedure', 0)->all() as $warrantyNonProcedure)
+                            <li>
+                                <a target="_blank" 
+                                    href="{{$warrantyNonProcedure->document->getDocument()}}">
+                                    {{$warrantyNonProcedure->name}}
+                                </a>
+                            </li>
+                            @endforeach
                         </ul>
                     </li>
                     <li><a href="#">LMI Sessions</a></li>

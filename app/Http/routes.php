@@ -13,6 +13,7 @@ Route::group([
     Route::resource('news', 'NewsController');
     Route::resource('videos', 'VideosController');
     Route::resource('tags', 'TagsController');
+    Route::resource('warranties', 'WarrantiesController');
     
     Route::resource('questions/products', 'QuestionsProductsController');
     Route::resource('questions', 'QuestionsController');

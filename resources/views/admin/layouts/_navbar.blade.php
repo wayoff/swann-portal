@@ -71,6 +71,9 @@
                 <a href="/admin/tags"><i class="fa fa-fw fa-edit"></i> Tags</a>
             </li> -->
             <li>
+                <a href="/admin/warranties"><i class="fa fa-fw fa-file"></i> Warranties</a>
+            </li>
+            <li>
                 <a href="/"><i class="fa fa-fw fa-home"></i> Home</a>
             </li>
             <!-- <li>

@@ -51,7 +51,7 @@
                     </li>
                     <!-- <li><a href="#">Support</a></li> -->
                     <li><a href="{{ url('news') }}">News & Updates</a></li>
-                    @if($warranties->isEmpty())
+                    @if(!$warranties->isEmpty())
                     <li class="dropdown">
                         <a href="#"> Warranty <b class="caret"></b></a>
                         <ul class="dropdown-menu Navbar__Menu--Dropdown">

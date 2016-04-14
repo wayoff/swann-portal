@@ -30,4 +30,11 @@ class KeywordProcedure implements KeywordInterface
     {
         return 'TS';
     }
+
+    public function file()
+    {
+        return $this->procedure->document_id
+            ? $this->procedure->document->getDocument()
+            : null;
+    }
 }

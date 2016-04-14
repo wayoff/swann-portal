@@ -9,4 +9,5 @@ interface KeywordInterface {
     public function title();
     public function description();
     public function icon();
+    public function file();
 }

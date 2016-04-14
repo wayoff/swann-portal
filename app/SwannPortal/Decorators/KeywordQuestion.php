@@ -32,4 +32,11 @@ class KeywordQuestion implements KeywordInterface
     {
        return '?'; 
     }
+
+    public function file()
+    {
+        return $this->question->document_id
+            ? $this->question->document->getDocument()
+            : null;
+    }
 }

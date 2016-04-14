@@ -44,6 +44,9 @@
                                         <p class="Question__Description">
                                             {!! $content->description()!!}
                                         </p>
+                                        @if($content->file())
+                                          <a href="{{$content->file()}}" target="_blank" class="btn btn-primary"> Manual </a>
+                                        @endif
                                         @php 
                                           $products = $content->products();
                                         @endphp

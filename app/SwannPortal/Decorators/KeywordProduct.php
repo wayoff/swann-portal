@@ -34,4 +34,9 @@ class KeywordProduct implements KeywordInterface
     {
         return 'P';
     }
+
+    public function file()
+    {
+        return null;
+    }
 }

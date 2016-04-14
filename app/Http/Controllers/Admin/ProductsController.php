@@ -149,6 +149,8 @@ class ProductsController extends Controller
         }
 
         $tags->push($request->input('name'));
+        
+        $this->saveTag($tags, $product);
 
         return redirect(route('admin.products.index'))->with('status', 'Success on Updating Product');
     }

@@ -51,6 +51,7 @@
                     </li>
                     <!-- <li><a href="#">Support</a></li> -->
                     <li><a href="{{ url('news') }}">News & Updates</a></li>
+                    @if($warranties->isEmpty())
                     <li class="dropdown">
                         <a href="#"> Warranty <b class="caret"></b></a>
                         <ul class="dropdown-menu Navbar__Menu--Dropdown">
@@ -78,6 +79,7 @@
                             @endforeach
                         </ul>
                     </li>
+                    @endif
                     <li><a href="#">LMI Sessions</a></li>
                     <li class="dropdown">
                         <a href="#"> Time Zones <b class="caret"></b></a>

@@ -25,7 +25,6 @@
                 <tr>
                     <td>ID</td>
                     <td>Name</td>
-                    <td>Products</td>
                     <td>Document</td>
                     <td>Action</td>
                 </tr>
@@ -41,13 +40,14 @@
                     @foreach($procedures as $procedure)
                     <tr>
                         <td>{{ string_pad($procedure->id) }}</td>
-                        <td>{{ $procedure->name }}</td>
                         <td>
-                            <ul class="list-group">
+                            {{ $procedure->name }}
+                            
+                              <div class="btn-group" role="group">
                                 @foreach($procedure->products as $product)
-                                <li class="list-group-item">{{$product->name}}</li>
+                                <a href="#" class="btn btn-default">{{$product->name}}</a>
                                 @endforeach
-                            </ul>
+                              </div>
                         </td>
                         <td>
                             @if($procedure->document_id)

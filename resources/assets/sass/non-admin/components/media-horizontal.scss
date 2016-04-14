@@ -7,16 +7,15 @@
 
 .Media__Horizontal--Tile-icon {
     font-size: 4em;
-    border: 1px solid $gray;
+    border: 1px solid $btn-primary-color;
     padding: 18px;
-    color: $gray;
+    color: $btn-primary-color;
     border-radius:50%;
     -webkit-border-radius: 50%;
     -moz-border-radius: 50%;
     transition: border-radius 0.5s;
 
     &:hover {
-        color: $btn-primary-color;
         border-radius: 0;
     }
 }

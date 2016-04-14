@@ -7344,15 +7344,14 @@ body {
 
 .Media__Horizontal--Tile-icon {
   font-size: 4em;
-  border: 1px solid #BCC3C7;
+  border: 1px solid #2196f3;
   padding: 18px;
-  color: #BCC3C7;
+  color: #2196f3;
   border-radius: 50%;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   transition: border-radius 0.5s; }
   .Media__Horizontal--Tile-icon:hover {
-    color: #2196f3;
     border-radius: 0; }
 
 .Home__Media--object {

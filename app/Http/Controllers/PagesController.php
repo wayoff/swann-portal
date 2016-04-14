@@ -59,7 +59,8 @@ class PagesController extends Controller
                     }])
                     ->with([
                         'procedures.products', 'questions.products',
-                        'procedures.document', 'questions.document'
+                        'procedures.document', 'questions.document',
+                        'products.categories'
                     ])
                     ->paginate(20);
         return view('pages.search', compact('searches', 'q'));

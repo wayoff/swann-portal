@@ -66,7 +66,7 @@
                             <li><a href="#">Escalation Process</a></li>
                         </ul>
                     </li>
-                    <li><a href="{{ url('lmi') }}">LMI Sessions</a></li>
+                    <li><a href="#">LMI Sessions</a></li>
                     <li class="dropdown">
                         <a href="#"> Time Zones <b class="caret"></b></a>
                         <ul class="dropdown-menu Navbar__Menu--Dropdown">

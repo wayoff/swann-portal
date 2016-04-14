@@ -14,6 +14,10 @@
                     <li class="Footer__Description--list-li">New Zealand Telephone: <span class="text-underline">0800 479 266</span> (Toll Free)  </li>
                     <li class="Footer__Description--list-li">International Telephone: <span class="text-underline">+61 3 8412 4610</span></li>
                 </ul>
+                <span class="Footer__Title--smaller">UK & Europe</span>
+                <ul class="Footer__Description Footer__Description--list">
+                    <li class="Footer__Description--list-li">UK Telephone Support: <span class="text-underline"> +44 808 168 9031</span> (Toll Free)</li>
+                </ul>
             </div>
             <div class="col-md-4">
                 <div class="Footer__Title Footer__Title-border">
@@ -25,7 +29,9 @@
                 <div class="Footer__Title Footer__Title-border">
                     <span>Links</span>
                 </div>
-                <p class="Footer__Description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit accusamus enim, doloremque molestias quas totam fuga ipsam adipisci fugiat laudantium excepturi suscipit minus possimus accusantium, unde facere maiores. Expedita, dolor.</p>
+                <p class="Footer__Description">"Click here to see the links for softwares and apps that we have
+                    <a href="http://www.swann.com/us/apps">http://www.swann.com/us/apps</a> "
+                </p>
             </div>
         </div>
 

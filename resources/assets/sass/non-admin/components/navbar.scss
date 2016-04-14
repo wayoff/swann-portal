@@ -90,9 +90,10 @@
 .Navbar__Menu--Dropdown > li > a {
     color: $lightblue !important;
     font-size: 1.2em;
-}
-.Navbar__Menu--Dropdown > li > a:hover {
-    background-color: $darkblue;
+
+    &:hover {
+        background-color: $darkblue;
+    }
 }
 
 .Navbar__Form--input {

@@ -1,27 +1,35 @@
 body {
     background-color: $body-color;
 }
+
 .text-blue {
     color: $blue !important;
 }
+
 .text-underline {
     text-decoration: underline;
 }
+
 .text-bold {
     font-weight: bold;
 }
+
 .padding-remove {
     padding: 0 0 !important;
 }
+
 .padding-10 {
     padding: 10px;
 }
+
 .margin-10 {
     margin: 10px;
 }
+
 .background-white {
     background-color: $white;
 }
+
 .box-shadow {
     box-shadow: 0 10px 6px -6px $gray;
     -moz-box-shadow: 0 10px 6px -6px $gray;
@@ -30,4 +38,11 @@ body {
 
 .image-max-width-200 {
     max-width: 200px;
+}
+
+.caret-right {
+  border-left: 4px solid black;
+  border-right: 0;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent;
 }

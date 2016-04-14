@@ -54,6 +54,9 @@
                     <li class="dropdown">
                         <a href="#"> Warranty <b class="caret"></b></a>
                         <ul class="dropdown-menu Navbar__Menu--Dropdown">
+                            <!-- <li>
+                                <a href="#"> Warranty Procedure <b class="right-caret"></b></a>
+                            </li> -->
                             <li><a href="#">Warranty Procedure</a></li>
                             <li class="nav-divider"></li>
                             <li><a href="#">Australia</a></li>

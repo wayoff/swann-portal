@@ -7083,6 +7083,12 @@ body {
 .image-max-width-200 {
   max-width: 200px; }
 
+.caret-right {
+  border-left: 4px solid black;
+  border-right: 0;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent; }
+
 .Card {
   z-index: 1;
   padding: 10px;
@@ -7212,9 +7218,8 @@ body {
 .Navbar__Menu--Dropdown > li > a {
   color: #b2dbfb !important;
   font-size: 1.2em; }
-
-.Navbar__Menu--Dropdown > li > a:hover {
-  background-color: #0C7CD5; }
+  .Navbar__Menu--Dropdown > li > a:hover {
+    background-color: #0C7CD5; }
 
 .Navbar__Form--input {
   margin-top: 5px; }

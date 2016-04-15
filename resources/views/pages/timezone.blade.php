@@ -39,6 +39,7 @@
 
 @section('footer')
     <script src="/js/moment/moment.js"></script>
+    <script src="/js/moment/moment-locales.js"></script>
     <script src="/js/moment/moment-timezone.js"></script>
     <script src="/js/jqClock.js"></script>
     <script>

@@ -46,7 +46,21 @@
                                 No Document Available
                             @endif
                         </td>
-                        <td>{{ $warranty->warranty_procedure ? 'Yes' : 'No' }}</td>
+                        <td>
+                            <?php 
+                                switch ($warranty->warranty_procedure) {
+                                    case 1:
+                                        echo 'Australia'
+                                        break;
+                                    case 2:
+                                        echo 'United Kingdom'
+                                        break;
+                                    case 3:
+                                        echo 'United States'
+                                        break;
+                                }
+                            ?>
+                        </td>
                         <td>
                             <form action="{{ route('admin.warranties.destroy', [$warranty->id]) }}" method="POST" class="form-inline" role="form">
                                 {!! csrf_field() !!}

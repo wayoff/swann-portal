@@ -1,3 +1,7 @@
+@if($admin)
+    <meta id="user" data-content="{{json_encode($admin->toArray())}}">
+@endif
+
 <div class="navbar navbar-inverse Navbar" role="navigation">
     <div class="container">
         <div class="Navbar__Technical--Support-Container">
@@ -80,7 +84,9 @@
                         </ul>
                     </li>
                     @endif
-                    <li><a href="#">LMI Sessions</a></li>
+                    @if($admin)
+                        <li><a href="{{url('lmi-sessions')}}">LMI Sessions</a></li>
+                    @endif
                     <li class="dropdown">
                         <a href="#"> Time Zones <b class="caret"></b></a>
                         <ul class="dropdown-menu Navbar__Menu--Dropdown">
@@ -105,7 +111,9 @@
                             </a>
 
                             <ul class="dropdown-menu Navbar__Menu--Dropdown" role="menu">
-                                <li><a href="{{ url('/admin') }}"><i class="fa fa-btn fa-desktop"></i>Dashboard</a></li>
+                                @if(!$admin->role_id)
+                                    <li><a href="{{ url('/admin') }}"><i class="fa fa-btn fa-desktop"></i>Dashboard</a></li>
+                                @endif
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                             </ul>
                         </li>

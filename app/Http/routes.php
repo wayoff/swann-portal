@@ -14,6 +14,7 @@ Route::group([
     Route::resource('videos', 'VideosController');
     Route::resource('tags', 'TagsController');
     Route::resource('warranties', 'WarrantiesController');
+    Route::resource('lmi-sessions', 'LmiSessionsController');
     
     Route::resource('questions/products', 'QuestionsProductsController');
     Route::resource('questions', 'QuestionsController');
@@ -34,6 +35,7 @@ Route::group([
 
 Route::group(['namespace' => 'API', 'prefix' => 'api'], function() {
     Route::resource('products', 'ProductsController', ['only' => 'index']);
+    Route::resource('lmi-sessions', 'LmiSessionsController', ['only' => ['index', 'store']]);
 });
 
 Route::auth();

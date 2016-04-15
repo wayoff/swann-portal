@@ -80,5 +80,6 @@
             $('[data-toggle="tooltip"]').tooltip();
         });
     </script>
+    @yield('footer')
 </body>
 </html>

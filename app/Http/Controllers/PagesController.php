@@ -42,6 +42,11 @@ class PagesController extends Controller
         return view('pages.news', compact('news'));
     }
 
+    public function getLmiSessions()
+    {
+        return view('pages.lmi-sessions');
+    }
+
     public function getSearch(Request $request, Keyword $keywords)
     {
         $q = $request->input('q');

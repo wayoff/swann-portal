@@ -74,6 +74,9 @@
                 <a href="/admin/warranties"><i class="fa fa-fw fa-file"></i> Warranties</a>
             </li>
             <li>
+                <a href="/admin/lmi-sessions"><i class="fa fa-fw fa-eye"></i> LMI Sessions</a>
+            </li>
+            <li>
                 <a href="/"><i class="fa fa-fw fa-home"></i> Home</a>
             </li>
             <!-- <li>

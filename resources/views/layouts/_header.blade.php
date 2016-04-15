@@ -14,6 +14,7 @@
         display: none !important;
     }
     </style>
+    <meta id="_token" data-content="{{csrf_token()}}">
     @yield('header')
 </head>
 <body>

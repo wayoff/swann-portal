@@ -50,13 +50,13 @@
                             <?php 
                                 switch ($warranty->warranty_procedure) {
                                     case 1:
-                                        echo 'Australia'
+                                        echo 'Australia';
                                         break;
                                     case 2:
-                                        echo 'United Kingdom'
+                                        echo 'United Kingdom';
                                         break;
                                     case 3:
-                                        echo 'United States'
+                                        echo 'United States';
                                         break;
                                 }
                             ?>

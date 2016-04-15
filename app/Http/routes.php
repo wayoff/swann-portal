@@ -45,4 +45,7 @@ Route::resource(
 Route::resource('news', 'NewsController', ['only' => ['index', 'show']]);
 Route::resource('products', 'ProductsController', ['only' => ['index']]);
 Route::resource('keywords', 'KeywordsController', ['only' => ['index']]);
+Route::get('/timezone', function() {
+    return view('pages.timezone');
+});
 Route::controller('/', 'PagesController');

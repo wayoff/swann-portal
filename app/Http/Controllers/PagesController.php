@@ -58,10 +58,11 @@ class PagesController extends Controller
                         $query->distinct()->groupBy('questions.id');
                     }])
                     ->with([
+                        'products', 'products.categories',
                         'procedures.products', 'questions.products',
                         'procedures.document', 'questions.document',
                         'procedures.products.categories',
-                        'questions.products.categories'
+                        'questions.products.categories',
                     ])
                     ->paginate(20);
         return view('pages.search', compact('searches', 'q'));

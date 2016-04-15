@@ -90,9 +90,9 @@
                     <li class="dropdown">
                         <a href="#"> Time Zones <b class="caret"></b></a>
                         <ul class="dropdown-menu Navbar__Menu--Dropdown">
-                            <li><a href="#">Australia</a></li>
-                            <li><a href="#">United Kingdom</a></li>
-                            <li><a href="#">United States</a></li>
+                            <li><a href="/timezone/australia">Australia</a></li>
+                            <li><a href="/timezone/united-kingdom">United Kingdom</a></li>
+                            <li><a href="/timezone/united-states">United States</a></li>
                         </ul>
                     </li>
                     <!-- <li><a href="#">Company</a></li> -->

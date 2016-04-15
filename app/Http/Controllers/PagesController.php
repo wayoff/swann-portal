@@ -72,4 +72,18 @@ class PagesController extends Controller
                     ->paginate(20);
         return view('pages.search', compact('searches', 'q'));
     }
+
+    public function getTimezone($state)
+    {
+        $timezones = config('timezone.' . $state);
+
+        if (empty($timezones)) {
+            return redirect()->back();
+        }
+        $title = string_slug_to_word('-', $state);
+        $now = \Carbon\Carbon::now();
+
+
+        return view('pages.timezone', compact('timezones', 'title', 'now'));
+    }
 }

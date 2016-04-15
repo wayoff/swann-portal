@@ -1,90 +1,56 @@
 @extends('layouts.descriptive-content')
 
-@section('Page__Title', 'Timezone')
+@section('Page__Title', 'Timezone: <u>' . $title . '</u>')
 
 @section('header')
-<style>
-    #clock {
-        position: relative;
-        width: 600px;
-        height: 600px;
-        margin: 20px auto 0 auto;
-        background: url(/img/clockface.jpg);
-        list-style: none;
-        }
-
-    #sec, #min, #hour {
-        position: absolute;
-        width: 30px;
-        height: 600px;
-        top: 0px;
-        left: 285px;
-        }
-
-    #sec {
-        background: url(/img/sechand.png);
-        z-index: 3;
-        }
-       
-    #min {
-        background: url(/img/minhand.png);
-        z-index: 2;
-        }
-       
-    #hour {
-        background: url(/img/hourhand.png);
-        z-index: 1;
-        }
-        
-    p {
-        text-align: center; 
-        padding: 10px 0 0 0;
-        }
-</style>
-
+  <link rel="stylesheet" href="/css/jqClock.css">
 @stop
+
 @section('content')
-<div class="row">
+  <div class="row">
     <div class="col-md-12">
-        <ul id="clock"> 
-            <li id="sec"></li>
-            <li id="hour"></li>
-            <li id="min"></li>
-        </ul>
+        <div class="row">
+            <div class="col-md-3 col-md-offset-5 text-center Question">
+                <span class="Timezone__Title">
+                  Philippines
+                </span>
+                <span 
+                    class="Timezone"
+                    data-key='Asia/Manila'
+                ></span>
+            </div>
+        </div>
+        <div class="row">
+          @foreach($timezones as $key => $value)
+            <div class="col-md-3 text-center Question">
+                <span class="Timezone__Title">
+                  {{string_slug_to_word('_', $key)}}
+                </span>
+                <span 
+                    class="Timezone" 
+                    data-key="{{$value}}"
+                ></span>
+            </div>
+          @endforeach
+        </div>
     </div>
-</div>
+  </div>
 @stop
 
 @section('footer')
+    <script src="/js/moment/moment.js"></script>
+    <script src="/js/moment/moment-timezone.js"></script>
+    <script src="/js/jqClock.js"></script>
     <script>
-        $(document).ready(function() {
-              setInterval( function() {
-              var seconds = new Date().getSeconds();
-              var sdegree = seconds * 6;
-              var srotate = "rotate(" + sdegree + "deg)";
-              
-              $("#sec").css({"-moz-transform" : srotate, "-webkit-transform" : srotate});
-                  
-              }, 1000 );
-         
-              setInterval( function() {
-              var hours = new Date().getHours();
-              var mins = new Date().getMinutes();
-              var hdegree = hours * 30 + (mins / 2);
-              var hrotate = "rotate(" + hdegree + "deg)";
-              
-              $("#hour").css({"-moz-transform" : hrotate, "-webkit-transform" : hrotate});
-                  
-              }, 1000 );
-        
-              setInterval( function() {
-              var mins = new Date().getMinutes();
-              var mdegree = mins * 6;
-              var mrotate = "rotate(" + mdegree + "deg)";
-              
-              $("#min").css({"-moz-transform" : mrotate, "-webkit-transform" : mrotate});
-                  
-              }, 1000 );
-        }); 
+        $(function() {
+          var CurrentDate = moment.utc().format('YYYY-MM-DD hh:mm');
+            $('.Timezone').each(function(index) {
+              var key = $(this).data('key');
+              console.log(CurrentDate);
+              var time = moment.utc().tz(CurrentDate, key).valueOf();
+              console.log(time);
+              $(this).clock({"timestamp": time});
+            });
+        });
     </script>
 @stop

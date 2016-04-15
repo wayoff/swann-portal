@@ -54,7 +54,7 @@ class WarrantiesController extends Controller
         $this->warranties->create([
             'name'               => $request->input('name'),
             'document_id'        => $document->id,
-            'warranty_procedure' => $request->input('warranty_procedure')            
+            'warranty_procedure' => $request->input('warranty_procedure')        
         ]);
 
         return redirect(route('admin.warranties.index'))

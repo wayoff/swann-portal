@@ -40,12 +40,23 @@
                     </div>
 
                     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                        <label class="col-md-4 control-label">is Warranty Procedure?</label>
+                        <label class="col-md-4 control-label">Warranty Procedure of </label>
 
                         <div class="col-md-6">
                             <select name="warranty_procedure" class="form-control">
-                                <option value="0">No</option>
-                                <option value="1" {{$warranty->warranty_procedure ? 'selected' : ''}}>Yes</option>
+                                <option value="0">None</option>
+                                <option value="1" {{$warranty->warranty_procedure == 1 
+                                                        ? 'selected' 
+                                                        : ''}}
+                                    >Australia</option>
+                                <option value="2" {{$warranty->warranty_procedure == 2 
+                                                        ? 'selected' 
+                                                        : ''}}
+                                    >United Kingdom</option>
+                                <option value="3" {{$warranty->warranty_procedure == 3 
+                                                        ? 'selected' 
+                                                        : ''}}
+                                    >United States</option>
                             </select>
                         </div>
                     </div>

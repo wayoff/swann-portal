@@ -17,3 +17,15 @@ if( !function_exists('default_img')) {
     }
     
 }
+
+if( !function_exists('string_slug_to_word')) {
+
+    function string_slug_to_word($delimiter = '_', $str)
+    {
+        if(strpos($str, $delimiter)) {
+            return ucwords(implode(' ', explode($delimiter, $str)));
+        }
+
+        return ucwords($str);
+    }
+}

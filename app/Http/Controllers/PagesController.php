@@ -6,6 +6,7 @@ use App\Models\News;
 use App\Models\Video;
 use App\Http\Requests;
 use App\Models\Keyword;
+use App\Models\Warranty;
 use App\Models\Question;
 use Illuminate\Http\Request;
 
@@ -85,5 +86,12 @@ class PagesController extends Controller
 
 
         return view('pages.timezone', compact('timezones', 'title', 'now'));
+    }
+
+    public function getWarranties($state, Warranty $warranties)
+    {
+        $warranties = $warranties->with('document')->where('warranty_procedure', $state)->get();
+
+        return view('pages.warranties', compact('warranties', 'state'));
     }
 }

@@ -45,18 +45,12 @@
                         <div class="col-md-6">
                             <select name="warranty_procedure" class="form-control">
                                 <option value="0">None</option>
-                                <option value="1" {{$warranty->warranty_procedure == 1 
+                                @foreach(config('swannportal.states') as $key => $state)
+                                    <option value="{{$key}}" {{$warranty->warranty_procedure == $key
                                                         ? 'selected' 
                                                         : ''}}
-                                    >Australia</option>
-                                <option value="2" {{$warranty->warranty_procedure == 2 
-                                                        ? 'selected' 
-                                                        : ''}}
-                                    >United Kingdom</option>
-                                <option value="3" {{$warranty->warranty_procedure == 3 
-                                                        ? 'selected' 
-                                                        : ''}}
-                                    >United States</option>
+                                        >{{$state}}</option>
+                                @endforeach
                             </select>
                         </div>
                     </div>

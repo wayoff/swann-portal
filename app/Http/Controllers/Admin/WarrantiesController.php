@@ -53,7 +53,7 @@ class WarrantiesController extends Controller
 
         $this->warranties->create([
             'name'               => $request->input('name'),
-            'document_id'        => $document->id,
+            'document_id'        => $document ? $document->id : null,
             'warranty_procedure' => $request->input('warranty_procedure')        
         ]);
 

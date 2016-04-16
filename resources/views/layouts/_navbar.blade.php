@@ -64,11 +64,10 @@
                             </li> -->
                             <li><a href="#">Warranty Procedure</a></li>
                             <li class="nav-divider"></li>
-                            @foreach($warranties->where('warranty_procedure', 1)->all() as $warrantyProcedure)
+                            @foreach(config('swannportal.states') as $key => $state)
                             <li>
-                                <a target="_blank" 
-                                    href="{{$warrantyProcedure->document->getDocument()}}">
-                                    {{$warrantyProcedure->name}}
+                                <a href="{{url('warranties/' . $key)}}">
+                                    {{$state}}
                                 </a>
                             </li>
                             @endforeach

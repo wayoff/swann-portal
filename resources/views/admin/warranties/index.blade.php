@@ -47,19 +47,9 @@
                             @endif
                         </td>
                         <td>
-                            <?php 
-                                switch ($warranty->warranty_procedure) {
-                                    case 1:
-                                        echo 'Australia';
-                                        break;
-                                    case 2:
-                                        echo 'United Kingdom';
-                                        break;
-                                    case 3:
-                                        echo 'United States';
-                                        break;
-                                }
-                            ?>
+                            {{ $warranty->warranty_procedure 
+                                    ? config('swannportal.states')[$warranty->warranty_procedure]
+                                    : 'None' }}
                         </td>
                         <td>
                             <form action="{{ route('admin.warranties.destroy', [$warranty->id]) }}" method="POST" class="form-inline" role="form">

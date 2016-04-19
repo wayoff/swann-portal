@@ -1,5 +1,5 @@
 <?php
-namespace App\SwannPortal;
+namespace App\SwannPortal\Composers;
 
 use App\Models\Slider;
 use Illuminate\View\View;

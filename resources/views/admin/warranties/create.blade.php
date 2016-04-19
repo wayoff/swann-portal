@@ -42,10 +42,10 @@
                         <label class="col-md-4 control-label">Warranty Procedure of </label>
 
                         <div class="col-md-6">
-                            <select name="warranty_procedure" class="form-control">
+                            <select name="countries[]" multiple class="form-control">
                                 <option value="0">None</option>
-                                @foreach(config('swannportal.states') as $key => $state)
-                                    <option value="{{$key}}">{{$state}}</option>
+                                @foreach($countries as $country)
+                                    <option value="{{$country->id}}">{{$country->name}}</option>
                                 @endforeach
                             </select>
                         </div>

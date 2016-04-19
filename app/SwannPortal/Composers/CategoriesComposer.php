@@ -1,5 +1,5 @@
 <?php
-namespace App\SwannPortal;
+namespace App\SwannPortal\Composers;
 
 use App\Models\Category;
 use Illuminate\View\View;

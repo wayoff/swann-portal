@@ -90,7 +90,11 @@ class PagesController extends Controller
 
     public function getWarranties($state, Warranty $warranties)
     {
-        $warranties = $warranties->with('document')->where('warranty_procedure', $state)->get();
+        $warranties = $warranties
+        ->with('document')
+        ->whereHas('countries', function($query) use($state) {
+            $query->where('countries.id', $state);
+        })->get();
 
         return view('pages.warranties', compact('warranties', 'state'));
     }

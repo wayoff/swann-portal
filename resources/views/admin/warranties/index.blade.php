@@ -47,9 +47,13 @@
                             @endif
                         </td>
                         <td>
-                            {{ $warranty->warranty_procedure 
-                                    ? config('swannportal.states')[$warranty->warranty_procedure]
-                                    : 'None' }}
+                            <div class="btn-group">
+                                @foreach($warranty->countries as $country)
+                                   <button type="button" class="btn btn-default">
+                                       {{$country->name}}
+                                   </button>
+                                @endforeach
+                            </div>
                         </td>
                         <td>
                             <form action="{{ route('admin.warranties.destroy', [$warranty->id]) }}" method="POST" class="form-inline" role="form">

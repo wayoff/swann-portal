@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Warranty;
 use App\Models\Document;
+use App\Models\Country;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\WarrantyRequest;
 
@@ -26,7 +27,7 @@ class WarrantiesController extends Controller
      */
     public function index()
     {
-        $warranties = $this->warranties->get();
+        $warranties = $this->warranties->with('countries')->get();
 
         return view('admin.warranties.index', compact('warranties'));
     }
@@ -36,9 +37,11 @@ class WarrantiesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Country $countries)
     {
-        return view('admin.warranties.create');
+        $countries = $countries->get();
+
+        return view('admin.warranties.create', compact('countries'));
     }
 
     /**
@@ -51,11 +54,14 @@ class WarrantiesController extends Controller
     {
         $document = (new DocumentUpload($request, $documents))->handle();
 
-        $this->warranties->create([
+        $warranty = $this->warranties->create([
             'name'               => $request->input('name'),
-            'document_id'        => $document ? $document->id : null,
-            'warranty_procedure' => $request->input('warranty_procedure')        
+            'document_id'        => $document ? $document->id : null
         ]);
+
+        if($request->input('countries')) {
+            $warranty->countries()->sync($request->input('countries'));
+        }
 
         return redirect(route('admin.warranties.index'))
                     ->with('status', 'Sucess on Creating New Warranty');
@@ -67,11 +73,12 @@ class WarrantiesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, Country $countries)
     {
+        $countries = $countries->get();
         $warranty = $this->warranties->findOrFail($id);
 
-        return view('admin.warranties.edit', compact('warranty'));
+        return view('admin.warranties.edit', compact('warranty', 'countries'));
     }
 
     /**
@@ -90,9 +97,12 @@ class WarrantiesController extends Controller
 
         $warranty->update([
             'name'               => $request->input('name'),
-            'document_id'        => $document ? $document->id : null,
-            'warranty_procedure' => $request->input('warranty_procedure')      
+            'document_id'        => $document ? $document->id : null
         ]);
+
+        if($request->input('countries')) {
+            $warranty->countries()->sync($request->input('countries'));
+        }
 
         return redirect(route('admin.warranties.index'))
                     ->with('status', 'Success on updating warranty');

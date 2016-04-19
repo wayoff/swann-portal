@@ -55,7 +55,6 @@
                     </li>
                     <!-- <li><a href="#">Support</a></li> -->
                     <li><a href="{{ url('news') }}">News & Updates</a></li>
-                    @if(!$warranties->isEmpty())
                     <li class="dropdown">
                         <a href="#"> Warranty <b class="caret"></b></a>
                         <ul class="dropdown-menu Navbar__Menu--Dropdown">
@@ -64,25 +63,25 @@
                             </li> -->
                             <li><a href="#">Warranty Procedure</a></li>
                             <li class="nav-divider"></li>
-                            @foreach(config('swannportal.states') as $key => $state)
-                            <li>
-                                <a href="{{url('warranties/' . $key)}}">
-                                    {{$state}}
-                                </a>
-                            </li>
+                            @foreach($countries as $country)
+                                <li>
+                                    <a href="{{url('warranties/' . $country->id)}}">
+                                        {{$country->name}}
+                                    </a>
+                                </li>
                             @endforeach
                             <li class="nav-divider"></li>
-                            @foreach($warranties->where('warranty_procedure', 0)->all() as $warrantyNonProcedure)
+                            @foreach($warranties as $warranty)
                             <li>
                                 <a target="_blank" 
-                                    href="{{$warrantyNonProcedure->document->getDocument()}}">
-                                    {{$warrantyNonProcedure->name}}
+                                    href="{{$warranty->document->getDocument()}}">
+                                    {{$warranty->name}}
                                 </a>
                             </li>
                             @endforeach
                         </ul>
                     </li>
-                    @endif
+                    
                     @if($admin)
                         <li><a href="{{url('lmi-sessions')}}">LMI Sessions</a></li>
                     @endif

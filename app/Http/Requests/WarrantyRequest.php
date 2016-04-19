@@ -25,7 +25,6 @@ class WarrantyRequest extends Request
     {
         return [
             'name'               => 'required|min:3',
-            'warranty_procedure' => 'required',
             'document'           => 'mimes:doc,dot,docx,pdf'
         ];
     }

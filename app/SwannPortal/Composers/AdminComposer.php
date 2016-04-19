@@ -1,5 +1,5 @@
 <?php
-namespace App\SwannPortal;
+namespace App\SwannPortal\Composers;
 
 use Illuminate\View\View;
 

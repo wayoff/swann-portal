@@ -17,6 +17,7 @@
                 <span 
                     class="Timezone"
                     data-key='Asia/Manila'
+                    data-time="{{\Carbon\Carbon::now()->timestamp * 1000}}"
                 ></span>
             </div>
         </div>
@@ -26,9 +27,16 @@
                 <span class="Timezone__Title">
                   {{string_slug_to_word('_', $key)}}
                 </span>
+                @php
+                  $carbon = \Carbon\Carbon::now($value);
+                  $new = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $carbon->toDateTimeString());
+                @endphp
                 <span 
                     class="Timezone" 
-                    data-key="{{$value}}"
+                    data-value="{{$value}}"
+                    data-key="{{$key}}"
+                    data-time="{{$new->timestamp * 1000}}"
+                    data-timezone="{{$carbon->timezoneName}}"
                 ></span>
             </div>
           @endforeach
@@ -46,10 +54,14 @@
         $(function() {
           var CurrentDate = moment.utc().format('YYYY-MM-DD hh:mm');
             $('.Timezone').each(function(index) {
-              var key = $(this).data('key');
-              console.log(CurrentDate);
-              var time = moment.utc().tz(CurrentDate, key).valueOf();
-              console.log(time);
+              var data = {
+                value : $(this).data('value'),
+                key : $(this).data('key'),
+                time : $(this).data('time'),
+                timezone : $(this).data('timezone')
+              };
+              var time = $(this).data('time');
+              console.log(data);
               $(this).clock({"timestamp": time});
             });
         });

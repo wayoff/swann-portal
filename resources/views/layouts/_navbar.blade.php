@@ -85,14 +85,14 @@
                     @if($admin)
                         <li><a href="{{url('lmi-sessions')}}">LMI Sessions</a></li>
                     @endif
-                    <!-- <li class="dropdown">
+                    <li class="dropdown">
                         <a href="#"> Time Zones <b class="caret"></b></a>
                         <ul class="dropdown-menu Navbar__Menu--Dropdown">
                             <li><a href="/timezone/australia">Australia</a></li>
                             <li><a href="/timezone/united-kingdom">United Kingdom</a></li>
                             <li><a href="/timezone/united-states">United States</a></li>
                         </ul>
-                    </li> -->
+                    </li>
                     <!-- <li><a href="#">Company</a></li> -->
                 </ul>
                 <!-- Right Side Of Navbar -->

@@ -4,17 +4,17 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 
-use App\Http\Requests;
 use App\Models\ProcedureCategory;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProcedureCategoriesRequest;
 
 class ProcedureCategoriesController extends Controller
 {
-    protected $procedureCategory;
+    protected $procedureCategories;
 
-    public function __construct(ProcedureCategory $procedureCategory)
+    public function __construct(ProcedureCategory $procedureCategories)
     {
-        $this->procedureCategory = $procedureCategory;
+        $this->procedureCategories = $procedureCategories;
     }
 
     /**
@@ -24,7 +24,7 @@ class ProcedureCategoriesController extends Controller
      */
     public function index()
     {
-        $procedureCategories = $this->procedureCategory->get();
+        $procedureCategories = $this->procedureCategories->paginate(20);
 
         return view('admin.procedure-categories.index', compact('procedureCategories'));
     }
@@ -45,20 +45,12 @@ class ProcedureCategoriesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ProcedureCategoriesRequest $request)
     {
-        //
-    }
+        $this->procedureCategories->create($request->all());
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
+        return redirect(route('admin.procedure-categories.index'))
+                    ->with('status', 'Success on Creating new Trouble Shooting Category');
     }
 
     /**
@@ -81,9 +73,12 @@ class ProcedureCategoriesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ProcedureCategoriesRequest $request, $id)
     {
-        //
+        $this->procedureCategories->findOrFail($id)->update($request->all());
+
+        return redirect(route('admin.procedure-categories.index'))
+                    ->with('status', 'Success on Creating new Trouble Shooting Category');
     }
 
     /**
@@ -96,7 +91,7 @@ class ProcedureCategoriesController extends Controller
     {
         $this->procedureCategories->findOrFail($id)->delete();
 
-        return redirect(route('admin.procedure-categories'))
-                    ->with('status', 'Success on Deleting Category')
+        return redirect(route('admin.procedure-categories.index'))
+                    ->with('status', 'Success on Deleting Category');
     }
 }

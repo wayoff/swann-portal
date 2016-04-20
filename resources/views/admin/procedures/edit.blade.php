@@ -42,6 +42,29 @@
                         </div>
                     </div>
 
+                    <div class="form-group{{ $errors->has('procedure_category_id') ? ' has-error' : '' }}">
+                        <label class="col-md-4 control-label">Category</label>
+
+                        <div class="col-md-6">
+                            <select name="procedure_category_id" class="form-control">
+                                <option value="0">Other</option>
+                                @foreach($procedureCategories as $category)
+                                    <option value="{{$category->id}}"
+                                            {{$category->id == $procedure->procedure_category_id ? 'selected' : ''}}
+                                    >
+                                        {{$category->name}}
+                                    </option>
+                                @endforeach
+                            </select>
+
+                            @if ($errors->has('procedure_category_id'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('procedure_category_id') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                    </div>
+
 
                     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                         <label class="col-md-4 control-label">Product</label>

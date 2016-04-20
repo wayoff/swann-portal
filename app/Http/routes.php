@@ -9,7 +9,7 @@ Route::group([
     Route::resource('users', 'UsersController');
     Route::resource('categories', 'CategoriesController');
     Route::resource('faq-categories', 'FaqCategoriesController');
-    Route::resource('procedure-categories', 'ProceduresCategoriesController');
+    Route::resource('procedure-categories', 'ProcedureCategoriesController');
     Route::resource('sliders', 'SlidersController');
     Route::resource('news', 'NewsController');
     Route::resource('videos', 'VideosController');

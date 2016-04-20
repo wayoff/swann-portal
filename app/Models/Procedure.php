@@ -10,7 +10,7 @@ class Procedure extends Model
         'name', 'document_id', 'product_id', 'procedure_category_id'
     ];
 
-    public function category()
+    public function procedureCategory()
     {
         return $this->belongsTo(ProcedureCategory::class);
     }

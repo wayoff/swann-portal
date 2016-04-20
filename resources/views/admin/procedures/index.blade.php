@@ -25,6 +25,7 @@
                 <tr>
                     <td>ID</td>
                     <td>Name</td>
+                    <td>Category</td>
                     <td>Document</td>
                     <td>Action</td>
                 </tr>
@@ -48,6 +49,13 @@
                                 <a href="#" class="btn btn-default">{{$product->name}}</a>
                                 @endforeach
                               </div>
+                        </td>
+                        <td>
+                            @if($procedure->procedure_category_id)
+                                {{$procedure->procedureCategory->name}}
+                            @else
+                                Other
+                            @endif
                         </td>
                         <td>
                             @if($procedure->document_id)

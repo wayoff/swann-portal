@@ -49,6 +49,9 @@
                     <li>
                         <a href="/admin/faq-categories"><i class="fa fa-fw fa-newspaper-o"></i> FAQ </a>
                     </li>
+                    <li>
+                        <a href="/admin/procedure-categories"><i class="fa fa-fw fa-university"></i> Trouble Shooting </a>
+                    </li>
                 </ul>
             </li>
             <li>

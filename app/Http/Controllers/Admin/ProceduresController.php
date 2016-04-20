@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\Document;
 use App\Models\Procedure;
+use App\Models\ProcedureCategory;
 use App\SwannPortal\DocumentUpload;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductDocumentRequest;
@@ -28,7 +29,7 @@ class ProceduresController extends Controller
     public function index()
     {
         $procedures = $this->procedures
-                            ->with('products')
+                            ->with(['products', 'procedureCategory'])
                             ->whereNull('product_id')
                             ->paginate(20);
 
@@ -40,9 +41,11 @@ class ProceduresController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(ProcedureCategory $procedureCategories)
     {
-        return view('admin.procedures.create');
+        $procedureCategories = $procedureCategories->get();
+
+        return view('admin.procedures.create', compact('procedureCategories'));
     }
 
     /**
@@ -56,9 +59,10 @@ class ProceduresController extends Controller
         $document = (new DocumentUpload($request, $documents))->handle();
 
         $procedure = $this->procedures->create([
-            'product_id'  => null,
-            'document_id' => $document ? $document->id : null,
-            'name'        => $request->input('name')
+            'product_id'            => null,
+            'document_id'           => $document ? $document->id : null,
+            'name'                  => $request->input('name'),
+            'procedure_category_id' => $request->input('procedure_category_id')
         ]);
         
         $procedure->products()->sync($request->input('product'));
@@ -75,27 +79,17 @@ class ProceduresController extends Controller
     }
 
     /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
      * Show the form for editing the specified resource.
      *
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, ProcedureCategory $procedureCategories)
     {
         $procedure = $this->procedures->findOrFail($id);
+        $procedureCategories = $procedureCategories->get();
 
-        return view('admin.procedures.edit', compact('procedure'));
+        return view('admin.procedures.edit', compact('procedure', 'procedureCategories'));
     }
 
     /**
@@ -112,9 +106,10 @@ class ProceduresController extends Controller
         $document = (new DocumentUpload($request, $documents, $procedure->document_id ?: false))->handle();
 
         $procedure->update([
-            'product_id'  => null,
-            'document_id' => $document ? $document->id : null,
-            'name'        => $request->input('name')
+            'product_id'            => null,
+            'document_id'           => $document ? $document->id : null,
+            'name'                  => $request->input('name'),
+            'procedure_category_id' => $request->input('procedure_category_id')
         ]);
 
         $procedure->products()->sync($request->input('product'));

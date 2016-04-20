@@ -6,6 +6,8 @@ use App\Http\Requests;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\FaqCategory;
+use App\Models\ProcedureCategory;
+
 use Illuminate\Http\Request;
 
 class CategoryProductsController extends Controller
@@ -38,7 +40,12 @@ class CategoryProductsController extends Controller
         return view('pages.category-products.index', compact('products', 'category', 'q'));
     }
 
-    public function show(Category $categories, FaqCategory $faqCategories, $categoryId, $productId)
+    public function show(
+        Category $categories,
+        FaqCategory $faqCategories,
+        ProcedureCategory $procedureCategories,
+        $categoryId,
+        $productId)
     {
         $product = $this->products->with([
                 'procedures.steps.document', 'procedures.steps.photo',
@@ -48,7 +55,10 @@ class CategoryProductsController extends Controller
             ])->findOrFail($productId);
 
         $faqCategories = $faqCategories->get();
+        $procedureCategories = $procedureCategories->get();
 
-        return view('pages.category-products.show', compact('product', 'faqCategories'));
+        return view('pages.category-products.show',
+                compact('product', 'faqCategories', 'procedureCategories')
+        );
     }
 }

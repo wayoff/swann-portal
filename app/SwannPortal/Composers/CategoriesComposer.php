@@ -15,7 +15,14 @@ class CategoriesComposer
 
     public function compose(View $view)
     {
-        $categories = $this->categories->all();
+        // $allParentId = $this->categories->where('parent_id', '!=', 0)->get();
+        // $allParentId = $allParentId->pluck('id');
+
+        // $categories = $this->categories->whereNotIn('id', $allParentId)->get();
+        
+        $categories = $this->categories->with(
+                    ['children', 'children.children']
+        )->where('parent_id', 0)->get();
 
         return $view->with('categories', $categories);
     }

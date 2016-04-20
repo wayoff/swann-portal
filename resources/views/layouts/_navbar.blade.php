@@ -49,7 +49,42 @@
                         <a href="{{route('products.index')}}"> Products <b class="caret"></b></a>
                         <ul class="dropdown-menu Navbar__Menu--Dropdown">
                             @foreach($categories as $category)
-                                <li><a href="{{ route('categories.{id}.products.index', $category->id) }}">{{ $category->name }}</a></li>
+                                @if($category->children->count() === 0)
+                                    <li>
+                                        <a href="{{ route('categories.{id}.products.index', $category->id) }}">
+                                            {{ $category->name }}
+                                        </a>
+                                    </li>
+                                @else
+                                    <li class="dropdown-submenu">
+                                        <a href="{{ route('categories.{id}.products.index', $category->id) }}"> {{ $category->name }} </a>
+                                        <ul class="dropdown-menu Navbar__Menu--Dropdown">
+                                            @foreach($category->children as $children)
+
+                                                @if($children->children->count() === 0)
+                                                    <li>
+                                                        <a href="{{ route('categories.{id}.products.index', $children->id) }}">
+                                                            {{ $children->name }}
+                                                        </a>
+                                                    </li>
+                                                @else
+                                                    <li class="dropdown-submenu">
+                                                        <a href="{{ route('categories.{id}.products.index', $children->id) }}"> {{ $children->name }} </a>
+                                                        <ul class="dropdown-menu Navbar__Menu--Dropdown">
+                                                            @foreach($children->children as $grand)
+                                                                <li>
+                                                                    <a href="{{ route('categories.{id}.products.index', $grand->id) }}">
+                                                                        {{$grand->name}}
+                                                                    </a>
+                                                                </li>
+                                                            @endforeach
+                                                        </ul>
+                                                    </li>
+                                                @endif
+                                            @endforeach
+                                        </ul>
+                                    </li>
+                                @endif
                             @endforeach
                         </ul>
                     </li>
@@ -88,6 +123,7 @@
                     @if($admin)
                         <li><a href="{{url('lmi-sessions')}}">LMI Sessions</a></li>
                     @endif
+
                     <li class="dropdown">
                         <a href="#"> Time Zones <b class="caret"></b></a>
                         <ul class="dropdown-menu Navbar__Menu--Dropdown">

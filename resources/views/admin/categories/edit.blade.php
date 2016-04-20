@@ -1,7 +1,7 @@
 @extends('admin.layouts.content')
 
 @section('Page__Description')
-    Categories
+    Product Categories
 @stop
 
 @section('Breadcrumb')
@@ -24,6 +24,24 @@
                 <form class="form-horizontal" role="form" method="POST" action="{{ route('admin.categories.update', $category->id) }}">
                     {!! csrf_field() !!}
                     {!! method_field('put') !!}
+
+
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Parent</label>
+
+                        <div class="col-md-6">
+                            <select name="parent_id" class="form-control">
+                                <option value="0">None</option>
+                                @foreach($categories as $categoryparent)
+                                    <option value="{{$categoryparent->id}}"
+                                            {{$category->id == $categoryparent->id ? 'selected' : ''}}>
+                                        {{$categoryparent->name}}
+                                    </option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
                     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
                         <label class="col-md-4 control-label">Name</label>
 

@@ -23,7 +23,7 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        $categories = $this->categories->paginate(20);
+        $categories = $this->categories->with('parent')->paginate(20);
 
         return view('admin.categories.index', compact('categories'));
     }
@@ -35,7 +35,9 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        return view('admin.categories.create');
+        $categories = $this->categories->get();
+
+        return view('admin.categories.create', compact('categories'));
     }
 
     /**
@@ -60,8 +62,9 @@ class CategoriesController extends Controller
     public function edit($id)
     {
         $category = $this->categories->findOrFail($id);
+        $categories = $this->categories->whereNotIn('id', [$category->id])->get();
 
-        return view('admin.categories.edit', compact('category'));
+        return view('admin.categories.edit', compact('category', 'categories'));
     }
 
     /**

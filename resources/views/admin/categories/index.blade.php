@@ -1,7 +1,7 @@
 @extends('admin.layouts.content')
 
 @section('Page__Description')
-    Categories
+    Product Categories
 @stop
 
 @section('Breadcrumb')
@@ -22,6 +22,7 @@
                 <tr>
                     <td>ID</td>
                     <td>Name</td>
+                    <td>Parent</td>
                     <td>Action</td>
                 </tr>
             </thead>
@@ -31,6 +32,13 @@
                     <tr>
                         <td>{{ string_pad($category->id) }}</td>
                         <td>{{ $category->name }}</td>
+                        <td>
+                            @if($category->parent_id)
+                                {{ $category->parent->name }}
+                            @else
+                                None
+                            @endif
+                        </td>
                         <td>
 
                             <form action="{{ route('admin.categories.destroy', $category->id) }}" method="POST" class="form-inline" role="form">

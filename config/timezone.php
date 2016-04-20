@@ -91,9 +91,9 @@ return [
         'Central'         => 'America/Chicago',
         'Mountain'        => 'America/Denver',
         'Mountain no DST' => 'America/Phoenix',
-        'Pacific'         =>  'America/Los_Angeles',
-        'Alaska'          =>  'America/Anchorage',
-        'Hawaii'          =>  'America/Adak',
-        'Hawaii no DST'   => 'Pacific/Honolulu'
+        'Pacific'         => 'America/Los_Angeles',
+        'Alaska'          => 'America/Anchorage',
+        // 'Hawaii'          => 'America/Adak',
+        // 'Hawaii no DST'   => 'Pacific/Honolulu'
     ],
 ];

@@ -63,16 +63,24 @@
                 </ul>
             </li>
             <li>
+                <a href="javascript:;" data-toggle="collapse" data-target="#hpa"><i class="fa fa-fw fa-coffee"></i> Homepage Assets <i class="fa fa-fw fa-caret-down"></i></a>
+                <ul id="hpa" class="collapse">
+                    <li>
+                        <a href="/admin/sliders"><i class="fa fa-fw fa-desktop"></i> Sliders</a>
+                    </li>
+                    <li>
+                        <a href="/admin/questions"><i class="fa fa-fw fa-question"></i> General Question</a>
+                    </li>
+                    <li>
+                        <a href="/admin/videos"><i class="fa fa-fw fa-video-camera"></i> Videos</a>
+                    </li>
+                    <li>
+                        <a href="/admin/news"><i class="fa fa-fw fa-file"></i> News</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
                 <a href="/admin/products"><i class="fa fa-fw fa-book"></i> Products</a>
-            </li>
-            <li>
-                <a href="/admin/sliders"><i class="fa fa-fw fa-desktop"></i> Sliders</a>
-            </li>
-            <li>
-                <a href="/admin/videos"><i class="fa fa-fw fa-video-camera"></i> Videos</a>
-            </li>
-            <li>
-                <a href="/admin/news"><i class="fa fa-fw fa-file"></i> News</a>
             </li>
             <li>
                 <a href="/admin/procedures"><i class="fa fa-fw fa-wrench"></i> Trouble Shooting</a>

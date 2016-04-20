@@ -76,7 +76,7 @@
 .Navbar__Menu > li.dropdown:hover {
     background-color: $darkblue;
 }
-.Navbar__Menu > li.dropdown:hover ul {
+.Navbar__Menu > li.dropdown:hover > ul {
     display: block;
 }
 

@@ -34,4 +34,9 @@ class Procedure extends Model
     {
         return $this->morphToMany(Keyword::class, 'keywordable');
     }
+
+    public function dividers()
+    {
+        return $this->belongsToMany(Divider::class);
+    }
 }

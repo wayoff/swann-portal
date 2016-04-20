@@ -7206,7 +7206,7 @@ body {
 .Navbar__Menu > li.dropdown:hover {
   background-color: #0C7CD5; }
 
-.Navbar__Menu > li.dropdown:hover ul {
+.Navbar__Menu > li.dropdown:hover > ul {
   display: block; }
 
 .Navbar__Menu--Dropdown {
@@ -7450,5 +7450,47 @@ body {
 .tab-pane {
   padding-bottom: 50px;
   padding-top: 20px; }
+
+#parentMenu {
+  display: block;
+  top: 0; }
+
+/* Helps position submenu */
+.dropdown-submenu {
+  position: relative; }
+
+/* Menus under the submenu should show up on the right of the parent */
+.dropdown-submenu > .dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px; }
+
+/* Make submenu visible when hovering on link */
+.dropdown-submenu:hover > .dropdown-menu {
+  display: block; }
+
+/* Add carot to submenu links */
+.dropdown-submenu > a:after {
+  display: block;
+  float: right;
+  /*simple */
+  content: "?";
+  color: #cccccc;
+  /* looks a little better */
+  content: " ";
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 10px;
+  margin-right: -10px; }
+
+/* Change carot color on hover */
+.dropdown-submenu:hover > a:after {
+  border-left-color: #ffffff; }
 
 /*# sourceMappingURL=non-admin.css.map */

@@ -1,11 +1,22 @@
-.jqclock { 
-    float:left;
-    text-align:center;
-    border: 1px grey solid;
-    background: LightYellow;
+
+.jqclock {
+    display: block;
     padding: 10px;
-    margin:20px;
+    box-shadow: 0 3px 10px #A4A4A4;
+    -webkit-box-shadow: 0 3px 10px #A4A4A4;
+    -moz-box-shadow: 0 3px 10px #A4A4A4;
+    transition: background-color 0.5s;
 }
+
+.jqclock:hover {
+    background-color: azure;
+}
+
+.Timezone__Title {
+    font-weight: bold;
+    font-size: 1.4em;
+}
+
 .clockdate {
      color: DarkRed;
      margin-bottom: 10px;
@@ -22,9 +33,4 @@
     color: LightGreen;
     margin: 2px;
     display: block;
-}
-
-.Timezone__Title {
-    font-weight: bold;
-    font-size: 1.4em;
 }

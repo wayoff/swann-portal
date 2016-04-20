@@ -61,16 +61,18 @@
                             <!-- <li>
                                 <a href="#"> Warranty Procedure <b class="right-caret"></b></a>
                             </li> -->
-                            <li><a href="#">Warranty Procedure</a></li>
-                            <li class="nav-divider"></li>
-                            @foreach($countries as $country)
-                                <li>
-                                    <a href="{{url('warranties/' . $country->id)}}">
-                                        {{$country->name}}
-                                    </a>
-                                </li>
-                            @endforeach
-                            <li class="nav-divider"></li>
+                            <li class="dropdown-submenu">
+                                <a href="#"> Procedure </a>
+                                <ul class="dropdown-menu Navbar__Menu--Dropdown">
+                                    @foreach($countries as $country)
+                                        <li>
+                                            <a href="{{url('warranties/' . $country->id)}}">
+                                                {{$country->name}}
+                                            </a>
+                                        </li>
+                                    @endforeach
+                                </ul>
+                            </li>
                             @foreach($warranties as $warranty)
                             <li>
                                 <a target="_blank" 
@@ -81,7 +83,8 @@
                             @endforeach
                         </ul>
                     </li>
-                    
+
+
                     @if($admin)
                         <li><a href="{{url('lmi-sessions')}}">LMI Sessions</a></li>
                     @endif
@@ -93,8 +96,8 @@
                             <li><a href="/timezone/united-states">United States</a></li>
                         </ul>
                     </li>
-                    <!-- <li><a href="#">Company</a></li> -->
                 </ul>
+
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar navbar-right Navbar__Menu">
                     <!-- Authentication Links -->

@@ -7,8 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 class Procedure extends Model
 {
     protected $fillable =[
-        'name', 'document_id', 'product_id'
+        'name', 'document_id', 'product_id', 'procedure_category_id'
     ];
+
+    public function category()
+    {
+        return $this->belongsTo(ProcedureCategory::class);
+    }
 
     public function steps()
     {

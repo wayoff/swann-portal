@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AlterQuestionsTable extends Migration
+class Alter2QuestionsTable extends Migration
 {
     /**
      * Run the migrations.

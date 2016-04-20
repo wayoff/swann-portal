@@ -26,6 +26,9 @@
                 </li>
                 <li class="divider"></li> -->
                 <li>
+                    <a href="/"><i class="fa fa-fw fa-home"></i> Home</a>
+                </li>
+                <li>
                     <a href="/logout"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
                 </li>
             </ul>
@@ -38,19 +41,29 @@
                 <a href="/admin/dashboard"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
             </li>
             <li>
+                <a href="javascript:;" data-toggle="collapse" data-target="#cat"><i class="fa fa-fw fa-arrows-v"></i> Categories <i class="fa fa-fw fa-caret-down"></i></a>
+                <ul id="cat" class="collapse">
+                    <li>
+                        <a href="/admin/categories"><i class="fa fa-fw fa-table"></i> Product </a>
+                    </li>
+                    <li>
+                        <a href="/admin/faq-categories"><i class="fa fa-fw fa-newspaper-o"></i> FAQ </a>
+                    </li>
+                </ul>
+            </li>
+            <li>
+                <a href="javascript:;" data-toggle="collapse" data-target="#quest"><i class="fa fa-fw fa-certificate"></i> Questions <i class="fa fa-fw fa-caret-down"></i></a>
+                <ul id="quest" class="collapse">
+                    <li>
+                        <a href="/admin/questions"><i class="fa fa-fw fa-question"></i> General </a>
+                    </li>
+                    <li>
+                        <a href="/admin/questions/products"><i class="fa fa-fw fa-book"></i> For Products</a>
+                    </li>
+                </ul>
+            </li>
+            <li>
                 <a href="/admin/products"><i class="fa fa-fw fa-book"></i> Products</a>
-            </li>
-            <li>
-                <a href="/admin/categories"><i class="fa fa-fw fa-table"></i> Categories</a>
-            </li>
-            <li>
-                <a href="/admin/questions"><i class="fa fa-fw fa-question"></i> Questions</a>
-            </li>
-            <li>
-                <a href="/admin/questions/products"><i class="fa fa-fw fa-book"></i> Questions For Products</a>
-            </li>
-            <li>
-                <a href="/admin/faq-categories"><i class="fa fa-fw fa-newspaper-o"></i> FAQ's Categories</a>
             </li>
             <li>
                 <a href="/admin/sliders"><i class="fa fa-fw fa-desktop"></i> Sliders</a>
@@ -76,35 +89,6 @@
             <li>
                 <a href="/admin/lmi-sessions"><i class="fa fa-fw fa-eye"></i> LMI Sessions</a>
             </li>
-            <li>
-                <a href="/"><i class="fa fa-fw fa-home"></i> Home</a>
-            </li>
-            <!-- <li>
-                <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Forms</a>
-            </li>
-            <li>
-                <a href="bootstrap-elements.html"><i class="fa fa-fw fa-desktop"></i> Bootstrap Elements</a>
-            </li>
-            <li>
-                <a href="bootstrap-grid.html"><i class="fa fa-fw fa-wrench"></i> Bootstrap Grid</a>
-            </li>
-            <li>
-                <a href="javascript:;" data-toggle="collapse" data-target="#demo"><i class="fa fa-fw fa-arrows-v"></i> Dropdown <i class="fa fa-fw fa-caret-down"></i></a>
-                <ul id="demo" class="collapse">
-                    <li>
-                        <a href="#">Dropdown Item</a>
-                    </li>
-                    <li>
-                        <a href="#">Dropdown Item</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a href="blank-page.html"><i class="fa fa-fw fa-file"></i> Blank Page</a>
-            </li>
-            <li>
-                <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i> RTL Dashboard</a>
-            </li> -->
         </ul>
     </div>
     <!-- /.navbar-collapse -->

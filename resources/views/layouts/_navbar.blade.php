@@ -127,8 +127,8 @@
                     <li class="dropdown">
                         <a href="#"> Time Zones <b class="caret"></b></a>
                         <ul class="dropdown-menu Navbar__Menu--Dropdown">
-                            <li><a href="/timezone/australia">Australia</a></li>
-                            <li><a href="/timezone/united-kingdom">United Kingdom</a></li>
+                            <!-- <li><a href="/timezone/australia">Australia</a></li> -->
+                            <!-- <li><a href="/timezone/united-kingdom">United Kingdom</a></li> -->
                             <li><a href="/timezone/united-states">United States</a></li>
                         </ul>
                     </li>

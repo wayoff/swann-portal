@@ -76,11 +76,12 @@ class PagesController extends Controller
 
     public function getTimezone($state)
     {
-        $timezones = config('timezone.' . $state);
+        $timezones = config('timezone.states.' . $state);
 
         if (empty($timezones)) {
             return redirect()->back();
         }
+        $timezones = collect($timezones);
         $title = string_slug_to_word('-', $state);
         $now = \Carbon\Carbon::now();
 

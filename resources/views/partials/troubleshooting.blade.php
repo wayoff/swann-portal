@@ -21,7 +21,7 @@
                                 <div class="row">
                                     <div class="col-md-12 padding-10">
                                         @if($procedure->document_id)
-                                            <a href="{{$procedure->document->getDocument()}}" class="btn btn-primary margin-10"> View Supporting Document</a>
+                                            <a href="{{$procedure->document->getDocument()}}" class="btn btn-success margin-10"> View Supporting Document</a>
                                             <br />
                                         @endif
                                     </div>

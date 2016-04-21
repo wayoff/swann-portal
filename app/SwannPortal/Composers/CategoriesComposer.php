@@ -22,7 +22,7 @@ class CategoriesComposer
         
         $categories = $this->categories->with(
                     ['children', 'children.children']
-        )->where('parent_id', 0)->get();
+        )->where('parent_id', 0)->orderBy('order', 'ASC')->get();
 
         return $view->with('categories', $categories);
     }

@@ -59,7 +59,7 @@
                                     <li class="dropdown-submenu">
                                         <a href="{{ route('categories.{id}.products.index', $category->id) }}"> {{ $category->name }} </a>
                                         <ul class="dropdown-menu Navbar__Menu--Dropdown">
-                                            @foreach($category->children as $children)
+                                            @foreach($category->children->sortBy('order') as $children)
 
                                                 @if($children->children->count() === 0)
                                                     <li>
@@ -71,7 +71,7 @@
                                                     <li class="dropdown-submenu">
                                                         <a href="{{ route('categories.{id}.products.index', $children->id) }}"> {{ $children->name }} </a>
                                                         <ul class="dropdown-menu Navbar__Menu--Dropdown">
-                                                            @foreach($children->children as $grand)
+                                                            @foreach($children->children->sortBy('order') as $grand)
                                                                 <li>
                                                                     <a href="{{ route('categories.{id}.products.index', $grand->id) }}">
                                                                         {{$grand->name}}

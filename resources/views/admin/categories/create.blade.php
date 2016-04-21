@@ -54,6 +54,21 @@
                     </div>
 
 
+                    <div class="form-group{{ $errors->has('order') ? ' has-error' : '' }}">
+                        <label class="col-md-4 control-label">Order</label>
+
+                        <div class="col-md-6">
+                            <input type="number" class="form-control" required name="order" value="{{ old('order') }}">
+
+                            @if ($errors->has('order'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('order') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                    </div>
+
+
                     <div class="form-group">
                         <div class="col-md-6 col-md-offset-4">
                             <button type="submit" class="btn btn-primary">

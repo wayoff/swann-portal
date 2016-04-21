@@ -23,6 +23,7 @@
                     <td>ID</td>
                     <td>Name</td>
                     <td>Parent</td>
+                    <td>Order</td>
                     <td>Action</td>
                 </tr>
             </thead>
@@ -38,6 +39,9 @@
                             @else
                                 None
                             @endif
+                        </td>
+                        <td>
+                            {{ $category->order }}
                         </td>
                         <td>
 

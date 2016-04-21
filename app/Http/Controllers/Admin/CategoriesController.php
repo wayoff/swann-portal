@@ -89,7 +89,10 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-        $this->categories->findOrFail($id)->delete();
+        $this->categories
+            ->where('id', $id)
+            ->orWhere('parent_id', $id)
+            ->delete();
 
         return redirect(route('admin.categories.index'))->with('status', 'Success on Deleting Category');
     }

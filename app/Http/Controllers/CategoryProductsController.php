@@ -51,7 +51,7 @@ class CategoryProductsController extends Controller
                 'procedures.steps.document', 'procedures.steps.photo',
                 'videos', 'procedures', 'procedures.document',
                 'photo', 'questions', 'questions.document',
-                'questions.faqcategory'
+                'questions.faqcategory', 'photos'
             ])->findOrFail($productId);
 
         $faqCategories = $faqCategories->get();

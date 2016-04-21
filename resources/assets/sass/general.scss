@@ -46,3 +46,9 @@ body {
   border-top: 4px solid transparent;
   border-bottom: 4px solid transparent;
 }
+
+.vcenter {
+    display: inline-block !important;
+    vertical-align: middle;
+    float: none;
+}

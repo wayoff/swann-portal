@@ -19,4 +19,9 @@ class Photo extends Model
     {
         return url( config('swannportal.path.images') . $this->name . '.' . $this->extension);
     }
+
+    public function products()
+    {
+        return $this->belongsToMany(Product::class);
+    }
 }

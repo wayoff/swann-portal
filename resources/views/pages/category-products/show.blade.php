@@ -21,7 +21,35 @@
     <div class="row">
         <div class="col-md-12">
             <div class="col-md-8 Product__Show-Image--Container">
-                <img src="{{ $product->photo_id ? $product->photo->getImage() : default_img() }}" alt="" class="Product__Show-Image">
+                <div class="row">
+                    <div class="col-md-12" style="min-height: 500px !important;">
+                        <div class="col-md-10">
+                            <div id="zoom">
+                                <img src="{{ $product->photo_id ? $product->photo->getImage() : default_img() }}" alt="" class="Product__Show-Image" id="Product__Show-Image-active">
+                            </div>
+                        </div>
+                        <div class="col-md-2">
+                            <div id="zoom_container"></div>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="row margin-10">
+                            @php
+                                $photos = $product->photos;
+                            @endphp
+                            @if($product->photo_id)
+                                @php
+                                    $photos->prepend($product->photo);
+                                @endphp
+                            @endif
+                            @foreach($product->photos as $photo)
+                                <div class="col-xs-6 col-md-3 padding-remove">
+                                    <img src="{{$photo->getImage()}}" class="thumbnail thumbnail-fix margin-10 vcenter Product__Photos">
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="col-md-4">
                 @include('partials.list-random-products')
@@ -131,4 +159,29 @@
             </div>
         </div>
     </div>
+@stop
+
+@section('footer')
+    <script src="/js/jquery.zoom.min.js"></script>
+    <script>
+        $(document).ready( function() {
+            var target = $('#zoom_container').get(0);
+
+            var zoomable = function() {
+                $('#zoom').zoom({
+                    magnify: 1.5,
+                });
+            }
+
+            $('.Product__Photos').on('click', function() {
+                var source = $(this).attr('src');
+
+                $('#Product__Show-Image-active').attr('src', source);
+                $('#zoom').trigger('zoom.destroy');
+                zoomable();
+            });
+
+            zoomable();
+        });
+    </script>
 @stop

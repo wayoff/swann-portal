@@ -25,6 +25,7 @@ Route::group([
 
     Route::resource('products/{id}/procedures/{procedureId}/steps', 'ProductsProceduresStepsController');
     Route::resource('products/{id}/procedures', 'ProductsProceduresController');
+    Route::resource('products/{id}/photos', 'PhotoProductController');
     Route::resource('products/{id}/questions', 'ProductsQuestionsController');
     Route::resource('products/{id}/videos', 'ProductsVideosController');
     Route::resource('products/{id}/documents', 'ProductsDocumentsController');

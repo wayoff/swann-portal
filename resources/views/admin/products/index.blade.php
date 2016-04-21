@@ -109,19 +109,24 @@
                                         Documents
                                     </a>
                                   </li>
-                                  <li>
+                                  <!-- <li>
                                     <a href="{{ route('admin.products.{id}.questions.index', $product->id) }}" class="btn btn-default btn-action">
                                         Questions
                                     </a>
-                                  </li>
+                                  </li> -->
                                   <li>
                                     <a href="{{ route('admin.products.{id}.videos.index', $product->id) }}" class="btn btn-default btn-action">
                                         Videos
                                     </a>
                                   </li>
-                                  <li>
+                                  <!-- <li>
                                     <a href="{{ route('admin.products.{id}.procedures.index', $product->id) }}" class="btn btn-default btn-action">
                                         Trouble Shooting
+                                    </a>
+                                  </li> -->
+                                  <li>
+                                    <a href="{{ route('admin.products.{id}.photos.index', $product->id) }}" class="btn btn-default btn-action">
+                                        Images
                                     </a>
                                   </li>
                                   <li>

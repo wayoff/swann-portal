@@ -48,7 +48,7 @@
                     <li class="dropdown">
                         <a href="{{route('products.index')}}"> Products <b class="caret"></b></a>
                         <ul class="dropdown-menu Navbar__Menu--Dropdown">
-                            @foreach($categories as $category)
+                            @foreach($categories->sortBy('order') as $category)
                                 @if($category->children->count() === 0)
                                     <li>
                                         <a href="{{ route('categories.{id}.products.index', $category->id) }}">

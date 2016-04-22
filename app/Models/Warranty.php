@@ -19,4 +19,9 @@ class Warranty extends Model
     {
         return $this->belongsToMany(Country::class);
     }
+
+    public function categories()
+    {
+        return $this->belongsToMany(PolicyCategory::class);
+    }
 }

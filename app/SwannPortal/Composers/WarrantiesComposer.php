@@ -1,27 +1,30 @@
 <?php
 namespace App\SwannPortal\Composers;
 
-use App\Models\Country;
 use App\Models\Warranty;
 use Illuminate\View\View;
+use App\Models\PolicyCategory;
 
 class WarrantiesComposer
 {
     protected $warranties;
-    protected $countries;
+    protected $policyCategories;
 
-    function __construct(Warranty $warranties, Country $countries)
+    function __construct(Warranty $warranties, PolicyCategory $policyCategories)
     {
         $this->warranties = $warranties;
-        $this->countries = $countries;
+        $this->policyCategories = $policyCategories;
     }
 
     public function compose(View $view)
     {
-        $warranties = $this->warranties->doesntHave('countries')->get();
-        $countries = $this->countries->get();
+        $warranties = $this->warranties->doesntHave('categories')->get();
+        $policyCategories = $this->policyCategories
+                                ->where('parent_id', 0)
+                                ->orderBy('order', 'ASC')
+                                ->get();
 
         return $view->with('warranties', $warranties)
-                    ->with('countries', $countries);
+                    ->with('policyCategories', $policyCategories);
     }
 }

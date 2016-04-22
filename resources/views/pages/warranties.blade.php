@@ -1,6 +1,6 @@
 @extends('layouts.descriptive-content')
 
-@section('Page__Title', 'Warranties for: ' . config('swannportal.states')[$state])
+@section('Page__Title', 'Warranties for: ' . $policyCategory->parent->name . ' - ' . $policyCategory->name)
 
 @section('Page__BreadCrumbs')
     <ol class="breadcrumb">

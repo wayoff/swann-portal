@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Warranty;
 use App\Models\Document;
-use App\Models\Country;
+use App\Models\PolicyCategory;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\WarrantyRequest;
 
@@ -15,10 +15,14 @@ use App\SwannPortal\DocumentUpload;
 class WarrantiesController extends Controller
 {
     protected $warranties;
+    protected $policyCategories;
 
-    public function __construct(Warranty $warranties)
+    public function __construct(
+            Warranty $warranties, PolicyCategory $policyCategories
+    )
     {
         $this->warranties = $warranties;
+        $this->policyCategories = $policyCategories;
     }
     /**
      * Display a listing of the resource.
@@ -27,7 +31,9 @@ class WarrantiesController extends Controller
      */
     public function index()
     {
-        $warranties = $this->warranties->with('countries')->get();
+        $warranties = $this->warranties
+                        ->with(['categories', 'categories.parent'])
+                        ->get();
 
         return view('admin.warranties.index', compact('warranties'));
     }
@@ -37,11 +43,14 @@ class WarrantiesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Country $countries)
+    public function create()
     {
-        $countries = $countries->get();
+        $policyCategories = $this->policyCategories
+                                ->with('children')
+                                ->where('parent_id', 0)
+                                ->get();
 
-        return view('admin.warranties.create', compact('countries'));
+        return view('admin.warranties.create', compact('policyCategories'));
     }
 
     /**
@@ -60,7 +69,7 @@ class WarrantiesController extends Controller
         ]);
 
         if($request->input('countries')) {
-            $warranty->countries()->sync($request->input('countries'));
+            $warranty->categories()->sync($request->input('countries'));
         }
 
         return redirect(route('admin.warranties.index'))
@@ -73,12 +82,16 @@ class WarrantiesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id, Country $countries)
+    public function edit($id)
     {
-        $countries = $countries->get();
         $warranty = $this->warranties->findOrFail($id);
 
-        return view('admin.warranties.edit', compact('warranty', 'countries'));
+        $policyCategories = $this->policyCategories
+                                ->with('children')
+                                ->where('parent_id', 0)
+                                ->get();
+
+        return view('admin.warranties.edit', compact('warranty', 'policyCategories'));
     }
 
     /**
@@ -101,7 +114,7 @@ class WarrantiesController extends Controller
         ]);
 
         if($request->input('countries')) {
-            $warranty->countries()->sync($request->input('countries'));
+            $warranty->categories()->sync($request->input('countries'));
         }
 
         return redirect(route('admin.warranties.index'))

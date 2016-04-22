@@ -91,30 +91,32 @@
                     <!-- <li><a href="#">Support</a></li> -->
                     <li><a href="{{ url('news') }}">News & Updates</a></li>
                     <li class="dropdown">
-                        <a href="#"> Warranty <b class="caret"></b></a>
+                        <a href="#"> Policy <b class="caret"></b></a>
                         <ul class="dropdown-menu Navbar__Menu--Dropdown">
-                            <!-- <li>
-                                <a href="#"> Warranty Procedure <b class="right-caret"></b></a>
-                            </li> -->
-                            <li class="dropdown-submenu">
-                                <a href="#"> Procedure </a>
-                                <ul class="dropdown-menu Navbar__Menu--Dropdown">
-                                    @foreach($countries as $country)
-                                        <li>
-                                            <a href="{{url('warranties/' . $country->id)}}">
-                                                {{$country->name}}
-                                            </a>
-                                        </li>
-                                    @endforeach
-                                </ul>
-                            </li>
+                            @foreach($policyCategories as $policyCategory)
+                                <li class="dropdown-submenu">
+                                    <a href="#">
+                                        {{$policyCategory->name}}
+                                    </a>
+                                    <ul class="dropdown-menu Navbar__Menu--Dropdown">
+                                        @foreach($policyCategory->children as $child)
+                                            <li>
+                                                <a href="{{url('warranties/' . $child->id)}}">
+                                                    {{$child->name}}
+                                                </a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </li>
+                            @endforeach
+                            
                             @foreach($warranties as $warranty)
-                            <li>
-                                <a target="_blank" 
-                                    href="{{$warranty->document->getDocument()}}">
-                                    {{$warranty->name}}
-                                </a>
-                            </li>
+                                <li>
+                                    <a target="_blank" 
+                                        href="{{$warranty->document->getDocument()}}">
+                                        {{$warranty->name}}
+                                    </a>
+                                </li>
                             @endforeach
                         </ul>
                     </li>

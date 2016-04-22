@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Models\Keyword;
 use App\Models\Warranty;
 use App\Models\Question;
+use App\Models\PolicyCategory;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -89,14 +90,18 @@ class PagesController extends Controller
         return view('pages.timezone', compact('timezones', 'title', 'now'));
     }
 
-    public function getWarranties($state, Warranty $warranties)
+    public function getWarranties(
+            $state, Warranty $warranties, PolicyCategory $policyCategories
+    )
     {
+        $policyCategory = $policyCategories->with('parent')->findOrFail($state);
+
         $warranties = $warranties
-        ->with('document')
-        ->whereHas('countries', function($query) use($state) {
-            $query->where('countries.id', $state);
+        ->with(['document', 'categories'])
+        ->whereHas('categories', function($query) use($state) {
+            $query->where('policy_categories.id', $state);
         })->get();
 
-        return view('pages.warranties', compact('warranties', 'state'));
+        return view('pages.warranties', compact('warranties', 'policyCategory'));
     }
 }

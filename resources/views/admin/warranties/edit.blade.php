@@ -42,16 +42,19 @@
                         <label class="col-md-4 control-label">Warranty Procedure of </label>
 
                         <div class="col-md-6">
-                            <select  name="countries[]" multiple class="form-control">
-                                <option value="0">None</option>
-                                @foreach($countries as $country)
-                                    <option value="{{$country->id}}"
-                                        {{$warranty->countries->where('id', $country->id)->first()
+                            <select  name="countries[]" multiple class="form-control select2">
+                                @foreach($policyCategories as $policyCategory)
+                                <optgroup label="{{$policyCategory->name}}">
+                                    @foreach($policyCategory->children as $child)
+                                        <option value="{{$child->id}}"
+                                        {{$warranty->categories->where('id', $child->id)->first()
                                             ? 'selected' 
                                             : ''}}
-                                    >
-                                        {{$country->name}}
-                                    </option>
+                                        >
+                                            {{$child->name}}
+                                        </option>
+                                    @endforeach
+                                </optgroup>
                                 @endforeach
                             </select>
                         </div>
@@ -94,4 +97,17 @@
         </div>
     </div>
 </div>
+@stop
+
+@section('header')
+    <link rel="stylesheet" href="/css/select2.css">
+@stop
+
+@section('footer')
+    <script src="/js/select2.js"></script>
+    <script>
+        $(function() {
+            $('.select2').select2();
+        });
+    </script>
 @stop

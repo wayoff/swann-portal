@@ -52,6 +52,9 @@
                     <li>
                         <a href="/admin/procedure-categories"><i class="fa fa-fw fa-university"></i> Trouble Shooting </a>
                     </li>
+                    <li>
+                        <a href="/admin/policy-categories"><i class="fa fa-fw fa-flag"></i> Trouble Policy </a>
+                    </li>
                 </ul>
             </li>
             <li>

@@ -23,7 +23,7 @@
                     <td>ID</td>
                     <td>Warranty</td>
                     <td>File</td>
-                    <td>Warranty Procedure</td>
+                    <td>Category</td>
                     <td>Action</td>
                 </tr>
             </thead>
@@ -48,9 +48,9 @@
                         </td>
                         <td>
                             <div class="btn-group">
-                                @foreach($warranty->countries as $country)
+                                @foreach($warranty->categories as $category)
                                    <button type="button" class="btn btn-default">
-                                       {{$country->name}}
+                                       {{$category->parent->name}} - {{$category->name}}
                                    </button>
                                 @endforeach
                             </div>

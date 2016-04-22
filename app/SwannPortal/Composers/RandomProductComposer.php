@@ -15,7 +15,7 @@ class RandomProductComposer
 
     public function compose(View $view)
     {
-        $products = $this->products->with('photo')->whereNotNull('photo_id')->orderByRaw("RAND()")->limit(6)->get();
+        $products = $this->products->with('photo')->whereNotNull('photo_id')->orderByRaw("RAND()")->limit(3)->get();
 
         return $view->with('randomProducts', $products);
     }

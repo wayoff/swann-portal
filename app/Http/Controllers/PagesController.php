@@ -83,6 +83,11 @@ class PagesController extends Controller
             return redirect()->back();
         }
         $timezones = collect($timezones);
+
+        // $timezones = collect($timezones)->sortBy( function($timezone) {
+        //     return count($timezone['countries']);
+        // });
+        
         $title = string_slug_to_word('-', $state);
         $now = \Carbon\Carbon::now();
 

@@ -21,36 +21,38 @@
                 ></span>
             </div>
         </div>
-        <div class="row">
-            @foreach($timezones->chunk(4) as $chunk)
-              <div class="col-md-6 padding-remove">
-                @foreach($chunk as $key => $value)
-                  <div class="col-md-3 text-center Question Timezone__Container">
-                      <span class="Timezone__Title">
-                        {{string_slug_to_word('_', $key)}}
-                      </span>
-                      @php
-                        $carbon = \Carbon\Carbon::now($value['timezone']);
-                        $new = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $carbon->toDateTimeString());
-                        $countries = collect($value['countries']);
-                      @endphp
-                      <span 
-                          class="Timezone" 
-                          data-value="{{$value['timezone']}}"
-                          data-key="{{$key}}"
-                          data-time="{{$new->timestamp * 1000}}"
-                          data-timezone="{{$carbon->timezoneName}}"
-                      ></span>
-                      <div class="list-group">
-                        @foreach($countries->sort() as $country)
-                          <a href="#" class="list-group-item">{{$country}}</a>
-                        @endforeach
-                      </div>
-                  </div>
-                @endforeach
-              </div>
-            @endforeach
-        </div>
+        @foreach($timezones->chunk(8) as $firstChunk)
+          <div class="row">
+              @foreach($firstChunk->chunk(4) as $chunk)
+                <div class="col-md-6 padding-remove">
+                  @foreach($chunk as $key => $value)
+                    <div class="col-md-3 text-center Question Timezone__Container">
+                        <span class="Timezone__Title">
+                          {{string_slug_to_word('_', $key)}}
+                        </span>
+                        @php
+                          $carbon = \Carbon\Carbon::now($value['timezone']);
+                          $new = \Carbon\Carbon::createFromFormat('Y-m-d H:i:s', $carbon->toDateTimeString());
+                          $countries = collect($value['countries']);
+                        @endphp
+                        <span 
+                            class="Timezone" 
+                            data-value="{{$value['timezone']}}"
+                            data-key="{{$key}}"
+                            data-time="{{$new->timestamp * 1000}}"
+                            data-timezone="{{$carbon->timezoneName}}"
+                        ></span>
+                        <div class="list-group">
+                          @foreach($countries->sort() as $country)
+                            <a href="#" class="list-group-item">{{$country}}</a>
+                          @endforeach
+                        </div>
+                    </div>
+                  @endforeach
+                </div>
+              @endforeach
+          </div>
+        @endforeach
     </div>
   </div>
 @stop

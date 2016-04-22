@@ -5,8 +5,8 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 
 use App\Models\User;
-use App\Http\Requests\UserStoreRequest;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\UserStoreRequest;
 
 class UsersController extends Controller
 {

@@ -7412,12 +7412,9 @@ body {
 .News__Show--Content-Paragraph {
   font-size: 1.2em; }
 
-.Product__Show-Image {
-  max-width: 100%;
-  max-height: 500px;
-  margin: 20px; }
-
 #Product__Show-Image-active {
+  width: 300px !important;
+  height: 300px !important;
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -7429,7 +7426,7 @@ body {
     border: 1px solid #2196f3; }
 
 .Product__Show-Image--Container {
-  padding: 20px;
+  padding: 10px;
   margin-bottom: 20px; }
 
 .Product__Show--description {
@@ -7511,14 +7508,15 @@ body {
   border-left-color: #ffffff; }
 
 .thumbnail-fix {
-  height: 150px !important;
-  width: 150px !important;
+  height: 130px !important;
+  width: 130px !important;
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border: 1px solid #dddddd;
   padding: 5px;
   transition: border 0.3s;
+  margin: 2px;
   cursor: pointer; }
   .thumbnail-fix > image {
     width: 100%;

@@ -20,38 +20,37 @@
 @section('content')
     <div class="row">
         <div class="col-md-12">
-            <div class="col-md-8 Product__Show-Image--Container">
+            <div class="col-md-4 Product__Show-Image--Container">
                 <div class="row">
-                    <div class="col-md-12" style="min-height: 500px !important;">
-                        <div class="col-md-10">
-                            <div id="zoom">
-                                <img src="{{ $product->photo_id ? $product->photo->getImage() : default_img() }}" alt="" class="Product__Show-Image" id="Product__Show-Image-active">
-                            </div>
-                        </div>
-                        <div class="col-md-2">
-                            <div id="zoom_container"></div>
-                        </div>
-                    </div>
                     <div class="col-md-12">
-                        <div class="row margin-10">
-                            @php
-                                $photos = $product->photos;
-                            @endphp
-                            @if($product->photo_id)
-                                @php
-                                    $photos->prepend($product->photo);
-                                @endphp
-                            @endif
-                            @foreach($product->photos as $photo)
-                                <div class="col-xs-6 col-md-3 padding-remove">
-                                    <img src="{{$photo->getImage()}}" class="thumbnail thumbnail-fix margin-10 vcenter Product__Photos">
-                                </div>
-                            @endforeach
+                        <div id="zoom">
+                            <img 
+                                src="{{ $product->photo_id ? $product->photo->getImage() : default_img() }}"
+                                alt="" 
+                                class="Product__Show-Image" 
+                                id="Product__Show-Image-active">
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
+            <div class="col-md-5 padding-remove">
+                <div class="row">
+                    @php
+                        $photos = $product->photos;
+                    @endphp
+                    @if($product->photo_id)
+                        @php
+                            $photos->prepend($product->photo);
+                        @endphp
+                    @endif
+                    @foreach($product->photos as $photo)
+                        <div class="col-xs-2 col-md-4 padding-remove">
+                            <img src="{{$photo->getImage()}}" class="thumbnail thumbnail-fix vcenter Product__Photos">
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+            <div class="col-md-3 padding-remove">
                 @include('partials.list-random-products')
             </div>
         </div>
@@ -169,7 +168,7 @@
 
             var zoomable = function() {
                 $('#zoom').zoom({
-                    magnify: 1.5,
+                    magnify: 1.1,
                 });
             }
 

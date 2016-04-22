@@ -6,6 +6,7 @@ Route::group([
         'namespace'  => 'Admin',
         'prefix'     => 'admin'
 ], function () {
+    
     Route::resource('users', 'UsersController');
     Route::resource('categories', 'CategoriesController');
     Route::resource('faq-categories', 'FaqCategoriesController');

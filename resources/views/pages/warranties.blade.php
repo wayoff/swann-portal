@@ -29,7 +29,7 @@
                     <div class="collapse {{$policyCategory->id === $activePolicyCategory->parent->id ? 'in' : ''}}" id="sidebarpolicy_{{$policyCategory->id}}">
                         @foreach($policyCategory->children as $child)
                             <a 
-                                href="{{url('warranties/' . $child->id)}}"
+                                href="{{url('warranties/' . $child->id)}}/#Main__Content"
                                 class="list-group-item {{$activePolicyCategory->id === $child->id ? 'list-group-item-success' : ''}}"
                             >
                                 {{$child->name}}
@@ -50,7 +50,7 @@
                 @endforeach
         </div>
     </div>
-    <div class="col-md-9">
+    <div class="col-md-9" id="MainContent">
         <div class="list-group well">
             @if(!$warranties->isEmpty())
                 @foreach($warranties as $warranty)

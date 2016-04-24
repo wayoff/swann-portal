@@ -1,6 +1,6 @@
 @include('layouts._header')
 @include('layouts._navbar')
-    <div class="container Home__Container">
+    <div class="container Home__Container" id="Main__Content">
         <div class="row background-white">
             <div class="col-md-12 Page__Title--Container">
                 <h1 class="Page__Title">@yield('Page__Title')</h1>

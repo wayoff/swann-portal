@@ -51,7 +51,7 @@
         </div>
     </div>
     <div class="col-md-9">
-        <div class="list-group">
+        <div class="list-group well">
             @if(!$warranties->isEmpty())
                 @foreach($warranties as $warranty)
                     <a href="{{$warranty->document->getDocument()}}" target="_blank" class="list-group-item">

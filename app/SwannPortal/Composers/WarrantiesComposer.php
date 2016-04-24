@@ -18,7 +18,9 @@ class WarrantiesComposer
 
     public function compose(View $view)
     {
-        $warranties = $this->warranties->doesntHave('categories')->get();
+        $warranties = $this->warranties
+                            ->with('document')
+                            ->doesntHave('categories')->get();
         $policyCategories = $this->policyCategories
                                 ->where('parent_id', 0)
                                 ->with(['parent', 'children'])

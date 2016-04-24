@@ -26,7 +26,7 @@
                         {{$policyCategory->name}}
                         <i class="caret"></i>
                     </div>
-                    <div class="collapse in">
+                    <div class="collapse in" id="sidebarpolicy_{{$policyCategory->id}}">
                         @foreach($policyCategory->children as $child)
                             <a 
                                 href="{{url('warranties/' . $child->id)}}"

@@ -1,7 +1,7 @@
 @if(isset($procedureCategories))
     <div class="row">
         <div class="col-md-12">
-            @foreach($procedureCategories as $procedureCategory)
+            @foreach($procedureCategories as $key => $procedureCategory)
                 @if($procedures->where('procedure_category_id', $procedureCategory->id)->first())
                 <div class="panel panel-primary">
                     <div class="panel-heading" style="cursor: pointer;" data-toggle="collapse" data-target="#procedure_{{$procedureCategory->id}}">

@@ -15,7 +15,12 @@ class TopProductComposer
 
     public function compose(View $view)
     {
-        $products = $this->products->featured()->lastUpdated()->limit(5)->get();
+        $products = $this->products
+                        ->with('photo')
+                        ->featured()
+                        ->lastUpdated()
+                        ->limit(5)
+                        ->get();
 
         return $view->with('topProducts', $products);
     }

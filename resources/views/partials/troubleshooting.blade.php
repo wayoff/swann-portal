@@ -1,7 +1,7 @@
 @if(isset($procedureCategories))
     <div class="row">
         <div class="col-md-12">
-            @foreach($procedureCategories as $key => $procedureCategory)
+            @foreach($procedureCategories->sortBy('name') as $key => $procedureCategory)
                 @if($procedures->where('procedure_category_id', $procedureCategory->id)->first())
                 <div class="panel panel-primary">
                     <div class="panel-heading" style="cursor: pointer;" data-toggle="collapse" data-target="#procedure_{{$procedureCategory->id}}">
@@ -39,7 +39,7 @@
                     <div class="panel-heading" style="cursor: pointer;" data-toggle="collapse" data-target="#procedure_other">
                         <h3 class="panel-title"> Other Trouble Shooting</h3>
                     </div>
-                    <div class="panel-body collapse" id="procedure_other">
+                    <div class="panel-body collapse in" id="procedure_other">
                         @php
                             $list = $procedures->where('procedure_category_id', 0)->all();
                         @endphp

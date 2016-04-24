@@ -99,7 +99,16 @@ class PagesController extends Controller
             $state, Warranty $warranties, PolicyCategory $policyCategories
     )
     {
-        $policyCategory = $policyCategories->with('parent')->findOrFail($state);
+        $activePolicyCategory = $policyCategories->with('parent')->findOrFail($state);
+        $otherWarranties = $warranties
+                                ->with('document')
+                                ->doesntHave('categories')
+                                ->get();
+
+        $policyCategories = $policyCategories
+                                ->where('parent_id', 0)
+                                ->orderBy('order', 'ASC')
+                                ->get();
 
         $warranties = $warranties
         ->with(['document', 'categories'])
@@ -107,6 +116,9 @@ class PagesController extends Controller
             $query->where('policy_categories.id', $state);
         })->get();
 
-        return view('pages.warranties', compact('warranties', 'policyCategory'));
+        return view('pages.warranties',
+                compact('warranties', 'activePolicyCategory',
+                        'policyCategories', 'otherWarranties')
+        );
     }
 }

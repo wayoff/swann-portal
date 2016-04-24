@@ -53,7 +53,7 @@ class PagesController extends Controller
     {
         $q = $request->input('q');
 
-        $searches = $keywords
+        $model = $keywords
                     ->search($q)
                     ->with(['procedures' => function($query) {
                         $query->distinct()->groupBy('procedures.id');
@@ -70,8 +70,14 @@ class PagesController extends Controller
                         'procedures.document', 'questions.document',
                         'procedures.products.categories',
                         'questions.products.categories',
-                    ])
-                    ->paginate(20);
+                    ]);
+
+        if (empty($q)) {
+            $model = $model->orderByRaw("RAND()");
+        }
+
+        $searches = $model->paginate(20);
+
         return view('pages.search', compact('searches', 'q'));
     }
 

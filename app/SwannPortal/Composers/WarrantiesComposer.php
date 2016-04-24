@@ -21,6 +21,7 @@ class WarrantiesComposer
         $warranties = $this->warranties->doesntHave('categories')->get();
         $policyCategories = $this->policyCategories
                                 ->where('parent_id', 0)
+                                ->with(['parent', 'children'])
                                 ->orderBy('order', 'ASC')
                                 ->get();
 

@@ -23,6 +23,8 @@ Route::group([
     Route::resource('questions', 'QuestionsController');
 
     Route::resource('procedures/{id}/steps', 'ProcedureStepsController');
+    Route::resource('procedures/{id}/decisions', 'ProcedureDecisionsController',
+            ['only' => ['index', 'store', 'destroy']]);
     Route::resource('procedures', 'ProceduresController');
 
     Route::resource('products/{id}/procedures/{procedureId}/steps', 'ProductsProceduresStepsController');

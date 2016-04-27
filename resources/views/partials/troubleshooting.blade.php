@@ -20,8 +20,10 @@
                                 <div class="row">
                                     <div class="col-md-12 padding-10">
                                         @if($procedure->document_id)
-                                            <a href="{{$procedure->document->getDocument()}}" class="btn btn-success margin-10"> View Supporting Document</a>
-                                            <br />
+                                            <a href="{{$procedure->document->getDocument()}}" class="btn btn-success margin-10"> Supporting Document</a>
+                                        @endif
+                                        @if(!$procedure->trees->isEmpty())
+                                            <a href="/decision/{{$procedure->id}}" target="_blank" class="btn btn-info margin-10"> Decision Tree </a>
                                         @endif
                                     </div>
                                 </div>

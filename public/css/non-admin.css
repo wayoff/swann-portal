@@ -7051,6 +7051,9 @@ input[type="checkbox"]:disabled:checked:after,
 .carousel-caption h6 {
   color: inherit; }
 
+[v-cloak] {
+  display: none; }
+
 body {
   background-color: #E0E0E0; }
 
@@ -7093,6 +7096,11 @@ body {
   display: inline-block !important;
   vertical-align: middle;
   float: none; }
+
+.btn-circle {
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%; }
 
 .Card {
   z-index: 1;

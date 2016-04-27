@@ -1,6 +1,9 @@
+[v-cloak] { display:none; }
+
 body {
     background-color: $body-color;
 }
+
 
 .text-blue {
     color: $blue !important;
@@ -51,4 +54,10 @@ body {
     display: inline-block !important;
     vertical-align: middle;
     float: none;
+}
+
+.btn-circle {
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
 }

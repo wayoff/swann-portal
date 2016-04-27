@@ -109,11 +109,11 @@
                                         Documents
                                     </a>
                                   </li>
-                                  <!-- <li>
+                                  <li>
                                     <a href="{{ route('admin.products.{id}.questions.index', $product->id) }}" class="btn btn-default btn-action">
                                         Questions
                                     </a>
-                                  </li> -->
+                                  </li>
                                   <li>
                                     <a href="{{ route('admin.products.{id}.videos.index', $product->id) }}" class="btn btn-default btn-action">
                                         Videos

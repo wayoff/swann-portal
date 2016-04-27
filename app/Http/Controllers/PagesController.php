@@ -8,7 +8,9 @@ use App\Http\Requests;
 use App\Models\Keyword;
 use App\Models\Warranty;
 use App\Models\Question;
+use App\Models\Procedure;
 use App\Models\PolicyCategory;
+
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -89,10 +91,6 @@ class PagesController extends Controller
             return redirect()->back();
         }
         $timezones = collect($timezones);
-
-        // $timezones = collect($timezones)->sortBy( function($timezone) {
-        //     return count($timezone['countries']);
-        // });
         
         $title = string_slug_to_word('-', $state);
         $now = \Carbon\Carbon::now();
@@ -126,5 +124,20 @@ class PagesController extends Controller
                 compact('warranties', 'activePolicyCategory',
                         'policyCategories', 'otherWarranties')
         );
+    }
+
+    public function getDecision($procedureId, Procedure $procedures, Request $request)
+    {
+        $procedure = $procedures->findOrFail($procedureId);
+
+        if ($request->input('branch')) {
+            $decision = $procedure->trees()
+                            ->where('id', $request->input('branch'))
+                            ->first();
+        } else {
+            $decision = $procedure->trees()->whereIsAParent()->first();
+        }
+
+        return view('pages.decision', compact('procedure', 'decision'));
     }
 }

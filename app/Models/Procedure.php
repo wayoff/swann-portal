@@ -20,6 +20,11 @@ class Procedure extends Model
         return $this->hasMany(ProcedureStep::class);
     }
 
+    public function trees()
+    {
+        return $this->hasMany(Decision::class);
+    }
+
     public function products()
     {
         return $this->belongsToMany(Product::class);

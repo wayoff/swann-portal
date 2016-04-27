@@ -23,6 +23,13 @@ Route::group([
     Route::resource('questions', 'QuestionsController');
 
     Route::resource('procedures/{id}/steps', 'ProcedureStepsController');
+
+    Route::get(
+        'procedures/{id}/decisions/start',
+        'ProcedureDecisionsController@start'
+    )->name('admin.procedures.{id}.decisions.start');
+    Route::resource('procedures/{id}/decisions', 'ProcedureDecisionsController');
+
     Route::resource('procedures', 'ProceduresController');
 
     Route::resource('products/{id}/procedures/{procedureId}/steps', 'ProductsProceduresStepsController');
@@ -40,6 +47,9 @@ Route::group([
 Route::group(['namespace' => 'API', 'prefix' => 'api'], function() {
     Route::resource('products', 'ProductsController', ['only' => 'index']);
     Route::resource('lmi-sessions', 'LmiSessionsController', ['only' => ['index', 'store']]);
+    // Route::resource('decisions', 'DecisionsController',
+    //         ['only' => ['index', 'store', 'show']]
+    // );
 });
 
 Route::auth();

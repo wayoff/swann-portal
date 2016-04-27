@@ -15,6 +15,16 @@ class Decision extends Model
         'procedure_id',
     ];
 
+    public function getTitleAttribute($value)
+    {
+        return ucwords($value);
+    }
+
+    public function getLabelAttribute($value)
+    {
+        return ucwords($value);
+    }
+
     public function scopeWhereIsAParent($query)
     {
         return $query->whereNull('parent_id');
@@ -33,5 +43,15 @@ class Decision extends Model
     public function children()
     {
         return $this->hasMany(Decision::class, 'parent_id');
+    }
+
+    public function leftChild()
+    {
+        return $this->children()->where('position', 'left')->first();
+    }
+
+    public function rightChild()
+    {
+        return $this->children()->where('position', 'right')->first();
     }
 }

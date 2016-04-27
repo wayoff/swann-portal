@@ -48,8 +48,9 @@ class CategoryProductsController extends Controller
         $productId)
     {
         $product = $this->products->with([
-                'procedures.steps.document', 'procedures.steps.photo',
+                // 'procedures.steps.document', 'procedures.steps.photo',
                 'videos', 'procedures', 'procedures.document',
+                'procedures.trees',
                 'photo', 'questions', 'questions.document',
                 'questions.faqcategory', 'photos'
             ])->findOrFail($productId);

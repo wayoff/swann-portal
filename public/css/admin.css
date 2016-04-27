@@ -5358,6 +5358,9 @@ button.close {
     display: none !important; } }
 
 /*# sourceMappingURL=bootstrap.min.css.map */
+[v-cloak] {
+  display: none; }
+
 body {
   background-color: #E0E0E0; }
 
@@ -5389,6 +5392,22 @@ body {
 
 .image-max-width-200 {
   max-width: 200px; }
+
+.caret-right {
+  border-left: 4px solid black;
+  border-right: 0;
+  border-top: 4px solid transparent;
+  border-bottom: 4px solid transparent; }
+
+.vcenter {
+  display: inline-block !important;
+  vertical-align: middle;
+  float: none; }
+
+.btn-circle {
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%; }
 
 /*!
  * Start Bootstrap - SB Admin Bootstrap Admin Template (http://startbootstrap.com)
@@ -5575,11 +5594,14 @@ ul.alert-dropdown {
 .Navbar__Menu > li > a {
   color: white !important; }
 
-.Navbar__Menu > li:hover {
+.Navbar__Menu > li:hover, .Navbar__Menu > li:active {
   background-color: #080808 !important; }
 
 .product-action-menu {
   right: 0 !important;
   left: inherit !important; }
+
+.btn-circle {
+  border-radius: 50%; }
 
 /*# sourceMappingURL=admin.css.map */

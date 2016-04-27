@@ -16,7 +16,7 @@ class CreateDecisionsTable extends Migration
             $table->increments('id');
             $table->integer('procedure_id');
             $table->integer('parent_id')->nullable();
-            $table->text('title');
+            $table->text('title')->nullable();
             $table->string('label', 150);
             $table->string('position', 15);
             $table->integer('dept')->default(0);

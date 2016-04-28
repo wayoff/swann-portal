@@ -11,12 +11,20 @@
         @foreach($latestUpdates as $latestUpdate)
             <div class="media Home__Media">
                 <a class="pull-left" href="{{ route('news.show', $latestUpdate->id) }}">
-                    <img class="media-object Home__Media--object" 
-                        src="{{ $latestUpdate->photo_id 
+                    @php
+                      $image = $latestUpdate->photo_id 
                                   ? $latestUpdate->photo->getImage() 
-                                  : $latestUpdate->document_id
-                                      ? config('swannportal.path.document-icon')
-                                      : config('swannportal.path.default-img') }}" alt="Image">
+                                  : null;
+                      if($image) {
+                        $image = $latestUpdate->document_id
+                                    ? config('swannportal.path.document-icon')
+                                    : config('swannportal.path.default-img');
+                      }
+                    @endphp
+                    <img 
+                        class="media-object Home__Media--object" 
+                        src="{{ $image }}"
+                        alt="Image">
                 </a>
                 <div class="media-body">
                     <h5 class="media-heading">

@@ -12,6 +12,6 @@ var elixir = require('laravel-elixir');
  */
 
 elixir(function(mix) {
-    mix.sass('non-admin.scss');
-    // mix.sass('admin.scss');
+    // mix.sass('non-admin.scss');
+    mix.sass('admin.scss');
 });

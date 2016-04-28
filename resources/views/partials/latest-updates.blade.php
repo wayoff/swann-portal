@@ -15,10 +15,10 @@
                       $image = $latestUpdate->photo_id 
                                   ? $latestUpdate->photo->getImage() 
                                   : null;
-                      if($image) {
-                        $image = $latestUpdate->document_id
-                                    ? config('swannportal.path.document-icon')
-                                    : config('swannportal.path.default-img');
+                      if(is_null($image)) {
+                          $image = $latestUpdate->document_id
+                                      ? config('swannportal.path.document-icon')
+                                      : config('swannportal.path.default-img');
                       }
                     @endphp
                     <img 

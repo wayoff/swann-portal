@@ -15,7 +15,7 @@ class LatestUpdatesComposer
 
     public function compose(View $view)
     {
-        $news = $this->news->limit(5)->get();
+        $news = $this->news->limit(5)->orderBy('id', 'desc')->get();
 
         return $view->with('latestUpdates', $news);
     }

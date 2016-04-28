@@ -24,6 +24,7 @@
                     <td>Title</td>
                     <td>Content</td>
                     <td>Image</td>
+                    <td>Document</td>
                     <td>Video</td>
                     <td>Action</td>
                 </tr>
@@ -46,6 +47,17 @@
                                 <img src="{{ $new->photo->getImage() }}" alt="" class="image-max-width-200">
                             @else
                                 No Photo Available
+                            @endif
+                        </td>
+                        <td>
+                            @if($new->document_id)
+                                <a href="{{$new->document->getDocument()}}" 
+                                    target="_blank" 
+                                    class="btn btn-default">
+                                    Document
+                                </a>
+                            @else
+                                No Document Available
                             @endif
                         </td>
                         <td>

@@ -65,6 +65,20 @@
                                     @endif
                                 </div>
                             </div>
+
+                            <div class="form-group{{ $errors->has('document') ? ' has-error' : '' }}">
+                                <label class="col-md-4 control-label">Document</label>
+
+                                <div class="col-md-6">
+                                    <input type="file" class="form-control" name="document" >
+
+                                    @if ($errors->has('document'))
+                                        <span class="help-block">
+                                            <strong>{{ $errors->first('document') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
                         @include('admin.partials.videos.create-form')
                     </form>
                 </div>

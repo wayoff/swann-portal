@@ -7,9 +7,11 @@ use Illuminate\Http\Request;
 use App\Models\News;
 use App\Models\Photo;
 use App\Models\Video;
+use App\Models\Document;
 
-use App\SwannPortal\ImageUpload;
 use App\SwannPortal\VideoUpload;
+use App\SwannPortal\ImageUpload;
+use App\SwannPortal\DocumentUpload;
 
 
 use App\Http\Requests\NewsRequest;
@@ -51,16 +53,18 @@ class NewsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(NewsRequest $request, Photo $photos, Video $videos)
+    public function store(NewsRequest $request, Photo $photos, Video $videos, Document $documents)
     {
         $photo = (new ImageUpload($request, $photos))->handle();
         $video = (new VideoUpload($request, $videos))->handle();
+        $document = (new DocumentUpload($request, $documents))->handle();
 
         $this->news->create([
-            'photo_id' => $photo ? $photo->id : null,
-            'video_id' => $video ? $video->id : null,
-            'title'    => $request->input('title'),
-            'content'  => $request->input('content')
+            'photo_id'    => $photo ? $photo->id : null,
+            'video_id'    => $video ? $video->id : null,
+            'document_id' => $document ? $document->id : null,
+            'title'       => $request->input('title'),
+            'content'     => $request->input('content')
         ]);
 
         return redirect(route('admin.news.index'))->with('status', 'Success on adding news');
@@ -97,18 +101,23 @@ class NewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update($id, NewsRequest $request, Photo $photos, Video $videos)
+    public function update(
+        $id, NewsRequest $request,Photo $photos, Video $videos, Document $documents
+    )
     {
-        $photo = (new ImageUpload($request, $photos))->handle();
-        $video = (new VideoUpload($request, $videos))->handle();
-
         $news = $this->news->findOrFail($id);
 
+        $photo = (new ImageUpload($request, $photos, $news->photo_id))->handle();
+        $video = (new VideoUpload($request, $videos, $news->video_id))->handle();
+        $document = (new DocumentUpload($request, $documents, $news->document_id))->handle();
+
+
         $news->update([
-            'photo_id' => $photo ? $photo->id : $news->photo_id ?: null,
-            'video_id' => $video ? $video->id : $news->video_id ?: null,
-            'title'    => $request->input('title'),
-            'content'  => $request->input('content')
+            'photo_id'    => $photo ? $photo->id : null,
+            'video_id'    => $video ? $video->id : null,
+            'document_id' => $document ? $document->id : null,
+            'title'       => $request->input('title'),
+            'content'     => $request->input('content')
         ]);
 
         return redirect(route('admin.news.index'))->with('status', 'Success on updating news');

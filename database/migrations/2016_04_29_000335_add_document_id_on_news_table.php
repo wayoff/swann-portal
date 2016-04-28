@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AlterQuestionsTable extends Migration
+class AddDocumentIdOnNewsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,8 +12,8 @@ class AlterQuestionsTable extends Migration
      */
     public function up()
     {
-        Schema::table('questions', function (Blueprint $table) {
-            $table->integer('faq_category_id')->default(0)->nullable();
+        Schema::table('news', function (Blueprint $table) {
+            $table->integer('document_id')->nullable();
         });
     }
 
@@ -24,8 +24,8 @@ class AlterQuestionsTable extends Migration
      */
     public function down()
     {
-        Schema::table('questions', function (Blueprint $table) {
-            $table->dropColumn('faq_category_id');
+        Schema::table('news', function (Blueprint $table) {
+            $table->dropColumn(['document_id']);
         });
     }
 }

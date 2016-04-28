@@ -8,12 +8,17 @@ use Illuminate\Database\Eloquent\Model;
 class News extends Model
 {
     protected $fillable = [
-        'photo_id', 'video_id', 'title', 'content', 'name'
+        'photo_id', 'video_id', 'document_id', 'title', 'content', 'name'
     ];
 
     protected function photo()
     {
         return $this->belongsTo(Photo::class);
+    }
+
+    protected function document()
+    {
+        return $this->belongsTo(Document::class);
     }
 
     protected function video()

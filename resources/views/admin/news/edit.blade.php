@@ -66,14 +66,39 @@
                             @endif
                         </div>
                     </div>
+                    @if($news->photo_id)
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Current Image</label>
 
-                    <div class="form-group">
-                        <label class="col-md-4 control-label">Current Image</label>
+                            <div class="col-md-6">
+                                <img src="{{ $news->photo->getImage() }}" style="width: 100%" alt="">
+                            </div>
+                        </div>
+                    @endif
+
+                    <div class="form-group{{ $errors->has('document') ? ' has-error' : '' }}">
+                        <label class="col-md-4 control-label">Document</label>
 
                         <div class="col-md-6">
-                            <img src="{{ $news->photo->getImage() }}" style="width: 100%" alt="">
+                            <input type="file" class="form-control" name="document" >
+
+                            @if ($errors->has('document'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('document') }}</strong>
+                                </span>
+                            @endif
                         </div>
                     </div>
+
+                    @if($news->document_id)
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Current Document</label>
+
+                            <div class="col-md-6">
+                                <a href="{{ $news->document->getDocument() }}" class="btn btn-default" target="_blank"> Document </a>
+                            </div>
+                        </div>
+                    @endif
 
                     <div class="form-group{{ $errors->has('video') ? ' has-error' : '' }}">
                         <label class="col-md-4 control-label">Video</label>
@@ -88,26 +113,27 @@
                             @endif
                         </div>
                     </div>
+                    @if($news->video_id)
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Current Video</label>
 
-                    <div class="form-group">
-                        <label class="col-md-4 control-label">Current Video</label>
-
-                        <div class="col-md-6">
-                            <div align="center">
-                                <video style="width: 100%;" controls>
-                                  <source src="{{ $news->video->getOGG() }}" type="video/ogg">
-                                  <source src="{{ $news->video->getMP4() }}" type="video/mp4">
-                                  Your browser does not support HTML5 video.
-                                </video>
+                            <div class="col-md-6">
+                                <div align="center">
+                                    <video style="width: 100%;" controls>
+                                      <source src="{{ $news->video->getOGG() }}" type="video/ogg">
+                                      <source src="{{ $news->video->getMP4() }}" type="video/mp4">
+                                      Your browser does not support HTML5 video.
+                                    </video>
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endif
 
                     <div class="form-group{{ $errors->has('video_title') ? ' has-error' : '' }}">
                         <label class="col-md-4 control-label">Video Title</label>
 
                         <div class="col-md-6">
-                            <input type="text" class="form-control" name="video_title" value="{{ $news->video->title }}">
+                            <input type="text" class="form-control" name="video_title" value="{{ $news->video_id ? $news->video->title : '' }}">
 
                             @if ($errors->has('video_title'))
                                 <span class="help-block">
@@ -121,7 +147,7 @@
                         <label class="col-md-4 control-label">Video Description</label>
 
                         <div class="col-md-6">
-                            <textarea name="video_description" id="" cols="30" rows="10" class="form-control">{{ $news->video->description }}</textarea>
+                            <textarea name="video_description" id="" cols="30" rows="10" class="form-control">{{ $news->video_id ? $news->video->description : ''}}</textarea>
 
                             @if ($errors->has('video_description'))
                                 <span class="help-block">

@@ -21,10 +21,21 @@
 @section('content')
     <div class="News__Show--Content">
         <p class="News__Show--Content-Paragraph">
-            <img src="{{ $news->photo_id ? $news->photo->getImage() : config('swannportal.path.default-img') }}" class="News__Show--image">
+            <img src="{{ $news->photo_id 
+                            ? $news->photo->getImage() 
+                            : config('swannportal.path.default-img') }}"
+                 class="News__Show--image"
+            >
             {{ $news->content }}
         </p>
-
+        
+        @if($news->document_id)
+            <a  class="btn btn-default btn-lg"
+                target="_blank" 
+                href="{{$news->document->getDocument()}}">
+                View / Download Document
+            </a>
+        @endif
         <div class="clearfix"></div>
 
         @if($news->video_id)

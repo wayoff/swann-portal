@@ -40,8 +40,8 @@
                     @foreach($news as $new)
                     <tr>
                         <td>{{ string_pad($new->id) }}</td>
-                        <td>{{ $new->title }}</td>
-                        <td>{{ str_limit($new->content, 150) }}</td>
+                        <td>{{ str_limit($new->title, 70) }}</td>
+                        <td>{{ str_limit($new->content, 120) }}</td>
                         <td>
                             @if($new->photo_id)
                                 <img src="{{ $new->photo->getImage() }}" alt="" class="image-max-width-200">

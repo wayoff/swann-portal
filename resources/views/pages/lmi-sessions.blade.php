@@ -1,6 +1,7 @@
 @extends('layouts.descriptive-content')
 
 @section('Page__Title', 'LMI Sessions')
+@section('Title', 'LMI Sessions')
 
 @section('content')
 <div id="app" class="hide">

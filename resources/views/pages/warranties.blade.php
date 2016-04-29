@@ -2,6 +2,8 @@
 
 @section('Page__Title', 'Warranties for: ' . $activePolicyCategory->parent->name . ' - ' . $activePolicyCategory->name)
 
+@section('Title', 'Warranties for: ' . $activePolicyCategory->parent->name . ' - ' . $activePolicyCategory->name)
+
 @section('Page__BreadCrumbs')
     <ol class="breadcrumb">
         <li>

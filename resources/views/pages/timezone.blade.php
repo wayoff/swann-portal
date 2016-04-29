@@ -1,6 +1,7 @@
 @extends('layouts.descriptive-content')
 
 @section('Page__Title', 'Timezone: <u>' . $title . '</u>')
+@section('Title', 'Timezone: <u>' . $title . '</u>')
 
 @section('header')
   <link rel="stylesheet" href="/css/jqClock.css">

@@ -1,6 +1,7 @@
 @extends('layouts.descriptive-content')
 
 @section('Page__Title', $category->name)
+@section('Title', $category->name)
 
 @section('content')
     <div class="container">

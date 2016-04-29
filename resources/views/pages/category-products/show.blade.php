@@ -1,6 +1,7 @@
 @extends('layouts.descriptive-content')
 
 @section('Page__Title', $product->name)
+@section('Title', $product->name)
 
 @section('Page__BreadCrumbs')
     <ol class="breadcrumb">

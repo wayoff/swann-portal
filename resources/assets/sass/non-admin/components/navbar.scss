@@ -3,6 +3,7 @@
     -moz-border-radius: 0px;
     -webkit-border-radius: 0px;
     // z-index: 1003;
+    margin-bottom: 0;
 }
 
 .Navbar__Brand-Image {
@@ -45,15 +46,17 @@
 }
 
 .Navbar__Menu {
-    margin-top: 5px;
+    margin-top: 18px;
+    min-height: 20px;
 }
 
 .Navbar__Menu > li > a {
-    min-width: 2.2em;
     text-align: center;
-    font-size: 1.16em;
+    font-size: 1em;
     font-weight: bolder;
     transition: background-color 1s;
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .Navbar__Technical--Support-Container{

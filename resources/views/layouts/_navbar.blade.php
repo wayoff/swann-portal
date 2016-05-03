@@ -89,7 +89,7 @@
                         </ul>
                     </li>
                     <!-- <li><a href="#">Support</a></li> -->
-                    <li><a href="{{ url('news') }}">News & Updates</a></li>
+                    <li><a href="{{ url('news') }}">News</a></li>
                     <li class="dropdown">
                         <a href="#"> Policy <b class="caret"></b></a>
                         <ul class="dropdown-menu Navbar__Menu--Dropdown">
@@ -123,7 +123,7 @@
 
 
                     @if($admin)
-                        <li><a href="{{url('lmi-sessions')}}">LMI Sessions</a></li>
+                        <li><a href="{{url('lmi-sessions')}}">LMI</a></li>
                     @endif
 
                     <li class="dropdown">

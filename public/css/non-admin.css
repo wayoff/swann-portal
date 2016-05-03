@@ -7156,7 +7156,8 @@ body {
 .Navbar {
   border-radius: 0px;
   -moz-border-radius: 0px;
-  -webkit-border-radius: 0px; }
+  -webkit-border-radius: 0px;
+  margin-bottom: 0; }
 
 .Navbar__Brand-Image {
   height: 100%;
@@ -7191,14 +7192,16 @@ body {
   font-size: 14px; }
 
 .Navbar__Menu {
-  margin-top: 5px; }
+  margin-top: 18px;
+  min-height: 20px; }
 
 .Navbar__Menu > li > a {
-  min-width: 2.2em;
   text-align: center;
-  font-size: 1.16em;
+  font-size: 1em;
   font-weight: bolder;
-  transition: background-color 1s; }
+  transition: background-color 1s;
+  padding-top: 10px;
+  padding-bottom: 10px; }
 
 .Navbar__Technical--Support-Container {
   padding: 10px 0;
@@ -7532,5 +7535,9 @@ body {
     padding: 0 !important; }
   .thumbnail-fix:hover {
     border: 1px solid #2196f3; }
+
+@media (min-width: 1200px) {
+  .container {
+    max-width: 970px; } }
 
 /*# sourceMappingURL=non-admin.css.map */

@@ -35,7 +35,7 @@
                 </div>
             </div>
             <div class="col-md-5 padding-remove">
-                <div class="row">
+                <div class="col-md-12">
                     @php
                         $photos = $product->photos;
                     @endphp
@@ -45,7 +45,7 @@
                         @endphp
                     @endif
                     @foreach($product->photos as $photo)
-                        <div class="col-xs-2 col-md-4 padding-remove">
+                        <div class="col-xs-2 col-md-4 padding-remove text-center">
                             <img src="{{$photo->getImage()}}" class="thumbnail thumbnail-fix vcenter Product__Photos">
                         </div>
                     @endforeach

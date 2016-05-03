@@ -7519,8 +7519,8 @@ body {
   border-left-color: #ffffff; }
 
 .thumbnail-fix {
-  height: 130px !important;
-  width: 130px !important;
+  height: 100px !important;
+  width: 100px !important;
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;

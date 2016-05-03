@@ -27,9 +27,9 @@
                         alt="Image">
                 </a>
                 <div class="media-body">
-                    <h4 class="media-heading">
+                    <h5 class="media-heading" style="font-size:17px;">
                         {{ $latestUpdate->title }}
-                    </h4>
+                    </h5>
                     <p>{{ str_limit($latestUpdate->content, 50) }}</p>
                 </div>
             </div>

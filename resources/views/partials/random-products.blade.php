@@ -9,7 +9,7 @@
             <div class="col-md-4">
                 <div class="Card">
                     <a href="{{route('categories.{id}.products.show', [$randomProduct->firstCategory()->id, $randomProduct->id])}}">
-                        <img src="{{ $randomProduct->photo->getImage() }}" width="174" height="160" alt="image">
+                        <img src="{{ $randomProduct->photo->getImage() }}" class="Card__Image" alt="image">
                     </a>
                     <h5>{{ str_limit($randomProduct->name, 30) }}</h5>
                     <p>

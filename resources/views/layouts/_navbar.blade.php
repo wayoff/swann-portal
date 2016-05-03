@@ -151,7 +151,19 @@
 
                             <ul class="dropdown-menu Navbar__Menu--Dropdown" role="menu">
                                 @if(!$admin->role_id)
-                                    <li><a href="{{ url('/admin') }}"><i class="fa fa-btn fa-desktop"></i>Dashboard</a></li>
+                                    <li>
+                                        <a href="{{ url('/admin') }}">
+                                            <i class="fa fa-btn fa-desktop"></i>
+                                            Dashboard
+                                        </a>
+                                    </li>
+                                @endif
+                                @if($admin->id === 1 || $admin === 7)
+                                    <li>
+                                        <a href="#supervisor_password_modal" id="_terms" data-toggle="modal" >
+                                            Terms & Agreement
+                                        </a>
+                                    </li>
                                 @endif
                                 <li><a href="{{ url('/logout') }}"><i class="fa fa-btn fa-sign-out"></i>Logout</a></li>
                             </ul>

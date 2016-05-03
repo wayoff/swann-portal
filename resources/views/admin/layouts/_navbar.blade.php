@@ -103,6 +103,19 @@
             <li>
                 <a href="/admin/lmi-sessions"><i class="fa fa-fw fa-eye"></i> LMI Sessions</a>
             </li>
+            @if($admin->id === 1 || $admin->id === 7)
+                <li>
+                    <a href="javascript:;" data-toggle="collapse" data-target="#sp"><i class="fa fa-fw fa-building"></i> Supervisor <i class="fa fa-fw fa-caret-down"></i></a>
+                    <ul id="sp" class="collapse">
+                        <li>
+                            <a href="/admin/supervisor-passwords"><i class="fa fa-fw fa-lock"></i> Password</a>
+                        </li>
+                        <li>
+                            <a href="/admin/agreements"><i class="fa fa-fw fa-bookmark-o"></i> Terms & Agreement</a>
+                        </li>
+                    </ul>
+                </li>
+            @endif
         </ul>
     </div>
     <!-- /.navbar-collapse -->

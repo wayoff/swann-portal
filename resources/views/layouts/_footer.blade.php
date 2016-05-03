@@ -40,10 +40,33 @@
         </div>
     </div>
 
+    <div class="modal fade" id="supervisor_password_modal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Password Confirmation</h4>
+                </div>
+                <div class="modal-body">
+                        <div class="form-group">
+                            <label class="sr-only" for="">Enter Password</label>
+                            <input type="password" class="form-control" id="_supervisor_password_text" placeholder="Enter Password Here">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="supervisor_password_modal_btn">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
     <script src="/js/bootstrap-typeahead.min.js"></script>
     <script src="/js/search.js"></script>
+    <script src="/js/terms-agreement.js"></script>
     <script src="/video/mediaelement-and-player.min.js"></script>
     <script src="/video/mediaelementplayer.min.js"></script>
     <script>

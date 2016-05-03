@@ -18,6 +18,9 @@ Route::group([
     Route::resource('tags', 'TagsController');
     Route::resource('warranties', 'WarrantiesController');
     Route::resource('lmi-sessions', 'LmiSessionsController');
+
+    Route::resource('supervisor-passwords', 'SupervisorPasswordsController');
+    Route::resource('agreements', 'AgreementsController');
     
     Route::resource('questions/products', 'QuestionsProductsController');
     Route::resource('questions', 'QuestionsController');
@@ -28,6 +31,7 @@ Route::group([
         'procedures/{id}/decisions/start',
         'ProcedureDecisionsController@start'
     )->name('admin.procedures.{id}.decisions.start');
+
     Route::resource('procedures/{id}/decisions', 'ProcedureDecisionsController');
 
     Route::resource('procedures', 'ProceduresController');
@@ -47,6 +51,7 @@ Route::group([
 Route::group(['namespace' => 'API', 'prefix' => 'api'], function() {
     Route::resource('products', 'ProductsController', ['only' => 'index']);
     Route::resource('lmi-sessions', 'LmiSessionsController', ['only' => ['index', 'store']]);
+    Route::controller('agreements', 'AgreementsController');
     // Route::resource('decisions', 'DecisionsController',
     //         ['only' => ['index', 'store', 'show']]
     // );

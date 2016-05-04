@@ -7391,16 +7391,19 @@ body {
     border-radius: 0; }
 
 .Home__Media--object {
-  width: 100px;
-  height: 90px; }
+  width: 80px;
+  height: 65px; }
 
 .Home__Media {
-  padding: 10px 10px;
+  padding: 3px;
   transition: box-shadow 0.5s; }
   .Home__Media:hover {
     box-shadow: 0 0 6px 1px #777;
     -moz-box-shadow: 0 0 6px 1px #777;
     -webkit-box-shadow: 0 0 6px 1px #777; }
+
+.Home__Media--body > p {
+  font-size: 1.1em; }
 
 .News__Show--Content {
   word-wrap: break-word;

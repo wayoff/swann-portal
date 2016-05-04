@@ -26,7 +26,7 @@
                         src="{{ $image }}"
                         alt="Image">
                 </a>
-                <div class="media-body">
+                <div class="media-body Home__Media--body">
                     <h5 class="media-heading" style="font-size:17px;">
                         {{ $latestUpdate->title }}
                     </h5>

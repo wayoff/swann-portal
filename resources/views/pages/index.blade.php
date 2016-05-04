@@ -41,10 +41,10 @@
             </div>
             <div class="col-md-4 padding-remove hidden-xs hidden-sm">
                 <div class="col-md-12">
-                    @include('partials.top-products')
+                    @include('partials.latest-updates')
                 </div>
                 <div class="col-md-12">
-                    @include('partials.latest-updates')
+                    @include('partials.top-products')
                 </div>
             </div>
         </div>

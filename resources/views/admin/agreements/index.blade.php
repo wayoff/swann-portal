@@ -24,7 +24,9 @@
                     <td>ID</td>
                     <td>Title</td>
                     <td>Content</td>
+                    <td>Category</td>
                     <td>Document</td>
+                    <td>Users</td>
                     <td>Actions</td>
                 </tr>
             </thead>
@@ -43,14 +45,20 @@
                             <td>{{string_pad($agreement->id)}}</td>
                             <td>{{$agreement->title}}</td>
                             <td>{{str_limit($agreement->content, 100)}}</td>
+                            <td>{{$agreement->category->name}}</td>
                             <td>
                                 @if($agreement->document_id)
-                                    <a href="{{$agreement->document->getDocument()}}" target="_blank" class="btn btn-default">
+                                    <a href="{{$agreement->document->getDocument()}}" target="_blank" class="btn btn-default btn-xs">
                                         View
                                     </a>
                                 @else
                                     No Document
                                 @endif
+                            </td>
+                            <td>
+                                <a href="{{route('admin.agreements.show', $agreement->id)}}" class="btn btn-xs btn-default">
+                                    Show
+                                </a>
                             </td>
                             <td>
                                 <form action="{{ route('admin.agreements.destroy', $agreement->id) }}" method="POST" class="form-inline" role="form">

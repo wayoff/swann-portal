@@ -34,4 +34,30 @@ class AgreementsController extends Controller
 
         return ['status' => 0];
     }
+
+    public function getShow(Request $request)
+    {
+        $agreement = $this->agreements
+                        ->with('document')
+                        ->findOrFail($request->input('id'));
+        
+        $agreement = [
+            'id'       => $agreement->id,
+            'document' => $agreement->document->getDocument(),
+            'content'  => $agreement->content,
+            'title'    => $agreement->title,
+            'agreed'   => $agreement->users()->where('user_id', auth()->user()->id)->first()
+        ];
+
+        return $agreement;
+    }
+
+    public function getAgreed(Request $request)
+    {
+        $agreement = $this->agreements->findOrFail($request->input('id'));
+
+        $agreement->users()->attach(auth()->user()->id);
+
+        return ['status' => 1];
+    }
 }

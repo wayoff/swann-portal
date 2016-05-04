@@ -39,6 +39,28 @@
                             </div>
                         </div>
 
+
+                        <div class="form-group{{ $errors->has('category_id') ? ' has-error' : '' }}">
+                            <label class="col-md-4 control-label">Category</label>
+
+                            <div class="col-md-6">
+                                <select name="category_id" class="form-control">
+                                    @foreach($categories as $category)
+                                        <option value="{{$category->id}}"
+                                                {{$agreement->agreement_category_id === $category->id ? 'selected' : ''}}>
+                                            {{$category->name}}
+                                        </option>
+                                    @endforeach
+                                </select>
+
+                                @if ($errors->has('category_id'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('category_id') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('content') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">Content</label>
 

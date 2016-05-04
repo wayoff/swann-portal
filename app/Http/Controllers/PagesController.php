@@ -8,9 +8,9 @@ use App\Http\Requests;
 use App\Models\Keyword;
 use App\Models\Warranty;
 use App\Models\Question;
-use App\Models\Agreement;
 use App\Models\Procedure;
 use App\Models\PolicyCategory;
+use App\Models\AgreementCategory;
 
 use Illuminate\Http\Request;
 
@@ -142,10 +142,10 @@ class PagesController extends Controller
         return view('pages.decision', compact('procedure', 'decision'));
     }
 
-    public function getAgreements(Agreement $agreements)
+    public function getAgreements(AgreementCategory $categories)
     {
-        $agreements = $agreements->orderBy('id', 'desc')->paginate(20);
+        $categories = $categories->with('agreements')->get();
 
-        return view('pages.agreements', compact('agreements'));
+        return view('pages.agreements', compact('categories'));
     }
 }

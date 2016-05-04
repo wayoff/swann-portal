@@ -21,19 +21,17 @@ Route::group([
 
     Route::resource('supervisor-passwords', 'SupervisorPasswordsController');
     Route::resource('agreements', 'AgreementsController');
+    Route::resource('agreement-categories', 'AgreementCategoriesController');
     
     Route::resource('questions/products', 'QuestionsProductsController');
     Route::resource('questions', 'QuestionsController');
 
-    Route::resource('procedures/{id}/steps', 'ProcedureStepsController');
-
+    // Route::resource('procedures/{id}/steps', 'ProcedureStepsController');
     Route::get(
         'procedures/{id}/decisions/start',
         'ProcedureDecisionsController@start'
     )->name('admin.procedures.{id}.decisions.start');
-
     Route::resource('procedures/{id}/decisions', 'ProcedureDecisionsController');
-
     Route::resource('procedures', 'ProceduresController');
 
     Route::resource('products/{id}/procedures/{procedureId}/steps', 'ProductsProceduresStepsController');

@@ -2,19 +2,17 @@
 
 namespace App\Http\Controllers\Admin;
 
-use Illuminate\Http\Request;
-
-use App\Models\Category;
+use App\Models\AgreementCategory;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CategoryRequest;
 
-class CategoriesController extends Controller
+class AgreementCategoriesController extends Controller
 {
     protected $categories;
 
-    public function __construct(Category $categories)
+    public function __construct(AgreementCategory $agreements)
     {
-        $this->categories = $categories;
+        $this->categories = $agreements;
     }
     /**
      * Display a listing of the resource.
@@ -23,9 +21,9 @@ class CategoriesController extends Controller
      */
     public function index()
     {
-        $categories = $this->categories->with('parent')->paginate(20);
+        $categories = $this->categories->paginate(20);
 
-        return view('admin.categories.index', compact('categories'));
+        return view('admin.agreement-categories.index', compact('categories'));
     }
 
     /**
@@ -35,9 +33,7 @@ class CategoriesController extends Controller
      */
     public function create()
     {
-        $categories = $this->categories->get();
-
-        return view('admin.categories.create', compact('categories'));
+        return view('admin.agreement-categories.create');
     }
 
     /**
@@ -50,7 +46,8 @@ class CategoriesController extends Controller
     {
         $this->categories->create($request->all());
 
-        return redirect(route('admin.categories.index'))->with('status', 'Success On Creating New Category');
+        return redirect(route('admin.agreement-categories.index'))
+                    ->with('status', 'Success On Creating New Category');
     }
 
     /**
@@ -62,9 +59,8 @@ class CategoriesController extends Controller
     public function edit($id)
     {
         $category = $this->categories->findOrFail($id);
-        $categories = $this->categories->whereNotIn('id', [$category->id])->get();
 
-        return view('admin.categories.edit', compact('category', 'categories'));
+        return view('admin.agreement-categories.edit', compact('category'));
     }
 
     /**
@@ -78,7 +74,8 @@ class CategoriesController extends Controller
     {
         $this->categories->findOrFail($id)->update($request->all());
 
-        return redirect(route('admin.categories.index'))->with('status', 'Success on Updating Category');
+        return redirect(route('admin.agreement-categories.index'))
+                    ->with('status', 'Success on Updating Category');
     }
 
     /**
@@ -89,12 +86,9 @@ class CategoriesController extends Controller
      */
     public function destroy($id)
     {
-        $this->categories
-            ->where('id', $id)
-            ->orWhere('parent_id', $id)
-            ->delete();
+        $this->categories->findOrFail($id)->delete();
 
-        return redirect(route('admin.categories.index'))
+        return redirect(route('admin.agreement-categories.index'))
                     ->with('status', 'Success on Deleting Category');
     }
 }

@@ -24,9 +24,10 @@ class AgreementsRequest extends Request
     public function rules()
     {
         return [
-            'title'    => 'required|min:3',
-            'content'  => 'min:5',
-            'document' => 'mimes:doc,dot,docx,pdf'
+            'title'       => 'required|min:3',
+            'category_id' => 'required',
+            'content'     => 'min:5',
+            'document'    => 'mimes:pdf'
         ];
     }
 }

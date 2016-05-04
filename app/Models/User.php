@@ -29,4 +29,9 @@ class User extends Authenticatable
         $this->attributes['password'] = bcrypt($value);
     }
 
+    public function agreements()
+    {
+        $this->belongsToMany(Agreement::class);
+    }
+
 }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Models\Document;
 use App\Models\Agreement;
+use App\Models\AgreementCategory;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\AgreementsRequest;
 
@@ -36,9 +37,11 @@ class AgreementsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(AgreementCategory $categories)
     {
-        return view('admin.agreements.create');
+        $categories = $categories->get();
+
+        return view('admin.agreements.create', compact('categories'));
     }
 
     /**
@@ -52,13 +55,21 @@ class AgreementsController extends Controller
         $document = (new DocumentUpload($request, $documents))->handle();
 
         $agreement = $this->agreements->create([
-            'document_id' => $document ? $document->id : null,
-            'title'       => $request->input('title'),
-            'content'     => $request->input('content')
+            'document_id'           => $document ? $document->id : null,
+            'title'                 => $request->input('title'),
+            'agreement_category_id' => $request->input('category_id'),
+            'content'               => $request->input('content')
         ]);
 
         return redirect(route('admin.agreements.index'))
                     ->with('status', 'Success on Creating New Agreement');
+    }
+
+    public function show($id)
+    {
+        $agreement = $this->agreements->with('users')->findOrFail($id);
+
+        return view('admin.agreements.show', compact('agreement'));
     }
 
     /**
@@ -67,11 +78,13 @@ class AgreementsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit($id, AgreementCategory $categories)
     {
+        $categories = $categories->get();
+
         $agreement = $this->agreements->findOrFail($id);
 
-        return view('admin.agreements.edit', compact('agreement'));
+        return view('admin.agreements.edit', compact('agreement', 'categories'));
     }
 
     /**
@@ -92,9 +105,10 @@ class AgreementsController extends Controller
         $document = (new DocumentUpload($request, $documents, $documentId))->handle();
 
         $agreement->update([
-            'document_id' => $document ? $document->id : null,
-            'title'       => $request->input('title'),
-            'content'     => $request->input('content')
+            'document_id'           => $document ? $document->id : null,
+            'title'                 => $request->input('title'),
+            'agreement_category_id' => $request->input('category_id'),
+            'content'               => $request->input('content')
         ]);
 
         return redirect(route('admin.agreements.index'))

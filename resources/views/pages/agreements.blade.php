@@ -14,15 +14,21 @@
                                 <h3 class="panel-title">{{$category->name}}</h3>
                             </div>
                             <div class="panel-body">
-                                <ul class="list-unstyled">
-                                    @foreach($category->agreements as $agreement)
-                                        <li>
-                                            <a href="#" data-id="{{$agreement->id}}" class="agreement"> 
-                                            <i class="glyphicon glyphicon-chevron-right"></i> {{$agreement->title}} 
-                                            </a>
-                                        </li>
-                                    @endforeach
-                                </ul>
+                                @if($category->agreements->isEmpty())
+                                    <div class="alert alert-info">
+                                        No Data yet
+                                    </div>
+                                @else
+                                    <ul class="list-unstyled">
+                                        @foreach($category->agreements as $agreement)
+                                            <li>
+                                                <a href="#" data-id="{{$agreement->id}}" class="agreement"> 
+                                                <i class="glyphicon glyphicon-chevron-right"></i> {{$agreement->title}} 
+                                                </a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                @endif
                             </div>
                         </div>
                     </div>

@@ -1,13 +1,13 @@
 @extends('admin.layouts.content')
 
 @section('Page__Description')
-    Terms & Agreement
+    Operations Policies and Procedures
 @stop
 
 @section('Breadcrumb')
     <ol class="breadcrumb">
         <li class="active">
-            <i class="fa fa-file"></i>  <a href="#">Terms & Agreement</a>
+            <i class="fa fa-file"></i>  <a href="#">Operations Policies and Procedures</a>
         </li>
     </ol>
 @stop
@@ -15,7 +15,7 @@
 @section('Content')
     <div class="col-md-offset-1 col-md-10">
         <div class="pull-right">
-            <a href="{{ route('admin.agreements.create') }}" class="btn btn-primary"> Add Terms & Agreement</a>
+            <a href="{{ route('admin.agreements.create') }}" class="btn btn-primary"> Add Operations Policies and Procedures</a>
         </div>
 
         <table class="table table-striped table-border">

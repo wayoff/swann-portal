@@ -1,16 +1,16 @@
 @extends('admin.layouts.content')
 
 @section('Page__Description')
-    Terms & Agreement
+    Operations Policies and Procedures
 @stop
 
 @section('Breadcrumb')
     <ol class="breadcrumb">
         <li>
-            <i class="fa fa-file"></i>  <a href="#">Terms & Agreement</a>
+            <i class="fa fa-file"></i>  <a href="#">Operations Policies and Procedures</a>
         </li>
         <li class="active">
-            <a href="#">Update Terms & Agreement</a>
+            <a href="#">Update Operations Policies and Procedures</a>
         </li>
     </ol>
 @stop
@@ -19,7 +19,7 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="panel panel-default">
-                <div class="panel-heading">Register Terms & Agreement</div>
+                <div class="panel-heading">Register Operations Policies and Procedures</div>
                 <div class="panel-body">
                     <form class="form-horizontal" role="form" method="POST" enctype="multipart/form-data" action="{{ route('admin.agreements.update', $agreement->id) }}">
                         {!! csrf_field() !!}

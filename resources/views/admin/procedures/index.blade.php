@@ -1,7 +1,7 @@
 @extends('admin.layouts.content')
 
 @section('Page__Description')
-    Trouble Shooting
+    Troubleshooting
 @stop
 
 @section('Breadcrumb')
@@ -10,7 +10,7 @@
             <i class="fa fa-dashboard"></i>  <a href="#">Dashboard</a>
         </li>
         <li class="active">
-            <a href="#"> Trouble Shooting </a>
+            <a href="#"> Troubleshooting </a>
         </li>
     </ol>
 @stop

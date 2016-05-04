@@ -50,7 +50,7 @@
                         <a href="/admin/faq-categories"><i class="fa fa-fw fa-newspaper-o"></i> FAQ </a>
                     </li>
                     <li>
-                        <a href="/admin/procedure-categories"><i class="fa fa-fw fa-university"></i> Trouble Shooting </a>
+                        <a href="/admin/procedure-categories"><i class="fa fa-fw fa-university"></i> Troubleshooting </a>
                     </li>
                     <li>
                         <a href="/admin/policy-categories"><i class="fa fa-fw fa-flag"></i> Policy </a>
@@ -89,7 +89,7 @@
                 <a href="/admin/products"><i class="fa fa-fw fa-book"></i> Products</a>
             </li>
             <li>
-                <a href="/admin/procedures"><i class="fa fa-fw fa-wrench"></i> Trouble Shooting</a>
+                <a href="/admin/procedures"><i class="fa fa-fw fa-wrench"></i> Troubleshooting</a>
             </li>
             <li>
                 <a href="/admin/users"><i class="fa fa-fw fa-users"></i> Users</a>
@@ -111,7 +111,7 @@
                             <a href="/admin/supervisor-passwords"><i class="fa fa-fw fa-lock"></i> Password</a>
                         </li>
                         <li>
-                            <a href="/admin/agreements"><i class="fa fa-fw fa-bookmark-o"></i> Terms & Agreement</a>
+                            <a href="/admin/agreements"><i class="fa fa-fw fa-bookmark-o"></i> Operations Policies and Procedures </a>
                         </li>
                     </ul>
                 </li>

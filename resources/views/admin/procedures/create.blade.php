@@ -1,7 +1,7 @@
 @extends('admin.layouts.content')
 
 @section('Page__Description')
-    Dashboard
+    Troubleshooting
 @stop
 
 @section('Breadcrumb')
@@ -10,7 +10,7 @@
             <i class="fa fa-dashboard"></i>  <a href="#">Dashboard</a>
         </li>
         <li>
-            <a href="{{route('admin.procedures.index')}}"> Trouble Shooting </a>
+            <a href="{{route('admin.procedures.index')}}"> Troubleshooting </a>
         </li>
         <li class="active">
             <a href="#" class="active">Add Procedure</a>

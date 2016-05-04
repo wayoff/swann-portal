@@ -62,7 +62,7 @@
                 <li role="presentation" class="active"><a href="#desciption" aria-controls="desciption" role="tab" data-toggle="tab">Specifications</a></li>
                 <li role="presentation"><a href="#faq" aria-controls="faq" role="tab" data-toggle="tab">FAQ</a></li>
                 <li role="presentation"><a href="#documents" aria-controls="documents" role="tab" data-toggle="tab">Manual</a></li>
-                <li role="presentation"><a href="#procedures" aria-controls="procedures" role="tab" data-toggle="tab">Trouble Shooting</a></li>
+                <li role="presentation"><a href="#procedures" aria-controls="procedures" role="tab" data-toggle="tab">Troubleshooting</a></li>
                 <li role="presentation"><a href="#videos" aria-controls="videos" role="tab" data-toggle="tab">Videos</a></li>
               </ul>
 

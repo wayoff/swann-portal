@@ -1,6 +1,6 @@
 @extends('layouts.descriptive-content')
 
-@section('Page__Title', 'Terms & Agreement')
+@section('Page__Title', 'Operations Policies and Procedures')
 
 @section('content')
 <div class="row">

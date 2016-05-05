@@ -70,7 +70,6 @@
                                 {!! method_field('delete') !!}
 
                                 <a href="{{ route('admin.procedures.edit', $procedure->id) }}" class="btn btn-info btn-xs"> Edit</a>
-                                <!-- <a href="{{ route('admin.procedures.{id}.steps.index', $procedure->id) }}" class="btn btn-primary btn-xs"> Steps</a> -->
                                 <a href="{{ route('admin.procedures.{id}.decisions.index', $procedure->id) }}" class="btn btn-primary btn-xs"> Decision Tree</a>
                                 
                                 <button type="submit" class="btn btn-warning btn-xs btn-delete">Delete</button>

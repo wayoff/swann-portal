@@ -119,11 +119,6 @@
                                         Videos
                                     </a>
                                   </li>
-                                  <!-- <li>
-                                    <a href="{{ route('admin.products.{id}.procedures.index', $product->id) }}" class="btn btn-default btn-action">
-                                        Trouble Shooting
-                                    </a>
-                                  </li> -->
                                   <li>
                                     <a href="{{ route('admin.products.{id}.photos.index', $product->id) }}" class="btn btn-default btn-action">
                                         Images

@@ -11,7 +11,7 @@
     <div class="panel-body Commendation__Body">
         @if($commendations->isEmpty())
             <div class="alert alert-info">
-                No Featured Products Yet
+                No Commendations Yet
             </div>
         @else
             @foreach($commendations as $commendation)

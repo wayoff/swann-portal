@@ -158,7 +158,7 @@
                                         </a>
                                     </li>
                                 @endif
-                                @if($admin->id === 1 || $admin === 7)
+                                @if($admin->id === 1 || $admin->id === 7)
                                     <li>
                                         <a href="#supervisor_password_modal" id="_terms" data-toggle="modal" >
                                             Terms & Agreement

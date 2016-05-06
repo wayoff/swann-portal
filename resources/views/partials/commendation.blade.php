@@ -3,6 +3,11 @@
       max-height: 300px;
       overflow-y: scroll;
     }
+    .paragraph__image {
+      width: 80;
+      height: 60;
+      padding: 5px;
+    }
 </style>
 <div class="panel panel-primary">
     <div class="panel-heading">
@@ -17,7 +22,7 @@
             @foreach($commendations as $commendation)
             <div class="paragraph">
               <p>
-                <img class="pull-left" src="{{$commendation->photo->getImage()}}" width="80" height="65">{{$commendation->name}}{{$commendation->testimonial}}
+                <img class="pull-left paragraph__image" src="{{$commendation->photo->getImage()}}" width="80" height="65"><strong>{{$commendation->name}}</strong> <br>" {{$commendation->testimonial}} "
               </p>
             </div>
             @endforeach

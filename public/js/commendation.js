@@ -6,6 +6,6 @@
             $('.paragraph').hide();
             $(element).fadeIn();
         }.bind(element), count );
-        count += 5000;
+        count += 10000;
     });
 }());

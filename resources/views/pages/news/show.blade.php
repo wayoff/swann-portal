@@ -19,13 +19,23 @@
 @stop
 
 @section('content')
+    <style>
+        .disable-hover-effect:hover {
+            text-decoration:none !important;
+        }
+    </style>
     <div class="News__Show--Content">
         <p class="News__Show--Content-Paragraph">
-            <img src="{{ $news->photo_id 
+            <a href="{{ $news->photo_id 
                             ? $news->photo->getImage() 
-                            : config('swannportal.path.default-img') }}"
-                 class="News__Show--image"
-            >
+                            : '#' }}"
+                target="_blank" 
+                class="disable-hover-effect">
+                <img src="{{ $news->photo_id 
+                                ? $news->photo->getImage() 
+                                : config('swannportal.path.default-img') }}"
+                     class="News__Show--image">
+            </a>
             {{ $news->content }}
         </p>
         

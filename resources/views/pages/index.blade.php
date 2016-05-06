@@ -44,7 +44,7 @@
                     @include('partials.latest-updates')
                 </div>
                 <div class="col-md-12">
-                    @include('partials.top-products')
+                    @include('partials.commendation')
                 </div>
             </div>
         </div>

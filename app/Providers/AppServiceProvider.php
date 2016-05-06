@@ -30,6 +30,10 @@ class AppServiceProvider extends ServiceProvider
             'partials.random-products',
             'partials.list-random-products'
         ], Composers\RandomProductComposer::class);
+        
+        view()->composer([
+            'partials.commendation'
+        ], Composers\CommendationComposer::class);
 
         view()->composer([
             'admin.layouts.content'

@@ -18,6 +18,7 @@ Route::group([
     Route::resource('tags', 'TagsController');
     Route::resource('warranties', 'WarrantiesController');
     Route::resource('lmi-sessions', 'LmiSessionsController');
+    Route::resource('commendations', 'CommendationsController');
 
     Route::resource('supervisor-passwords', 'SupervisorPasswordsController');
     Route::resource('agreements', 'AgreementsController');
@@ -31,6 +32,7 @@ Route::group([
         'procedures/{id}/decisions/start',
         'ProcedureDecisionsController@start'
     )->name('admin.procedures.{id}.decisions.start');
+    
     Route::resource('procedures/{id}/decisions', 'ProcedureDecisionsController');
     Route::resource('procedures', 'ProceduresController');
 

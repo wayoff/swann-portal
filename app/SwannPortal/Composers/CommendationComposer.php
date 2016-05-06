@@ -17,7 +17,7 @@ class CommendationComposer
     {
         $commendations = $this->commendations
                                 ->with(['photo'])
-                                ->orderBy('id', 'desc')
+                                ->orderByRaw("RAND()")
                                 ->take(20)
                                 ->get();
 

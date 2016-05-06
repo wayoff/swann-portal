@@ -67,6 +67,7 @@
     <script src="/js/bootstrap-typeahead.min.js"></script>
     <script src="/js/search.js"></script>
     <script src="/js/terms-agreement.js"></script>
+    <script src="/js/commendation.js"></script>
     <script src="/video/mediaelement-and-player.min.js"></script>
     <script src="/video/mediaelementplayer.min.js"></script>
     <script>
@@ -89,6 +90,7 @@
                 }).on('focusout', function() {
                     $(this).attr('placeholder', defaultPlaceholder);
                 });
+
         });
         $(window).load( function() {
             $('video').mediaelementplayer({

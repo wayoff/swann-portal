@@ -115,6 +115,11 @@
                                     </a>
                                   </li>
                                   <li>
+                                    <a href="{{ route('admin.products.{id}.procedures.index', $product->id) }}" class="btn btn-default btn-action">
+                                        Troubleshooting
+                                    </a>
+                                  </li>
+                                  <li>
                                     <a href="{{ route('admin.products.{id}.videos.index', $product->id) }}" class="btn btn-default btn-action">
                                         Videos
                                     </a>

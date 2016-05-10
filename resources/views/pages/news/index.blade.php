@@ -9,22 +9,33 @@
                 No News yet
             </div>
         @else
-            @foreach($news->chunk(2) as $chunks)
+            @foreach($news as $new)
                 <div class="row">
-                    @foreach($chunks as $new)
-                        <div class="col-md-6">
-                            <div class="Card">
-                                <span class="Card__Title">
-                                    {{$new->title}}
-                                </span>
-                                <p>
-                                    {{ str_limit($new->content, 200) }}
-                                </p>
+                    <div class="col-md-12">
+                        <div class="Card">
+                            <div class="row margin-10">
+                                <div class="col-md-3">
+                                    @php
+                                        $image = $new->photo_id 
+                                                    ? $new->photo->getImage() 
+                                                    : config('swannportal.path.default-img');
+                                    @endphp
 
-                                <a href="{{ route('news.show', $new->id)}}" class="btn btn-primary btn-block"> View Full Story </a>
+                                    <img src="{{$image}}" class="Card__Image">
+                                </div>
+                                <div class="col-md-9">
+                                    <span class="Card__Title">
+                                        {{$new->title}}
+                                    </span>
+                                    <p>
+                                        {{ str_limit($new->content, 200) }}
+                                    </p>
+
+                                    <a href="{{ route('news.show', $new->id)}}" class="btn btn-primary pull-right"> View Full Story </a>
+                                </div>
                             </div>
                         </div>
-                    @endforeach
+                    </div>
                 </div>
             @endforeach
 

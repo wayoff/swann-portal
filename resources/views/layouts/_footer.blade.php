@@ -23,7 +23,7 @@
                 <div class="Footer__Title Footer__Title-border">
                     Feeds
                 </div>
-                <p class="Footer__Description">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit accusamus enim dolor.</p>
+                <p class="Footer__Description">-</p>
             </div>
             <div class="col-md-4">
                 <div class="Footer__Title Footer__Title-border">

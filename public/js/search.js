@@ -10,6 +10,10 @@ $(document).ready( function() {
             process(data);
           }
         });
+      }, 
+      afterSelect: function (item) {
+        $('#search__form').submit();
       }
   });
+    $('#search__field').focus().val($('#search__field').val());
 });

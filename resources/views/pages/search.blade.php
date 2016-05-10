@@ -3,7 +3,7 @@
 @section('content')
     <div class="row">
       <div class="col-md-12 text-center">
-          <form class="navbar-form" action="/search" method="GET" role="search">
+          <form class="navbar-form" action="/search" method="GET" role="search" id="search__form">
               <div class="input-group Form__Search--Container">
                   <input 
                     type="text"
@@ -12,6 +12,7 @@
                     name="q"
                     data-provide="typeahead"
                     autocomplete="off"
+                    id="search__field" 
                     value="{{$q}}">
                   <div class="input-group-btn Form__Search--Container--button">
                       <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>

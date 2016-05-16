@@ -130,7 +130,7 @@
                             <div class="col-md-6">
                                 <a href="{{ $product->document->getDocument() }}" class="btn btn-default" target="_blank"> View </a>
                                 <hr />
-                                <a href="/admin/products/{{$product->id}}/remove-document" class="btn btn-warning"> Remove Product </a>
+                                <a href="/admin/products/{{$product->id}}/remove-document" class="btn btn-warning"> Remove Document </a>
                             </div>
                         </div>
 

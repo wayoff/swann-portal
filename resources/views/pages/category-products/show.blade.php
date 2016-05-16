@@ -99,11 +99,39 @@
                         <a href="{{ $product->document->getDocument() }}" class="btn btn-primary" target="_blank">
                             Product Document
                         </a>
-                    @else
+                    @endif
+                    @php
+                        $documents = $product->documents()->get();
+                    @endphp
+                    @if(!$documents->isEmpty())
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Label</th>
+                                    <th>Description</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach( $documents as $document)
+                                <tr>
+                                    <td>{{ $document->pivot->label }}</td>
+                                    <td>{{ $document->pivot->description }}</td>
+                                    <td>
+                                        <a href="{{ $document->getDocument() }}" target="_blank" class="btn btn-xs btn-primary"> View </a>
+                                    </td>
+                                </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    @endif
+
+                    @if(!$product->document_id && $documents->isEmpty())
                         <div class="alert alert-info">
-                            No Supported Document
+                            No Supporting Document
                         </div>
                     @endif
+
                 </div>
                 <div role="tabpanel" class="tab-pane" id="procedures">
                     @php

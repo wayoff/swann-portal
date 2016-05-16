@@ -43,6 +43,7 @@ Route::group([
     Route::resource('products/{id}/videos', 'ProductsVideosController');
     Route::resource('products/{id}/documents', 'ProductsDocumentsController');
     Route::resource('products', 'ProductsController');
+    Route::get('products/{id}/remove-document', 'ProductsController@removeDocument');
 
     Route::controller('/', 'PagesController');
 

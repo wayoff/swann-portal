@@ -167,4 +167,13 @@ class ProductsController extends Controller
 
         return redirect(route('admin.products.index'))->with('status', 'Success on Deleting Product');
     }
+
+    public function removeDocument($id)
+    {
+        $this->products->findOrFail($id)->update([
+            'document_id' => null
+        ]);
+
+        return redirect()->back()->with('status', 'Succesfully removed document');
+    }
 }

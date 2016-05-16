@@ -128,9 +128,12 @@
                             <label class="col-md-4 control-label">Current Document</label>
 
                             <div class="col-md-6">
-                                <a href="{{ $product->document->getDocument() }}" class="btn btn-default" target="_blank"> {{ $product->document->name . '.' . $product->document->extension }}</a>
+                                <a href="{{ $product->document->getDocument() }}" class="btn btn-default" target="_blank"> View </a>
+                                <hr />
+                                <a href="/admin/products/{{$product->id}}/remove-document" class="btn btn-warning"> Remove Product </a>
                             </div>
                         </div>
+
                     @endif
 
                     <div class="form-group{{ $errors->has('featured') ? ' has-error' : '' }}">

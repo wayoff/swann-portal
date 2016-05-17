@@ -68,6 +68,17 @@
                             src="https://122.49.211.218/graph.php?ifnum=lan&ifname=LAN" ></iframe>
                 </div>
             </div>
+
+
+            <div class="col-md-6">
+                <div class="responsive-video">
+                    <div class="alert alert-success text-center">
+                        <h6>192.168.0.1 GRAPH</h6>
+                    </div>
+                    <iframe sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+                            src="https://192.168.0.1/graph.php?ifnum=lan&ifname=LAN" ></iframe>
+                </div>
+            </div>
         </div>
     </div>
 </body>

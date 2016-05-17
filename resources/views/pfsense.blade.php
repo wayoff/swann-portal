@@ -28,28 +28,30 @@
 </head>
 <body>
     <div class="container">
+        <div class="alert text-center">
+            <h3 style="color:black!;"> Login to each Frame then hit refresh</h3>
+        </div>
         <div class="row">
-            
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="responsive-video">
-                        <div class="alert alert-success text-center">
-                            <h6>192.168.0.3 GRAPH</h6>
-                        </div>
-                        <iframe sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
-                                src="https://192.168.0.3/graph.php?ifnum=lan&ifname=LAN" ></iframe>
+            <div class="col-md-6">
+                <div class="responsive-video">
+                    <div class="alert alert-success text-center">
+                        <h6>192.168.0.3 GRAPH</h6>
                     </div>
+                    <iframe sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+                            src="https://192.168.0.3/graph.php?ifnum=lan&ifname=LAN" ></iframe>
                 </div>
-                <div class="col-md-6">
-                    <div class="responsive-video">
-                        <div class="alert alert-success text-center">
-                            <h6>192.168.0.4 GRAPH</h6>
-                        </div>
-                        <iframe sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
-                                src="https://192.168.0.4/graph.php?ifnum=lan&ifname=LAN" ></iframe>
+            </div>
+            <div class="col-md-6">
+                <div class="responsive-video">
+                    <div class="alert alert-success text-center">
+                        <h6>192.168.0.4 GRAPH</h6>
                     </div>
+                    <iframe sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+                            src="https://192.168.0.4/graph.php?ifnum=lan&ifname=LAN" ></iframe>
                 </div>
-
+            </div>
+        </div>
+        <div class="row">
             <div class="col-md-6">
                 <div class="responsive-video">
                     <div class="alert alert-success text-center">

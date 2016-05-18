@@ -1,39 +1,99 @@
+    <style>
+        .Footer__Description--list-li {
+            font-size: 0.9em;
+        }
+        .Footer__Description--list-li > a {
+            text-decoration: none;
+            color: #B2DBFB;
+            margin-bottom: 5px;
+        }
+        .Footer__Description--list-li > a:hover {
+            color: #0A6EBD;
+        }
+        .Footer__Description--list {
+            list-style: none;
+        }
+        .Footer__Description--list {
+            list-style: none;
+        }
+    </style>
     <div class="col-md-12 Footer padding-remove">
-        <div class="Footer__List">
-            <div class="col-md-4">
-                <div class="Footer__Title Footer__Title-border">
-                    Swann Technical Support
+        <div class="container-fluid">
+            <div class="Footer__List">
+                <div class="col-md-4">
+                    <div class="Footer__Title Footer__Title-border">
+                        Swann Technical Support
+                    </div>
+                    <span class="Footer__Title--smaller">North America Support</span>
+                    <ul class="Footer__Description Footer__Description--list">
+                        <li class="Footer__Description--list-li">USA & Canada Telephone: <span class="text-underline">1800 627 2799</span> (Toll Free)</li>
+                    </ul>
+                    <span class="Footer__Title--smaller">Australia & New Zealand Support</span>
+                    <ul class="Footer__Description Footer__Description--list">
+                        <li class="Footer__Description--list-li">Australia Telephone: <span class="text-underline">1800 788 210</span> <br /> (Toll-free for fixed lines. call rates may apply for mobile and payphones)  </li>
+                        <li class="Footer__Description--list-li">New Zealand Telephone: <span class="text-underline">0800 479 266</span> (Toll Free)  </li>
+                        <li class="Footer__Description--list-li">International Telephone: <span class="text-underline">+61 3 8412 4610</span></li>
+                    </ul>
+                    <span class="Footer__Title--smaller">UK & Europe</span>
+                    <ul class="Footer__Description Footer__Description--list">
+                        <li class="Footer__Description--list-li">UK Telephone Support: <span class="text-underline"> +44 808 168 9031</span> (Toll Free)</li>
+                    </ul>
                 </div>
-                <span class="Footer__Title--smaller">North America Support</span>
-                <ul class="Footer__Description Footer__Description--list">
-                    <li class="Footer__Description--list-li">USA & Canada Telephone: <span class="text-underline">1800 627 2799</span> (Toll Free)</li>
-                </ul>
-                <span class="Footer__Title--smaller">Australia & New Zealand Support</span>
-                <ul class="Footer__Description Footer__Description--list">
-                    <li class="Footer__Description--list-li">Australia Telephone: <span class="text-underline">1800 788 210</span> <br /> (Toll-free for fixed lines. call rates may apply for mobile and payphones)  </li>
-                    <li class="Footer__Description--list-li">New Zealand Telephone: <span class="text-underline">0800 479 266</span> (Toll Free)  </li>
-                    <li class="Footer__Description--list-li">International Telephone: <span class="text-underline">+61 3 8412 4610</span></li>
-                </ul>
-                <span class="Footer__Title--smaller">UK & Europe</span>
-                <ul class="Footer__Description Footer__Description--list">
-                    <li class="Footer__Description--list-li">UK Telephone Support: <span class="text-underline"> +44 808 168 9031</span> (Toll Free)</li>
-                </ul>
-            </div>
-            <div class="col-md-4">
-                <div class="Footer__Title Footer__Title-border">
-                    Feeds
+                <div class="col-md-4">
+                    <div class="Footer__Title Footer__Title-border">
+                        Products
+                    </div>
+                    <ul class="Footer__Description Footer__Description--list">
+                        @foreach($categories->sortBy('order') as $category)
+                            @if($category->children->count() === 0)
+                                <li class="Footer__Description--list-li">
+                                    <a href="{{ route('categories.{id}.products.index', $category->id) }}">
+                                        - </span> {{ $category->name }}
+                                    </a>
+                                </li>
+                            @else
+                                <li class="Footer__Description--list-li">
+                                    <a href="{{ route('categories.{id}.products.index', $category->id) }}"> - </span> {{ $category->name }} </a>
+                                    <ul class="Footer__Description Footer__Description--list">
+                                        @foreach($category->children->sortBy('order') as $children)
+                                            @if($children->children->count() === 0)
+                                                <li class="Footer__Description--list-li">
+                                                    <a href="{{ route('categories.{id}.products.index', $children->id) }}">
+                                                        - </span> {{ $children->name }}
+                                                    </a>
+                                                </li>
+                                            @else
+                                                <li class="Footer__Description--list-li">
+                                                    - </span> <a href="{{ route('categories.{id}.products.index', $children->id) }}"> {{ $children->name }} </a>
+                                                    <ul class="Footer__Description Footer__Description--list">
+                                                        @foreach($children->children->sortBy('order') as $grand)
+                                                            <li class="Footer__Description--list-li">
+                                                                - </span> <a href="{{ route('categories.{id}.products.index', $grand->id) }}">
+                                                                    {{$grand->name}}
+                                                                </a>
+                                                            </li>
+                                                        @endforeach
+                                                    </ul>
+                                                </li>
+                                            @endif
+                                        @endforeach
+                                    </ul>
+                                </li>
+                            @endif
+                        @endforeach
+                    </ul>
+                    </li>
                 </div>
-                <p class="Footer__Description">-</p>
-            </div>
-            <div class="col-md-4">
-                <div class="Footer__Title Footer__Title-border">
-                    <span>Links</span>
+                <div class="col-md-3">
+                    <div class="Footer__Title Footer__Title-border">
+                        <span>Links</span>
+                    </div>
+                    <p class="Footer__Description">"Click here to see the links for softwares and apps that we have
+                        <a href="http://www.swann.com/us/apps">http://www.swann.com/us/apps</a> "
+                    </p>
                 </div>
-                <p class="Footer__Description">"Click here to see the links for softwares and apps that we have
-                    <a href="http://www.swann.com/us/apps">http://www.swann.com/us/apps</a> "
-                </p>
             </div>
-        </div>
+    </div>
 
         <div class="col-md-12 Footer__Copyright">
             <span class="text-underline text-bold">Swann Portal</span> | Powered by: <a href="http://fullpotentialbpo.com/" class="text-underline text-bold Footer__FPBPO" target="_blank">Fullpotential BPO Inc</a> copyright &#9400; {{ date('Y') != 2016 ? '2016 - ' .  date('Y') : 2016}} . All Rights Reserved.

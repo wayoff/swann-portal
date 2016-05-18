@@ -24,10 +24,13 @@
         color: white;
         font-size: 1.5em;
     }
+    .alert {
+        margin-bottom: 5px;
+    }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container-fluid">
         <div class="alert text-center">
             <h3 style="color:black!;"> Login to each Frame then hit refresh</h3>
         </div>
@@ -52,7 +55,16 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
+                <div class="responsive-video">
+                    <div class="alert alert-success text-center">
+                        <h6>192.168.0.2 GRAPH</h6>
+                    </div>
+                    <iframe sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+                            src="https://192.168.0.2/graph.php?ifnum=lan&ifname=LAN" ></iframe>
+                </div>
+            </div>
+            <div class="col-md-4">
                 <div class="responsive-video">
                     <div class="alert alert-success text-center">
                         <h6>122.49.211.212 GRAPH</h6>
@@ -61,7 +73,7 @@
                             src="https://122.49.211.212/graph.php?ifnum=lan&ifname=LAN" ></iframe>
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="responsive-video">
                     <div class="alert alert-success text-center">
                         <h6>122.49.211.218 GRAPH</h6>

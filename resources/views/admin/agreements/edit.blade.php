@@ -65,7 +65,7 @@
                             <label class="col-md-4 control-label">Content</label>
 
                             <div class="col-md-6">
-                                <textarea name="content" id="" cols="30" rows="10" class="form-control" required minlength="10" >{{ $agreement->content }}</textarea>
+                                <textarea name="content" id="" cols="30" rows="10" class="form-control"  >{{ $agreement->content }}</textarea>
 
                                 @if ($errors->has('content'))
                                     <span class="help-block">

@@ -99,7 +99,31 @@
             <span class="text-underline text-bold">Swann Portal</span> | Powered by: <a href="http://fullpotentialbpo.com/" class="text-underline text-bold Footer__FPBPO" target="_blank">Fullpotential BPO Inc</a> copyright &#9400; {{ date('Y') != 2016 ? '2016 - ' .  date('Y') : 2016}} . All Rights Reserved.
         </div>
     </div>
-
+    <div class="modal fade" id="schedule_modal">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title">Schedule</h4>
+                </div>
+                <div class="modal-body">
+                    @if(!empty($schedule))
+                        <div class="embed-responsive embed-responsive-16by9">
+                          <iframe class="embed-responsive-item" data-src="{{$schedule->document->getDocument()}}" id="schedule_frame"></iframe>
+                        </div>
+                    @else
+                        <div class="alert alert-info">
+                            No Schedule yet
+                        </div>
+                    @endif
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="modal fade" id="supervisor_password_modal">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -116,11 +140,12 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary" id="supervisor_password_modal_btn">Save changes</button>
+                    <button type="button" class="btn btn-primary" id="supervisor_password_modal_btn">Submit</button>
                 </div>
             </div>
         </div>
     </div>
+
 
     <script src="/js/jquery.min.js"></script>
     <script src="/js/bootstrap.min.js"></script>
@@ -163,6 +188,13 @@
                 }
             });
             $('[data-toggle="tooltip"]').tooltip();
+        });
+
+        $(document).ready( function() {
+            $('#_schedule').on('click', function() {
+                var frame = $('#schedule_frame');
+                    frame.attr('src', frame.data('src'));
+            });
         });
     </script>
     @yield('footer')

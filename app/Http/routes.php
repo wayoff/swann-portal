@@ -19,6 +19,7 @@ Route::group([
     Route::resource('warranties', 'WarrantiesController');
     Route::resource('lmi-sessions', 'LmiSessionsController');
     Route::resource('commendations', 'CommendationsController');
+    Route::resource('schedules', 'SchedulesController');
 
     Route::resource('supervisor-passwords', 'SupervisorPasswordsController');
     Route::resource('agreements', 'AgreementsController');

@@ -52,6 +52,13 @@ class AppServiceProvider extends ServiceProvider
             'layouts.home-content'
         ], Composers\CategoriesComposer::class);
 
+        
+        view()->composer([
+            'layouts.app',
+            'layouts.descriptive-content',
+            'layouts.home-content'
+        ], Composers\ScheduleComposer::class);
+
 
         view()->composer([
             'layouts.app',

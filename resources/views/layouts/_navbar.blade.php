@@ -134,6 +134,13 @@
                             <li><a href="/timezone/united-states">United States</a></li>
                         </ul>
                     </li>
+                    <li class="dropdown">
+                        <a href="#"> SwannPH <b class="caret"></b></a>
+                        <ul class="dropdown-menu Navbar__Menu--Dropdown">
+                            <li><a data-toggle="modal" href='#schedule_modal' id="_schedule"> Schedule </a></li>
+                        </ul>
+                    </li>
+
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -146,7 +153,7 @@
                     @else
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                {{ $admin->name }} <span class="caret"></span>
+                                Account <span class="caret"></span>
                             </a>
 
                             <ul class="dropdown-menu Navbar__Menu--Dropdown" role="menu">

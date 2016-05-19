@@ -106,6 +106,9 @@
             <li>
                 <a href="/admin/lmi-sessions"><i class="fa fa-fw fa-eye"></i> LMI Sessions</a>
             </li>
+            <li>
+                <a href="/admin/schedules"><i class="fa fa-fw fa-newspaper-o"></i> Schedules </a>
+            </li>
             @if($admin->id === 1 || $admin->id === 7)
                 <li>
                     <a href="javascript:;" data-toggle="collapse" data-target="#sp"><i class="fa fa-fw fa-building"></i> Supervisor <i class="fa fa-fw fa-caret-down"></i></a>

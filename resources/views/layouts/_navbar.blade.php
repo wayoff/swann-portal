@@ -165,7 +165,7 @@
                                         </a>
                                     </li>
                                 @endif
-                                @if($admin->id === 1 || $admin->id === 7)
+                                @if($admin)
                                     <li>
                                         <a href="#supervisor_password_modal" id="_terms" data-toggle="modal" >
                                             Supervisor

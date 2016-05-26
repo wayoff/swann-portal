@@ -101,26 +101,30 @@
                         $documents = $product->documents()->get();
                     @endphp
                     @if(!$documents->isEmpty())
-                        <table class="table table-striped table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Label</th>
-                                    <th>Description</th>
-                                    <th></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                @foreach( $documents as $document)
-                                <tr>
-                                    <td>{{ $document->pivot->label }}</td>
-                                    <td>{{ $document->pivot->description }}</td>
-                                    <td>
-                                        <a href="{{ $document->getDocument() }}" target="_blank" class="btn btn-xs btn-primary"> View </a>
-                                    </td>
-                                </tr>
-                                @endforeach
-                            </tbody>
-                        </table>
+                        <div class="row">
+                            <div class="col-md-10 col-md-offset-1">
+                                <table class="table table-bordered table-hover">
+                                    <thead>
+                                        <tr>
+                                            <th>Label</th>
+                                            <th>Description</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach( $documents as $document)
+                                        <tr>
+                                            <td>{{ $document->pivot->label }}</td>
+                                            <td>{{ $document->pivot->description }}</td>
+                                            <td>
+                                                <a href="{{ $document->getDocument() }}" target="_blank" class="btn btn-xs btn-primary"> View </a>
+                                            </td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
                     @endif
 
                     @if(!$product->document_id && $documents->isEmpty())

@@ -8,10 +8,14 @@ Route::group([
 ], function () {
     
     Route::resource('users', 'UsersController');
+
     Route::resource('categories', 'CategoriesController');
     Route::resource('faq-categories', 'FaqCategoriesController');
     Route::resource('procedure-categories', 'ProcedureCategoriesController');
     Route::resource('policy-categories', 'PolicyCategoriesController');
+    Route::resource('screenshot-categories', 'ScreenshotCategoriesController');
+
+
     Route::resource('sliders', 'SlidersController');
     Route::resource('news', 'NewsController');
     Route::resource('videos', 'VideosController');
@@ -20,6 +24,7 @@ Route::group([
     Route::resource('lmi-sessions', 'LmiSessionsController');
     Route::resource('commendations', 'CommendationsController');
     Route::resource('schedules', 'SchedulesController');
+    Route::resource('screenshots', 'ScreenshotsController');
 
     Route::resource('supervisor-passwords', 'SupervisorPasswordsController');
     Route::resource('agreements', 'AgreementsController');

@@ -36,7 +36,9 @@ class ProcedureCategoriesController extends Controller
      */
     public function create()
     {
-        return view('admin.procedure-categories.create');
+        $parents = $this->procedureCategories->where('parent_id', 0)->get();
+
+        return view('admin.procedure-categories.create', compact('parents'));
     }
 
     /**
@@ -62,8 +64,12 @@ class ProcedureCategoriesController extends Controller
     public function edit($id)
     {
         $procedureCategory = $this->procedureCategories->findOrFail($id);
+        $parents = $this->procedureCategories
+                        ->where('parent_id', 0)
+                        ->whereNotIn('id', [$id])
+                        ->get();
 
-        return view('admin.procedure-categories.edit', compact('procedureCategory'));
+        return view('admin.procedure-categories.edit', compact('procedureCategory', 'parents'));
     }
 
     /**

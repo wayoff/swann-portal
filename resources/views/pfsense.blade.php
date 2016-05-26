@@ -83,6 +83,31 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="responsive-video">
+                    <div class="alert alert-success text-center">
+                        <h6>WIFI CITY GRAPH</h6>
+                    </div>
+                    <iframe sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+                            src="http://203.82.32.28/cacti/plugins/realtime/graph_popup_rt.php?local_graph_id=2077" ></iframe>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="responsive-video">
+                    <div class="alert alert-success text-center">
+                        <h6>Eastern GRAPH</h6>
+                    </div>
+                    <img src="http://bandwidth20.eastern-tele.com/cacti/graph_image.php?action=view&local_graph_id=3178&rra_id=1" id="_etpi_graph" style="width: 100%;">
+                </div>
+            </div>
+        </div>
     </div>
+
+    <script>
+        var path = 'http://bandwidth20.eastern-tele.com/cacti/graph_image.php?action=view&local_graph_id=3178&rra_id=1',
+        img = document.getElementById('_etpi_graph');
+        setInterval( function() { img.src = path; console.log('changed'); }, 180000);
+    </script>
 </body>
 </html>

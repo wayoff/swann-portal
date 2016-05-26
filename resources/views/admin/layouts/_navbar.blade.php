@@ -53,6 +53,9 @@
                         <a href="/admin/procedure-categories"><i class="fa fa-fw fa-university"></i> Troubleshooting </a>
                     </li>
                     <li>
+                        <a href="/admin/screenshot-categories"><i class="fa fa-fw fa-cc"></i> Screenshots</a>
+                    </li>
+                    <li>
                         <a href="/admin/policy-categories"><i class="fa fa-fw fa-flag"></i> Policy </a>
                     </li>
                 </ul>
@@ -90,6 +93,9 @@
             </li>
             <li>
                 <a href="/admin/products"><i class="fa fa-fw fa-book"></i> Products</a>
+            </li>
+            <li>
+                <a href="/admin/screenshots"><i class="fa fa-fw fa-cc"></i> Screenshots</a>
             </li>
             <li>
                 <a href="/admin/procedures"><i class="fa fa-fw fa-wrench"></i> Troubleshooting</a>

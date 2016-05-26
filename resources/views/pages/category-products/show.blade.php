@@ -51,9 +51,6 @@
                     @endforeach
                 </div>
             </div>
-            <div class="col-md-3 padding-remove">
-                @include('partials.list-random-products')
-            </div>
         </div>
         <div class="col-md-12">
             <div>
@@ -63,7 +60,7 @@
                 <li role="presentation"><a href="#faq" aria-controls="faq" role="tab" data-toggle="tab">FAQ</a></li>
                 <li role="presentation"><a href="#documents" aria-controls="documents" role="tab" data-toggle="tab">Manual</a></li>
                 <li role="presentation"><a href="#procedures" aria-controls="procedures" role="tab" data-toggle="tab">Troubleshooting</a></li>
-                <li role="presentation"><a href="#videos" aria-controls="videos" role="tab" data-toggle="tab">Videos</a></li>
+                <li role="presentation"><a href="#screenshots" aria-controls="screenshots" role="tab" data-toggle="tab">Screenshots</a></li>
               </ul>
 
               <!-- Tab panes -->
@@ -150,38 +147,35 @@
                         </div>
                     @endif
                 </div>
-                <div role="tabpanel" class="tab-pane" id="videos">
-                    @php
-                        $videos = $product->videos;
-                    @endphp
-                    @if(!$videos->isEmpty())
-                        @foreach($videos as $video)
-                            <div class="row">
-                                <div class="col-md-6 col-md-offset-3 Video">
-                                    <h4 class="Video__Title">{{ $video->title }}</h4>
-                                    <hr />
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        <video class="embed-responsive-item Video__Iframe" 
-                                            controls 
-                                            poster="/img/swann-logo.png"
-                                        >
-                                          <source src="{{ $video->getMP4() }}" type="video/mp4">
-                                          <source src="{{ $video->getOGG() }}" type="video/ogg">
-                                          Your browser does not support HTML5 video.
-                                        </video>
-                                    </div>
-                                    <hr />
-                                    <p class="Video__Description">
-                                        {{ $video->description }}
-                                    </p>
+                <div role="tabpanel" class="tab-pane" id="screenshots">
+                    @foreach($screenshotCategories as $screenshotCategory)
+                        @php
+                            $screenshots = $product->screenshots()->where('category_id', $screenshotCategory->id)->get();
+                        @endphp
+                        @if(!$screenshots->isEmpty())
+                            <div class="panel panel-primary">
+                                <div class="panel-heading">
+                                    <h3 class="panel-title"> {{$screenshotCategory->name}} </h3>
+                                </div>
+                                <div class="panel-body">
+                                    <table class="table table-hover">
+                                        @foreach($screenshots as $screenshot)
+                                            <tr>
+                                                <td>
+                                                    <h5>{{$screenshot->name}}</h5>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="text-center">
+                                                    <img src="{{$screenshot->photo->getImage()}}" style="width: 100%;max-width: 500px">
+                                                </td>
+                                            </tr>
+                                        @endforeach
+                                    </table>
                                 </div>
                             </div>
-                        @endforeach
-                    @else
-                        <div class="alert alert-info">
-                            No Videos
-                        </div>
-                    @endif
+                        @endif
+                    @endforeach
                 </div>
               </div>
             </div>

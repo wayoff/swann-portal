@@ -38,6 +38,36 @@
                         </div>
                     </div>
 
+                    <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                        <label class="col-md-4 control-label">Parent</label>
+
+                        <div class="col-md-6">
+                            <select name="parent_id" class="form-control">
+                                <option value=""> -- None -- </option>
+                                @foreach($parents as $parent)
+                                    <option value="{{$parent->id}}"
+                                            {{$procedureCategory->parent_id === $parent->id ? 'selected' : ''}}
+                                    >
+                                        {{$parent->name}}
+                                    </option>
+                                @endforeach
+                            </select>
+                            @if ($errors->has('parent_id'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('parent_id') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                    </div>
+
+                    <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
+                        <label class="col-md-4 control-label">Order</label>
+
+                        <div class="col-md-6">
+                            <input type="number" class="form-control" name="order" value="{{$procedureCategory->order}}">
+                        </div>
+                    </div>
+
                     <div class="form-group">
                         <div class="col-md-6 col-md-offset-4">
                             <button type="submit" class="btn btn-primary">

@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Models\FaqCategory;
 use App\Models\ProcedureCategory;
+use App\Models\ScreenshotCategory;
 
 use Illuminate\Http\Request;
 
@@ -44,22 +45,30 @@ class CategoryProductsController extends Controller
         Category $categories,
         FaqCategory $faqCategories,
         ProcedureCategory $procedureCategories,
+        ScreenshotCategory $screenshotCategories,
         $categoryId,
         $productId)
     {
         $product = $this->products->with([
                 // 'procedures.steps.document', 'procedures.steps.photo',
-                'videos', 'procedures', 'procedures.document',
+                'procedures', 'procedures.document',
                 'procedures.trees',
                 'photo', 'questions', 'questions.document',
-                'questions.faqcategory', 'photos'
+                'questions.faqcategory', 'photos',
+                'screenshots'
             ])->findOrFail($productId);
 
         $faqCategories = $faqCategories->get();
         $procedureCategories = $procedureCategories->get();
+        $screenshotCategories = $screenshotCategories->get();
 
         return view('pages.category-products.show',
-                compact('product', 'faqCategories', 'procedureCategories')
+                compact(
+                    'product',
+                    'faqCategories',
+                    'procedureCategories',
+                    'screenshotCategories'
+                )
         );
     }
 }

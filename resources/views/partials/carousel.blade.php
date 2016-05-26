@@ -58,8 +58,8 @@
                     <img src="{{ $slider->photo->getImage() }}" class="max-width-100 Carousel__Item--img">
                     <div class="container">
                         <div class="carousel-caption">
-                            <h3>{{ $slider->title }}</h3>
-                            <p> {{ $slider->description }}</p>
+                            <!-- <h3>{{ $slider->title }}</h3>
+                            <p> {{ $slider->description }}</p> -->
                         </div>
                     </div>
                 </div>

@@ -148,34 +148,7 @@
                     @endif
                 </div>
                 <div role="tabpanel" class="tab-pane" id="screenshots">
-                    @foreach($screenshotCategories as $screenshotCategory)
-                        @php
-                            $screenshots = $product->screenshots()->where('category_id', $screenshotCategory->id)->get();
-                        @endphp
-                        @if(!$screenshots->isEmpty())
-                            <div class="panel panel-primary">
-                                <div class="panel-heading">
-                                    <h3 class="panel-title"> {{$screenshotCategory->name}} </h3>
-                                </div>
-                                <div class="panel-body">
-                                    <table class="table table-hover">
-                                        @foreach($screenshots as $screenshot)
-                                            <tr>
-                                                <td>
-                                                    <h5>{{$screenshot->name}}</h5>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td class="text-center">
-                                                    <img src="{{$screenshot->photo->getImage()}}" style="width: 100%;max-width: 500px">
-                                                </td>
-                                            </tr>
-                                        @endforeach
-                                    </table>
-                                </div>
-                            </div>
-                        @endif
-                    @endforeach
+                    @include('partials.screenshots')
                 </div>
               </div>
             </div>

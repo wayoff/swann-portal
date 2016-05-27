@@ -32,7 +32,7 @@
                         <div class="panel-heading" style="cursor: pointer;" data-toggle="collapse" data-target="#procedure_{{$parent->id}}">
                             <h3 class="panel-title">{{$parent->name}}</h3>
                         </div>
-                        <div class="panel-body collapse {{$key === 0 ? 'in' : ''}}" id="procedure_{{$parent->id}}">
+                        <div class="panel-body collapse" id="procedure_{{$parent->id}}">
                             @php
                                 $list = $procedures->where('procedure_category_id', $parent->id)->all();
                             @endphp

@@ -3,11 +3,11 @@
         <div class="col-md-12">
             @foreach($procedureCategories->where('parent_id', 0)->sortBy('order') as $key => $parent)
                 @if(!$procedureCategories->where('parent_id', $parent->id)->sortBy('order')->isEmpty())
-                    <div class="panel panel-success">
-                        <div class="panel-heading">
+                    <div class="panel panel-primary">
+                        <div class="panel-heading" style="cursor: pointer;" data-toggle="collapse" data-target="#procedure_{{$parent->id}}">
                             <h3 class="panel-title"> {{ ucwords($parent->name)}} </h3>
                         </div>
-                        <div class="panel-body">
+                        <div class="panel-body collapse" id="procedure_{{$parent->id}}">
                             @foreach($procedureCategories->where('parent_id', $parent->id)->sortBy('order') as $key => $procedureCategory)
                                 @if($procedures->where('procedure_category_id', $procedureCategory->id)->first())
                                 <div class="panel panel-default">

@@ -13,6 +13,13 @@
     .mejs-poster {
         display: none !important;
     }
+    .list-hover > li {
+        padding: 5px 5px;
+        transition: background-color 0.6s;
+    }
+    .list-hover > li:hover {
+        background-color: #F2F2F2;
+    }
     </style>
     <meta id="_token" data-content="{{csrf_token()}}">
     @yield('header')

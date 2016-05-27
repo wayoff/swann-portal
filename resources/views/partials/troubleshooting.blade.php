@@ -10,7 +10,7 @@
                         <div class="panel-body">
                             @foreach($procedureCategories->where('parent_id', $parent->id)->sortBy('order') as $key => $procedureCategory)
                                 @if($procedures->where('procedure_category_id', $procedureCategory->id)->first())
-                                <div class="panel panel-primary">
+                                <div class="panel panel-default">
                                     <div class="panel-heading" style="cursor: pointer;" data-toggle="collapse" data-target="#procedure_{{$procedureCategory->id}}">
                                         <h3 class="panel-title">{{$procedureCategory->name}}</h3>
                                     </div>
@@ -28,7 +28,7 @@
                 @endif
     
                 @if($procedures->where('procedure_category_id', $parent->id)->first())
-                    <div class="panel panel-primary">
+                    <div class="panel panel-default">
                         <div class="panel-heading" style="cursor: pointer;" data-toggle="collapse" data-target="#procedure_{{$parent->id}}">
                             <h3 class="panel-title">{{$parent->name}}</h3>
                         </div>

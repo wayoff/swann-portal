@@ -28,7 +28,7 @@
                 @endif
     
                 @if($procedures->where('procedure_category_id', $parent->id)->first())
-                    <div class="panel panel-default">
+                    <div class="panel panel-primary">
                         <div class="panel-heading" style="cursor: pointer;" data-toggle="collapse" data-target="#procedure_{{$parent->id}}">
                             <h3 class="panel-title">{{$parent->name}}</h3>
                         </div>
@@ -45,7 +45,7 @@
 
         <div class="col-md-12">
             @if($procedures->where('procedure_category_id', 0)->first())
-                <div class="panel panel-default">
+                <div class="panel panel-primary">
                     <div class="panel-heading" style="cursor: pointer;" data-toggle="collapse" data-target="#procedure_other">
                         <h3 class="panel-title"> Other Trouble Shooting</h3>
                     </div>

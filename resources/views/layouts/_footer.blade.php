@@ -96,7 +96,7 @@
     </div>
 
         <div class="col-md-12 Footer__Copyright">
-            <span class="text-underline text-bold">Swann Portal</span> | Powered by: <a href="http://fullpotentialbpo.com/" class="text-underline text-bold Footer__FPBPO" target="_blank">Fullpotential BPO Inc</a> copyright &#9400; {{ date('Y') != 2016 ? '2016 - ' .  date('Y') : 2016}} . All Rights Reserved.
+            <span class="text-underline text-bold">Internal KBaze</span> | Powered by: <a href="http://fullpotentialbpo.com/" class="text-underline text-bold Footer__FPBPO" target="_blank">Fullpotential BPO Inc</a> copyright &#9400; {{ date('Y') != 2016 ? '2016 - ' .  date('Y') : 2016}} . All Rights Reserved.
         </div>
     </div>
     <div class="modal fade" id="schedule_modal">

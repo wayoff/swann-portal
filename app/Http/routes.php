@@ -16,6 +16,7 @@ Route::group([
     Route::resource('screenshot-categories', 'ScreenshotCategoriesController');
 
 
+    Route::resource('announcements', 'AnnouncementsController');
     Route::resource('sliders', 'SlidersController');
     Route::resource('news', 'NewsController');
     Route::resource('videos', 'VideosController');

@@ -89,7 +89,7 @@
                         <span>Links</span>
                     </div>
                     <p class="Footer__Description">"Click here to see the links for softwares and apps that we have
-                        <a href="http://www.swann.com/us/apps">http://www.swann.com/us/apps</a> "
+                        <a href="http://www.swann.com/us/apps" target="_blank">http://www.swann.com/us/apps</a> "
                     </p>
                 </div>
             </div>

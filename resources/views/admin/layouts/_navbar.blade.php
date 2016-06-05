@@ -89,6 +89,9 @@
                     <li>
                         <a href="/admin/commendations"><i class="fa fa-fw fa-user"></i> Commendation</a>
                     </li>
+                    <li>
+                        <a href="/admin/announcements"><i class="fa fa-fw fa-exclamation-circle"></i> Announcements</a>
+                    </li>
                 </ul>
             </li>
             <li>

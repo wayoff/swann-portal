@@ -3,6 +3,17 @@
 @endif
 
 <div class="navbar navbar-inverse Navbar" role="navigation">
+    @if(!empty($announcement))
+        <div class="Annimate__Container">
+            <div class="container hidden-sm hidden-xs">
+                <div class="Annimate">
+                    <h4 class="Annimate__Text">
+                            {{strtoupper($announcement->content)}}
+                    </h4>
+                </div>
+            </div>
+        </div>
+    @endif
     <div class="container">
         <div class="Navbar__Technical--Support-Container">
             <h1 class="Navbar__Technical--Support hidden-sm hidden-xs">

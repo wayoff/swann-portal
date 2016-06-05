@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AlterQuestionsTable extends Migration
+class CreateAnnouncementsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,8 +12,11 @@ class AlterQuestionsTable extends Migration
      */
     public function up()
     {
-        Schema::table('questions', function (Blueprint $table) {
-            $table->integer('faq_category_id')->default(0)->nullable();
+        Schema::create('announcements', function (Blueprint $table) {
+            $table->increments('id');
+            $table->text('content');
+            $table->date('end_date')->nullable();
+            $table->timestamps();
         });
     }
 
@@ -24,8 +27,6 @@ class AlterQuestionsTable extends Migration
      */
     public function down()
     {
-        Schema::table('questions', function (Blueprint $table) {
-            $table->dropColumn('faq_category_id');
-        });
+        Schema::drop('announcements');
     }
 }

@@ -59,12 +59,15 @@ class AppServiceProvider extends ServiceProvider
             'layouts.home-content'
         ], Composers\ScheduleComposer::class);
 
-
         view()->composer([
             'layouts.app',
             'layouts.descriptive-content',
             'layouts.home-content'
         ], Composers\WarrantiesComposer::class);
+
+        view()->composer([
+            'layouts._navbar',
+        ], Composers\AnnouncementComposer::class);
 
         view()->composer([
             'admin.partials.tags.form'

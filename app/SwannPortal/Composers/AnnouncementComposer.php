@@ -21,7 +21,7 @@ class AnnouncementComposer
                             ->where('end_date', '<=', Carbon::today()->toDateString())
                             ->orWhereNull('end_date')
                             ->orderBy(DB::raw('RAND()'))
-                            ->first();
+                            ->get();
                             
         return $view->with('announcement', $announcement);
     }

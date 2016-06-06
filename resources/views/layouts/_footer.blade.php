@@ -195,6 +195,38 @@
                 var frame = $('#schedule_frame');
                     frame.attr('src', frame.data('src'));
             });
+
+            var announcement = {
+                data : $('#announcement').data('content'),
+                interval : (60 * 1000) * 5,
+                active : 0,
+                last : $('#announcement').data('content').length - 1,
+                target : $('#Annimate__Text'),
+                handle : function() {
+                    if (this.data.length == 0) {
+                        return;
+                    }
+
+                    this.target.html(this.data[0].content);
+
+                    if (this.last == this.active) {
+                        return;
+                    }
+
+                    this.active++;
+
+                    setInterval( function() {
+                        this.target.html(this.data[this.active].content);
+
+                        this.active == this.last
+                            ? this.active = 0
+                            : this.active ++;
+
+                    }.bind(this), this.interval);
+                }
+            }
+
+            announcement.handle();
         });
     </script>
     @yield('footer')

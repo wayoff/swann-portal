@@ -2,18 +2,19 @@
     <meta id="user" data-content="{{json_encode($admin->toArray())}}">
 @endif
 
+<meta id="announcement" data-content="{{ !empty($announcement) ? json_encode($announcement->toArray()) : json_encode([])}}">
+
 <div class="navbar navbar-inverse Navbar" role="navigation">
     @if(!empty($announcement))
         <div class="Annimate__Container">
             <div class="container hidden-sm hidden-xs">
                 <!-- <div class="Annimate">
                     <h4 class="Annimate__Text">
-                            {{strtoupper($announcement->content)}}
+                        text here
                     </h4>
                 </div> -->
 
-                <marquee behavior="scroll" direction="left" class="Annimate__Text">
-                    {{strtoupper($announcement->content)}}
+                <marquee behavior="scroll" direction="left" class="Annimate__Text" id="Annimate__Text">
                 </marquee>
             </div>
         </div>

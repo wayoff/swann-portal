@@ -7414,6 +7414,7 @@ body {
   position: relative; }
 
 .Annimate__Text {
+  font-weight: bold;
   color: #b2dbfb;
   position: absolute;
   width: 100%;
@@ -7425,18 +7426,18 @@ body {
   -webkit-transform: translateX(100%);
   transform: translateX(100%);
   /* Apply animation to this element */
-  -webkit-animation: example1 15s linear infinite;
-  animation: example1 15s linear infinite; }
+  -webkit-animation: Annimate 15s linear infinite;
+  animation: Annimate 15s linear infinite; }
 
 /* Move it (define the animation) */
 
-@-webkit-keyframes example1 {
+@-webkit-keyframes Annimate {
   0% {
     -webkit-transform: translateX(100%); }
   100% {
     -webkit-transform: translateX(-100%); } }
 
-@keyframes example1 {
+@keyframes Annimate {
   0% {
     /* Firefox bug fix */
     -webkit-transform: translateX(100%);

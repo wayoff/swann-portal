@@ -31,32 +31,33 @@
      position: relative;
 }
 .Annimate__Text {
+    font-weight: bold;
     color: #b2dbfb;
-     position: absolute;
-     width: 100%;
-     height: 100%;
-     margin: 0;
-     line-height: 50px;
-     text-align: center;
-     /* Starting position */
-     -moz-transform:translateX(100%);
-     -webkit-transform:translateX(100%);    
-     transform:translateX(100%);
-     /* Apply animation to this element */  
-     -moz-animation: example1 15s linear infinite;
-     -webkit-animation: example1 15s linear infinite;
-     animation: example1 15s linear infinite;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    line-height: 50px;
+    text-align: center;
+    /* Starting position */
+    -moz-transform:translateX(100%);
+    -webkit-transform:translateX(100%);    
+    transform:translateX(100%);
+    /* Apply animation to this element */  
+    -moz-animation: Annimate 15s linear infinite;
+    -webkit-animation: Annimate 15s linear infinite;
+    animation: Annimate 15s linear infinite;
 }
 /* Move it (define the animation) */
-@-moz-keyframes example1 {
+@-moz-keyframes Annimate {
      0%   { -moz-transform: translateX(100%); }
      100% { -moz-transform: translateX(-100%); }
 }
-@-webkit-keyframes example1 {
+@-webkit-keyframes Annimate {
      0%   { -webkit-transform: translateX(100%); }
      100% { -webkit-transform: translateX(-100%); }
 }
-@keyframes example1 {
+@keyframes Annimate {
  0%   { 
      -moz-transform: translateX(100%); /* Firefox bug fix */
      -webkit-transform: translateX(100%); /* Firefox bug fix */

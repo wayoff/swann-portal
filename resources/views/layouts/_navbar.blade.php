@@ -6,11 +6,15 @@
     @if(!empty($announcement))
         <div class="Annimate__Container">
             <div class="container hidden-sm hidden-xs">
-                <div class="Annimate">
+                <!-- <div class="Annimate">
                     <h4 class="Annimate__Text">
                             {{strtoupper($announcement->content)}}
                     </h4>
-                </div>
+                </div> -->
+
+                <marquee behavior="scroll" direction="left" class="Annimate__Text">
+                    {{strtoupper($announcement->content)}}
+                </marquee>
             </div>
         </div>
     @endif

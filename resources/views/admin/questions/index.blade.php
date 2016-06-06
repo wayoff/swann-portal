@@ -40,7 +40,7 @@
                     <tr>
                         <td>{{ string_pad($question->id) }}</td>
                         <td>{{ $question->title }}</td>
-                        <td>{{ $question->answer }}</td>
+                        <td>{{ str_limit($question->answer, 70) }}</td>
                         <td>{{ $question->featured ? 'Yes' : 'No' }}</td>
                         <td>
                             @if($question->document_id)

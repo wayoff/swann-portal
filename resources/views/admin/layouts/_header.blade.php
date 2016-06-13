@@ -24,10 +24,19 @@
         tinymce.init({
             selector: 'textarea#target_tinymce',
             height: 500,
+            theme: 'modern',
+            plugins: [
+                'advlist autolink lists link charmap preview hr anchor pagebreak',
+                'searchreplace wordcount visualblocks visualchars code fullscreen',
+                'insertdatetime nonbreaking save table contextmenu directionality',
+                'emoticons paste textcolor colorpicker textpattern imagetools'
+            ],
+            toolbar1: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link',
+            toolbar2: 'preview | forecolor backcolor emoticons',
+            // image_advtab: true,
             content_css: [
             '//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
-            '//cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.css',
-            '//www.tinymce.com/css/codepen.min.css'    
+            '//www.tinymce.com/css/codepen.min.css'
             ]
         });
     </script>

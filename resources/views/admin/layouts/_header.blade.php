@@ -19,5 +19,17 @@
     <link rel="icon" 
           type="image/png" 
           href="/favicon.png">
+    <script src='//cdn.tinymce.com/4/tinymce.min.js'></script>
+    <script>
+        tinymce.init({
+            selector: 'textarea#target_tinymce',
+            height: 500,
+            content_css: [
+            '//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
+            '//cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.css',
+            '//www.tinymce.com/css/codepen.min.css'    
+            ]
+        });
+    </script>
     @yield('header')
 </head>

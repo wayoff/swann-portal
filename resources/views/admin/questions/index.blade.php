@@ -22,7 +22,7 @@
                 <tr>
                     <td>ID</td>
                     <td>Question</td>
-                    <td>Answer</td>
+                    <!-- <td>Answer</td> -->
                     <td>Featured</td>
                     <td>Document</td>
                     <td>Action</td>
@@ -40,7 +40,7 @@
                     <tr>
                         <td>{{ string_pad($question->id) }}</td>
                         <td>{{ $question->title }}</td>
-                        <td>{{ str_limit($question->answer, 70) }}</td>
+                        <!-- <td>{{ str_limit($question->answer, 70) }}</td> -->
                         <td>{{ $question->featured ? 'Yes' : 'No' }}</td>
                         <td>
                             @if($question->document_id)

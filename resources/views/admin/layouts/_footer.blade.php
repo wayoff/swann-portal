@@ -23,7 +23,6 @@
             $('.tags').tagsinput({
               cancelConfirmKeysOnEmpty: false
             }); 
-
         });
     </script>
     @yield('footer')

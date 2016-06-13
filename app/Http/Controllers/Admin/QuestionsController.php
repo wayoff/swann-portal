@@ -59,8 +59,14 @@ class QuestionsController extends Controller
             'answer'      => $request->input('answer'),
             'featured'    => $request->input('featured'),
         ]);
+        
+        $tags = collect($request->input('tags'));
 
-        $this->saveTag($request->input('tags'), $question);
+        $tags = $tags->isEmpty() 
+            ? [$request->input('title')]
+            : $tags->push($request->input('title'));
+
+        $this->saveTag($tags, $question);
 
         return redirect(route('admin.questions.index'))->with('status', 'Success on Adding Question');
     }
@@ -98,7 +104,13 @@ class QuestionsController extends Controller
             'featured'    => $request->input('featured'),
         ]);
 
-        $this->updateTag($request->input('tags'), $question);
+        $tags = collect($request->input('tags'));
+
+        $tags = $tags->isEmpty() 
+            ? [$request->input('title')]
+            : $tags->push($request->input('title'));
+
+        $this->saveTag($tags, $question);
 
         return redirect(route('admin.questions.index'))->with('status', 'Success on Updating Question');
     }

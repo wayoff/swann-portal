@@ -23,7 +23,7 @@ class KeywordQuestion implements KeywordInterface
 
     public function description()
     {
-        $description = $this->question->anwer;
+        $description = $this->question->answer;
 
         return $description;
     }

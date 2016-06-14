@@ -16,7 +16,7 @@
     <div class="col-md-offset-1 col-md-10">
         @foreach($procedureCategories as $procedureCategory)
             <div class="tree">
-                @include('admin.procedures-categories._list', ['procedureCategory', $procedureCategory])
+                @include('admin.procedure-categories._list', ['procedureCategory', $procedureCategory])
             </div>
         @endforeach
     </div>

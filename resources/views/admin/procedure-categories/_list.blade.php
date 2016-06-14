@@ -26,7 +26,7 @@
         </span>
 
         @foreach($procedureCategory->children as $procedureCategory)
-            @include('admin.procedures-categories._list', ['procedureCategory' => $procedureCategory])
+            @include('admin.procedure-categories._list', ['procedureCategory' => $procedureCategory])
         @endforeach
     </li>
 </ul>

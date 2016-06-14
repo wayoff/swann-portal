@@ -14,11 +14,11 @@
 
 @section('Content')
     <div class="col-md-offset-1 col-md-10">
-        @foreach($procedureCategories as $procedureCategory)
-            <div class="tree">
+        <div class="tree">
+            @foreach($procedureCategories as $procedureCategory)
                 @include('admin.procedure-categories._list', ['procedureCategory', $procedureCategory])
-            </div>
-        @endforeach
+            @endforeach
+        </div>
     </div>
 @stop
 

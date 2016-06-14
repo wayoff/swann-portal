@@ -17,7 +17,7 @@
                     </a>
 
 
-                    <a href="/admin/procedures/{{$procedureCategory->procedure_id}}/create?parent={{$procedureCategory->id}}" title="Add" data-toggle="tooltip" class="btn-action">
+                    <a href="/admin/procedure-categories/create?parent={{$procedureCategory->id}}" title="Add" data-toggle="tooltip" class="btn-action">
                         <i class="glyphicon glyphicon-plus"></i>
                     </a>
 

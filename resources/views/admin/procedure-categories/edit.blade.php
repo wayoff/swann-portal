@@ -7,7 +7,7 @@
 @section('Breadcrumb')
     <ol class="breadcrumb">
         <li>
-            <i class="fa fa-table"></i>  <a href="/admin/categories">Trouble Shooting Categories</a>
+            <i class="fa fa-table"></i>  <a href="/admin/procedure-categories">Trouble Shooting Categories</a>
         </li>
         <li class="active">
             <a href="#"> Update Trouble Shooting Category: {{ $procedureCategory->name }}</a>

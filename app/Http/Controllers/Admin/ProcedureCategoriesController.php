@@ -24,7 +24,7 @@ class ProcedureCategoriesController extends Controller
      */
     public function index()
     {
-        $procedureCategories = $this->procedureCategories->paginate(20);
+        $procedureCategories = $this->procedureCategories->all();
 
         return view('admin.procedure-categories.index', compact('procedureCategories'));
     }

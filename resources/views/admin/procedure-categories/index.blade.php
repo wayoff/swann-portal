@@ -15,7 +15,7 @@
 @section('Content')
     <div class="col-md-offset-1 col-md-10">
         <div class="tree">
-            @foreach($procedureCategories as $procedureCategory)
+            @foreach($procedureCategories->orderBy('order', 'asc') as $procedureCategory)
                 @include('admin.procedure-categories._list', ['procedureCategory', $procedureCategory])
             @endforeach
         </div>

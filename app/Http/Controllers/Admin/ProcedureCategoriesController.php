@@ -24,7 +24,7 @@ class ProcedureCategoriesController extends Controller
      */
     public function index()
     {
-        $procedureCategories = $this->procedureCategories->where('parent', 0)->get();
+        $procedureCategories = $this->procedureCategories->where('parent_id', 0)->get();
 
         return view('admin.procedure-categories.index', compact('procedureCategories'));
     }

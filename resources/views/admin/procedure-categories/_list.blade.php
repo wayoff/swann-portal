@@ -22,7 +22,7 @@
                     </a>
 
                 </form>
-            {{$procedureCategory->title}}
+            {{$procedureCategory->name}}
         </span>
 
         @foreach($procedureCategory->children as $procedureCategory)

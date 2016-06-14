@@ -45,7 +45,7 @@
                             <select name="parent_id" class="form-control">
                                 <option value=""> -- None -- </option>
                                 @foreach($parents as $parent)
-                                    <option value="{{$parent->id}}">
+                                    <option value="{{$parent->id}}" {{$parentId == $parent->id ? 'selected' : '' }}>
                                         {{$parent->name}}
                                     </option>
                                 @endforeach

@@ -25,7 +25,7 @@
             {{$procedureCategory->name}}
         </span>
 
-        @foreach($procedureCategory->children as $procedureCategory)
+        @foreach($procedureCategory->children->sortBy('order', 'asc')->all() as $procedureCategory)
             @include('admin.procedure-categories._list', ['procedureCategory' => $procedureCategory])
         @endforeach
     </li>

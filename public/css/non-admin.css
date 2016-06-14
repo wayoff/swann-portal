@@ -7353,9 +7353,9 @@ body {
 
 .Question__Number {
   display: block;
-  height: 75px;
-  width: 75px;
-  line-height: 75px;
+  height: 50px;
+  width: 50px;
+  line-height: 50px;
   /* or 50% */
   border-radius: 50%;
   /* or 50% */
@@ -7365,6 +7365,12 @@ body {
   font-size: 2em;
   margin: auto auto;
   transition: background-color 0.5s, color 0.5s; }
+
+.Question__Title {
+  font-size: 1.2em;
+  text-decoration: none;
+  font-weight: bold;
+  color: #666666; }
 
 .Form__Search--Container {
   width: 60%; }

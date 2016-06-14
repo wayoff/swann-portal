@@ -95,7 +95,11 @@ class ProcedureCategoriesController extends Controller
      */
     public function destroy($id)
     {
-        $this->procedureCategories->findOrFail($id)->delete();
+        $parent = $this->procedureCategories->findOrFail($id);
+        
+        $this->procedureCategories->where('parent_id', $parent->id)->delete();
+
+        $parent->delete();
 
         return redirect(route('admin.procedure-categories.index'))
                     ->with('status', 'Success on Deleting Category');

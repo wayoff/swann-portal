@@ -21,7 +21,6 @@
             @foreach($topProducts as $topProduct)
                 <a href="{{route('categories.{id}.products.show', [$topProduct->firstCategory()->id, $topProduct->id])}}" class="list-group-item">
                     <h6 class="list-group-item-heading Featured__Product--title">{{ str_limit($topProduct->name, 30) }}</h6>
-                    <p class="list-group-item-text Featured__Product--description">{{ str_limit($topProduct->description, 50) }}</p>
                 </a>
             @endforeach
         @endif

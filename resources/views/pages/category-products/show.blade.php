@@ -66,12 +66,11 @@
               <!-- Tab panes -->
               <div class="tab-content">
                 <div role="tabpanel" class="tab-pane active" id="desciption">
-                    <p class="Product__Show--description">
+                    <!-- <p class="Product__Show--description">
                         Product Description: 
-                        <br />
-                        <strong> {{$product->description}}</strong>
-                        <br />
-                        <br />
+                    </p> -->
+                        {!!$product->description!!}
+                    <p class="Product__Show--description">
                         Product Model: <strong>{{$product->model_no}}</strong>
                     </p>
                 </div>

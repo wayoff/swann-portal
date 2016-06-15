@@ -50,7 +50,6 @@
                     <td>Name</td>
                     <td>Category</td>
                     <td>Model No</td>
-                    <td>Description</td>
                     <td>Featured</td>
                     <td>Image</td>
                     <td>Document</td>
@@ -79,7 +78,6 @@
                             </ul>
                         </td>
                         <td>{{ $product->model_no }}</td>
-                        <td>{{ str_limit($product->description, 60) }}</td>
                         <td>{{ $product->featured ? 'Yes' : 'No' }}</td>
                         <td>
                             @if($product->photo_id)

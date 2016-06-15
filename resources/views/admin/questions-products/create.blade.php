@@ -17,16 +17,16 @@
 
 @section('Content')
 <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-12">
         <div class="panel panel-default">
             <div class="panel-heading">Register Question</div>
             <div class="panel-body">
                 <form class="form-horizontal" role="form" method="POST" enctype="multipart/form-data" action="{{ route('admin.questions.products.store') }}">
                     {!! csrf_field() !!}
                     <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
-                        <label class="col-md-4 control-label">Title</label>
+                        <label class="col-md-2 control-label">Title</label>
 
-                        <div class="col-md-6">
+                        <div class="col-md-8">
                             <input type="text" class="form-control" name="title" value="{{ old('title') }}">
 
                             @if ($errors->has('title'))
@@ -38,10 +38,10 @@
                     </div>
 
                     <div class="form-group{{ $errors->has('answer') ? ' has-error' : '' }}">
-                        <label class="col-md-4 control-label">Answer</label>
+                        <label class="col-md-2 control-label">Answer</label>
 
-                        <div class="col-md-6">
-                            <textarea name="answer" class="form-control">{{ old('answer') }}</textarea>
+                        <div class="col-md-8">
+                            <textarea name="answer" class="form-control" id="target_tinymce">{!! old('answer') !!}</textarea>
 
                             @if ($errors->has('answer'))
                                 <span class="help-block">
@@ -52,9 +52,9 @@
                     </div>
 
                     <div class="form-group{{ $errors->has('answer') ? ' has-error' : '' }}">
-                        <label class="col-md-4 control-label">Category</label>
+                        <label class="col-md-2 control-label">Category</label>
 
-                        <div class="col-md-6">
+                        <div class="col-md-8">
                             <select name="category" class="form-control">
                                 <option value="">Other</option>
                                 @foreach($faqCategories as $faqCategory)
@@ -73,9 +73,9 @@
 
 
                     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                        <label class="col-md-4 control-label">Product</label>
+                        <label class="col-md-2 control-label">Product</label>
 
-                        <div class="col-md-6">
+                        <div class="col-md-8">
                             <select name="product[]" multiple class="form-control select2"></select>
 
                             @if ($errors->has('product'))
@@ -87,9 +87,9 @@
                     </div>
                     
                     <div class="form-group{{ $errors->has('tags') ? ' has-error' : '' }}">
-                        <label class="col-md-4 control-label">Tags</label>
+                        <label class="col-md-2 control-label">Tags</label>
 
-                        <div class="col-md-6">
+                        <div class="col-md-8">
                             <select multiple class="form-control tags" name="tags[]"></select>
 
                             @if ($errors->has('tags'))
@@ -101,9 +101,9 @@
                     </div>
                     
                     <div class="form-group{{ $errors->has('featured') ? ' has-error' : '' }}">
-                        <label class="col-md-4 control-label">is Featured ? </label>
+                        <label class="col-md-2 control-label">is Featured ? </label>
 
-                        <div class="col-md-6">
+                        <div class="col-md-8">
                             <select name="featured" id="" class="form-control">
                                 <option value="0"> No </option>
                                 <option value="1"> Yes </option>
@@ -118,9 +118,9 @@
                     </div>
 
                     <div class="form-group{{ $errors->has('document') ? ' has-error' : '' }}">
-                        <label class="col-md-4 control-label">Document</label>
+                        <label class="col-md-2 control-label">Document</label>
 
-                        <div class="col-md-6">
+                        <div class="col-md-8">
                             <input type="file" class="form-control" name="document" >
 
                             @if ($errors->has('document'))
@@ -133,7 +133,7 @@
 
 
                     <div class="form-group">
-                        <div class="col-md-6 col-md-offset-4">
+                        <div class="col-md-8 col-md-offset-4">
                             <button type="submit" class="btn btn-primary">
                                 <i class="fa fa-btn fa-table"></i> Register
                             </button>

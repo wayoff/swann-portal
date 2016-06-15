@@ -48,8 +48,7 @@
                 <tr>
                     <td>ID</td>
                     <td>Question</td>
-                    <td>Products</td>
-                    <td>Answer</td>
+                    <!-- <td>Products</td> -->
                     <td>Featured</td>
                     <td>Document</td>
                     <td>Action</td>
@@ -67,14 +66,13 @@
                     <tr>
                         <td>{{ string_pad($question->id) }}</td>
                         <td>{{ $question->title }}</td>
-                        <td>
+                        <!-- <td>
                             <ul class="list-group">
                                 @foreach($question->products as $product)
                                 <li class="list-group-item">{{$product->name}}</li>
                                 @endforeach
                             </ul>
-                        </td>
-                        <td>{{ $question->answer }}</td>
+                        </td> -->
                         <td>{{ $question->featured ? 'Yes' : 'No' }}</td>
                         <td>
                             @if($question->document_id)

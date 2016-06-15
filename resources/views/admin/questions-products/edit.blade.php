@@ -17,7 +17,7 @@
 
 @section('Content')
 <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+    <div class="col-md-12">
         <div class="panel panel-default">
             <div class="panel-heading">Edit Question</div>
             <div class="panel-body">
@@ -26,9 +26,9 @@
                     {!! method_field('PUT') !!}
 
                     <div class="form-group{{ $errors->has('title') ? ' has-error' : '' }}">
-                        <label class="col-md-4 control-label">Title</label>
+                        <label class="col-md-2 control-label">Title</label>
 
-                        <div class="col-md-6">
+                        <div class="col-md-8">
                             <input type="text" class="form-control" name="title" value="{{ $question->title }}">
 
                             @if ($errors->has('title'))
@@ -40,10 +40,10 @@
                     </div>
 
                     <div class="form-group{{ $errors->has('answer') ? ' has-error' : '' }}">
-                        <label class="col-md-4 control-label">Answer</label>
+                        <label class="col-md-2 control-label">Answer</label>
 
-                        <div class="col-md-6">
-                            <textarea name="answer" class="form-control">{{ $question->answer }}</textarea>
+                        <div class="col-md-8">
+                            <textarea name="answer" class="form-control" id="target_tinymce">{!! $question->answer !!}</textarea>
                             @if ($errors->has('answer'))
                                 <span class="help-block">
                                     <strong>{{ $errors->first('answer') }}</strong>
@@ -53,9 +53,9 @@
                     </div>
 
                     <div class="form-group{{ $errors->has('answer') ? ' has-error' : '' }}">
-                        <label class="col-md-4 control-label">Category</label>
+                        <label class="col-md-2 control-label">Category</label>
 
-                        <div class="col-md-6">
+                        <div class="col-md-8">
                             <select name="category" class="form-control">
                                 <option value="">Other</option>
                                 @foreach($faqCategories as $faqCategory)
@@ -75,9 +75,9 @@
                         </div>
                     </div>
                     <div class="form-group{{ $errors->has('name') ? ' has-error' : '' }}">
-                        <label class="col-md-4 control-label">Product</label>
+                        <label class="col-md-2 control-label">Product</label>
 
-                        <div class="col-md-6">
+                        <div class="col-md-8">
                             <select name="product[]" multiple class="form-control select2">
                                 @foreach($question->products as $product)
                                     <option value="{{$product->id}}" selected>{{$product->name}}</option>
@@ -93,9 +93,9 @@
                     </div>
                 
                     <div class="form-group{{ $errors->has('tags') ? ' has-error' : '' }}">
-                        <label class="col-md-4 control-label">Tags</label>
+                        <label class="col-md-2 control-label">Tags</label>
 
-                        <div class="col-md-6">
+                        <div class="col-md-8">
                             <select multiple class="form-control tags" name="tags[]">
                                 @foreach($question->keywords as $keyword)
                                     <option value="{{$keyword->content}}">{{$keyword->content}}</option>
@@ -111,9 +111,9 @@
                     </div>
 
                     <div class="form-group{{ $errors->has('featured') ? ' has-error' : '' }}">
-                        <label class="col-md-4 control-label">is Featured ? </label>
+                        <label class="col-md-2 control-label">is Featured ? </label>
 
-                        <div class="col-md-6">
+                        <div class="col-md-8">
                             <select name="featured" id="" class="form-control">
                                 <option value="0"> No </option>
                                 <option value="1" {{ $question->featured ? 'selected' : '' }}> Yes </option>
@@ -128,9 +128,9 @@
                     </div>
 
                     <div class="form-group{{ $errors->has('document') ? ' has-error' : '' }}">
-                        <label class="col-md-4 control-label">Document</label>
+                        <label class="col-md-2 control-label">Document</label>
 
-                        <div class="col-md-6">
+                        <div class="col-md-8">
                             <input type="file" class="form-control" name="document" >
 
                             @if ($errors->has('document'))
@@ -143,9 +143,9 @@
 
                     @if($question->document_id)
                         <div class="form-group">
-                            <label class="col-md-4 control-label">Current Document</label>
+                            <label class="col-md-2 control-label">Current Document</label>
 
-                            <div class="col-md-6">
+                            <div class="col-md-8">
                                 <a href="{{ $question->document->getDocument() }}" class="btn btn-default" target="_blank"> {{ $question->document->name . '.' . $question->document->extension }}</a>
                             </div>
                         </div>
@@ -153,7 +153,7 @@
 
 
                     <div class="form-group">
-                        <div class="col-md-6 col-md-offset-4">
+                        <div class="col-md-8 col-md-offset-4">
                             <button type="submit" class="btn btn-primary">
                                 <i class="fa fa-btn fa-table"></i> Register
                             </button>

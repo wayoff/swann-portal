@@ -7560,8 +7560,8 @@ body {
   border-left-color: #ffffff; }
 
 .thumbnail-fix {
-  height: 100px !important;
-  width: 100px !important;
+  height: 60px !important;
+  width: 60px !important;
   border-radius: 5px;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;

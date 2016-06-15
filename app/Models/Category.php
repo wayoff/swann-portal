@@ -15,6 +15,11 @@ class Category extends Model
         return ucwords($value);
     }
 
+    public function specifications()
+    {
+        return $this->hasMany(Specification::class);
+    }
+
     public function products()
     {
         return $this->belongsToMany(Product::class);

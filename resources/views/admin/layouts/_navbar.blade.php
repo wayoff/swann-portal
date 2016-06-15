@@ -104,6 +104,9 @@
                 <a href="/admin/procedures"><i class="fa fa-fw fa-wrench"></i> Troubleshooting</a>
             </li>
             <li>
+                <a href="/admin/specifications"><i class="fa fa-fw fa-gavel"></i> Specifications</a>
+            </li>
+            <li>
                 <a href="/admin/users"><i class="fa fa-fw fa-users"></i> Users</a>
             </li><!-- 
             <li>

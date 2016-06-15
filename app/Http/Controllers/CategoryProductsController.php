@@ -55,7 +55,7 @@ class CategoryProductsController extends Controller
                 'procedures.trees',
                 'photo', 'questions', 'questions.document',
                 'questions.faqcategory', 'photos',
-                'screenshots'
+                'specifications', 'screenshots'
             ])->findOrFail($productId);
 
         $faqCategories = $faqCategories->get();

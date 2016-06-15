@@ -128,6 +128,11 @@
                                     </a>
                                   </li>
                                   <li>
+                                    <a href="{{ route('admin.products.{id}.specifications.index', $product->id) }}" class="btn btn-default btn-action">
+                                        Specifications
+                                    </a>
+                                  </li>
+                                  <li>
                                     <a href="{{ route('admin.products.edit', $product->id) }}" class="btn btn-default btn-action"> Edit</a>
                                   </li>
                                   <li>

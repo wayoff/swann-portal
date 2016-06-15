@@ -1,6 +1,5 @@
 <?php
 
-Route::get('/test', function(){ return view('test');});
 Route::group([
         'middleware' => 'auth',
         'namespace'  => 'Admin',
@@ -15,7 +14,7 @@ Route::group([
     Route::resource('policy-categories', 'PolicyCategoriesController');
     Route::resource('screenshot-categories', 'ScreenshotCategoriesController');
 
-
+    Route::resource('specifications', 'SpecificationsController');
     Route::resource('announcements', 'AnnouncementsController');
     Route::resource('sliders', 'SlidersController');
     Route::resource('news', 'NewsController');
@@ -49,6 +48,7 @@ Route::group([
     Route::resource('products/{id}/questions', 'ProductsQuestionsController');
     Route::resource('products/{id}/videos', 'ProductsVideosController');
     Route::resource('products/{id}/documents', 'ProductsDocumentsController');
+    Route::resource('products/{id}/specifications', 'ProductSpecificationController');
     Route::resource('products', 'ProductsController');
     Route::get('products/{id}/remove-document', 'ProductsController@removeDocument');
 

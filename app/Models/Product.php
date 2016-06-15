@@ -15,6 +15,11 @@ class Product extends Model
         return ucwords($value);
     }
 
+    public function specifications()
+    {
+        return $this->belongsToMany(Specification::class)->withPivot('value');
+    }
+
     public function scopeSearchByNameAndModel($query, $value)
     {
         return $query->where('model_no', 'like', '%'. $value .'%')

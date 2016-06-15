@@ -23,3 +23,10 @@
     margin: 5px;
     border-bottom: 1px solid $gray;
 }
+
+.Card__Box {
+    margin-bottom: 10px;
+    box-shadow: 0 0 6px 1px $gray;
+    -moz-box-shadow: 0 0 6px 1px $gray;
+    -webkit-box-shadow: 0 0 6px 1px $gray;
+}

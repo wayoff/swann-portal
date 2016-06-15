@@ -58,9 +58,9 @@
             </div>
         </div>
         <div class="col-md-12">
-            <div>
+            <div class="Card__Box">
               <!-- Nav tabs -->
-              <ul class="nav nav-tabs nav-justified" role="tablist">
+              <ul class="nav nav-pills nav-justified" role="tablist">
                 <li role="presentation" class="active"><a href="#desciption" aria-controls="desciption" role="tab" data-toggle="tab">Specifications</a></li>
                 <li role="presentation"><a href="#faq" aria-controls="faq" role="tab" data-toggle="tab">FAQ</a></li>
                 <li role="presentation"><a href="#documents" aria-controls="documents" role="tab" data-toggle="tab">Manual</a></li>

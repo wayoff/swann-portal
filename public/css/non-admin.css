@@ -7123,6 +7123,12 @@ body {
   margin: 5px;
   border-bottom: 1px solid #BCC3C7; }
 
+.Card__Box {
+  margin-bottom: 10px;
+  box-shadow: 0 0 6px 1px #BCC3C7;
+  -moz-box-shadow: 0 0 6px 1px #BCC3C7;
+  -webkit-box-shadow: 0 0 6px 1px #BCC3C7; }
+
 .Home__Container {
   min-height: 300px;
   padding-top: 30px;
@@ -7580,5 +7586,13 @@ body {
 @media (min-width: 1200px) {
   .container {
     max-width: 970px; } }
+
+.nav-pills > li > a {
+  background: #bcbec0;
+  border-radius: 0px;
+  color: black; }
+
+.tab-content {
+  padding: 10px; }
 
 /*# sourceMappingURL=non-admin.css.map */

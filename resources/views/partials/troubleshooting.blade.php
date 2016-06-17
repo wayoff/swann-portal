@@ -1,6 +1,10 @@
 @if(isset($procedureCategories))
     <div class="row">
         <div class="col-md-12">
+            <meta id="check" content="{{$procedureCategories->where('parent_id', 0)->sortBy('order')}}">
+            <script>
+                console.log(JSON.parse(document.getElementById('check').getAttribute('content')));
+            </script>
             @foreach($procedureCategories->where('parent_id', 0)->sortBy('order') as $key => $parent)
                 @if(!$procedureCategories->where('parent_id', $parent->id)->sortBy('order')->isEmpty())
                     <div class="panel panel-primary">

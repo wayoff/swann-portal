@@ -14,6 +14,11 @@
 
 @section('Content')
     <div class="col-md-offset-1 col-md-10">
+        <div class="text-right">
+            <a href="{{ route('admin.procedure-categories.create') }}" class="btn btn-primary">
+                Create
+            </a>
+        </div>
         <div class="tree">
             @foreach($procedureCategories->sortBy('order')->all() as $procedureCategory)
                 @include('admin.procedure-categories._list', ['procedureCategory', $procedureCategory])

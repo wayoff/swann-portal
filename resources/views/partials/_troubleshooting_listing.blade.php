@@ -7,6 +7,7 @@
                         data-toggle="tooltip" 
                         data-placement="top"
                         title="Supporting Document"
+                        target="_blank"
                     >
                         <span class="glyphicon glyphicon-file"></span>
                     </a>

@@ -40,7 +40,7 @@ class KeywordsController extends Controller
 
         // $keywords = $keywords->pluck('content');
         
-        $searches = $model->pluck('content')->get();
+        $searches = $model->get()->pluck('content');
 
         if ($searches->isEmpty()) {
             return [];

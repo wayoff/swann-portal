@@ -22,10 +22,30 @@ class KeywordsController extends Controller
      */
     public function index(Request $request)
     {
-        $keywords = $this->keywords->search($request->input('q'))->limit(10);
+        $q = $request->input('q');
 
-        $keywords = $keywords->pluck('content');
+        $model = $keywords
+                    ->search($q)
+                    ->with(['procedures' => function($query) {
+                        $query->distinct()->groupBy('procedures.id');
+                    }])
+                    ->with(['products' => function($query) {
+                        $query->distinct()->groupBy('products.id');
+                    }])
+                    ->with(['questions' => function($query) {
+                        $query->distinct()->groupBy('questions.id');
+                    }]);
 
-        return $keywords;
+        // $keywords = $this->keywords->search($request->input('q'))->limit(10);
+
+        // $keywords = $keywords->pluck('content');
+        
+        $searches = $model->pluck('content')->get();
+
+        if ($searches->isEmpty()) {
+            return [];
+        }
+
+        return $searches;
     }
 }

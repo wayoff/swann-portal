@@ -43,16 +43,16 @@ class KeywordsController extends Controller
                         'questions.products.categories',
                     ]);
 
-        // $keywords = $this->keywords->search($request->input('q'))->limit(10);
+        $searches = $model->get();
+        $results = [];
 
-        // $keywords = $keywords->pluck('content');
-        
-        $searches = $model->get()->pluck('content');
+        foreach($searches as $searchable) :
+            $contents = $searchable->switcher();
+            foreach($contents as $content) :
+                $results[] = $content->title();
+            endforeach;
+        endforeach;
 
-        if ($searches->isEmpty()) {
-            return [];
-        }
-
-        return $searches;
+        return $results;
     }
 }

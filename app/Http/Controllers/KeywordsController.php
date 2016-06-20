@@ -24,7 +24,7 @@ class KeywordsController extends Controller
     {
         $q = $request->input('q');
 
-        $model = $keywords
+        $model = $this->keywords
                     ->search($q)
                     ->with(['procedures' => function($query) {
                         $query->distinct()->groupBy('procedures.id');

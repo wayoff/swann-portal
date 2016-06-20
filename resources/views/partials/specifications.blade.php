@@ -21,7 +21,7 @@
                                     @if($specs = $genSpecifications->where('pivot.specification_id', $specification->id)->first())
                                         <td>{{$specs->pivot->value}}</td>
                                     @else
-                                        <td> None </td>
+                                        <td>  </td>
                                     @endif
                                 </tr>
                             @endforeach

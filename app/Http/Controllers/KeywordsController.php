@@ -44,15 +44,15 @@ class KeywordsController extends Controller
                     ]);
 
         $searches = $model->get();
-        $results = [];
+        $results = collect();
 
         foreach($searches as $searchable) :
             $contents = $searchable->switcher();
             foreach($contents as $content) :
-                $results[] = $content->title();
+                $results->push($content->title());
             endforeach;
         endforeach;
 
-        return $results;
+        return $results->unique()->values()->all();
     }
 }

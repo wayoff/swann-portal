@@ -18,7 +18,7 @@ class KeywordProcedure implements KeywordInterface
 
     public function title()
     {
-        return $this->procedure->name . ' . ' . $this->procedure->id;
+        return $this->procedure->name;
     }
 
     public function description()

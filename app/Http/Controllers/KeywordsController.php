@@ -34,7 +34,14 @@ class KeywordsController extends Controller
                     }])
                     ->with(['questions' => function($query) {
                         $query->distinct()->groupBy('questions.id');
-                    }]);
+                    }])
+                    ->with([
+                        'products', 'products.categories',
+                        'procedures.products', 'questions.products',
+                        'procedures.document', 'questions.document',
+                        'procedures.products.categories',
+                        'questions.products.categories',
+                    ]);
 
         // $keywords = $this->keywords->search($request->input('q'))->limit(10);
 

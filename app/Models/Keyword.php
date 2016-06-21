@@ -32,9 +32,9 @@ class Keyword extends Model
                      ->orWhere('description', 'like', '%' . $value . '%');
     }
 
-    public function switcher()
+    public function switcher($products, $procedures, $questions)
     {
-        $switcher = new KeywordSwitcher($this);
+        $switcher = new KeywordSwitcher($this, $products, $procedures, $questions);
 
         return $switcher->handle();
     }

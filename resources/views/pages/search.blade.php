@@ -29,12 +29,22 @@
 
           @else
             <div class="row">
+            @php
+              $count = 0;
+              $products = collect();
+              $procedures = collect();
+              $questions = collect();
+            @endphp
                 @foreach($searches as $searchable)
                     <div class="col-md-12">
                         @php
-                            $contents = $searchable->switcher();
+                            $contents = $searchable->switcher($products, $procedures, $questions);
+                            $products = $contents['products'];
+                            $procedures = $contents['procedures'];
+                            $questions = $contents['questions'];
+                            $count++;
                         @endphp
-                        @foreach($contents as $content)
+                        @foreach($contents['data'] as $content)
                             <div class="Question">
                                 <div class="row">
                                     <div class="col-md-2 col-sm-2 col-xs-2 Question__Number--Container">

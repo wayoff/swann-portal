@@ -45,10 +45,13 @@ class KeywordsController extends Controller
 
         $searches = $model->get();
         $results = collect();
+        $products = collect();
+        $procedures = collect();
+        $questions = collect();
 
         foreach($searches as $searchable) :
-            $contents = $searchable->switcher();
-            foreach($contents as $content) :
+            $contents = $searchable->switcher($products, $procedures, $questions);
+            foreach($contents['data'] as $content) :
                 $results->push($content->title());
             endforeach;
         endforeach;

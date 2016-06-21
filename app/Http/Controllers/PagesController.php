@@ -79,7 +79,7 @@ class PagesController extends Controller
             $model = $model->orderByRaw("RAND()");
         }
 
-        $searches = $model->paginate(20);
+        $searches = $model->distinct()->groupBy('id')->paginate(20);
 
         return view('pages.search', compact('searches', 'q'));
     }

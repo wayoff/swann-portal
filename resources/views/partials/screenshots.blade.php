@@ -13,17 +13,22 @@
                     <h3 class="panel-title"> {{$screenshotCategory->name}} </h3>
                 </div>
                 <div class="panel-body">
+                    <div class="row">
                         @foreach($screenshots as $screenshot)
-                            <div class="Card">
-                                <span class="Card__Title">
-                                    {{$screenshot->name}}
-                                </span>
-                                <div class="text-center">
-                                    <img src="{{$screenshot->photo->getImage()}}" style="width: 100%;max-width: 500px">
+                            <div class="col-md-3">
+                                <div class="Card">
+                                    <span class="Card__Title">
+                                        {{$screenshot->name}}
+                                    </span>
+                                    <div class="text-center">
+                                        <a href="{{$screenshot->photo->getImage()}}">
+                                            <img src="{{$screenshot->photo->getImage()}}" style="width: 100%">
+                                        </a>
+                                    </div>
                                 </div>
-
                             </div>
                         @endforeach
+                    </div>
                 </div>
             </div>
         @endif

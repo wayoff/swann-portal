@@ -21,7 +21,7 @@
                                         {{$screenshot->name}}
                                     </span>
                                     <div class="text-center">
-                                        <a href="{{$screenshot->photo->getImage()}}">
+                                        <a href="{{$screenshot->photo->getImage()}}" class="image-link">
                                             <img src="{{$screenshot->photo->getImage()}}" style="width: 100%">
                                         </a>
                                     </div>

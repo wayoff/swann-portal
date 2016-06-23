@@ -6,6 +6,9 @@
     <title>@yield('Title', 'Internal KBaze')</title>
     <link rel="stylesheet" href="/css/non-admin.css">
     <link href="/video/mediaelementplayer.min.css" rel="stylesheet">
+    <!-- Magnific Popup core CSS file -->
+    <link rel="stylesheet" href="/css/magnific-popup.css">
+
     <link rel="icon" 
           type="image/png" 
           href="/favicon.png">

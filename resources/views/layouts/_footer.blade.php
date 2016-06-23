@@ -155,6 +155,9 @@
     <script src="/js/commendation.js"></script>
     <script src="/video/mediaelement-and-player.min.js"></script>
     <script src="/video/mediaelementplayer.min.js"></script>
+
+    <!-- Magnific Popup core JS file -->
+    <script src="/js/jquery.magnific-popup.min.js"></script>
     <script>
         $( function() {
             $('.Sidebar__Toggle').hover(function() {
@@ -191,6 +194,8 @@
         });
 
         $(document).ready( function() {
+            $('.image-link').magnificPopup({type:'image'})
+
             $('#_schedule').on('click', function() {
                 var frame = $('#schedule_frame');
                     frame.attr('src', frame.data('src'));

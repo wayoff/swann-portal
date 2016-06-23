@@ -29,8 +29,7 @@
             <a href="{{ $news->photo_id 
                             ? $news->photo->getImage() 
                             : '#' }}"
-                target="_blank" 
-                class="disable-hover-effect">
+                class="disable-hover-effect image-link">
                 <img src="{{ $news->photo_id 
                                 ? $news->photo->getImage() 
                                 : config('swannportal.path.default-img') }}"

@@ -24,14 +24,25 @@ class CategoryProductsController extends Controller
     {
         $q = null;
         $category = $categories->findOrFail($categoryId);
+        $children = $category->children;
 
-        $model = $category->products()->with('photo');
+        $ids = $children->pluck('id');
+
+        $children->each(function($item, $key) use($ids) {
+            $ids->push($item->id);
+        });
+        $ids->push($category->id);
+
+        $model = $this->products->whereHas('categories', function( $q ) use ($ids) {
+            $q->whereIn('categories.id', $ids);
+        });
+
+        $model = $model->with('photo');
 
         if (null !== $request->input('q')) {
             $q = $request->input('q');
 
             $model = $model
-                        ->distinct()
                         ->searchByNameAndModel($q)
                         ->groupBy('products.id');
         }

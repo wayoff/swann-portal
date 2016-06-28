@@ -194,7 +194,19 @@
         });
 
         $(document).ready( function() {
-            $('.image-link').magnificPopup({type:'image'})
+            // $('.image-link').magnificPopup({
+            //     type:'image'
+            // });
+            
+            $('.gallery').each(function() { // the containers for all your galleries
+                $(this).magnificPopup({
+                    delegate: 'a', // the selector for gallery item
+                    type: 'image',
+                    gallery: {
+                      enabled:true
+                    }
+                });
+            });
 
             $('#_schedule').on('click', function() {
                 var frame = $('#schedule_frame');

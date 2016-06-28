@@ -15,7 +15,7 @@
                 <div class="panel-heading" style="cursor: pointer" data-target="#{{$id}}" data-toggle="collapse">
                     <h3 class="panel-title"> {{$screenshotCategory->name}} </h3>
                 </div>
-                <div class="panel-body collapse" id="{{$id}}">
+                <div class="panel-body collapse gallery" id="{{$id}}">
                     <div class="row">
                         @foreach($screenshots as $screenshot)
                             <div class="col-md-3">

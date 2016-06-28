@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Screenshot extends Model
 {
     protected $fillable = [
-        'photo_id', 'name', 'category_id'
+        'photo_id', 'name', 'category_id', 'order'
     ];
 
     public function products()

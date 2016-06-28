@@ -27,7 +27,7 @@ class ScreenshotsController extends Controller
      */
     public function index()
     {
-        $screenshots = $this->screenshots->paginate(20);
+        $screenshots = $this->screenshots->orderBy('category_id')->paginate(20);
 
         return view('admin.screenshots.index', compact('screenshots'));
     }
@@ -55,9 +55,10 @@ class ScreenshotsController extends Controller
         $photo = (new ImageUpload($request, $photos))->handle();
 
         $screenshot = $this->screenshots->create([
-            'name'     => $request->input('name'),
-            'photo_id' => $photo->id,
-            'category_id' => $request->input('category_id')
+            'name'        => $request->input('name'),
+            'photo_id'    => $photo->id,
+            'category_id' => $request->input('category_id'),
+            'order'       =>$request->input('order')
         ]);
 
         $screenshot->products()->sync($request->input('product'));
@@ -97,7 +98,8 @@ class ScreenshotsController extends Controller
 
         $screenshot->update([
             'name'        => $request->input('name'),
-            'category_id' => $request->input('category_id')
+            'category_id' => $request->input('category_id'),
+            'order'       =>$request->input('order')
         ]);
 
         $screenshot->products()->sync($request->input('product'));

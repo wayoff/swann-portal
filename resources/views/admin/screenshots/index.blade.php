@@ -30,6 +30,7 @@
                         <th>Photo</th>
                         <th>Category</th>
                         <th>Product</th>
+                        <th>Order</th>
                         <th>Actions</th>
                     </tr>
                 </thead>
@@ -59,6 +60,9 @@
                                         <a href="#" class="btn btn-default">{{$product->name}}</a>
                                         @endforeach
                                       </div>
+                                </td>
+                                <td>
+                                    {{ $screenshot->order }}
                                 </td>
                                 <td>
                                     

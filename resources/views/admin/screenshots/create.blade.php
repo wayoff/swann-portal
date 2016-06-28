@@ -72,6 +72,19 @@
                         </div>
                     </div>
 
+                    <div class="form-group{{ $errors->has('order') ? ' has-error' : '' }}">
+                        <label class="col-md-4 control-label">Order</label>
+
+                        <div class="col-md-3">
+                            <input type="number" required class="form-control" name="order" min="0">
+                            @if ($errors->has('order'))
+                                <span class="help-block">
+                                    <strong>{{ $errors->first('order') }}</strong>
+                                </span>
+                            @endif
+                        </div>
+                    </div>
+
                     <div class="form-group{{ $errors->has('image') ? ' has-error' : '' }}">
                         <label class="col-md-4 control-label">Image</label>
 

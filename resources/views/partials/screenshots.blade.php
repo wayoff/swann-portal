@@ -17,7 +17,7 @@
                 </div>
                 <div class="panel-body collapse gallery" id="{{$id}}">
                     <div class="row">
-                        @foreach($screenshots as $screenshot)
+                        @foreach($screenshots->sortBy('order') as $screenshot)
                             <div class="col-md-3">
                                 <div class="Card">
                                     <span class="Card__Title">

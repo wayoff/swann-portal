@@ -75,6 +75,10 @@
                     @endif
                 </tbody>
             </table>
+
+            <div class="text-center">
+                {!! $screenshots->render() !!}
+            </div>
         </div>
     </div>
 @stop

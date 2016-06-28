@@ -39,6 +39,21 @@
                             </div>
                         </div>
 
+                        <div class="form-group">
+                            <label class="col-md-4 control-label">Parent</label>
+
+                            <div class="col-md-6">
+                                <select name="parent_id" class="form-control">
+                                    <option value="0">None</option>
+                                    @foreach($categories as $categoryParent)
+                                        <option value="{{$categoryParent->id}}" {{$category->parent_id == $categoryParent->id ? 'selected' : ''}}>
+                                            {{$categoryParent->name}}
+                                        </option>
+                                    @endforeach
+                                </select>
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('order') ? ' has-error' : '' }}">
                             <label class="col-md-4 control-label">Order</label>
 

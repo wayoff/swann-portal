@@ -71,7 +71,7 @@ class CategoryProductsController extends Controller
 
         $faqCategories = $faqCategories->get();
         $procedureCategories = $procedureCategories->get();
-        $screenshotCategories = $screenshotCategories->get();
+        $screenshotCategories = $screenshotCategories->orderBy('order')->get();
 
         return view('pages.category-products.show',
                 compact(

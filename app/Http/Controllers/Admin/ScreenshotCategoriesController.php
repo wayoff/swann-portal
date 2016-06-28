@@ -24,7 +24,7 @@ class ScreenshotCategoriesController extends Controller
      */
     public function index()
     {
-        $categories = $this->categories->paginate(20);
+        $categories = $this->categories->with('parent')->isParent()->get();
 
         return view('admin.screenshot-categories.index', compact('categories'));
     }
@@ -34,9 +34,13 @@ class ScreenshotCategoriesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('admin.screenshot-categories.create');
+        $parent = $request->input('parent') ?: 0;
+
+        $categories = $this->categories->isParent()->get();
+
+        return view('admin.screenshot-categories.create', compact('categories', 'parent'));
     }
 
     /**
@@ -62,8 +66,9 @@ class ScreenshotCategoriesController extends Controller
     public function edit($id)
     {
         $category = $this->categories->findOrFail($id);
+        $categories = $this->categories->isParent()->get();
 
-        return view('admin.screenshot-categories.edit', compact('category'));
+        return view('admin.screenshot-categories.edit', compact('category', 'categories'));
     }
 
     /**

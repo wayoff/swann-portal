@@ -16,6 +16,7 @@
                 <tr>
                     <td>ID</td>
                     <td>Name</td>
+                    <td>Order</td>
                     <td>Action</td>
                 </tr>
             </thead>
@@ -25,6 +26,7 @@
                     <tr>
                         <td>{{ string_pad($category->id) }}</td>
                         <td>{{ $category->name }}</td>
+                        <td>{{ $category->order }} </td>
                         <td>
 
                             <form action="{{ route('admin.screenshot-categories.destroy', $category->id) }}" method="POST" class="form-inline" role="form">

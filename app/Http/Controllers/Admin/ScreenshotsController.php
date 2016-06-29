@@ -27,7 +27,7 @@ class ScreenshotsController extends Controller
      */
     public function index()
     {
-        $screenshots = $this->screenshots->paginate(20);
+        $screenshots = $this->screenshots->orderBy('id', 'desc')->paginate(20);
 
         return view('admin.screenshots.index', compact('screenshots'));
     }

@@ -31,7 +31,7 @@
                     $genSpecifications = $product->specifications()->get();
                 @endphp
                 @foreach($product->categories as $category)
-                    <div class="panel panel-default">
+                    <div class="panel panel-info">
                         <div class="panel-heading">
                             <h3 class="panel-title">{{$category->name}}</h3>
                         </div>
@@ -43,12 +43,26 @@
                                     @endphp
                                     @if( $specs = $genSpecifications->where('pivot.specification_id', $specification->id)->first() )
                                         @php
-                                            $value = $specs->pivot->value
+                                            $value = $specs->pivot->value;
+                                            $linkTo = $specs->pivot->link_to;
                                         @endphp
                                     @endif
-                                    <div class="form-group">
-                                        <label for="">{{ $specification->name }}</label>
-                                        <input type="text" class="form-control" name="{{$specification->id}}" placeholder="Enter Value" value="{{ $value }}">
+                                    <div class="panel panel-default">
+                                        <div class="panel-heading">
+                                            <h3 class="panel-title"> {{ $specification->name }} </h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label for="">Value </label>
+                                                    <input type="text" class="form-control" name="{{$specification->id}}" placeholder="Enter Value" value="{{ $value }}">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label for="">Link To</label>
+                                                    <input type="text" class="form-control" name="{{$specification->id}}_link_to" placeholder="(optional)" value="{{ $linkTo }}">
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 @endforeach
                             </div>

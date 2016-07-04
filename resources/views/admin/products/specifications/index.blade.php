@@ -43,7 +43,15 @@
                                 <td>{{ string_pad($specification->id) }}</td>
                                 <td>{{ $specification->name}}</td>
                                 @if($specs = $genSpecifications->where('pivot.specification_id', $specification->id)->first())
-                                    <td>{{$specs->pivot->value}}</td>
+                                    <td>
+                                        @if($specs->pivot->link_to)
+                                            <a href="{{$specs->pivot->link_to}}" target="_blank">
+                                                {{$specs->pivot->value}}
+                                            </a>
+                                        @else
+                                            {{$specs->pivot->value}}
+                                        @endif
+                                    </td>
                                 @else
                                     <td> None </td>
                                 @endif

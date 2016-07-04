@@ -17,9 +17,21 @@
                         <tbody>
                             @foreach($category->specifications as $specification)
                                 <tr>
-                                    <td>{{ $specification->name}}</td>
+                                    <td>
+                                        <strong>
+                                            {{ $specification->name}}
+                                        </strong>
+                                    </td>
                                     @if($specs = $genSpecifications->where('pivot.specification_id', $specification->id)->first())
-                                        <td>{{$specs->pivot->value}}</td>
+                                        <td>
+                                            @if($specs->pivot->link_to)
+                                                <a href="{{$specs->pivot->link_to}}" target="_blank">
+                                                    {{$specs->pivot->value}}
+                                                </a>
+                                            @else
+                                                {{$specs->pivot->value}}
+                                            @endif
+                                        </td>
                                     @else
                                         <td>  </td>
                                     @endif

@@ -57,7 +57,10 @@ class ProductSpecificationController extends Controller
         foreach($product->categories as $category) :
                 foreach($category->specifications as $specification) :
                     if ($request->input($specification->id)) {
-                        $product->specifications()->attach( $specification->id, ['value' => $request->input($specification->id)]);
+                        $product->specifications()->attach( $specification->id,[
+                                    'value'   => $request->input($specification->id),
+                                    'link_to' => $request->input($specification->id.'_link_to')
+                                ]);
                     }
                 endforeach;        
         endforeach;

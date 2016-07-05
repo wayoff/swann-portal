@@ -54,6 +54,9 @@ class PagesController extends Controller
 
     public function getSearch(Request $request, Keyword $keywords)
     {
+
+        return redirect('/');
+
         $q = $request->input('q');
 
         $model = $keywords

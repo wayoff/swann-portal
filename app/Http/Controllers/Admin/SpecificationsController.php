@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Category;
 use App\Models\Specification;
+use App\Models\SpecificationCategory;
+
 use App\Http\Controllers\Controller;
 use App\Http\Requests\SpecificationsRequest;
 
@@ -33,7 +34,7 @@ class SpecificationsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Category $categories)
+    public function create(SpecificationCategory $categories)
     {
         $categories = $categories->get();
 
@@ -60,7 +61,7 @@ class SpecificationsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id, Category $categories)
+    public function edit($id, SpecificationCategory $categories)
     {
         $specification = $this->specifications->findOrFail($id);
 

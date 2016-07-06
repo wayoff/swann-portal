@@ -42,6 +42,11 @@ class Product extends Model
         return $this->belongsToMany(Category::class);
     }
 
+    public function specificationCategories()
+    {
+        return $this->belongsToMany(SpecificationCategory::class);
+    }
+
     public function documents()
     {
         return $this->belongsToMany(Document::class)->withPivot('label', 'description');
@@ -98,6 +103,11 @@ class Product extends Model
     public function hasCategory($categoryId)
     {
         return $this->categories->where('id', $categoryId)->first();
+    }
+
+    public function hasSpecificationCategory($categoryId)
+    {
+        return $this->specificationCategories->where('id', $categoryId)->first();
     }
 
     public function scopeFeatured($query)

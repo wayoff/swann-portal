@@ -1,7 +1,7 @@
 @php 
     $genSpecifications = $product->specifications()->get();
 @endphp
-@foreach($product->categories as $category)
+@foreach($product->specificationCategories as $category)
     <div class="panel panel-primary">
         <div class="panel-heading">
             <h3 class="panel-title">{{ $category->name }}</h3>

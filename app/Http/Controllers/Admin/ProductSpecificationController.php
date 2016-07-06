@@ -54,7 +54,7 @@ class ProductSpecificationController extends Controller
         $product = $this->product($id);
         $product->specifications()->detach();
 
-        foreach($product->categories as $category) :
+        foreach($product->specificationCategories as $category) :
                 foreach($category->specifications as $specification) :
                     if ($request->input($specification->id)) {
                         $product->specifications()->attach( $specification->id,[
@@ -78,7 +78,7 @@ class ProductSpecificationController extends Controller
     protected function product($id) 
     {
         return $this->products
-                    ->with(['categories', 'specifications', 'categories.specifications'])
+                    ->with(['specificationCategories', 'specifications', 'specificationCategories.specifications'])
                     ->findOrFail($id);
     }
 }

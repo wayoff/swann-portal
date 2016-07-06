@@ -15,7 +15,7 @@ class CreateProductSpecificationCategoryTable extends Migration
         Schema::create('product_specification_category', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('product_id');
-            $table->integer('specification_category');
+            $table->integer('specification_category_id');
             $table->timestamps();
         });
     }

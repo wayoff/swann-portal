@@ -1,7 +1,7 @@
 @extends('admin.layouts.content')
 
 @section('Page__Description')
-    Products / Documents
+    Products / Specifications
 @stop
 
 @section('Breadcrumb')
@@ -25,7 +25,7 @@
                 @php 
                     $genSpecifications = $product->specifications()->get();
                 @endphp
-                @foreach($product->categories as $category)
+                @foreach($product->specificationCategories as $category)
                     <tr>
                         <td colspan="10">
                             {{ $category->name }}

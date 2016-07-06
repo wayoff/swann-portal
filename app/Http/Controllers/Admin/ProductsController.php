@@ -8,6 +8,8 @@ use App\Models\Photo;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\Document;
+use App\Models\SpecificationCategory;
+
 use App\Http\Controllers\Controller;
 use App\Http\Requests\ProductRequest;
 
@@ -18,11 +20,17 @@ class ProductsController extends Controller
 {
     protected $products;
     protected $categories;
+    protected $specificationCategories;
 
-    public function __construct(Product $products, Category $categories)
+    public function __construct(
+            Product $products,
+            Category $categories,
+            SpecificationCategory $specificationCategories
+    )
     {
         $this->products = $products;
         $this->categories = $categories;
+        $this->specificationCategories = $specificationCategories;
     }
     /**
      * Display a listing of the resource.
@@ -52,8 +60,9 @@ class ProductsController extends Controller
     public function create()
     {
         $categories = $this->categories->all();
+        $specificationCategories = $this->specificationCategories->all();
 
-        return view('admin.products.create', compact('categories'));
+        return view('admin.products.create', compact('categories', 'specificationCategories'));
     }
 
     /**
@@ -78,6 +87,7 @@ class ProductsController extends Controller
         ]);
 
         $product->categories()->sync( $request->input('categories') );
+        $product->specificationCategories()->sync( $request->input('specification_category') );
 
         $tags = collect();
 
@@ -105,8 +115,9 @@ class ProductsController extends Controller
     {
         $product = $this->products->findOrFail($id);
         $categories = $this->categories->all();
+        $specificationCategories = $this->specificationCategories->all();
 
-        return view('admin.products.edit', compact('product', 'categories'));
+        return view('admin.products.edit', compact('product', 'categories', 'specificationCategories'));
     }
 
     /**
@@ -137,7 +148,7 @@ class ProductsController extends Controller
         ]);
         
         $product->categories()->sync( $request->input('categories') );
-
+        $product->specificationCategories()->sync( $request->input('specification_category') );
 
         $tags = collect();
 

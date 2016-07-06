@@ -71,6 +71,28 @@
                             </div>
                         </div>
 
+
+
+                        <div class="form-group{{ $errors->has('specification_category') ? ' has-error' : '' }}">
+                            <label class="col-md-2 control-label">Specification Category</label>
+
+                            <div class="col-md-8">
+                                <select name="specification_category[]" id="" multiple class="form-control" required>
+                                    @foreach($specificationCategories as $specificationCategory)
+                                        <option value="{{ $specificationCategory->id }}" {{ $product->hasSpecificationCategory($specificationCategory->id) ? 'selected' : ''}}>
+                                            {{ $specificationCategory->name }}
+                                        </option>
+                                    @endforeach
+                                </select>
+
+                                @if ($errors->has('specification_category'))
+                                    <span class="help-block">
+                                        <strong>{{ $errors->first('category') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+
                         <div class="form-group{{ $errors->has('description') ? ' has-error' : '' }}">
                             <label class="col-md-2 control-label">Description</label>
 

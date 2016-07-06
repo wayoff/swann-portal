@@ -1,7 +1,7 @@
 @extends('admin.layouts.content')
 
 @section('Page__Description')
-    Products / Documents
+    Products / Specifications
 @stop
 
 @section('Breadcrumb')
@@ -30,44 +30,47 @@
                 @php 
                     $genSpecifications = $product->specifications()->get();
                 @endphp
-                @foreach($product->categories as $category)
-                    <div class="panel panel-info">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">{{$category->name}}</h3>
-                        </div>
-                        <div class="panel-body">
-                            <div class="col-md-12">
-                                @foreach($category->specifications as $specification)
-                                    @php
-                                        $value = null;
-                                    @endphp
-                                    @if( $specs = $genSpecifications->where('pivot.specification_id', $specification->id)->first() )
+                @foreach($product->specificationCategories as $category)
+                    @if(!$category->specifications->isEmpty())
+                        <div class="panel panel-info">
+                            <div class="panel-heading">
+                                <h3 class="panel-title">{{$category->name}}</h3>
+                            </div>
+                            <div class="panel-body">
+                                <div class="col-md-12">
+                                    @foreach($category->specifications as $specification)
                                         @php
-                                            $value = $specs->pivot->value;
-                                            $linkTo = $specs->pivot->link_to;
+                                            $value = null;
+                                            $linkTo = null;
                                         @endphp
-                                    @endif
-                                    <div class="panel panel-default">
-                                        <div class="panel-heading">
-                                            <h3 class="panel-title"> {{ $specification->name }} </h3>
-                                        </div>
-                                        <div class="panel-body">
-                                            <div class="col-md-12">
-                                                <div class="form-group">
-                                                    <label for="">Value </label>
-                                                    <input type="text" class="form-control" name="{{$specification->id}}" placeholder="Enter Value" value="{{ $value }}">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="">Link To</label>
-                                                    <input type="text" class="form-control" name="{{$specification->id}}_link_to" placeholder="(optional)" value="{{ $linkTo }}">
+                                        @if( $specs = $genSpecifications->where('pivot.specification_id', $specification->id)->first() )
+                                            @php
+                                                $value = $specs->pivot->value;
+                                                $linkTo = $specs->pivot->link_to;
+                                            @endphp
+                                        @endif
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">
+                                                <h3 class="panel-title"> {{ $specification->name }} </h3>
+                                            </div>
+                                            <div class="panel-body">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label for="">Value </label>
+                                                        <input type="text" class="form-control" name="{{$specification->id}}" placeholder="Enter Value" value="{{ $value }}">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="">Link To</label>
+                                                        <input type="text" class="form-control" name="{{$specification->id}}_link_to" placeholder="(optional)" value=" {{$linkTo}} ">
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                @endforeach
+                                    @endforeach
+                                </div>
                             </div>
                         </div>
-                    </div>
+                    @endif
                 @endforeach
                     <div class="form-group">
                         <div class="col-md-6 col-md-offset-4">

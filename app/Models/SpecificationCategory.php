@@ -17,4 +17,9 @@ class SpecificationCategory extends Model
         return ucwords($value);
     }
 
+    public function specifications()
+    {
+        return $this->hasMany(Specification::class, 'category_id');
+    }
+
 }

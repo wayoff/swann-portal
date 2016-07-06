@@ -12,7 +12,7 @@ class Specification extends Model
 
     public function category()
     {
-        return $this->belongsTo(SpecificationCategory::class, 'id');
+        return $this->belongsTo(SpecificationCategory::class, 'category_id', 'id');
     }
 
     public function products()

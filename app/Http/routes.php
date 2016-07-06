@@ -13,6 +13,7 @@ Route::group([
     Route::resource('procedure-categories', 'ProcedureCategoriesController');
     Route::resource('policy-categories', 'PolicyCategoriesController');
     Route::resource('screenshot-categories', 'ScreenshotCategoriesController');
+    Route::resource('specification-categories', 'SpecificationCategoriesController');
 
     Route::resource('specifications', 'SpecificationsController');
     Route::resource('announcements', 'AnnouncementsController');

@@ -58,6 +58,9 @@
                     <li>
                         <a href="/admin/policy-categories"><i class="fa fa-fw fa-flag"></i> Policy </a>
                     </li>
+                    <li>
+                        <a href="/admin/specification-categories"><i class="fa fa-fw fa-gavel"></i> Specification </a>
+                    </li>
                 </ul>
             </li>
             <li>

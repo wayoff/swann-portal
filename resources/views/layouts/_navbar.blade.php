@@ -162,11 +162,11 @@
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar navbar-right Navbar__Menu">
                     <!-- Authentication Links -->
-                    {{-- <li><a href="/search"> Search </a></li> --}}
                     @if (!$admin)
                         <li><a href="{{ url('/login') }}">Login</a></li>
                         <!-- <li><a href="{{ url('/register') }}">Register</a></li> -->
                     @else
+                    <li><a href="/search"> Search </a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                                 Account <span class="caret"></span>

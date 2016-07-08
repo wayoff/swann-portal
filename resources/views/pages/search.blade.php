@@ -2,24 +2,26 @@
 
 @section('content')
     <div class="row">
-      <div class="col-md-12 text-center">
-          <form class="navbar-form" action="/search" method="GET" role="search" id="search__form">
-              <div class="input-group Form__Search--Container">
-                  <input 
-                    type="text"
-                    class="form-control typeahead"
-                    placeholder="Search"
-                    name="q"
-                    data-provide="typeahead"
-                    autocomplete="off"
-                    id="search__field" 
-                    value="{{$q}}">
-                  <div class="input-group-btn Form__Search--Container--button">
-                      <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+      @if(auth()->check())
+        <div class="col-md-12 text-center">
+              <form class="navbar-form" action="/search" method="GET" role="search" id="search__form">
+                  <div class="input-group Form__Search--Container">
+                      <input 
+                        type="text"
+                        class="form-control typeahead"
+                        placeholder="Search"
+                        name="q"
+                        data-provide="typeahead"
+                        autocomplete="off"
+                        id="search__field" 
+                        value="{{$q}}">
+                      <div class="input-group-btn Form__Search--Container--button">
+                          <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+                      </div>
                   </div>
-              </div>
-          </form>
-      </div>
+              </form>
+        </div>
+      @endif
 
       <div class="col-md-12">
           @if(!empty($q) && $searches->isEmpty())

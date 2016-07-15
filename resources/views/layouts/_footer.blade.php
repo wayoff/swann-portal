@@ -88,9 +88,16 @@
                     <div class="Footer__Title Footer__Title-border">
                         <span>Links</span>
                     </div>
-                    <p class="Footer__Description">"Click here to see the links for softwares and apps that we have
-                        <a href="http://www.swann.com/us/apps" target="_blank">http://www.swann.com/us/apps</a> "
-                    </p>
+
+                    <ul class="Footer__Description Footer__Description--list">
+                        <li class="Footer__Description--list-li"> - <a href="http://www.swann.com/us/apps"> Software and Apps </a></li>
+                        <li class="Footer__Description--list-li"> - <a href="http://50.16.231.7/iotc/pl/uid.html"> UID checker </a></li>
+                        <li class="Footer__Description--list-li"> - <a href="https://docs.google.com/spreadsheets/d/1yeSUlf8FD_oo46KBbP4Vp1YiK53XOxn5tBUmk9sA7Gc/edit#gid=147956106"> Compatibility Chart </a></li>
+                        <li class="Footer__Description--list-li"> - <a href="https://docs.google.com/spreadsheets/d/1Fc9Qr03vBYsFbcRgdOuBW9QFmkH9vj-1ZR4mnWxJU9M/edit#gid=937416735">Call Reason Guide </a></li>
+                        <li class="Footer__Description--list-li">
+                            - <a href="https://docs.google.com/spreadsheets/d/1Fc9Qr03vBYsFbcRgdOuBW9QFmkH9vj-1ZR4mnWxJU9M/edit#gid=1176855535">Costco Codes</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
     </div>

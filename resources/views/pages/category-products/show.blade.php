@@ -25,11 +25,13 @@
                 <div class="row">
                     <div class="col-md-12">
                         <div id="zoom">
-                            <img 
-                                src="{{ $product->photo_id ? $product->photo->getImage() : default_img() }}"
-                                alt="" 
-                                class="Product__Show-Image" 
-                                id="Product__Show-Image-active">
+                            <div style="display: inline-block;">
+                                <img 
+                                    src="{{ $product->photo_id ? $product->photo->getImage() : default_img() }}"
+                                    alt="" 
+                                    class="Product__Show-Image" 
+                                    id="Product__Show-Image-active">
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-12">
@@ -165,9 +167,9 @@
             var target = $('#zoom_container').get(0);
 
             var zoomable = function() {
-                $('#zoom').zoom({
-                    magnify: 1.1,
-                });
+                // $('#zoom').zoom({
+                //     magnify: 0.7,
+                // });
             }
 
             $('.Product__Photos').on('click', function() {

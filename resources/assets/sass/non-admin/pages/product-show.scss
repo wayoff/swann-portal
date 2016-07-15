@@ -7,8 +7,8 @@
 }
 
 #Product__Show-Image-active {
-    width: 300px !important;
-    height: 300px !important;
+    max-width: 300px !important;
+    max-height: 300px !important;
     border-radius: 5px;
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;

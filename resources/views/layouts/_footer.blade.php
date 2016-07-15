@@ -92,7 +92,7 @@
                     <ul class="Footer__Description Footer__Description--list">
                         <li class="Footer__Description--list-li"> - <a targer="_blank" href="http://www.swann.com/us/apps"> Software and Apps </a></li>
                         <li class="Footer__Description--list-li">
-                            - <a targer="_blank" href="https://www.the-qrcode-generator.com/">*UID Generator*</a>
+                            - <a targer="_blank" href="https://www.the-qrcode-generator.com/">UID Generator</a>
                         </li>
                         <li class="Footer__Description--list-li"> - <a targer="_blank" href="http://50.16.231.7/iotc/pl/uid.html"> UID checker </a></li>
                         <li class="Footer__Description--list-li"> - <a targer="_blank" href="https://docs.google.com/spreadsheets/d/1yeSUlf8FD_oo46KBbP4Vp1YiK53XOxn5tBUmk9sA7Gc/edit#gid=147956106"> Compatibility Chart </a></li>

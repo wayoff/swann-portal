@@ -37,7 +37,7 @@ class CategoryProductsController extends Controller
             $q->whereIn('categories.id', $ids);
         });
 
-        $model = $model->with('photo');
+        $model = $model->with(['photo', 'procedures', 'troubleShooting']);
 
         if (null !== $request->input('q')) {
             $q = $request->input('q');
@@ -66,7 +66,8 @@ class CategoryProductsController extends Controller
                 'procedures.trees',
                 'photo', 'questions', 'questions.document',
                 'questions.faqcategory', 'photos',
-                'specifications', 'screenshots'
+                'specifications', 'screenshots',
+                'troubleShooting', 'specifications'
             ])->findOrFail($productId);
 
         $faqCategories = $faqCategories->get();

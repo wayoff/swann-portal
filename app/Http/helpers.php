@@ -29,3 +29,11 @@ if( !function_exists('string_slug_to_word')) {
         return ucwords($str);
     }
 }
+
+if( !function_exists('carbon')) {
+
+    function carbon() {
+        return \Carbon\Carbon::now();
+    }
+
+}

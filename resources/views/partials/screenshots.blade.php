@@ -5,7 +5,7 @@
 @else
     @foreach($screenshotCategories as $screenshotCategory)
         @php
-            $screenshots = $product->screenshots()->where('category_id', $screenshotCategory->id)->orderBy('order')->get();
+            $screenshots = $product->screenshots()->where('category_id', $screenshotCategory->id)->with('photo')->orderBy('order')->get();
         @endphp
         @if(!$screenshots->isEmpty())
             <div class="panel panel-primary">

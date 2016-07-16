@@ -31,7 +31,7 @@ class ProductsController extends Controller
             $models = $models->searchByNameAndModel($q);
         }
 
-        $products = $models->paginate(20);
+        $products = $models->with(['photo', 'procedures', 'troubleShooting'])->paginate(20);
 
         return view('pages.products.index', compact('products', 'q'));
     }

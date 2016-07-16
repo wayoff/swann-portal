@@ -15,7 +15,7 @@
               <a href="{{route('categories.{id}.products.show', [ isset($category) ? $category->id : $product->firstCategory()->id, $product->id])}}">
                   @if($count = $procedures->count())
                     <div class="Notification__Article">
-                      {{ $count }} New Article 
+                      {{ $count }} new article/s
                     </div>
                   @endif
                   <img src="{{ $product->photo_id ? $product->photo->getImage() : default_img() }}" class="Card__Image" alt="...">

@@ -95,6 +95,9 @@
                     <li>
                         <a href="/admin/announcements"><i class="fa fa-fw fa-exclamation-circle"></i> Announcements</a>
                     </li>
+                    <li>
+                        <a href="/admin/footers"><i class="fa fa-fw fa-caret-square-o-down"></i> Footer</a>
+                    </li>
                 </ul>
             </li>
             <li>

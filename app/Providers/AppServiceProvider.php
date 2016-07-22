@@ -14,9 +14,14 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
         view()->composer([
             'partials.carousel'
         ], Composers\SliderComposer::class);
+
+        view()->composer([
+            'layouts._footer'
+        ], Composers\FooterComposer::class);
 
         view()->composer([
             'partials.top-products'

@@ -21,7 +21,7 @@
         <div class="container-fluid">
             <div class="Footer__List">
                 <div class="col-md-4">
-                    <div class="Footer__Title Footer__Title-border">
+                    {{-- <div class="Footer__Title Footer__Title-border">
                         Swann Technical Support
                     </div>
                     <span class="Footer__Title--smaller">North America Support</span>
@@ -37,7 +37,8 @@
                     <span class="Footer__Title--smaller">UK & Europe</span>
                     <ul class="Footer__Description Footer__Description--list">
                         <li class="Footer__Description--list-li">UK Telephone Support: <span class="text-underline"> +44 808 168 9031</span> (Toll Free)</li>
-                    </ul>
+                    </ul> --}}
+                    {!! $footers->where('position', 1)->first()->content !!}
                 </div>
                 <div class="col-md-4">
                     <div class="Footer__Title Footer__Title-border">

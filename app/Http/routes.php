@@ -26,6 +26,7 @@ Route::group([
     Route::resource('commendations', 'CommendationsController');
     Route::resource('schedules', 'SchedulesController');
     Route::resource('screenshots', 'ScreenshotsController');
+    Route::resource('footers', 'FootersController');
 
     Route::resource('supervisor-passwords', 'SupervisorPasswordsController');
     Route::resource('agreements', 'AgreementsController');

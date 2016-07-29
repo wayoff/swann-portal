@@ -1,0 +1,16 @@
+.Feedback {
+    position: fixed;
+    bottom: 0px;
+    right: 0px;
+    width: 300px;
+
+    > .panel {
+        margin-bottom: 0px !important;
+
+        > .panel-heading {
+            cursor: pointer;
+        }
+    }
+
+    
+}

@@ -104,6 +104,10 @@
                 <a href="/admin/products"><i class="fa fa-fw fa-book"></i> Products</a>
             </li>
             <li>
+                <a href="/admin/feedbacks"><i class="fa fa-fw fa-bolt"></i> Feedbacks</a>
+            </li>
+
+            <li>
                 <a href="/admin/screenshots"><i class="fa fa-fw fa-cc"></i> Screenshots</a>
             </li>
             <li>

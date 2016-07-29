@@ -7402,6 +7402,16 @@ body {
   .Media__Horizontal--Tile-icon:hover {
     border-radius: 0; }
 
+.Feedback {
+  position: fixed;
+  bottom: 0px;
+  right: 0px;
+  width: 300px; }
+  .Feedback > .panel {
+    margin-bottom: 0px !important; }
+    .Feedback > .panel > .panel-heading {
+      cursor: pointer; }
+
 .Home__Media--object {
   width: 80px;
   height: 65px; }

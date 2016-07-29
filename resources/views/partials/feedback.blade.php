@@ -24,7 +24,7 @@
         $('#Feedback__Form').on('submit', function(e) {
             var data = $(this).serialize();
             $.ajax({
-                url : '/admin/feedbacks',
+                url : '/api/feedbacks',
                 method : 'post',
                 data : data
             }).success( function() {

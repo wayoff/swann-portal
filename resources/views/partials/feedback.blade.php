@@ -1,5 +1,5 @@
 <div class="Feedback">
-    <div class="panel panel-primary">
+    <div class="panel panel-warning">
         <div class="panel-heading" data-target="#Feedback__Body" data-toggle="collapse">
             <h3 class="panel-title">Feedback</h3>
         </div>
@@ -13,7 +13,7 @@
                     <textarea name="content" cols="20" rows="5" class="form-control" placeholder="Enter Feedback" required></textarea>
                 </div>
             
-                <button type="submit" class="btn btn-primary btn-block">Submit</button>
+                <button type="submit" class="btn btn-warning btn-block">Submit</button>
             </form>
         </div>
     </div>

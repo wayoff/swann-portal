@@ -27,6 +27,8 @@ Route::group([
     Route::resource('schedules', 'SchedulesController');
     Route::resource('screenshots', 'ScreenshotsController');
     Route::resource('footers', 'FootersController');
+    
+    Route::post('feedbacks/export', 'FeedbacksController@export');
     Route::resource('feedbacks', 'FeedbacksController');
 
     Route::resource('supervisor-passwords', 'SupervisorPasswordsController');

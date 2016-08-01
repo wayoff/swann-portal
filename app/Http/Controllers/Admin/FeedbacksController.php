@@ -4,8 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 
-use App\Models\Feedback;
+use Excel;
 use App\Http\Requests;
+use App\Models\Feedback;
 use App\Http\Controllers\Controller;
 
 class FeedbacksController extends Controller
@@ -93,6 +94,21 @@ class FeedbacksController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $this->feedbacks->findOrFail($id)->delete();
+
+        return redirect()->back()->with('status', 'Success on deleting feedback');
+    }
+
+
+
+    public function export(Request $request)
+    {
+        $feedbacks = $this->feedbacks->get();
+        
+        return Excel::create('Feedback', function($excel) use($feedbacks) {
+            $excel->sheet('IKBFEEDBACK', function($sheet) use($feedbacks) {
+                $sheet->loadView('excel.feedback', compact('feedbacks'));
+            });
+        })->export('xls');
     }
 }

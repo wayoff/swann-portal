@@ -123,6 +123,8 @@ return [
 
     'providers' => [
         // Barryvdh\Debugbar\ServiceProvider::class,
+        Collective\Bus\BusServiceProvider::class,
+        Maatwebsite\Excel\ExcelServiceProvider::class,
         /*
          * Laravel Framework Service Providers...
          */
@@ -203,9 +205,10 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
-
-
+        
+        
         'FFMPEG'    => LinkThrow\Ffmpeg\Facade\FfmpegFacade::class,
+        'Excel'     => Maatwebsite\Excel\Facades\Excel::class,
     ],
 
 ];

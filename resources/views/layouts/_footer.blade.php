@@ -101,6 +101,11 @@
                         <li class="Footer__Description--list-li">
                             - <a target="_blank" href="https://docs.google.com/spreadsheets/d/1Fc9Qr03vBYsFbcRgdOuBW9QFmkH9vj-1ZR4mnWxJU9M/edit#gid=1176855535">Costco Codes</a>
                         </li>
+                        <li class="Footer__Description--list-li">
+                            - <a target="_blank" href="https://docs.google.com/spreadsheets/d/1rcP_eL37txhevWfHR13BhFQhtwsistm0yalApfaio04/edit?pref=2&pli=1#gid=0">
+                                Firmware Update Table
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>

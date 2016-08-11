@@ -76,7 +76,7 @@ return [
               ]
           ],
           'Central (CST)' => [
-              'timezone'  => 'Canada/Saskatchewan',
+              'timezone'  => 'America/Chicago',
               'countries' => [
                   'Alabama',
                   'Arkansas',

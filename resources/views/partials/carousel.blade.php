@@ -6,6 +6,7 @@
 
     .Carousel__Item--img {
         width: 100%;
+        cursor: pointer;
     }
 </style>
 <div id="carousel-id" class="carousel slide" data-ride="carousel">

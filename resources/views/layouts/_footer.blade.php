@@ -231,7 +231,7 @@
                 });
 
 
-                return items.reverse();
+                return items;
             };
 
             $('.Carousel__Item').magnificPopup({

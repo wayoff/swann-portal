@@ -223,30 +223,29 @@
                     }
                 });
             });
-            // var carouselImages = function() {
-            //     var items = [];
+            var carouselImages = function() {
+                var items = [];
 
-            //     $('.Carousel__Item--img').each( function() {
-            //         items.push({src: $(this).attr('src') });
-            //     });
-
-
-            //     return items.reverse();
-            // };
-
-            // $('.Carousel__Item').magnificPopup({
-            //     items: carouselImages(),
-            //     gallery: {
-            //       enabled: true
-            //     },
-            //     type: 'image' // this is default type
-            // });
+                $('.Carousel__Item--img').each( function() {
+                    items.push({src: $(this).attr('src') });
+                });
 
 
-            $('.Carousel__Item--img').magnificPopup({
-              type: 'image'
-              // other options
+                return items.reverse();
+            };
+
+            $('.Carousel__Item').magnificPopup({
+                items: carouselImages(),
+                gallery: {
+                  enabled: true
+                },
+                type: 'image' // this is default type
             });
+
+
+            // $('.Carousel__Item--img').magnificPopup({
+            //   type: 'image'
+            // });
                 
             $('#_schedule').on('click', function() {
                 var frame = $('#schedule_frame');

@@ -55,7 +55,7 @@
         @else
             @foreach($sliders as $key => $slider)
                 <div class="item {{ $key === 1 ? 'active' : '' }} Carousel__Item">
-                    <img src="{{ $slider->photo->getImage() }}" class="max-width-100 Carousel__Item--img">
+                    <img src="{{ $slider->photo->getImage() }}" class="max-width-100 Carousel__Item--img" href="{{ $slider->photo->getImage() }}">
                     <div class="container">
                         <div class="carousel-caption">
                             <!-- <h3>{{ $slider->title }}</h3>

@@ -92,6 +92,7 @@ class PagesController extends Controller
         if (empty($timezones)) {
             return redirect()->back();
         }
+        
         $timezones = collect($timezones);
         
         $title = string_slug_to_word('-', $state);

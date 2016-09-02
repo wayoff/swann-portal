@@ -120,7 +120,7 @@
                         </div>
                     </div>
 
-                    <div class="form-group{{ $errors->has('document') ? ' has-error' : '' }}">
+                   {{--  <div class="form-group{{ $errors->has('document') ? ' has-error' : '' }}">
                         <label class="col-md-2 control-label">Document</label>
 
                         <div class="col-md-8">
@@ -132,7 +132,7 @@
                                 </span>
                             @endif
                         </div>
-                    </div>
+                    </div> --}}
 
                     <div class="form-group{{ $errors->has('featured') ? ' has-error' : '' }}">
                         <label class="col-md-2 control-label">is Featured Product</label>

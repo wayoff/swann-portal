@@ -108,12 +108,12 @@
                                     </a>
                                   </li>
                                   <li>
-                                    <a href="{{ route('admin.products.{id}.questions.index', $product->id) }}" class="btn btn-default btn-action">
+                                    <a href="{{ route('admin.questions.products.index') }}" class="btn btn-default btn-action">
                                         Questions
                                     </a>
                                   </li>
                                   <li>
-                                    <a href="{{ route('admin.products.{id}.procedures.index', $product->id) }}" class="btn btn-default btn-action">
+                                    <a href="{{ route('admin.procedures.index') }}" class="btn btn-default btn-action">
                                         Troubleshooting
                                     </a>
                                   </li>

@@ -131,7 +131,7 @@
                         </div>
                     @endif
 
-                    <div class="form-group{{ $errors->has('document') ? ' has-error' : '' }}">
+                    {{-- <div class="form-group{{ $errors->has('document') ? ' has-error' : '' }}">
                         <label class="col-md-2 control-label">Document</label>
 
                         <div class="col-md-8">
@@ -143,9 +143,9 @@
                                 </span>
                             @endif
                         </div>
-                    </div>
+                    </div> --}}
 
-                    @if($product->document_id)
+                    {{-- @if($product->document_id)
                         <div class="form-group">
                             <label class="col-md-2 control-label">Current Document</label>
 
@@ -156,7 +156,7 @@
                             </div>
                         </div>
 
-                    @endif
+                    @endif --}}
 
                     <div class="form-group{{ $errors->has('featured') ? ' has-error' : '' }}">
                         <label class="col-md-2 control-label">is Featured Product</label>

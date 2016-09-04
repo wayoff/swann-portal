@@ -16,6 +16,12 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected $namespace = 'App\Http\Controllers';
 
+    protected $routeNamespace = 'Http/Routes/';
+    protected $routeFiles = [
+        'route.admin.php',
+        'route.api.php',
+        'route.php'
+    ];
     /**
      * Define your route model bindings, pattern filters, etc.
      *
@@ -52,10 +58,16 @@ class RouteServiceProvider extends ServiceProvider
      */
     protected function mapWebRoutes(Router $router)
     {
-        $router->group([
-            'namespace' => $this->namespace, 'middleware' => 'web',
-        ], function ($router) {
-            require app_path('Http/routes.php');
-        });
+
+        foreach($this->routeFiles as $routeFile):
+            $routeFullPath = $this->routeNamespace . $routeFile;
+
+            $router->group([
+                'namespace' => $this->namespace, 'middleware' => 'web',
+            ], function ($router) use($routeFullPath) {
+                require app_path( $routeFullPath );
+            });
+        endforeach;
+
     }
 }
